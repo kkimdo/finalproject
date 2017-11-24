@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 공지사항 namespace -->
+<mapper namespace="notice">
+	
+	<resultMap type="noticeModel" id="noticeModelRes">
+		<result property="notice_no" column="notice_no" />
+		<result property="notice_subject" column="notice_subject" />
+		<result property="notice_content" column="notice_content" />
+		<result property="notice_hit" column="notice_hit" />
+		<result property="notice_date" column="notice_date" />
+		<result property="notice_area" column="notice_area" />
+	</resultMap>
+	
+	<sql id="select-all">
+		select * from notice
+	</sql>
+	
+	<!-- 글 작성 -->
+	<insert id="noticeWrite" parameterType="noticeModel">
+		insert into notice(notice_no, notice_subject, notice_content, notice_date, notice_area)
+		values (notice_no_seq.NEXTVAL, #{notice_subject}, #{notice_content}, sysdate, #{notice_area})
+	</insert>
+	
+	<!-- 조회수 증가 -->
+	<update id="noticeHit" parameterType="Integer">
+		update notice
+		set notice_hit = notice_hit + 1
+		where notice_no = #{notice_no}
+	</update>
+	
+</mapper>
