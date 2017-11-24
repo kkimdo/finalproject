@@ -8,24 +8,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글 쓰기 폼 테스트</title>
+<title>공지 사항</title>
 </head>
 <body>
 
-		<h3>글 쓰기</h3>
+		<h3>공지 사항</h3>
 		<form action="noticeWrite.see" method="post">
 			<table>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="notice_subject"/> 
+					<td><input type="text" name="notice_subject"/></td>
 				</tr>
 				<tr>
 					<td>내용</td>
 					<td><textarea name="notice_content"></textarea></td>
 				</tr>
+				<tr>
+					<td>영화관</td>
+					<td><input type="text" name="notice_area" /></td>
+				</tr>
 			</table>
 			<br />  
-				<input type="submit" value="확인" />
+				<input type="submit" value="작성" />
 		</form>
 </body>
 </html>
