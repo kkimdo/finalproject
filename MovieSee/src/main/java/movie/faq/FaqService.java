@@ -24,7 +24,7 @@ public  class FaqService implements FaqDAO {
 
 	
 	@Override
-	public int FaqWrite(FaqModel faqModel) { //글 쓰기
+	public int FaqWrite(FaqModel faqModel) { //글 작성
 		return sqlSessionTemplate.insert("faq.faqWrite", faqModel);
 	}
 	

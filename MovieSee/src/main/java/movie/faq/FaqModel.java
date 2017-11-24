@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class FaqModel {
 	
-	private int faq_no;
-	private String faq_subject;
-	private String faq_content;
-	private int faq_hit;
-	private Date faq_date;
+	private int faq_no;	//글 번호
+	private String faq_subject; //글 제목
+	private String faq_content; //글 내용
+	private int faq_hit; //글 조회수
+	private Date faq_date; //글 등록일
 	
 	public int getFaq_no() {
 		return faq_no;

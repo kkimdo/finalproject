@@ -8,9 +8,5 @@
 </head>
 <body>
 
-${faqModel.faq_subject}
-${faqModel.faq_content}
-
-
 </body>
 </html>
