@@ -1,5 +1,7 @@
 package movie.notice;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,6 +18,9 @@ public class NoticeService implements NoticeDAO{
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
-	
+	@Override
+	public List<NoticeModel> NoticeList() {
+		return sqlSessionTemplate.selectList("notice.noticeList");
+	}
 
 }

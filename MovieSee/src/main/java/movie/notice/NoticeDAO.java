@@ -9,7 +9,7 @@ public interface NoticeDAO {
 	public int NoticeWrite(NoticeModel noticeModel);
 	
 	//글 리스트
-//	public List<NoticeModel> noticeList();
+	public List<NoticeModel> NoticeList();
 	
 
 }

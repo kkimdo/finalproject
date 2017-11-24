@@ -17,6 +17,12 @@
 		select * from notice
 	</sql>
 	
+	<!-- 글 목록 -->
+	<select id="noticeList" resultMap="noticeModelRes">
+		<include refid="select-all" />
+		order by notice_no desc
+	</select>
+	
 	<!-- 글 작성 -->
 	<insert id="noticeWrite" parameterType="noticeModel">
 		insert into notice(notice_no, notice_subject, notice_content, notice_date, notice_area)
@@ -29,5 +35,6 @@
 		set notice_hit = notice_hit + 1
 		where notice_no = #{notice_no}
 	</update>
+	
 	
 </mapper>
