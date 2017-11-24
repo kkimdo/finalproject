@@ -33,7 +33,7 @@ public class NoticeController {
 	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView();
 	
-		noticeService.noticeWrite(noticeModel);
+		noticeService.NoticeWrite(noticeModel);
 			
 		mav.addObject("noticeModel", noticeModel);
 		mav.setViewName("redirect:/admin/notice/AdminNoticeList");
