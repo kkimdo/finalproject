@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/admin")
 public class NoticeController {
 
 	Logger log = Logger.getLogger(this.getClass());
@@ -24,7 +24,7 @@ public class NoticeController {
 	public ModelAndView NoticeWriteForm(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("notice/NoticeWriteForm");
+		mav.setViewName("admin/notice/AdminNoticeWrite");
 		return mav;
 	}
 	
@@ -36,7 +36,7 @@ public class NoticeController {
 		noticeService.noticeWrite(noticeModel);
 			
 		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("notice/NoticeSuccess");
+		mav.setViewName("redirect:/admin/notice/AdminNoticeList");
 		
 		return mav;
 	}
