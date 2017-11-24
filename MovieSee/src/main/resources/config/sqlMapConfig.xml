@@ -10,13 +10,18 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	
 		<!-- notice --> 
 		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />	   
-	
+		
+		<!-- faq -->
+		<typeAlias alias="faqModel" type="movie.faq.FaqModel" />	
 	</typeAliases>
 	
 	<mappers>
 	
 		<!-- notice -->
 		<mapper resource="config/mybatis/notice_SQL.xml"/>
+		
+		<!-- faq -->
+		<mapper resource="config/mybatis/faq_SQL.xml"/>
 	
 	</mappers>
 	

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- faq namespace -->
+<mapper namespace="faq">
+	
+	<resultMap type="faqModel" id="faqModelRes">
+		<result property="faq_no" column="faq_no" />
+		<result property="faq_subject" column="faq_subject" />
+		<result property="faq_content" column="faq_content" />
+		<result property="faq_hit" column="faq_hit" />
+		<result property="faq_date" column="faq_date" />
+	
+	</resultMap>
+	
+	<sql id="select-all">
+		select * from faq
+	</sql>
+	
+	<!-- 글 작성 -->
+	<insert id="faqWrite" parameterType="faqModel">
+		insert into faq(faq_no, faq_subject, faq_content, faq_date)
+		values (faq_no_seq.NEXTVAL, #{faq_subject}, #{faq_content}, sysdate)
+	</insert>
+	
+<!-- 	조회수 증가
+	<update id="faqHit" parameterType="Integer">
+		update faq
+		set faq_hit = faq_hit + 1
+		where faq_no = #{faq_no}
+	</update> -->
+	
+</mapper>
