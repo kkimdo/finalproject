@@ -6,7 +6,7 @@ import java.util.List;
 public interface NoticeDAO {
 	
 	//글 작성
-	public int noticeWrite(NoticeModel noticeModel);
+	public int NoticeWrite(NoticeModel noticeModel);
 	
 	//글 리스트
 //	public List<NoticeModel> noticeList();

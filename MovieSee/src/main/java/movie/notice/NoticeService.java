@@ -12,7 +12,7 @@ public class NoticeService implements NoticeDAO{
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public int noticeWrite(NoticeModel noticeModel) {
+	public int NoticeWrite(NoticeModel noticeModel) {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
