@@ -1,6 +1,6 @@
 package movie.common.paging;
 
-//공통 페이징 //깃허브 테스트
+//공통 페이징
 public class Paging {
 	
 	private int currentPage; //현재 페이지
