@@ -21,7 +21,7 @@ public class FaqController {
 	Logger log = Logger.getLogger(this.getClass());
 
 	@Resource(name = "faqService")
-	private FaqService faqService; //필드 선언
+	private FaqService faqService; // 필드 선언
 
 	// paging
 	private int currentPage = 1; // 현재 페이지
@@ -43,32 +43,30 @@ public class FaqController {
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
 		} else {
-			
+
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-	
+
 		List<FaqModel> faqList = null;
 
 		faqList = faqService.FaqList();
 		totalCount = faqList.size();
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
 		pagingHtml = page.getPagingHtml().toString();
-		
 
 		int lastCount = totalCount;
 
 		if (page.getEndCount() < totalCount) {
 			lastCount = page.getEndCount() + 1;
-		} 
+		}
 
 		faqList = faqList.subList(page.getStartCount(), lastCount);
-		
 
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faqList", faqList);
-		mav.setViewName("faqList");
+		mav.setViewName("admin/faq/AdminFaqList");
 
 		return mav;
 	}
@@ -91,9 +89,28 @@ public class FaqController {
 		faqService.FaqWrite(faqModel);
 
 		mav.addObject("faqModel", faqModel);
-		mav.setViewName("faq/FaqSuccess");
+		mav.setViewName("redirect:/faq/faqList.see");
 
 		return mav;
 	}
 
+	// 상세보기
+	@RequestMapping(value="/faqView.see")
+	public ModelAndView FaqView(HttpServletRequest request){
+	
+		ModelAndView mav = new ModelAndView();
+		
+		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
+		
+		FaqModel faqModel = new FaqModel();
+		
+		faqModel = faqService.FaqView(faq_no); 
+		faqService.FaqHitUpdate(faq_no);
+		
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("faqModel", faqModel);
+		mav.setViewName("admin/faq/AdminFaqView");
+		
+		return mav;
+	}
 }
