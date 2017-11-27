@@ -21,7 +21,7 @@ public class FaqController {
 	Logger log = Logger.getLogger(this.getClass());
 
 	@Resource(name = "faqService")
-	private FaqService faqService;
+	private FaqService faqService; //필드 선언
 
 	// paging
 	private int currentPage = 1; // 현재 페이지
@@ -33,36 +33,36 @@ public class FaqController {
 
 	ModelAndView mav = new ModelAndView();
 
-	/*// 리스트
+	// 글 목록
 	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
 	public ModelAndView FaqList(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
 
-		// 현재 페이지의 파라미터값이 null값이거나 값이 비어있거나 0이면 현재페이지를 1로 지정
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) {
 			currentPage = 1;
 		} else {
-			// 아니면~~currentPage 받아서 인트타입으로 지정한다.
+			
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-		// NoticeModel 자바빈을 List에 noticeList이름으로 담는다. 값은 null이다.
+	
 		List<FaqModel> faqList = null;
 
+		faqList = faqService.FaqList();
 		totalCount = faqList.size();
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
 		pagingHtml = page.getPagingHtml().toString();
-		// page 객체생성을 하고 내용물을 담는다
+		
 
 		int lastCount = totalCount;
-		// 인트타입 마지막수 = 총갯수
+
 		if (page.getEndCount() < totalCount) {
 			lastCount = page.getEndCount() + 1;
-		} // 페이지가 끝난 갯수가 총갯수보다 작으면 끝난갯수에 +1을해서 마지막갯수에 담는다.
+		} 
 
 		faqList = faqList.subList(page.getStartCount(), lastCount);
-		// 시작번호와 끝번호만큼 subList로 이용해서 자른다.
+		
 
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
@@ -72,7 +72,7 @@ public class FaqController {
 
 		return mav;
 	}
-*/
+
 	// 글쓰기 폼
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
 	public ModelAndView FaqWriteForm(HttpServletRequest request) {
