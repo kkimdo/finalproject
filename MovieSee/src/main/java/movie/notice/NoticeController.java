@@ -1,5 +1,7 @@
 package movie.notice;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -45,7 +47,7 @@ public class NoticeController {
 		noticeService.NoticeWrite(noticeModel);
 			
 		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("redirect:/admin/notice/AdminNoticeList");
+		mav.setViewName("redirect:/admin/noticeList.see");
 		
 		return mav;
 	}
@@ -67,10 +69,51 @@ public class NoticeController {
 			
 		}
 		
+		List<NoticeModel> noticeList = null;
+		noticeList = noticeService.NoticeList();
+		
+		totalCount = noticeList.size();
+		
+		//page 객체 생성 후 Paging에 인자 값 전달
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+		//page 객체에 생성한 것들을 pagingHtml에 담는다.
+		pagingHtml = page.getPagingHtml().toString();
+		
+		int lastCount = totalCount;
+	
+		if(page.getEndCount() < totalCount){
+			lastCount = page.getEndCount() + 1;
+		}
+		
+		noticeList = noticeList.subList(page.getStartCount(), lastCount);
+		
+		mav.addObject("totalCount", totalCount);
+		mav.addObject("pagingHtml", pagingHtml);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("noticeList", noticeList);
+		mav.setViewName("admin/notice/AdminNoticeList");
 		
 		return mav;
 		
 	}
 	
+	@RequestMapping(value="/noticeView.see")
+	public ModelAndView NoticeView(HttpServletRequest request){
+	
+		ModelAndView mav = new ModelAndView();
+		
+		int notice_no = Integer.parseInt(request.getParameter("notice_no"));
+		
+		NoticeModel noticeModel = new NoticeModel();
+		
+		noticeModel = noticeService.NoticeView(notice_no); 
+		noticeService.NoticeHitUpdate(notice_no);
+		
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("noticeModel", noticeModel);
+		mav.setViewName("admin/notice/AdminNoticeView");
+		
+		return mav;
+	}
 	
 }

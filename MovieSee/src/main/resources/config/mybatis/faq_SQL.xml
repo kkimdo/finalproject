@@ -18,12 +18,12 @@
 	</sql>
 	
 	<select id="selectAll" parameterType="int" resultMap="faqModelRes">
-		<include refid="select_all" />
+		<include refid="select-all" />
 	</select>
 	
 	<!-- 글목록 -->
 	<select id="faqList" resultMap="faqModelRes">
-		<include refid="select_all" />
+		<include refid="select-all" />
 		order by no desc
 	</select>
 	

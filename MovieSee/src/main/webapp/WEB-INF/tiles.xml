@@ -12,5 +12,8 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/tiles/main/body/main_body.jsp" />
 		<put-attribute name="main_footer" value="/WEB-INF/views/tiles/main/footer/main_footer.jsp" />
 	</definition>
+	
+	<!-- notice -->
+	
 
 </tiles-definitions>
