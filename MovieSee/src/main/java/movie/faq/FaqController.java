@@ -33,7 +33,7 @@ public class FaqController {
 
 	ModelAndView mav = new ModelAndView();
 
-	// 글 목록
+	//글 목록
 	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
 	public ModelAndView FaqList(HttpServletRequest request) {
 
@@ -71,7 +71,7 @@ public class FaqController {
 		return mav;
 	}
 
-	// 글쓰기 폼
+	//글 작성 폼
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
 	public ModelAndView FaqWriteForm(HttpServletRequest request) {
 
@@ -80,7 +80,7 @@ public class FaqController {
 		return mav;
 	}
 
-	// 글쓰기
+	//글 작성
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.POST)
 	public ModelAndView FaqWrite(@ModelAttribute("faqModel") FaqModel faqModel, HttpServletRequest request)
 			throws Exception {
@@ -94,7 +94,7 @@ public class FaqController {
 		return mav;
 	}
 
-	// 상세보기
+	//글 상세보기
 	@RequestMapping(value="/faqView.see")
 	public ModelAndView FaqView(HttpServletRequest request){
 	

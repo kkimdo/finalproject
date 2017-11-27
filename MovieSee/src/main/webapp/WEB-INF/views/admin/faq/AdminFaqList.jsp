@@ -10,12 +10,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>FAQ</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+	$(".faq > dd").hide();
+  
+  	$(".faq > dt").click(function(event) {
+  	//var $dd = $(event.currentTarget).next();
+  	//console.log($dd.css("display"));
+    //$(".faq > dd").hide();
+    
+  	$(event.currentTarget).next().slideToggle(200, function() {
+  		var $dd = $(this);
+      	var $dl = $dd.prev();
+      	console.log($dd.css("display"));
+    	
+    	/* if ($dd.css("display") == "none") {
+      		$dl.find("span").html("▼");
+      	} else {
+      		$dl.find("span").html("▲");
+      	} */
+    });
+  });
+});
+</script>
+
 </head>
+
 <body>
-
-
-	<table>	
+	<h1>FQA</h1>
 		<c:forEach var="faqList" items="${faqList}" varStatus="stat">
+			<dl class="faq">
+  			<dt><h3><span>${faqList.faq_no}</span> ${faqList.faq_subject}</h3></dt>
+  				<dd>
+   					${faqList.faq_content}
+  				</dd>
+			</dl>
+		</c:forEach>
+	<table>	
+		<!-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
 			
 			<c:url var="faqViewURL" value="faqView.see">
 				<c:param name="faq_no" value="${faqList.faq_no}" />
@@ -35,14 +69,14 @@
 				<td><fmt:formatDate value="${faqList.faq_date}" pattern="yyyy-MM-dd" /></td>
 				<td>${faqList.faq_hit}</td>
 			</tr>
-		</c:forEach>
+		</c:forEach> -->
 	</table> 
 	
-	<!-- faqList가 0보다 작거나 같을 경우 -->
 	<c:if test="${fn:length(faqList) le 0}" >
 		<center>등록된 게시물이 없습니다.</center>
 	</c:if>
 	
 	${pagingHtml}
+
 </body>
 </html>
