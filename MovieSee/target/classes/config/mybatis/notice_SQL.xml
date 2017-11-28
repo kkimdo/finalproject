@@ -17,39 +17,43 @@
 		select * from notice
 	</sql>
 	
-	<!-- 글 목록 -->
+	<!-- 게시글 목록 -->
 	<select id="noticeList" resultMap="noticeModelRes">
 		<include refid="select-all" />
 		order by notice_no desc
 	</select>
 	
-	<!-- 글 상세보기 -->
+	<!-- 게시글 상세보기 -->
 	<!-- parameterType 은 notice_no의 값을 어디서 가져오는지 즉, noticeModel 클래스에서 가져온다는 뜻 -->
 	<select id="noticeView" parameterType="noticeModel" resultMap="noticeModelRes">
 		<include refid="select-all" />
 		where notice_no = #{notice_no}
 	</select>
 	
-	<!-- 글 작성 -->
+	<!-- 게시글 작성 -->
 	<insert id="noticeWrite" parameterType="noticeModel">
 		insert into notice(notice_no, notice_subject, notice_content, notice_date, notice_area)
 		values (notice_no_seq.NEXTVAL, #{notice_subject}, #{notice_content}, sysdate, #{notice_area})
 	</insert>
 	
-	<!-- 조회수 증가 -->
-	<update id="noticeHitUpdate" parameterType="Integer">
+	<!-- 게시글 조회수 증가 -->
+	<update id="noticeHitUpdate">
 		update notice
 		set notice_hit = notice_hit + 1
 		where notice_no = #{notice_no}
 	</update>
 	
-	<!-- 글 수정 -->
+	<!-- 게시글 수정 -->
 	<update id="noticeUpdate" parameterType="noticeModel">
 		update notice
 		set notice_subject = #{notice_subject}, notice_content = #{notice_content}, notice_area = #{notice_area}, notice_date = sysdate
 		where notice_no = #{notice_no}
 	</update>
 	
-	
+	<!-- 게시글 삭제 -->
+	<delete id="noticeDelete">
+		delete from notice
+		where notice_no = #{notice_no}
+	</delete>
 	
 </mapper>
