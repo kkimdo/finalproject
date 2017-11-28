@@ -42,4 +42,16 @@
 		where faq_no = #{faq_no}
 	</update> 
 	
+	<!-- 글 수정 -->
+	<update id="faqUpdate" parameterType="faqModel">
+		update faq
+		set faq_subject = #{faq_subject}, faq_content = #{faq_content}, faq_date = sysdate
+		where faq_no = #{faq_no}
+	</update>
+	
+	<!-- 글 삭제 -->
+	<update id="faqDelete" parameterType="faqModel">
+		delete faq where
+		faq_no = #{faq_no}
+	</update>
 </mapper>

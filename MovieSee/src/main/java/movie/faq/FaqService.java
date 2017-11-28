@@ -7,8 +7,6 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class FaqService implements FaqDAO {
 
@@ -37,5 +35,17 @@ public class FaqService implements FaqDAO {
 	@Override
 	public int FaqHitUpdate(int faq_no) {
 		return sqlSessionTemplate.update("faq.faqHitUpdate", faq_no);
+	}
+
+	// 글수정
+	@Override
+	public int FaqUpdate(FaqModel faqModel) {
+		return sqlSessionTemplate.update("faq.faqUpdate", faqModel);
+	}
+
+	// 글 삭제
+	@Override
+	public int FaqDelete(int faq_no) {
+		return sqlSessionTemplate.update("faq.faqDelete", faq_no);
 	}
 }

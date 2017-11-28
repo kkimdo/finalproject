@@ -35,7 +35,8 @@
 		</tr>
 	</table>
 
-
+	<input type="button" onclick="location.href='faqUpdate.see?faq_no=${faqModel.faq_no}'" value="수정" />
+	<input type="button" onclick="location.href='faqDelete.see?faq_no=${faqModel.faq_no}'" value="삭제" />
 
 
 </body>

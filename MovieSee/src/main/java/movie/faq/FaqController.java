@@ -33,7 +33,7 @@ public class FaqController {
 
 	ModelAndView mav = new ModelAndView();
 
-	//글 목록
+	// 글 목록
 	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
 	public ModelAndView FaqList(HttpServletRequest request) {
 
@@ -66,21 +66,21 @@ public class FaqController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faqList", faqList);
-		mav.setViewName("admin/faq/AdminFaqList");
+		mav.setViewName("admin/faq/AdminFaqList"); //jsp
 
 		return mav;
 	}
 
-	//글 작성 폼
+	// 글 작성 폼
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
 	public ModelAndView FaqWriteForm(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("admin/faq/AdminFaqWrite");
+		mav.setViewName("admin/faq/AdminFaqWrite"); 
 		return mav;
 	}
 
-	//글 작성
+	// 글 작성
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.POST)
 	public ModelAndView FaqWrite(@ModelAttribute("faqModel") FaqModel faqModel, HttpServletRequest request)
 			throws Exception {
@@ -89,28 +89,73 @@ public class FaqController {
 		faqService.FaqWrite(faqModel);
 
 		mav.addObject("faqModel", faqModel);
-		mav.setViewName("redirect:/faq/faqList.see");
+		mav.setViewName("redirect:/faq/faqList.see"); //faq/faqList.see 주소로 다시 요청 
 
 		return mav;
 	}
 
-	//글 상세보기
-	@RequestMapping(value="/faqView.see")
-	public ModelAndView FaqView(HttpServletRequest request){
-	
+	// 글 상세보기
+	@RequestMapping(value = "/faqView.see")
+	public ModelAndView FaqView(HttpServletRequest request) {
+
 		ModelAndView mav = new ModelAndView();
-		
+
 		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
-		
+
 		FaqModel faqModel = new FaqModel();
-		
-		faqModel = faqService.FaqView(faq_no); 
+
+		faqModel = faqService.FaqView(faq_no);
 		faqService.FaqHitUpdate(faq_no);
-		
+
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faqModel", faqModel);
 		mav.setViewName("admin/faq/AdminFaqView");
-		
+
 		return mav;
 	}
+
+	// 글 수정 폼
+	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.GET)
+	public ModelAndView FaqUpdateForm(FaqModel faqModel, HttpServletRequest request) {
+
+		ModelAndView mav = new ModelAndView();
+
+		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
+		faqModel = faqService.FaqView(faq_no);
+
+		mav.addObject("faqModel", faqModel);
+		mav.setViewName("admin/faq/AdminFaqUpdate");
+
+		return mav;
+
+	}
+
+	// 글 수정
+	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.POST)
+	public ModelAndView FaqUpdate(FaqModel faqModel, HttpServletRequest request) {
+
+		ModelAndView mav = new ModelAndView();
+
+		faqService.FaqUpdate(faqModel);
+
+		mav.addObject("faqModel", faqModel);
+		mav.setViewName("redirect:/faq/faqList.see");
+
+		return mav;
+
+	}
+
+	// 글삭제
+	@RequestMapping(value = "/faqDelete.see", method = RequestMethod.GET)
+	public ModelAndView FaqDelete(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+
+		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
+
+		faqService.FaqDelete(faq_no);
+		mav.setViewName("redirect:/faq/faqList.see");
+		return mav;
+
+	}
+
 }
