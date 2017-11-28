@@ -38,6 +38,7 @@
 	</table>
 
 	<input type="button" onclick="location.href='noticeUpdate.see?notice_no=${noticeModel.notice_no}'" value="수정" />
+	<input type="button" onclick="location.href='noticeDelete.see?notice_no=${noticeModel.notice_no}'" value="삭제" />
 
 </body>
 </html>

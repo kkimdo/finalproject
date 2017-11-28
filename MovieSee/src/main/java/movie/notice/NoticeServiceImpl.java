@@ -13,12 +13,12 @@ public class NoticeServiceImpl implements NoticeService {
 	@Inject
 	NoticeDAO noticeDAO;
 	
-	// 게시글 작성
+	//게시글 작성
 	@Override
 	public int NoticeWrite(NoticeModel noticeModel) {
 		
 		//replace(A, B) A를 B로 변경
-		String content = noticeModel.getNotice_content().replace("\r\n","<br>"); //줄바꿈 문자 처리
+		String content = noticeModel.getNotice_content().replaceAll("\r\n","<br>"); //줄바꿈 문자 처리
 		
 		noticeModel.setNotice_content(content);
 		
@@ -68,7 +68,6 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int NoticeUpdate(NoticeModel noticeModel) {
 		
-		//수정 다시
 		String content = noticeModel.getNotice_content().replaceAll("<br>","\r\n"); 
 		
 		noticeModel.setNotice_content(content);

@@ -13,15 +13,7 @@
 </head>
 <body>
 
-
 	<table>	
-		<c:forEach var="noticeList" items="${noticeList}" varStatus="stat">
-			
-			<c:url var="noticeViewURL" value="noticeView.see">
-				<c:param name="notice_no" value="${noticeList.notice_no}" />
-				<c:param name="currentPage" value="${currentPage}" />
-			</c:url>
-			
 			<tr>
 				<td>번호</td>
 				<td>영화관</td>
@@ -29,6 +21,13 @@
 				<td>등록일</td>
 				<td>조회수</td>
 			</tr>
+			
+		<c:forEach var="noticeList" items="${noticeList}" varStatus="stat">
+			
+			<c:url var="noticeViewURL" value="noticeView.see">
+				<c:param name="notice_no" value="${noticeList.notice_no}" />
+				<c:param name="currentPage" value="${currentPage}" />
+			</c:url>
 		
 			<tr>
 				<td>${noticeList.notice_no}</td>
