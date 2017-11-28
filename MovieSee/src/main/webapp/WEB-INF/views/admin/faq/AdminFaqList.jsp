@@ -39,7 +39,7 @@
 
 <body>
 	<h1>FQA</h1>
-		<c:forEach var="faqList" items="${faqList}" varStatus="stat">
+		<%-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
 			
 			<dl class="faq">
   			<dt><h3><span>${faqList.faq_no}</span> ${faqList.faq_subject}</h3></dt>
@@ -47,10 +47,10 @@
    					${faqList.faq_content}
   				</dd>
 			</dl>
-		</c:forEach>
+		</c:forEach> --%>
 		
 	<table>	
-		<!-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
+		<c:forEach var="faqList" items="${faqList}" varStatus="stat">
 			
 			<c:url var="faqViewURL" value="faqView.see">
 				<c:param name="faq_no" value="${faqList.faq_no}" />
@@ -70,14 +70,16 @@
 				<td><fmt:formatDate value="${faqList.faq_date}" pattern="yyyy-MM-dd" /></td>
 				<td>${faqList.faq_hit}</td>
 			</tr>
-		</c:forEach> -->
+		</c:forEach>
 	</table> 
+	
 	
 	<c:if test="${fn:length(faqList) le 0}" >
 		<center>등록된 게시물이 없습니다.</center>
 	</c:if>
 	
+	
 	${pagingHtml}
-
+	<input type="button" onclick="location.href='faqWrite.see'" value="글쓰기" />
 </body>
 </html>
