@@ -8,9 +8,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<!-- 자동 Bean 등록 -->
+	<!-- movie 패키지 하위 모두 적용 -->
 	<context:component-scan base-package="movie" />
 	
+	<!-- annotation 사용시 필수 -->
 	<annotation-driven />
 
 	<mvc:interceptors>
@@ -36,8 +37,6 @@
 
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<!-- <beans:property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" /> -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2" />

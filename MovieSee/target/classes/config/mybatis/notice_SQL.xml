@@ -24,6 +24,7 @@
 	</select>
 	
 	<!-- 글 상세보기 -->
+	<!-- parameterType 은 notice_no의 값을 어디서 가져오는지 즉, noticeModel 클래스에서 가져온다는 뜻 -->
 	<select id="noticeView" parameterType="noticeModel" resultMap="noticeModelRes">
 		<include refid="select-all" />
 		where notice_no = #{notice_no}

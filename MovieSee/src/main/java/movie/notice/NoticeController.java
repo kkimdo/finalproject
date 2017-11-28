@@ -35,7 +35,10 @@ public class NoticeController {
 	public ModelAndView NoticeWriteForm(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
+		
+		//어떤 페이지를 보여줄 것인가?
 		mav.setViewName("admin/notice/AdminNoticeWrite");
+		
 		return mav;
 	}
 	
@@ -76,6 +79,7 @@ public class NoticeController {
 		
 		//page 객체 생성 후 Paging에 인자 값 전달
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+		
 		//page 객체에 생성한 것들을 pagingHtml에 담는다.
 		pagingHtml = page.getPagingHtml().toString();
 		

@@ -2,7 +2,7 @@ package movie.notice;
 
 import java.util.Date;
 
-//공지사항
+//notice 테이블의 도메인 클래스
 public class NoticeModel {
 	
 	private int notice_no; //글 번호

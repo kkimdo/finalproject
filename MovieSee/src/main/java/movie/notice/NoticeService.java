@@ -13,31 +13,31 @@ public class NoticeService implements NoticeDAO{
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	//글 작성
+	//데이터를 삽입하는 메소드(작성)
 	@Override
 	public int NoticeWrite(NoticeModel noticeModel) {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
-	//글 목록
+	//모든 데이터를 가져와서 List<NoticeModel>를 리턴하는 메소드(목록)
 	@Override
 	public List<NoticeModel> NoticeList() {
 		return sqlSessionTemplate.selectList("notice.noticeList");
 	}
 	
-	//글 상세보기
+	//notice_no을 이용하여 데이터를 검색하여 리턴하는 메소드(상세보기)
 	@Override
 	public NoticeModel NoticeView(int notice_no) {
 		return sqlSessionTemplate.selectOne("notice.noticeView", notice_no);
 	}
 	
-	//글 조회수 증가
+	//notice_no을 이용하여 데이터의 조회수를 갱신하는 메소드(조회수 증가)
 	@Override
 	public int NoticeHitUpdate(int notice_no) {
 		return sqlSessionTemplate.update("notice.noticeHitUpdate", notice_no);
 	}
 
-	//글 수정
+	//데이터를 갱신하는 메소드(수정)
 	@Override
 	public int NoticeUpdate(NoticeModel noticeModel){
 		return sqlSessionTemplate.update("notice.noticeUpdate", noticeModel);

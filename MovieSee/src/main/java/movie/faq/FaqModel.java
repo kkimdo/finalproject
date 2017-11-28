@@ -2,6 +2,7 @@ package movie.faq;
 
 import java.util.Date;
 
+//faq 테이블의 도메인 클래스
 public class FaqModel {
 	
 	private int faq_no;	//글 번호

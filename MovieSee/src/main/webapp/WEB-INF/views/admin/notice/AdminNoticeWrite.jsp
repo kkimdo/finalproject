@@ -17,15 +17,15 @@
 			<table>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="notice_subject"/></td>
+					<td><input type="text" name="notice_subject" placeholder="제목을 입력하세요."/></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea name="notice_content"></textarea></td>
+					<td><textarea name="notice_content" placeholder="내용을 입력하세요."></textarea></td>
 				</tr>
 				<tr>
 					<td>영화관</td>
-					<td><input type="text" name="notice_area" /></td>
+					<td><input type="text" name="notice_area" placeholder="영화관을 입력하세요."/></td>
 				</tr>
 			</table>
 			<br />  
