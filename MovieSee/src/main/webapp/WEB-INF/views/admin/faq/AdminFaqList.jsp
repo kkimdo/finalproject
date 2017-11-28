@@ -13,13 +13,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script type="text/javascript">
+
 	$(function() {
 	$(".faq > dd").hide();
   
   	$(".faq > dt").click(function(event) {
-  	//var $dd = $(event.currentTarget).next();
-  	//console.log($dd.css("display"));
-    //$(".faq > dd").hide();
     
   	$(event.currentTarget).next().slideToggle(200, function() {
   		var $dd = $(this);
@@ -34,6 +32,7 @@
     });
   });
 });
+
 </script>
 
 </head>
@@ -41,6 +40,7 @@
 <body>
 	<h1>FQA</h1>
 		<c:forEach var="faqList" items="${faqList}" varStatus="stat">
+			
 			<dl class="faq">
   			<dt><h3><span>${faqList.faq_no}</span> ${faqList.faq_subject}</h3></dt>
   				<dd>
@@ -48,6 +48,7 @@
   				</dd>
 			</dl>
 		</c:forEach>
+		
 	<table>	
 		<!-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
 			
