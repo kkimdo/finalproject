@@ -57,7 +57,7 @@
 			</c:url>
 			
 			<tr>
-				<td>번호</td>
+				<td>번호</td> 
 				<td>제목</td>
 				<td>등록일</td>
 				<td>조회수</td>
