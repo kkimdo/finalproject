@@ -37,4 +37,10 @@ public class NoticeService implements NoticeDAO{
 		return sqlSessionTemplate.update("notice.noticeHitUpdate", notice_no);
 	}
 
+	//글 수정
+	@Override
+	public int NoticeUpdate(NoticeModel noticeModel){
+		return sqlSessionTemplate.update("notice.noticeUpdate", noticeModel);
+	}
+
 }

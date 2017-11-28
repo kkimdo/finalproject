@@ -37,6 +37,7 @@
 	
 	</table>
 
+	<input type="button" onclick="location.href='noticeUpdate.see?notice_no=${noticeModel.notice_no}'" value="수정" />
 
 </body>
 </html>

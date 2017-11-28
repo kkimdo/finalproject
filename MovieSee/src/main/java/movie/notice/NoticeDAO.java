@@ -17,4 +17,7 @@ public interface NoticeDAO {
 	//글 조회 수 증가
 	public int NoticeHitUpdate(int notice_no);
 
+	//글 수정
+	public int NoticeUpdate(NoticeModel noticeModel);
+
 }

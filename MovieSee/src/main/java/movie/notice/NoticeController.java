@@ -97,6 +97,7 @@ public class NoticeController {
 		
 	}
 	
+	//글 상세보기
 	@RequestMapping(value="/noticeView.see")
 	public ModelAndView NoticeView(HttpServletRequest request){
 	
@@ -114,6 +115,37 @@ public class NoticeController {
 		mav.setViewName("admin/notice/AdminNoticeView");
 		
 		return mav;
+	}
+
+	//글 수정 폼
+	@RequestMapping(value="/noticeUpdate.see", method=RequestMethod.GET)
+	public ModelAndView NoticeUpdateForm(NoticeModel noticeModel, HttpServletRequest request){
+
+		ModelAndView mav = new ModelAndView();
+
+		int notice_no = Integer.parseInt(request.getParameter("notice_no"));
+		noticeModel = noticeService.NoticeView(notice_no);
+
+		mav.addObject("noticeModel", noticeModel);
+		mav.setViewName("admin/notice/AdminNoticeUpdate");
+
+		return mav;
+
+	}
+	
+	//글 수정
+	@RequestMapping(value="/noticeUpdate.see", method=RequestMethod.POST)
+	public ModelAndView NoticeUpdate(NoticeModel noticeModel, HttpServletRequest request){
+
+		ModelAndView mav = new ModelAndView();
+
+		noticeService.NoticeUpdate(noticeModel);
+
+		mav.addObject("noticeModel", noticeModel);
+		mav.setViewName("redirect:/admin/noticeList.see");
+
+		return mav;
+
 	}
 	
 }

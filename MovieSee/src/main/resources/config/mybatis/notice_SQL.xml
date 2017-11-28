@@ -45,7 +45,7 @@
 	<!-- 글 수정 -->
 	<update id="noticeUpdate" parameterType="noticeModel">
 		update notice
-		set notice_subject = #{notice_subject}, notice_content = #{notice_content}, notice_date = #{notice_date}
+		set notice_subject = #{notice_subject}, notice_content = #{notice_content}, notice_area = #{notice_area}, notice_date = sysdate
 		where notice_no = #{notice_no}
 	</update>
 	
