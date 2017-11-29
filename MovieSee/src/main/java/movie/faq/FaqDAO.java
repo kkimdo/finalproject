@@ -3,10 +3,8 @@ package movie.faq;
 import java.util.List;
 
 import movie.faq.FaqModel;
-import movie.notice.NoticeModel;
-
 public interface FaqDAO {
-	
+
 	// 글 목록
 	public List<FaqModel> FaqList();
 
@@ -24,4 +22,8 @@ public interface FaqDAO {
 
 	// 글 삭제
 	public void FaqDelete(int faq_no);
+
+	// 검색
+	public List<FaqModel> FaqSearchList(String isSearch);
+
 }

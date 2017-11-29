@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import movie.notice.NoticeModel;
+
 public interface FaqService {
 
 			//데이터를 삽입하는 메소드(게시글 작성)
@@ -23,5 +25,10 @@ public interface FaqService {
 			
 			//데이터를 삭제하는 메소드(게시글 삭제)
 			public void FaqDelete(int faq_no);
+			
+			//검색
+			public List<FaqModel> FaqSearchList(String isSearch);
+				
+
 	
 }
