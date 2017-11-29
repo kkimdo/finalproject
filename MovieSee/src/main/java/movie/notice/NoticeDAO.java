@@ -22,5 +22,11 @@ public interface NoticeDAO {
 			
 	//데이터를 삭제하는 메소드(게시글 삭제)
 	public void NoticeDelete(int notice_no);
-
+	
+	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 제목으로 검색)
+	public List<NoticeModel> NoticeSearchList0(String isSearch);
+	
+	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 내용으로 검색)
+	public List<NoticeModel> NoticeSearchList1(String isSearch);
+	
 }

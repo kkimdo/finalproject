@@ -22,9 +22,6 @@ public class NoticeController {
 
 	Logger log = Logger.getLogger(this.getClass());
 	
-	/*@Resource(name="noticeService")
-	private NoticeService noticeService;*/
-	
 	// 의존 관계 주입 => NoticeService 생성
 	// IoC 의존관계 역전
 	@Inject
@@ -36,6 +33,10 @@ public class NoticeController {
 	private int blockPage = 5; //한 화면에 보여줄 페이지의 수
 	private String pagingHtml;
 	private Paging page; //공통 페이징 클래스의 변수
+	
+	//검색
+	private int searchNum;
+	private String isSearch;
 	
 	// 게시글 작성 화면
 	// RequestMapping("admin/noticeWrite.see")
@@ -76,6 +77,16 @@ public class NoticeController {
 		}
 		
 		List<NoticeModel> noticeList = null;
+		isSearch = request.getParameter("isSearch"); //검색 내용
+		
+		if(isSearch != ""){
+			
+			searchNum = Integer.parseInt(request.getParameter("searchNum")); //'0'은 제목, '1'은 제목
+			
+			
+			
+		}
+		
 		noticeList = noticeService.NoticeList();
 		
 		totalCount = noticeList.size();
