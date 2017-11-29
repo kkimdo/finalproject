@@ -68,7 +68,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int NoticeUpdate(NoticeModel noticeModel) {
 		
-		String content = noticeModel.getNotice_content().replaceAll("<br>","\r\n"); 
+		String content = noticeModel.getNotice_content().replace("\r\n","<br>");
 		
 		noticeModel.setNotice_content(content);
 		
@@ -79,9 +79,20 @@ public class NoticeServiceImpl implements NoticeService {
 	//게시글 삭제
 	@Override
 	public void NoticeDelete(int notice_no) {
-		
 		noticeDAO.NoticeDelete(notice_no);
 		
+	}
+	
+	//게시글 제목으로 검색
+	@Override
+	public List<NoticeModel> NoticeSearchList0(String isSearch) {
+		return noticeDAO.NoticeSearchList0(isSearch);
+	}
+	
+	//게시글 내용으로 검색
+	@Override
+	public List<NoticeModel> NoticeSearchList1(String isSearch) {
+		return noticeDAO.NoticeSearchList1(isSearch);
 	}
 
 }

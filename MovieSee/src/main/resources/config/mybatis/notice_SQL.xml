@@ -56,4 +56,16 @@
 		where notice_no = #{notice_no}
 	</delete>
 	
+	<!-- 게시글 제목으로 검색 -->
+	<select id="searchSubject" parameterType="String" resultMap="noticeModelRes">
+		<include refid="select-all" />
+		where notice_subject like #{isSearch} order by notice_no desc
+	</select>
+	
+	<!-- 게시글 내용으로 검색 -->
+	<select id="searchContent" parameterType="String" resultMap="noticeModelRes">
+		<include refid="select-all" />
+		where notice_content like #{isSearch} order by notice_no desc
+	</select>
+	
 </mapper>
