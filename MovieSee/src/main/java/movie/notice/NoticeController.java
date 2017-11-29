@@ -77,16 +77,48 @@ public class NoticeController {
 		}
 		
 		List<NoticeModel> noticeList = null;
+		
 		isSearch = request.getParameter("isSearch"); //검색 내용
 		
-		if(isSearch != ""){
+		if(isSearch != null){
 			
 			searchNum = Integer.parseInt(request.getParameter("searchNum")); //'0'은 제목, '1'은 제목
 			
+			if(searchNum == 0){
+				noticeList = noticeService.NoticeSearchList0(isSearch);
+			}else if(searchNum == 1){
+				noticeList = noticeService.NoticeSearchList1(isSearch);
+			}
 			
+			totalCount = noticeList.size();
+			
+			//page 객체 생성 후 Paging에 인자 값 전달
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+			
+			//page 객체에 생성한 것들을 pagingHtml에 담는다.
+			pagingHtml = page.getPagingHtml().toString();
+			
+			int lastCount = totalCount;
+		
+			if(page.getEndCount() < totalCount){
+				lastCount = page.getEndCount() + 1;
+			}
+			
+			noticeList = noticeList.subList(page.getStartCount(), lastCount);
+			
+			mav.addObject("searchNum", searchNum);
+			mav.addObject("isSearch", isSearch);
+			mav.addObject("totalCount", totalCount);
+			mav.addObject("pagingHtml", pagingHtml);
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("noticeList", noticeList);
+			mav.setViewName("admin/notice/AdminNoticeList");
+			
+			return mav;
 			
 		}
 		
+		//검색 없을 때
 		noticeList = noticeService.NoticeList();
 		
 		totalCount = noticeList.size();

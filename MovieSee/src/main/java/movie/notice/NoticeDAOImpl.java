@@ -53,13 +53,13 @@ public class NoticeDAOImpl implements NoticeDAO {
 	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 제목으로 검색)
 	@Override
 	public List<NoticeModel> NoticeSearchList0(String isSearch) {
-		return sqlSessionTemplate.selectList("notice.searchSubject", "%"+isSearch+"%");
+		return sqlSessionTemplate.selectList("notice.searchList0", "%"+isSearch+"%");
 	}
 	
 	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 내용으로 검색)
 	@Override
 	public List<NoticeModel> NoticeSearchList1(String isSearch) {
-		return sqlSessionTemplate.selectList("notice.searchContent", "%"+isSearch+"%");
+		return sqlSessionTemplate.selectList("notice.searchList1", "%"+isSearch+"%");
 	}
 	
 }
