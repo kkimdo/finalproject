@@ -17,11 +17,11 @@ public interface FaqDAO {
 	public FaqModel FaqView(int faq_no);
 
 	// 글 조회 수 증가
-	public int FaqHitUpdate(int faq_no);
+	public void FaqHitUpdate(int faq_no);
 
 	// 글 수정
 	public int FaqUpdate(FaqModel faqModel);
 
 	// 글 삭제
-	public int FaqDelete(int faq_no);
+	public void FaqDelete(int faq_no);
 }

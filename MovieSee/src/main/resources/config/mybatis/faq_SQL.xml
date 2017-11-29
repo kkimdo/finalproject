@@ -36,7 +36,7 @@
 	</insert>
 	
 	<!--조회수 증가 -->
-	<update id="faqHitUpdate" parameterType="Integer">
+	<update id="faqHitUpdate">
 		update faq
 		set faq_hit = faq_hit + 1
 		where faq_no = #{faq_no}
@@ -50,8 +50,8 @@
 	</update>
 	
 	<!-- 글 삭제 -->
-	<update id="faqDelete" parameterType="faqModel">
-		delete faq where
-		faq_no = #{faq_no}
+	<update id="faqDelete">
+		delete from faq 
+		where faq_no = #{faq_no}
 	</update>
 </mapper>

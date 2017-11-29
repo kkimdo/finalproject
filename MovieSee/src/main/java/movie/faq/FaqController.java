@@ -2,17 +2,20 @@ package movie.faq;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.Paging;
+
 
 @Controller
 @RequestMapping("/faq")
@@ -20,8 +23,8 @@ public class FaqController {
 
 	Logger log = Logger.getLogger(this.getClass());
 
-	@Resource(name = "faqService")
-	private FaqService faqService; // 필드 선언
+	@Inject
+	private FaqService faqService;
 
 	// paging
 	private int currentPage = 1; // 현재 페이지
@@ -30,8 +33,6 @@ public class FaqController {
 	private int blockPage = 5; // 보여줄 페이지의 갯수
 	private String pagingHtml; // paging을 구현한 HTML
 	private Paging page; // 페이징 클래스의 변수 선언
-
-	ModelAndView mav = new ModelAndView();
 
 	// 글 목록
 	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
@@ -66,96 +67,79 @@ public class FaqController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faqList", faqList);
-		mav.setViewName("admin/faq/AdminFaqList"); //jsp
+		mav.setViewName("admin/faq/AdminFaqList"); // jsp
 
 		return mav;
 	}
 
-	// 글 작성 폼
+	// 게시글 작성 화면
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
-	public ModelAndView FaqWriteForm(HttpServletRequest request) {
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("admin/faq/AdminFaqWrite"); 
-		return mav;
+	public String FaqWriteForm() {
+		return "admin/faq/AdminFaqWrite"; // AdminFaqWrite.jsp 로 이동
 	}
 
-	// 글 작성
+	// 게시글 작성 처리
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.POST)
-	public ModelAndView FaqWrite(@ModelAttribute("faqModel") FaqModel faqModel, HttpServletRequest request)
-			throws Exception {
+	public ModelAndView FaqWrite(@ModelAttribute("faqModel") FaqModel faqModel) throws Exception {
 		ModelAndView mav = new ModelAndView();
 
 		faqService.FaqWrite(faqModel);
 
-		mav.addObject("faqModel", faqModel);
-		mav.setViewName("redirect:/faq/faqList.see"); //faq/faqList.see 주소로 다시 요청 
+		mav.addObject("faqModel", faqModel); // 데이터를 저장
+		mav.setViewName("redirect:/faq/faqList.see"); // AdminNoticeList.jsp 로 redirect
 
 		return mav;
 	}
 
 	// 글 상세보기
 	@RequestMapping(value = "/faqView.see")
-	public ModelAndView FaqView(HttpServletRequest request) {
+	public ModelAndView FaqView(@RequestParam int faq_no, HttpSession session) {
 
+		// 조회수 증가 처리
+		faqService.FaqHitUpdate(faq_no, session);
+		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
-
-		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
-
-		FaqModel faqModel = new FaqModel();
-
-		faqModel = faqService.FaqView(faq_no);
-		faqService.FaqHitUpdate(faq_no);
-
-		mav.addObject("currentPage", currentPage);
-		mav.addObject("faqModel", faqModel);
+		// 뷰에 전달할 데이터
+		mav.addObject("faqModel", faqService.FaqView(faq_no));
+		// 뷰의 이름
 		mav.setViewName("admin/faq/AdminFaqView");
 
 		return mav;
 	}
 
-	// 글 수정 폼
+	// 게시글 수정 폼
 	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.GET)
-	public ModelAndView FaqUpdateForm(FaqModel faqModel, HttpServletRequest request) {
+	public ModelAndView FaqUpdateForm(@RequestParam int faq_no) {
 
 		ModelAndView mav = new ModelAndView();
 
-		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
-		faqModel = faqService.FaqView(faq_no);
-
-		mav.addObject("faqModel", faqModel);
+		mav.addObject("faqModel", faqService.FaqView(faq_no));
 		mav.setViewName("admin/faq/AdminFaqUpdate");
 
 		return mav;
 
 	}
 
-	// 글 수정
+	// 게시글 수정
 	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.POST)
-	public ModelAndView FaqUpdate(FaqModel faqModel, HttpServletRequest request) {
+	public ModelAndView FaqUpdate(@ModelAttribute FaqModel faqModel) {
 
 		ModelAndView mav = new ModelAndView();
 
-		faqService.FaqUpdate(faqModel);
-
-		mav.addObject("faqModel", faqModel);
+		mav.addObject("faqModel", faqService.FaqUpdate(faqModel));
 		mav.setViewName("redirect:/faq/faqList.see");
 
 		return mav;
 
 	}
 
-	// 글삭제
-	@RequestMapping(value = "/faqDelete.see", method = RequestMethod.GET)
-	public ModelAndView FaqDelete(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-
-		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
+	// 게시글 삭제
+	@RequestMapping(value = "/faqDelete.see")
+	public String FaqDelete(@RequestParam int faq_no) {
 
 		faqService.FaqDelete(faq_no);
-		mav.setViewName("redirect:/faq/faqList.see");
-		return mav;
 
+		return "redirect:/faq/faqList.see";
 	}
 
 }
