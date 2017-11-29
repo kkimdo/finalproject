@@ -16,6 +16,7 @@ public class Paging {
 	
 	private StringBuffer pagingHtml;
 	
+	//No Search
 	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName) {
 		
 		this.currentPage = currentPage;
@@ -89,7 +90,90 @@ public class Paging {
 		}
 	}
 	
-	//검색 생성자
+	//isSearch
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName, String isSearch) {
+		
+		this.currentPage = currentPage;
+		this.totalCount = totalCount;
+		this.blockCount = blockCount;
+		this.blockPage = blockPage;
+		this.viewName = viewName;
+		
+		totalPage = (int) Math.ceil((double)totalCount / blockCount);
+		
+		if(totalPage == 0){
+			totalPage = 1;
+		}
+		
+		if(currentPage > totalPage){
+			currentPage = totalPage;
+		}
+		
+		startCount = (currentPage - 1) * blockCount; 
+		endCount = startCount + blockCount - 1; 
+		
+		startPage = (int)((currentPage - 1 ) / blockPage) * blockPage + 1;
+		endPage = startPage + blockPage - 1; 
+		
+		if(endPage > totalPage){
+			endPage = totalPage;
+		}
+		
+		pagingHtml = new StringBuffer();
+		
+		if (currentPage > blockPage) {
+			if(isSearch != ""){
+				pagingHtml.append("<a class='page prv' href=" + viewName + ".see?currentPage=" + (startPage - 1) + "&isSearch=" + isSearch + ">");				
+			}else{
+				pagingHtml.append("<a class='page prv' href=" + viewName + ".see?currentPage=" + (startPage - 1) + ">");	
+			}
+				pagingHtml.append("&lt;");
+				pagingHtml.append("</a>");			
+			
+		}
+
+		for (int i = startPage; i <= endPage; i++) {
+			
+			if (i > totalPage) {
+				break;
+			}
+			
+			if (i == currentPage) {
+				
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);
+				pagingHtml.append("</strong>");
+			
+			} else {
+				
+				pagingHtml.append("<a class='page' href=" + viewName + ".see?currentPage=" + i);
+				
+				if(isSearch != "")
+					pagingHtml.append("&isSearch="+ isSearch);
+				
+				pagingHtml.append(">");
+				pagingHtml.append(i);		
+				pagingHtml.append("</a>");
+				
+			}
+			
+		}
+
+		if (totalPage - startPage >= blockPage) {
+			
+			pagingHtml.append("<a class='page next' href=" + viewName + ".see?currentPage=" + (endPage + 1));
+			
+			if(isSearch != "")
+				pagingHtml.append("&isSearch="+ isSearch);
+			
+			pagingHtml.append(">");
+			pagingHtml.append("&gt;");
+			pagingHtml.append("</a>");
+		}
+	}
+
+	
+	//searchNum, isSearch
 	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName, int searchNum, String isSearch) {
 		
 		this.currentPage = currentPage;
