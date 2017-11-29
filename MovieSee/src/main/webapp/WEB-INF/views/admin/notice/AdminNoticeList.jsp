@@ -13,6 +13,21 @@
 </head>
 <body>
 
+	<!-- search -->
+	<form>
+		<div>
+			<select name="searchNum">
+				<option value="0">제목</option>
+				<option value="1">내용</option>
+			</select>
+		
+			<input type="text" name="isSearch" />
+				<span>
+					<input type="submit" value="검색" >
+				</span>
+		</div>
+	</form>
+
 	<table>	
 			<tr>
 				<td>번호</td>
@@ -45,5 +60,6 @@
 	</c:if>
 	
 	${pagingHtml}
+	
 </body>
 </html>
