@@ -1,6 +1,8 @@
 package movie.notice;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -19,10 +21,20 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
-	//모든 데이터를 가져와서 List<NoticeModel>를 리턴하는 메소드(게시글 전체 목록)
+	//게시글 전체 목록
 	@Override
-	public List<NoticeModel> NoticeList() {
-		return sqlSessionTemplate.selectList("notice.noticeList");
+	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) {
+	
+		//검색 옵션,키워드 맵에 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		//between #{start} and #{end} 에 입력될 값을 맵에 저장
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("notice.noticeListAll", map);
 	}
 	
 	//notice_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
@@ -50,16 +62,5 @@ public class NoticeDAOImpl implements NoticeDAO {
 		
 	}
 	
-	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 제목으로 검색)
-	@Override
-	public List<NoticeModel> NoticeSearchList0(String isSearch) {
-		return sqlSessionTemplate.selectList("notice.searchList0", "%"+isSearch+"%");
-	}
-	
-	//isSearch를 이용하여 검색의 해당되는 데이터를 불러오는 메소드(게시글 내용으로 검색)
-	@Override
-	public List<NoticeModel> NoticeSearchList1(String isSearch) {
-		return sqlSessionTemplate.selectList("notice.searchList1", "%"+isSearch+"%");
-	}
 	
 }
