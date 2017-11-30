@@ -32,10 +32,12 @@
 			});
 		});
 	});
+	
 </script>
 <style>
+
 dl.faq {
-	border-collapse: separate; 
+	border-collapse: separate;
 	border-spacing: 1px;
 	text-align: left;
 	line-height: 1.5;
@@ -45,22 +47,21 @@ dl.faq {
 }
 
 dl.faq dd {
-    position: relative;
-    width: 980px;
-    padding: 30px 20px 30px 70px;
-    background: #f5f5f5;
-    font-size: 13px;
-    line-height: 22px;
-    color: #666;
+	position: relative;
+	width: 980px;
+	padding: 30px 20px 30px 70px;
+	background: #f5f5f5;
+	font-size: 13px;
+	line-height: 22px;
+	color: #666;
 }
-
 </style>
 
 </head>
 
 
 <body>
-	<h1>FAQ</h1>
+<%-- 	<h1>FAQ</h1>
 	<c:forEach var="faqList" items="${faqList}" varStatus="stat">
 
 		<dl class="faq">
@@ -71,11 +72,11 @@ dl.faq dd {
 			</dt>
 			<dd>${faqList.faq_content}</dd>
 		</dl>
-		
-	</c:forEach>
 
-	
-	<%-- <table>
+	</c:forEach>
+ --%>
+
+	<table>
 		<tr>
 			<td>번호</td>
 			<td>제목</td>
@@ -99,13 +100,25 @@ dl.faq dd {
 			</tr>
 		</c:forEach>
 		
-	</table> --%>
+	</table> 
 
 
 	<c:if test="${fn:length(faqList) le 0}">
 		<center>등록된 게시물이 없습니다.</center>
 	</c:if>
 
+	<!-- 검색 -->
+	<div class="search_form">
+		<form>
+			<div class="inner">
+					<input class="txt w100" type="text" name="isSearch" /> 
+					<span class="btn btnC_04 btnP_04"> 
+					<input type="submit" value="검색">
+					
+				</span>
+			</div>
+		</form>
+	</div>
 
 	${pagingHtml}
 	<input type="button" onclick="location.href='faqWrite.see'" value="글쓰기" />

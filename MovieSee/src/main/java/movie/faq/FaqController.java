@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.Paging;
 
-
 @Controller
 @RequestMapping("/faq")
 public class FaqController {
@@ -34,6 +33,9 @@ public class FaqController {
 	private String pagingHtml; // paging을 구현한 HTML
 	private Paging page; // 페이징 클래스의 변수 선언
 
+	// 검색
+	private String isSearch="";
+
 	// 글 목록
 	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
 	public ModelAndView FaqList(HttpServletRequest request) {
@@ -49,10 +51,41 @@ public class FaqController {
 		}
 
 		List<FaqModel> faqList = null;
+		// 검색
+		isSearch = request.getParameter("isSearch");
+		// 검색했을 때
+		if (isSearch != null) {
 
+			faqList = faqService.FaqSearchList(isSearch);
+
+			totalCount = faqList.size();
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList", isSearch);
+			pagingHtml = page.getPagingHtml().toString();
+
+			int lastCount = totalCount;
+
+			if (page.getEndCount() < totalCount) {
+				lastCount = page.getEndCount() + 1;
+			}
+
+			faqList = faqList.subList(page.getStartCount(), lastCount);
+
+			mav.addObject("totalCount", totalCount);
+			mav.addObject("pagingHtml", pagingHtml);
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("faqList", faqList);
+			mav.setViewName("admin/faq/AdminFaqList"); // jsp
+
+			return mav;
+
+		}
+		// 검색하지 않았을 때
 		faqList = faqService.FaqList();
+		
 		totalCount = faqList.size();
+		
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
+		
 		pagingHtml = page.getPagingHtml().toString();
 
 		int lastCount = totalCount;

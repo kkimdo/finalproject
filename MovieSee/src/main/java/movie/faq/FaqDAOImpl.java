@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import movie.notice.NoticeModel;
 
 @Repository // 현재 클래스를 DAO bean으로 등록
 public class FaqDAOImpl implements FaqDAO {
