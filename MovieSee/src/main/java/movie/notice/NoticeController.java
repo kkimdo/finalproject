@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import movie.common.paging.Paging;
 
 @Controller //현재 클래스를 컨트롤러 빈(bean)으로 등록
 @RequestMapping("/admin")
@@ -26,17 +25,6 @@ public class NoticeController {
 	// IoC 의존관계 역전
 	@Inject
 	private NoticeService noticeService;
-	
-	private int currentPage = 1;
-	private int totalCount; //전체 게시물의 수
-	private int blockCount = 4; //한 페이지의 보여줄 게시물의 수
-	private int blockPage = 5; //한 화면에 보여줄 페이지의 수
-	private String pagingHtml;
-	private Paging page; //공통 페이징 클래스의 변수
-	
-	//검색
-	private int searchNum;
-	private String isSearch;
 	
 	// 게시글 작성 화면
 	// RequestMapping("admin/noticeWrite.see")
@@ -59,93 +47,17 @@ public class NoticeController {
 		return mav;
 	}
 	
-	//글 목록
-	@RequestMapping(value="/noticeList.see", method=RequestMethod.GET)
-	public ModelAndView NoticeList(HttpServletRequest request){
+	// 게시글 목록
+	/*@RequestMapping(value="/noticeList.see")
+	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
+	public ModelAndView NoticeList(@RequestParam(defaultValue="title") String searchOption,
+									@RequestParam(defaultValue="") String keyword,
+									@RequestParam(defaultValue="1") String curPage)  {
 		
-		ModelAndView mav = new ModelAndView();
 		
-		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() ||
-				request.getParameter("currentPage").equals("0")){
-			
-			currentPage = 1;
-			
-		}else{
-			
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-			
-		}
 		
-		List<NoticeModel> noticeList = null;
 		
-		isSearch = request.getParameter("isSearch"); //검색 내용
-		
-		if(isSearch != null){
-			
-			searchNum = Integer.parseInt(request.getParameter("searchNum")); //'0'은 제목, '1'은 제목
-			
-			if(searchNum == 0){
-				noticeList = noticeService.NoticeSearchList0(isSearch);
-			}else if(searchNum == 1){
-				noticeList = noticeService.NoticeSearchList1(isSearch);
-			}
-			
-			totalCount = noticeList.size();
-			
-			//page 객체 생성 후 Paging에 인자 값 전달
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
-			
-			//page 객체에 생성한 것들을 pagingHtml에 담는다.
-			pagingHtml = page.getPagingHtml().toString();
-			
-			int lastCount = totalCount;
-		
-			if(page.getEndCount() < totalCount){
-				lastCount = page.getEndCount() + 1;
-			}
-			
-			noticeList = noticeList.subList(page.getStartCount(), lastCount);
-			
-			mav.addObject("searchNum", searchNum);
-			mav.addObject("isSearch", isSearch);
-			mav.addObject("totalCount", totalCount);
-			mav.addObject("pagingHtml", pagingHtml);
-			mav.addObject("currentPage", currentPage);
-			mav.addObject("noticeList", noticeList);
-			mav.setViewName("admin/notice/AdminNoticeList");
-			
-			return mav;
-			
-		}
-		
-		//검색 없을 때
-		noticeList = noticeService.NoticeList();
-		
-		totalCount = noticeList.size();
-		
-		//page 객체 생성 후 Paging에 인자 값 전달
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
-		
-		//page 객체에 생성한 것들을 pagingHtml에 담는다.
-		pagingHtml = page.getPagingHtml().toString();
-		
-		int lastCount = totalCount;
-	
-		if(page.getEndCount() < totalCount){
-			lastCount = page.getEndCount() + 1;
-		}
-		
-		noticeList = noticeList.subList(page.getStartCount(), lastCount);
-		
-		mav.addObject("totalCount", totalCount);
-		mav.addObject("pagingHtml", pagingHtml);
-		mav.addObject("currentPage", currentPage);
-		mav.addObject("noticeList", noticeList);
-		mav.setViewName("admin/notice/AdminNoticeList");
-		
-		return mav;
-		
-	}
+	}*/
 	
 	// 게시글 상세 내용 조회, 게시글 조회수 증가 처리
 	// @RequestParam : get/post방식으로 전달된 변수 1개

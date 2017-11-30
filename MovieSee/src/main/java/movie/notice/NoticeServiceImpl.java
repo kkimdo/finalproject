@@ -27,8 +27,8 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	//게시글 전체 목록
 	@Override
-	public List<NoticeModel> NoticeList() {
-		return noticeDAO.NoticeList();
+	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) {
+		return noticeDAO.NoticeListAll(start, end, searchOption, keyword);
 	}
 	
 	//게시글 상세보기
@@ -81,18 +81,6 @@ public class NoticeServiceImpl implements NoticeService {
 	public void NoticeDelete(int notice_no) {
 		noticeDAO.NoticeDelete(notice_no);
 		
-	}
-	
-	//게시글 제목으로 검색
-	@Override
-	public List<NoticeModel> NoticeSearchList0(String isSearch) {
-		return noticeDAO.NoticeSearchList0(isSearch);
-	}
-	
-	//게시글 내용으로 검색
-	@Override
-	public List<NoticeModel> NoticeSearchList1(String isSearch) {
-		return noticeDAO.NoticeSearchList1(isSearch);
 	}
 
 }
