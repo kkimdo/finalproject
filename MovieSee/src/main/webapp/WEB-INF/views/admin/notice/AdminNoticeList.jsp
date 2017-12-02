@@ -4,62 +4,108 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-    
+
+<% String cp = request.getContextPath(); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>공 지 사 항</title>
+<script type="text/javascript">
+
+    <%-- $(document).ready(function(){
+        $("#btnWrite").click(function(){
+            // 페이지 주소 변경(이동)
+            location.href="<%= cp%>/admin/noticeWrite.see";
+        });
+    }); --%>
+    
+    // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
+    function list(page){
+        location.href="<%= cp%>/admin/noticeList.see?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
+    }
+    
+    function fn_write(){
+    	 // 페이지 주소 변경(이동)
+    	location.href="<%= cp%>/admin/noticeWrite.see";
+    }
+    
+</script>
 </head>
 <body>
-
-	<!-- search -->
-	<form>
-		<div>
-			<select name="searchNum">
-				<option value="0">제목</option>
-				<option value="1">내용</option>
-			</select>
-		
-			<input type="text" name="isSearch" />
-				<span>
-					<input type="submit" value="검색" >
-				</span>
-		</div>
-	</form>
-
-	<table>	
-			<tr>
-				<td>번호</td>
-				<td>영화관</td>
-				<td>제목</td>
-				<td>등록일</td>
-				<td>조회수</td>
-			</tr>
-			
-		<c:forEach var="noticeList" items="${noticeList}" varStatus="stat">
-			
-			<c:url var="noticeViewURL" value="noticeView.see">
-				<c:param name="notice_no" value="${noticeList.notice_no}" />
-				<c:param name="currentPage" value="${currentPage}" />
-			</c:url>
-		
-			<tr>
-				<td>${noticeList.notice_no}</td>
-				<td>${noticeList.notice_area}</td>
-				<td><a href="${noticeViewURL}">${noticeList.notice_subject}</a></td>
-				<td><fmt:formatDate value="${noticeList.notice_date}" pattern="yyyy-MM-dd" /></td>
-				<td>${noticeList.notice_hit}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	<!-- noticeList가 0보다 작거나 같을 경우 -->
-	<c:if test="${fn:length(noticeList) le 0}" >
-		<center>등록된 게시물이 없습니다.</center>
-	</c:if>
-	
-	${pagingHtml}
+	 <h2>게시글 목록</h2>
+    <form name="form1" method="post" action="<%=cp%>/admin/noticeList.see">
+        <select name="searchOption">
+            <!-- 검색조건을 검색처리 후 결과 화면에 보여주기 위해  c:out 출력태그 사용, 삼항연산자 -->
+            <option value="all" <c:out value="${map.searchOption == 'all'?'selected':''}"/> >제목 + 내용</option>
+            <option value="notice_subject" <c:out value="${map.searchOption == 'notice_subject'?'selected':''}"/> >제목</option>
+            <option value="notice_content" <c:out value="${map.searchOption == 'notice_content'?'selected':''}"/> >내용</option>
+        </select>
+        <input name="keyword" value="${map.keyword}">
+        <input type="submit" value="조회">
+        <input type="button" value="글쓰기" onclick="fn_write();" />
+    </form>
+    
+    <!-- 레코드의 갯수를 출력 -->
+    ${map.count}개의 게시물이 있습니다.
+    <table border="1" width="600px">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+        <c:forEach var="noticeList" items="${map.noticeList}">
+        <tr>
+            <td>${noticeList.notice_no}</td>
+            <!-- ** 게시글 상세보기 페이지로 이동시 게시글 목록페이지에 있는 검색조건, 키워드, 현재페이지 값을 유지하기 위해 -->
+            <td><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></td>
+            <td>
+                <!-- 원하는 날짜형식으로 출력하기 위해 fmt태그 사용 -->
+                <fmt:formatDate value="${noticeList.notice_date}" pattern="yyyy-MM-dd"/>
+            </td>
+            <td>${noticeList.notice_hit}</td>
+        </tr>    
+        </c:forEach>
+        <tr>
+            <td colspan="5">
+                <!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
+                <c:if test="${map.c_Paging.curBlock > 1}">
+                    <a href="javascript:list('1')">[처음]</a>
+                </c:if>
+                
+                <!-- **이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
+                <c:if test="${map.c_Paging.curBlock > 1}">
+                    <a href="javascript:list('${map.c_Paging.prevPage}')">[이전]</a>
+                </c:if>
+                
+                <!-- **하나의 블럭에서 반복문 수행 시작페이지부터 끝페이지까지 -->
+                <c:forEach var="num" begin="${map.c_Paging.blockBegin}" end="${map.c_Paging.blockEnd}">
+                    <!-- **현재페이지이면 하이퍼링크 제거 -->
+                    <c:choose>
+                        <c:when test="${num == map.c_Paging.curPage}">
+                            <span style="color: red">${num}</span>&nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <a href="javascript:list('${num}')">${num}</a>&nbsp;
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                
+                <!-- **다음페이지 블록으로 이동 : 현재 페이지 블럭이 전체 페이지 블럭보다 작거나 같으면 [다음]하이퍼링크를 화면에 출력 -->
+                <c:if test="${map.c_Paging.curBlock <= map.c_Paging.totBlock}">
+                    <a href="javascript:list('${map.c_Paging.nextPage}')">[다음]</a>
+                </c:if>
+                
+                <!-- **끝페이지로 이동 : 현재 페이지가 전체 페이지보다 작거나 같으면 [끝]하이퍼링크를 화면에 출력 -->
+                <c:if test="${map.c_Paging.curPage <= map.c_Paging.totPage}">
+                    <a href="javascript:list('${map.c_Paging.totPage}')">[끝]</a>
+                </c:if>
+            </td>
+        </tr>
+</table>
 	
 	
 </body>

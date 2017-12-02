@@ -15,7 +15,7 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	//게시글 작성
 	@Override
-	public int NoticeWrite(NoticeModel noticeModel) {
+	public int NoticeWrite(NoticeModel noticeModel) throws Exception {
 		
 		//replace(A, B) A를 B로 변경
 		String content = noticeModel.getNotice_content().replaceAll("\r\n","<br>"); //줄바꿈 문자 처리
@@ -27,19 +27,25 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	//게시글 전체 목록
 	@Override
-	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) {
+	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) throws Exception {
 		return noticeDAO.NoticeListAll(start, end, searchOption, keyword);
+	}
+	
+	//게시글 레코드 갯수
+	@Override
+	public int count(String searchOption, String keyword) throws Exception {
+		return noticeDAO.count(searchOption, keyword);
 	}
 	
 	//게시글 상세보기
 	@Override
-	public NoticeModel NoticeView(int notice_no) {
+	public NoticeModel NoticeView(int notice_no) throws Exception {
 		return noticeDAO.NoticeView(notice_no);
 	}
 	
 	//게시글 조회수 증가
 	@Override
-	public void NoticeHitUpdate(int notice_no, HttpSession session) {
+	public void NoticeHitUpdate(int notice_no, HttpSession session) throws Exception {
 		
 		long update_time = 0; //세션에 저장된 조회시간 검색
 		
@@ -66,9 +72,9 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	//게시글 수정
 	@Override
-	public int NoticeUpdate(NoticeModel noticeModel) {
+	public int NoticeUpdate(NoticeModel noticeModel) throws Exception {
 		
-		String content = noticeModel.getNotice_content().replace("\r\n","<br>");
+		String content = noticeModel.getNotice_content().replaceAll("<br>","\r\n");
 		
 		noticeModel.setNotice_content(content);
 		
@@ -78,7 +84,7 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	//게시글 삭제
 	@Override
-	public void NoticeDelete(int notice_no) {
+	public void NoticeDelete(int notice_no) throws Exception {
 		noticeDAO.NoticeDelete(notice_no);
 		
 	}

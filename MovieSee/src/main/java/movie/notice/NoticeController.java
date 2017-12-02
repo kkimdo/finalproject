@@ -1,9 +1,10 @@
 package movie.notice;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import movie.common.paging.commonPaging;
 
 
 @Controller //현재 클래스를 컨트롤러 빈(bean)으로 등록
@@ -48,22 +51,42 @@ public class NoticeController {
 	}
 	
 	// 게시글 목록
-	/*@RequestMapping(value="/noticeList.see")
+	@RequestMapping(value="/noticeList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
-	public ModelAndView NoticeList(@RequestParam(defaultValue="title") String searchOption,
+	public ModelAndView NoticeList(@RequestParam(defaultValue="notice_subject") String searchOption,
 									@RequestParam(defaultValue="") String keyword,
-									@RequestParam(defaultValue="1") String curPage)  {
+									@RequestParam(defaultValue="1") int curPage) throws Exception {
 		
+		//레코드의 갯수 계산
+		int count = noticeService.count(searchOption, keyword);
 		
+		//페이지 나누기 관련 처리
+		commonPaging c_Paging = new commonPaging(count, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
 		
+		List<NoticeModel> noticeList = noticeService.NoticeListAll(start, end, searchOption, keyword);
 		
-	}*/
+		//데이터를 맵에 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("noticeList", noticeList);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장
+		mav.setViewName("admin/notice/AdminNoticeList"); //뷰를 AdminNoticeList.jsp 로 설정
+		
+		return mav; //AdminNoticeList.jsp로 List가 전달된다.
+	}
 	
 	// 게시글 상세 내용 조회, 게시글 조회수 증가 처리
 	// @RequestParam : get/post방식으로 전달된 변수 1개
 	// HttpSession 세션 객체
 	@RequestMapping(value="/noticeView.see")
-	public ModelAndView NoticeView(@RequestParam int notice_no, HttpSession session){
+	public ModelAndView NoticeView(@RequestParam int notice_no, HttpSession session) throws Exception {
 		
 //		System.out.println(notice_no + "notice_no");
 //		System.out.println(session + "session");
@@ -82,7 +105,7 @@ public class NoticeController {
 
 	//게시글 수정 폼
 	@RequestMapping(value="/noticeUpdate.see", method=RequestMethod.GET)
-	public ModelAndView NoticeUpdateForm(@RequestParam int notice_no){
+	public ModelAndView NoticeUpdateForm(@RequestParam int notice_no) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 
@@ -96,7 +119,7 @@ public class NoticeController {
 	//게시글 수정
 	//게시글 수정 폼에서 입력한 내용들은 @ModelAttribute NoticeModel noticeModel 로 전달 됨.
 	@RequestMapping(value="/noticeUpdate.see", method=RequestMethod.POST)
-	public ModelAndView NoticeUpdate(@ModelAttribute NoticeModel noticeModel){
+	public ModelAndView NoticeUpdate(@ModelAttribute NoticeModel noticeModel) throws Exception{
 
 		ModelAndView mav = new ModelAndView();
 
@@ -109,7 +132,7 @@ public class NoticeController {
 	
 	//게시글 삭제
 	@RequestMapping(value="/noticeDelete.see")
-	public String NoticeDelete(@RequestParam int notice_no){
+	public String NoticeDelete(@RequestParam int notice_no) throws Exception{
 		
 		noticeService.NoticeDelete(notice_no);
 		
