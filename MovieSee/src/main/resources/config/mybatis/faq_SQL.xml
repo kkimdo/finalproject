@@ -58,7 +58,8 @@
 	<!-- 게시글 모든검색 -->
 	<select id="searchAll" parameterType="String" resultMap="faqModelRes">
 		select * from faq
-		where faq_subject like #{isSearch} or faq_content like #{isSearch} 
+		where faq_subject like '%'||#{isSearch}||'%' or faq_content like '%'||#{isSearch}||'%'
+		order by faq_no desc
 	</select>
 	
 </mapper>

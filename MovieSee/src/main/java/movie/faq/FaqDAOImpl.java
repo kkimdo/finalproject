@@ -54,7 +54,7 @@ public class FaqDAOImpl implements FaqDAO {
 	// 검색
 	@Override
 	public List<FaqModel> FaqSearchList(String isSearch) {
-		return sqlSessionTemplate.selectList("faq.searchAll", "%" + isSearch + "%");
+		return sqlSessionTemplate.selectList("faq.searchAll", isSearch);
 	}
 
 }

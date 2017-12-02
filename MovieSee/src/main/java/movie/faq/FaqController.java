@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.Paging;
 
+
 @Controller
 @RequestMapping("/faq")
 public class FaqController {
@@ -34,10 +35,10 @@ public class FaqController {
 	private Paging page; // 페이징 클래스의 변수 선언
 
 	// 검색
-	private String isSearch="";
+	private String isSearch;
 
 	// 글 목록
-	@RequestMapping(value = "/faqList.see", method = RequestMethod.GET)
+	@RequestMapping(value = "/faqList.see")
 	public ModelAndView FaqList(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
@@ -70,6 +71,7 @@ public class FaqController {
 
 			faqList = faqList.subList(page.getStartCount(), lastCount);
 
+			mav.addObject("isSearch", isSearch);
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
@@ -77,6 +79,7 @@ public class FaqController {
 			mav.setViewName("admin/faq/AdminFaqList"); // jsp
 
 			return mav;
+			
 
 		}
 		// 검색하지 않았을 때
@@ -85,7 +88,6 @@ public class FaqController {
 		totalCount = faqList.size();
 		
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
-		
 		pagingHtml = page.getPagingHtml().toString();
 
 		int lastCount = totalCount;
@@ -102,7 +104,11 @@ public class FaqController {
 		mav.addObject("faqList", faqList);
 		mav.setViewName("admin/faq/AdminFaqList"); // jsp
 
+		
+		
 		return mav;
+		
+		
 	}
 
 	// 게시글 작성 화면

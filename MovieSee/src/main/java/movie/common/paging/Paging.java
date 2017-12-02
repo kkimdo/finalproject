@@ -13,6 +13,8 @@ public class Paging {
 	private int startPage; //시작 페이지
 	private int endPage; //마지막 페이지
 	private String viewName; //페이징 할 뷰 이름
+	private int searchNum;
+	private String isSearch;
 	
 	private StringBuffer pagingHtml;
 	
@@ -98,6 +100,8 @@ public class Paging {
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.viewName = viewName;
+		this.isSearch =  isSearch;
+		
 		
 		totalPage = (int) Math.ceil((double)totalCount / blockCount);
 		
@@ -181,6 +185,8 @@ public class Paging {
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.viewName = viewName;
+		this.searchNum = searchNum;
+		this.isSearch = isSearch;
 		
 		totalPage = (int) Math.ceil((double)totalCount / blockCount);
 		
@@ -342,5 +348,23 @@ public class Paging {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+
+	public int getSearchNum() {
+		return searchNum;
+	}
+
+	public void setSearchNum(int searchNum) {
+		this.searchNum = searchNum;
+	}
+
+	public String getIsSearch() {
+		return isSearch;
+	}
+
+	public void setIsSearch(String isSearch) {
+		this.isSearch = isSearch;
+	}
+	
+	
 	
 }
