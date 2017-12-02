@@ -17,14 +17,16 @@ public class NoticeDAOImpl implements NoticeDAO {
 	
 	//데이터를 삽입하는 메소드(게시글 작성)
 	@Override
-	public int NoticeWrite(NoticeModel noticeModel) {
+	public int NoticeWrite(NoticeModel noticeModel) throws Exception {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
 	//게시글 전체 목록
 	@Override
-	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) {
+	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) throws Exception {
 	
+//		System.out.println(searchOption + "작은 따음표 없애기"); 
+		
 		//검색 옵션,키워드 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("searchOption", searchOption);
@@ -37,27 +39,39 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSessionTemplate.selectList("notice.noticeListAll", map);
 	}
 	
+	@Override
+	public int count(String searchOption, String keyword) throws Exception {
+		
+		Map<String,String> map = new HashMap<String, String>();
+		
+		//검색 옵션, 키워드 맵에 저장
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		return sqlSessionTemplate.selectOne("notice.count", map);
+	}
+	
 	//notice_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
 	@Override
-	public NoticeModel NoticeView(int notice_no) {
+	public NoticeModel NoticeView(int notice_no) throws Exception {
 		return sqlSessionTemplate.selectOne("notice.noticeView", notice_no);
 	}
 	
 	//notice_no을 이용하여 데이터의 조회수를 갱신하는 메소드(게시글 조회수 증가)
 	@Override
-	public void NoticeHitUpdate(int notice_no) {
+	public void NoticeHitUpdate(int notice_no) throws Exception {
 		sqlSessionTemplate.update("notice.noticeHitUpdate", notice_no);
 	}
 
 	//데이터를 갱신하는 메소드(게시글 수정)
 	@Override
-	public int NoticeUpdate(NoticeModel noticeModel){
+	public int NoticeUpdate(NoticeModel noticeModel) throws Exception {
 		return sqlSessionTemplate.update("notice.noticeUpdate", noticeModel);
 	}
 	
 	//데이터를 삭제하는 메소드(게시글 삭제)
 	@Override
-	public void NoticeDelete(int notice_no) {
+	public void NoticeDelete(int notice_no) throws Exception {
 		sqlSessionTemplate.delete("notice.noticeDelete", notice_no);
 		
 	}

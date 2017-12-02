@@ -30,12 +30,12 @@
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
-				where (notice_subject like '%'||#{keyword}||'%' or notice_content like '%'#{keyword}'%')
+				where (notice_subject like '%'||#{keyword}||'%' or notice_content like '%'||#{keyword}||'%')
 			</when>
 			
 			<!-- 전체 검색이 아닐 경우 -->
 			<otherwise>
-				where #{searchOption} like '%'||#{keyword}||'%'
+				where ${searchOption} like '%'||#{keyword}||'%'
 			</otherwise>
 		</choose>
 	</sql>
@@ -47,6 +47,13 @@
 		<include refid="search" />
 		order by notice_no desc, notice_date desc
 		<include refid="pagingFooter"></include>
+	</select>
+	
+	<!-- 게시글 레코드 갯수 -->
+	<select id="count" resultType="int">
+		select count(*) from notice
+		<!-- where 절을 include 태그로 삽입 -->
+		<include refid="search" />
 	</select>
 	
 	<!-- 게시글 상세보기 -->
