@@ -108,14 +108,12 @@ dl.faq dd {
 	</c:if>
 
 	<!-- 검색 -->
-	<div class="search_form">
-		<form>
-			<div class="inner">
-					<input class="txt w100" type="text" name="isSearch" /> 
-					<span class="btn btnC_04 btnP_04"> 
+	<div>
+		<form method="post">
+			<div>
+					<input type="text" name="isSearch" /> 
 					<input type="submit" value="검색">
 					
-				</span>
 			</div>
 		</form>
 	</div>
