@@ -10,30 +10,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>공지 사항</title>
+<script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
+<script>
+	$(document).ready(function() {
+		$("#btnUpdate").click(function() {
+
+			//var notice_subject = document.formView.notice_subject.value; ==> name속성으로 처리할 경우
+			var notice_subject = $("#notice_subject").val();
+            var notice_content = $("#notice_content").val();
+            var notice_area = $("#notice_area").val();
+          
+            if(notice_subject == ""){
+                alert("제목을 입력하세요");
+                document.formUpdate.notice_subject.focus();
+                return false;
+            }
+            if(notice_content == ""){
+                alert("내용을 입력하세요");
+                document.formUpdate.notice_content.focus();
+                return false;
+            }
+            if(notice_area == ""){
+                alert("영화관을 입력하세요");
+                document.formUpdate.notice_area.focus();
+                return false;
+            }
+            // 폼에 입력한 데이터를 서버로 전송
+            document.formUpdate.submit();
+            return true;
+        });
+    });
+</script>
 </head>
 <body>
 
 	<h3>공지 사항</h3>
-		<form action="noticeUpdate.see" method="post">
+		<form name="formUpdate" action="noticeUpdate.see" method="post">
 			<input type="hidden" name="notice_no" value="${noticeModel.notice_no}" />
-			<input type="hidden" name="currentPage" value="${currentPage}" />
-			<table>
-				<tr>
-					<td>제목</td>
-					<td><input type="text" name="notice_subject" value="${noticeModel.notice_subject}"/></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td><textarea name="notice_content">${noticeModel.notice_content}</textarea></td>
-				</tr>
-				<tr>
-					<td>영화관</td>
-					<td><input type="text" name="notice_area" value="${noticeModel.notice_area}" /></td>
-				</tr>
-			</table>
-			<br />  
-				<input type="submit" value="작성" />
+			<div>
+			제목 <input name="notice_subject" id="notice_subject" value="${noticeModel.notice_subject}" size="80" placeholder="제목을 입력해주세요" />
+			</div>
+			<div>
+			내용<textarea name="notice_content" id="notice_content" rows="4" cols="80" placeholder="내용을 입력해주세요">${noticeModel.notice_content}</textarea>
+			</div>
+			<div>
+			영화관 <input name="notice_area" id="notice_area" value="${noticeModel.notice_area}" placeholder="영화관을 입력해주세요"/>
+			</div>
+			<div style="width: 650px; text-align: center;">
+				<input type="submit" value="작성" id="btnUpdate"/>
+			</div>  
 		</form>
 </body>
 </html>

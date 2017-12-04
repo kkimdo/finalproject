@@ -85,7 +85,7 @@ public class NoticeController {
 	// 게시글 상세 내용 조회, 게시글 조회수 증가 처리
 	// @RequestParam : get/post방식으로 전달된 변수 1개
 	// HttpSession 세션 객체
-	@RequestMapping(value="/noticeView.see")
+	@RequestMapping(value="/noticeView.see", method=RequestMethod.GET)
 	public ModelAndView NoticeView(@RequestParam int notice_no, HttpSession session) throws Exception {
 		
 //		System.out.println(notice_no + "notice_no");
