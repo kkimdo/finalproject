@@ -32,10 +32,8 @@
 			});
 		});
 	});
-	
 </script>
 <style>
-
 dl.faq {
 	border-collapse: separate;
 	border-spacing: 1px;
@@ -55,13 +53,85 @@ dl.faq dd {
 	line-height: 22px;
 	color: #666;
 }
+
+.shPeriod {
+	padding: 20px 30px;
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	background: #f5f5f5;
+}
+
+.shPeriod .tit {
+	float: left;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+.shPeriod .tit {
+	display: inline-block;
+	width: 111px;
+	font-weight: bold;
+	color: #231f20;
+}
+
+.cs_center {
+	width: 980px;
+	margin: 0 auto;
+	padding: 50px 0 50px;
+	color: #231f20;
+}
+
+.shPeriod .goods input[type="text"] {
+	width: 349px;
+	height: 30px;
+	padding: 0 10px;
+	border: none;
+	font-size: 14px;
+	color: #666;
+	line-height: 30px;
+	background: #fff;
+}
+
+.btn_view {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 8px 0;
+    background: #efefef;
+    border: 1px solid #dedede;
+    text-align: center;
+    font-size: 14px;
+    color: #231f20;
+    font-weight: bold;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
 </style>
 
 </head>
 
 
 <body>
-<%-- 	<h1>FAQ</h1>
+	<h1>FAQ</h1>
+
+	<!-- 검색 -->
+	<div class="shPeriod" id="searchArea">
+		<form method="post">
+			<span class="tit">검색</span>
+			<div class="goods">
+				<input type="text" placeholder="검색어를 입력하세요" title="검색어 입력" name="isSearch"> 
+				<input type="submit" value="검색" class="btn_goodsSrch" id="btnSearch">
+			</div>
+	</div>
+
 	<c:forEach var="faqList" items="${faqList}" varStatus="stat">
 
 		<dl class="faq">
@@ -74,9 +144,9 @@ dl.faq dd {
 		</dl>
 
 	</c:forEach>
- --%>
-
-	<table>
+	
+	
+	<%-- <table>
 		<tr>
 			<td>번호</td>
 			<td>제목</td>
@@ -100,15 +170,14 @@ dl.faq dd {
 			</tr>
 		</c:forEach>
 		
-	</table> 
+	</table>  --%>
 
 
 	<c:if test="${fn:length(faqList) le 0}">
 		<center>등록된 게시물이 없습니다.</center>
 	</c:if>
 
-	<!-- 검색 -->
-	<div>
+	<!-- <div>
 		<form method="post">
 			<div>
 					<input type="text" name="isSearch" /> 
@@ -116,7 +185,7 @@ dl.faq dd {
 					
 			</div>
 		</form>
-	</div>
+	</div> -->
 
 	${pagingHtml}
 	<input type="button" onclick="location.href='faqWrite.see'" value="글쓰기" />
