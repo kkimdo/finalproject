@@ -13,6 +13,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- faq -->
 		<typeAlias alias="faqModel" type="movie.faq.FaqModel" />	
+		
+		<!-- qna -->
+		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />	
 	</typeAliases>
 	
 	<mappers>
@@ -22,6 +25,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- faq -->
 		<mapper resource="config/mybatis/faq_SQL.xml"/>
+		
+		<!-- qna -->
+		<mapper resource="config/mybatis/qna_SQL.xml"/>
 	
 	</mappers>
 	

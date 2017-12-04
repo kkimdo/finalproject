@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- qna namespace -->
+<mapper namespace="qna">
+
+	<resultMap type="qnaModel" id="qnaModelRes">
+		<result property="qna_no" column="qna_no" />
+		<result property="qna_id" column="qna_id" />
+		<result property="qna_name" column="qna_name" />
+		<result property="qna_phone" column="qna_phone" />
+		<result property="qna_email" column="qna_email" />
+		<result property="qna_category" column="qna_category" />
+		<result property="qna_area" column="qna_area" />
+		<result property="qna_subject" column="qna_subject" />
+		<result property="qna_content" column="qna_content" />
+		<result property="qna_orgfile" column="qna_orgfile" />
+		<result property="qna_savfile" column="qna_savfile" />
+		<result property="qna_date" column="qna_date" />
+
+	</resultMap>
+	
+	<!-- 글 작성 -->
+	<insert id="qnaWrite" parameterType="qnaModel">
+		insert into qna(qna_no, qna_id, qna_name, qna_email, qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date)
+		values (qna_no_seq.NEXTVAL, #{qna_id}, #{qna_name}, #{qna_email}, #{qna_category}, #{qna_area}, #{qna_subject}, #{faq_content}, #{qna_orgfile}, #{qna_savfile}, sysdate)
+	</insert>
+	
+</mapper>
