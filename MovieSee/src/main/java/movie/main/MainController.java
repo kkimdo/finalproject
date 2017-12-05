@@ -19,7 +19,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		return mav;
-		//fffff
+		
 	}
 	
 }
