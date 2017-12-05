@@ -5,6 +5,7 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
        
 <tiles-definitions>
+
 	<!-- main page -->
 	<definition name="main" template="/WEB-INF/views/tiles/main/main_layout.jsp">
 		<put-attribute name="title" value="MovieSee" />
@@ -14,6 +15,19 @@
 	</definition>
 	
 	<!-- notice -->
+	<definition name="adminNoticeList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeList.jsp" />
+	</definition>
+	<definition name="adminNoticeView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeView.jsp" />
+	</definition>
+	<definition name="adminNoticeUpdate" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeUpdate.jsp" />
+	</definition>
+	<definition name="adminNoticeWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
+	</definition>
 	
+	<!-- qna -->
 
 </tiles-definitions>

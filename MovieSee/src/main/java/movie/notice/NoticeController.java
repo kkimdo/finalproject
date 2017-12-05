@@ -34,7 +34,7 @@ public class NoticeController {
 	// value="", method="전송방식"
 	@RequestMapping(value="/noticeWrite.see", method=RequestMethod.GET)
 	public String NoticeWriteForm(){
-		return "admin/notice/AdminNoticeWrite"; //AdminNoticeWrite.jsp 로 이동
+		return "adminNoticeWrite"; //tiles의 이름이 adminNoticeWrite로 이동
 	}
 	
 	// 게시글 작성 처리
@@ -77,9 +77,9 @@ public class NoticeController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장
-		mav.setViewName("admin/notice/AdminNoticeList"); //뷰를 AdminNoticeList.jsp 로 설정
+		mav.setViewName("adminNoticeList"); //뷰를 tiles의 이름이 adminNoticeList로 이동
 		
-		return mav; //AdminNoticeList.jsp로 List가 전달된다.
+		return mav;
 	}
 	
 	// 게시글 상세 내용 조회, 게시글 조회수 증가 처리
@@ -98,7 +98,7 @@ public class NoticeController {
 		//뷰에 전달할 데이터
 		mav.addObject("noticeModel", noticeService.NoticeView(notice_no));
 		//뷰의 이름
-		mav.setViewName("admin/notice/AdminNoticeView");
+		mav.setViewName("adminNoticeView");
 		
 		return mav;
 	}
@@ -110,7 +110,7 @@ public class NoticeController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("noticeModel", noticeService.NoticeView(notice_no));
-		mav.setViewName("admin/notice/AdminNoticeUpdate");
+		mav.setViewName("adminNoticeUpdate");
 		
 		return mav;
 
