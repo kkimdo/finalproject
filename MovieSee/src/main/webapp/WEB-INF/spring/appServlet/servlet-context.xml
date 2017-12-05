@@ -22,7 +22,7 @@
     </mvc:interceptors>
 
 	<resources mapping="/resources/**" location="/resources/" />
-
+	
 	<!-- UrlBasedViewResolver : ViewResolver의 구현체로 특별한 맵핑 정보 없이 view 이름을 URL로 
 		사용, View 이름과 실제 view 자원과의 이름이 같을 때 사용 
 		만약, Controller에서 넘겨준 ModelAndView 값이 index라면, 

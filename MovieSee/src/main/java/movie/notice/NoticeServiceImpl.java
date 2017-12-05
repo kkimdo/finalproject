@@ -18,7 +18,7 @@ public class NoticeServiceImpl implements NoticeService {
 	public int NoticeWrite(NoticeModel noticeModel) throws Exception {
 		
 		//replace(A, B) A를 B로 변경
-		String content = noticeModel.getNotice_content().replaceAll("\r\n","<br>"); //줄바꿈 문자 처리
+		String content = noticeModel.getNotice_content().replace("\r\n","<br>"); //줄바꿈 문자 처리
 		
 		noticeModel.setNotice_content(content);
 		
