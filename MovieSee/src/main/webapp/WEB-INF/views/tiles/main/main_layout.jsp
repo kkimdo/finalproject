@@ -17,6 +17,8 @@
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?v=201712050000" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?v=201712050000" />
 
+<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+
 </head>
 <body>
 

@@ -7,7 +7,7 @@
 	font-weight: 400;
 	src: url('/LCHS/Image/font/NanumGothic.eot');
 	src: url('/LCHS/Image/font/NanumGothic.eot?#iefix')
-		format('embedded-opentype'), url('/LCHS/Image/font/NanumGothic.woff2')
+		format('embedded-opentype'), url('/movie/images/font/NanumGothic.woff2')
 		format('woff2'), url('/LCHS/Image/font/NanumGothic.woff')
 		format('woff'), url('/LCHS/Image/font/NanumGothic.ttf')
 		format('truetype');
@@ -26,7 +26,7 @@ src:local(※), url(/LCHS/Image/font/NanumGothic.woff) format('woff');
 	src: url('/LCHS/Image/font/LinLibertine_R.eot');
 	src: url('/LCHS/Image/font/LinLibertine_R.eot?#iefix')
 		format('embedded-opentype'),
-		url('/LCHS/Image/font/LinLibertine_R.woff') format('woff');
+		url('/movie/images/font/LinLibertine_R.woff') format('woff');
 }
 
 html {

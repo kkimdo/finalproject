@@ -62,8 +62,8 @@
 
 								</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
 									class="ipt_txt mt0"> <input type="submit" value="검색"
-									class="boardBt"><!--  <input type="button" value="글쓰기"
-									onclick="btnWrite();" class="boardBt" /> --> <span> <!-- 레코드의 갯수를 출력 -->
+									class="boardBt"><input type="button" value="글쓰기"
+									onclick="btnWrite();" class="boardBt" /> <span> <!-- 레코드의 갯수를 출력 -->
 									<strong>${map.count}</strong>개의 게시물이 있습니다.
 								</span>
 							</div>
@@ -125,10 +125,10 @@
 									<c:choose>
 										<c:when test="${num == map.c_Paging.curPage}">
 											<span class="on">${num}</span>&nbsp;
-                        </c:when>
+                        				</c:when>
 										<c:otherwise>
 											<a href="javascript:list('${num}')">${num}</a>&nbsp;
-                        </c:otherwise>
+                        				</c:otherwise>
 									</c:choose>
 								</c:forEach>
 							</span>
