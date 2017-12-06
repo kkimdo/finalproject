@@ -28,6 +28,18 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
 	</definition>
 	
-	<!-- qna -->
-
+	<!-- faq -->
+	<definition name="adminFaqList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqList.jsp" />
+	</definition>
+	<definition name="adminFaqView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqView.jsp" />
+	</definition>
+	<definition name="adminFaqUpdate" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqUpdate.jsp" />
+	</definition>
+	<definition name="adminFaqWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
+	</definition>
+	
 </tiles-definitions>
