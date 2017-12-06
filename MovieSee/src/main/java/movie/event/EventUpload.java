@@ -1,6 +1,7 @@
 package movie.event;
 
 import java.io.File;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -24,18 +25,44 @@ public class EventUpload {
 	@RequestMapping(value="/eventWrite.see", method=RequestMethod.POST)
 	public ModelAndView EventWrite(MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
 		
-		MultipartFile multipartFile = multipartHttpServletRequest.getFile("imageFile");
+		String originalName = "";
+		String root = multipartHttpServletRequest.getSession().getServletContext().getRealPath("/");
+		String uploadPath = root + "resources/uploads/";
 		
-		String savedName = multipartFile.getOriginalFilename();
-		String uploadPath = multipartHttpServletRequest.getSession().getServletContext().getRealPath("uploads/event/");
+		System.out.println("root : " + root);
+		System.out.println("uploadPath : " + uploadPath);
 		
-		File file = new File(uploadPath + savedName);
+		File dir = new File(root);
+        if(!dir.isDirectory()){
+            dir.mkdir();
+        }
         
-		multipartFile.transferTo(file);
-		
+        Iterator<String> files = multipartHttpServletRequest.getFileNames();
+       
+        while(files.hasNext()){
+        	
+            String uploadFile = files.next();
+                         
+            MultipartFile mFile = multipartHttpServletRequest.getFile(uploadFile);
+            
+            String fileName = mFile.getOriginalFilename();
+            System.out.println("실제 파일 이름 : " +fileName);
+            
+            originalName = System.currentTimeMillis()+"."
+                    +fileName.substring(fileName.lastIndexOf(".")+1);
+             
+            try {
+            	
+            	mFile.transferTo(new File(uploadPath + originalName));
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         ModelAndView mav = new ModelAndView();
         
-        mav.addObject("savedName", savedName);
+        mav.addObject("originalName", originalName);
         mav.setViewName("/admin/event/AdminEventView");
         
         return mav;

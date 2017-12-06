@@ -11,7 +11,7 @@
 </head>
 <body>
 
-파일명 : ${savedName}
+파일명 : ${originalName}
 
 </body>
 </html>
