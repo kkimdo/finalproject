@@ -1,10 +1,11 @@
 package movie.event;
 
 import java.io.File;
-import java.util.Iterator;
+import java.util.UUID;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,41 +26,30 @@ public class EventUpload {
 	@RequestMapping(value="/eventWrite.see", method=RequestMethod.POST)
 	public ModelAndView EventWrite(MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
 		
-		String originalName = "";
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile("imageFile");
+		
+		String originalName = multipartFile.getOriginalFilename();
 		String root = multipartHttpServletRequest.getSession().getServletContext().getRealPath("/");
-		String uploadPath = root + "resources/uploads/";
+		//String a = "C:/github/finalproject/MovieSee/src/main/webapp/";
+		String savedPath = root + "resources/uploads/";
+		byte[] fileData = multipartFile.getBytes();
 		
+		System.out.println("originalName : " + originalName);
 		System.out.println("root : " + root);
-		System.out.println("uploadPath : " + uploadPath);
+		System.out.println("savedPath : " + savedPath);
 		
-		File dir = new File(root);
-        if(!dir.isDirectory()){
-            dir.mkdir();
-        }
+		// uuid 생성(Universal Unique IDentifier, 범용 고유 식별자)
+		UUID uuid = UUID.randomUUID();
+		
+		//랜덤 생성 + 파일 이름 저장
+		String savedName = uuid.toString() + "_" + originalName;
+		File file = new File(savedPath + savedName);
+		// 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사
+        // FileCopyUtils.copy(바이트배열, 파일객체)
+        FileCopyUtils.copy(fileData, file);
         
-        Iterator<String> files = multipartHttpServletRequest.getFileNames();
-       
-        while(files.hasNext()){
-        	
-            String uploadFile = files.next();
-                         
-            MultipartFile mFile = multipartHttpServletRequest.getFile(uploadFile);
-            
-            String fileName = mFile.getOriginalFilename();
-            System.out.println("실제 파일 이름 : " +fileName);
-            
-            originalName = System.currentTimeMillis()+"."
-                    +fileName.substring(fileName.lastIndexOf(".")+1);
-             
-            try {
-            	
-            	mFile.transferTo(new File(uploadPath + originalName));
-            
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
+		multipartFile.transferTo(file);
+		
         ModelAndView mav = new ModelAndView();
         
         mav.addObject("originalName", originalName);
