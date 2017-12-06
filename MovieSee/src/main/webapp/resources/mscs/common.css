@@ -12162,7 +12162,7 @@
 .faqTop5 li .qTit a {
 	display: block;
 	padding: 15px 20px;
-	background: url('/LCHS/Image/Bg/bg_arrow_faq.png') no-repeat 930px 50%;
+	background: url() no-repeat 930px 50%;
 }
 
 .faqTop5 li .qTit .qnTit {
@@ -12181,7 +12181,7 @@
 	height: 20px;
 	vertical-align: middle;
 	margin-right: 10px;
-	background: url('/LCHS/Image/Bg/bg_faq.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_faq.png') no-repeat 0 0;
 	font-size: 15px;
 	color: #f6f6e9;
 	font-family: 'linlivertine';

@@ -76,7 +76,7 @@ public class FaqController {
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("faqList", faqList);
-			mav.setViewName("admin/faq/AdminFaqList"); // jsp
+			mav.setViewName("adminFaqList"); 
 
 			return mav;
 			
@@ -102,7 +102,7 @@ public class FaqController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faqList", faqList);
-		mav.setViewName("admin/faq/AdminFaqList"); // jsp
+		mav.setViewName("adminFaqList"); 
 
 		
 		
@@ -141,7 +141,7 @@ public class FaqController {
 		// 뷰에 전달할 데이터
 		mav.addObject("faqModel", faqService.FaqView(faq_no));
 		// 뷰의 이름
-		mav.setViewName("admin/faq/AdminFaqView");
+		mav.setViewName("adminFaqView");
 
 		return mav;
 	}
@@ -153,7 +153,7 @@ public class FaqController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("faqModel", faqService.FaqView(faq_no));
-		mav.setViewName("admin/faq/AdminFaqUpdate");
+		mav.setViewName("adminFaqUpdate");
 
 		return mav;
 

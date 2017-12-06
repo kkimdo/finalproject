@@ -5,6 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<%
+	String cp = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,144 +18,30 @@
 
 <script type="text/javascript">
 	$(function() {
-		$(".faq > dd").hide();
-
-		$(".faq > dt").click(function(event) {
+		$(".geunjae > .question > .a").hide(); //적용시 바로 안보이게
+		
+		$(".geunjae > .question > .q").click(function(event) {
 
 			$(event.currentTarget).next().slideToggle(200, function() {
-				var $dd = $(this);
-				var $dl = $dd.prev();
-				console.log($dd.css("display"));
+				var $a = $(this);
+				var $geunjae = $a.prev();
+				console.log($a.css("display"));
 
-				if ($dd.css("display") == "none") {
-					$dl.find("span").html("▼");
+				/* if ($a.css("display") == "none") {
+					$geunjae.find("span").html("▼");
 				} else {
-					$dl.find("span").html("▲");
-				}
+					$geunjae.find("span").html("▲");
+				} */
 			});
 		});
 	});
-</script>
-<style>
-dl.faq {
-	border-collapse: separate;
-	border-spacing: 1px;
-	text-align: left;
-	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	/* border: 1px solid red; */
-	margin: 20px 10px;
-}
-
-dl.faq dd {
-	position: relative;
-	width: 980px;
-	padding: 30px 20px 30px 70px;
-	background: #f5f5f5;
-	font-size: 13px;
-	line-height: 22px;
-	color: #666;
-}
-
-.shPeriod {
-	padding: 20px 30px;
-	padding-top: 20px;
-	padding-right: 30px;
-	padding-bottom: 20px;
-	padding-left: 30px;
-	background: #f5f5f5;
-}
-
-.shPeriod .tit {
-	float: left;
-	font-size: 14px;
-	line-height: 30px;
-}
-
-.shPeriod .tit {
-	display: inline-block;
-	width: 111px;
-	font-weight: bold;
-	color: #231f20;
-}
-
-.cs_center {
-	width: 980px;
-	margin: 0 auto;
-	padding: 50px 0 50px;
-	color: #231f20;
-}
-
-.shPeriod .goods input[type="text"] {
-	width: 349px;
-	height: 30px;
-	padding: 0 10px;
-	border: none;
-	font-size: 14px;
-	color: #666;
-	line-height: 30px;
-	background: #fff;
-}
-
-.btn_view {
-	display: block;
-	width: 100%;
-	height: 40px;
-	padding: 8px 0;
-	background: #efefef;
-	border: 1px solid #dedede;
-	text-align: center;
-	font-size: 14px;
-	color: #231f20;
-	font-weight: bold;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
-
-a {
-	text-decoration: none;
-	color: #555;
-}
-
-.faqTop5 {
-	width: 100%;
-	margin-bottom: 50px;
-	border-bottom: 1px solid #c0c0c0;
-	border-top: 1px solid #c0c0c0;
-}
-ol, ul, li {
-    list-style: none;
-}
-body {
-    font-family: "나눔 고딕", 'Nanum Gothic', 'ng';
-    font-weight: 400;
-    color: #555;
-    line-height: 1;
-}
-.faqTop5 li .qTit .num {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 10px;
-    background: url(\Users\user\Desktop\bg_faq.png) no-repeat 0 0;
-    background-image: url(\Users\user\Desktop\bg_faq.png);
-    font-size: 15px;
-    color: #d01616;
-    font-family: 'linlivertine';
-    text-align: center;
-    line-height: 20px;
-}
-	
-</style>
+</script> 
 
 </head>
 
 
 <body>
 	<h1>FAQ</h1>
-
 	<!-- 검색 -->
 	<div class="shPeriod" id="searchArea">
 		<form method="post">
@@ -176,8 +65,8 @@ body {
 				<span title="답변" class="a">A</span><font face="나눔고딕">롯데시네마는
 					영화 및 비디오진흥에 관한 법률(이하 영비법)을 준수합니다.<br>영비법 29조에 따르면 [만 12세
 					이상관람가/ 만 15세 이상관람가]의 등급이라도 <br>부모 등 보호자를 동반하는 경우 어린이(유아) 동반이
-					가능합니다.<br>반드시 보호자의 동반이 필요함을 양지하여 주시기 바랍니다.<br>
-				<font color="#ff0000">단, 청소년관람불가 영화는 보호자 동반과 관계없이 <br>만
+					가능합니다.<br>반드시 보호자의 동반이 필요함을 양지하여 주시기 바랍니다.<br> <font
+					color="#ff0000">단, 청소년관람불가 영화는 보호자 동반과 관계없이 <br>만
 						18세미만이거나 연령 조건을 만족하여도 초중고 재학중인 청소년 및 영유아 관람이 절대 불가합니다.
 				</font>
 				</font>
@@ -268,7 +157,66 @@ body {
 		</li>
 	</ol>
 
+	<table class="tbl_faq" style="table-layout: fixed">
+		<caption>faq 목록</caption>
+		<colgroup>
+			<col style="width: 190px">
+			<col style="width: 790px">
+		</colgroup>
+
+		<thead>
+			<tr>
+				<th scope="col">분류</th>
+				<th scope="col">질문</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="subject">
+				<td class="q">
+					<a href="#none">제목</a>
+				</td>
+				<!-- <td class="a">
+					내용
+				</td> -->
+			</tr>
+			<tr class="content">
+				<td class="a">
+					<div>
+						<span></span>
+						<p>11</p>
+					</div>
+				</td>
+			</tr>
+		</tbody>	
+	</table>
+	
 	<c:forEach var="faqList" items="${faqList}" varStatus="stat">
+		<%-- <div class="faq">
+				<ul class="faqBody">
+					<li class="article" id="a1">
+						<p class="q">
+							<a href="#a1">${faqList.faq_subject}</a>
+						</p>
+						<p class="a">${faqList.faq_content}</p>
+					</li>
+				</ul>
+			</div> --%>
+
+		<%-- 	<div class="faq">
+				<ul class="faqBody">
+					<li class="article" id="a1">
+						<p class="q">
+							<a href="#a1"><span>▲</span>${faqList.faq_subject}</a>
+						</p>
+						<p class="a">${faqList.faq_content}</p>
+					</li>
+				</ul>
+			</div> --%>
+	</c:forEach>
+
+	
+
+	<%-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
 
 		<dl class="faq">
 			<dt>
@@ -279,8 +227,7 @@ body {
 			<dd>${faqList.faq_content}</dd>
 		</dl>
 
-	</c:forEach>
-
+	</c:forEach> --%>
 
 	<%-- <table>
 		<tr>
