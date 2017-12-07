@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import movie.notice.NoticeModel;
 
 @Service
 public class FaqServiceImpl implements FaqService {
@@ -17,7 +16,7 @@ public class FaqServiceImpl implements FaqService {
 
 	// 게시글 작성
 	@Override
-	public int FaqWrite(FaqModel faqModel) {
+	public int FaqWrite(FaqModel faqModel) throws Exception {
 
 		// replace(A, B) A를 B로 변경
 		String content = faqModel.getFaq_content().replace("\r\n", "<br>"); // 줄바꿈 문자 처리
@@ -29,19 +28,32 @@ public class FaqServiceImpl implements FaqService {
 
 	// 게시글 전체 목록
 	@Override
-	public List<FaqModel> FaqList() {
-		return faqDAO.FaqList();
+	public List<FaqModel> FaqListAll(int start, int end, String searchOption, String keyword) throws Exception {
+		return faqDAO.FaqListAll(start, end, searchOption, keyword);
+	}
+	
+	// 게시글 조회수 Top5 목록
+	@Override
+	public List<FaqModel> FaqTop5List() throws Exception {
+		return faqDAO.FaqTop5List();
+	}
+	
+
+	// 게시글 레코드 갯수
+	@Override
+	public int count(String searchOption, String keyword) throws Exception {
+		return faqDAO.count(searchOption, keyword);
 	}
 
 	// 게시글 상세보기
 	@Override
-	public FaqModel FaqView(int faq_no) {
+	public FaqModel FaqView(int faq_no) throws Exception {
 		return faqDAO.FaqView(faq_no);
 	}
 
 	// 게시글 조회수 증가
 	@Override
-	public void FaqHitUpdate(int faq_no, HttpSession session) {
+	public void FaqHitUpdate(int faq_no, HttpSession session) throws Exception {
 
 		long update_time = 0; // 세션에 저장된 조회시간 검색
 
@@ -60,7 +72,6 @@ public class FaqServiceImpl implements FaqService {
 
 			faqDAO.FaqHitUpdate(faq_no);
 
-			// 세션에 시간을 저장 : "update_time_" + notice_no 는 다른 변수와 중복되지 않게 한것
 			session.setAttribute("update_time_" + faq_no, current_time);
 		}
 
@@ -68,7 +79,7 @@ public class FaqServiceImpl implements FaqService {
 
 	// 게시글 수정
 	@Override
-	public int FaqUpdate(FaqModel faqModel) {
+	public int FaqUpdate(FaqModel faqModel) throws Exception {
 
 		// 수정 다시
 		String content = faqModel.getFaq_content().replaceAll("<br>", "\r\n");
@@ -81,16 +92,10 @@ public class FaqServiceImpl implements FaqService {
 
 	// 게시글 삭제
 	@Override
-	public void FaqDelete(int faq_no) {
+	public void FaqDelete(int faq_no) throws Exception {
 
 		faqDAO.FaqDelete(faq_no);
 
-	}
-
-	// 검색
-	@Override
-	public List<FaqModel> FaqSearchList(String isSearch) {
-		return faqDAO.FaqSearchList(isSearch);
 	}
 
 }
