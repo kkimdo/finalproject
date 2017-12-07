@@ -1,6 +1,8 @@
 package movie.faq;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import movie.common.paging.Paging;
+
+import movie.common.paging.commonPaging;
 
 
 @Controller
@@ -26,91 +29,39 @@ public class FaqController {
 	@Inject
 	private FaqService faqService;
 
-	// paging
-	private int currentPage = 1; // 현재 페이지
-	private int totalCount; // 총 게시물의 수
-	private int blockCount = 4; // 현재 페이지에 보여줄 게시물의 갯수
-	private int blockPage = 5; // 보여줄 페이지의 갯수
-	private String pagingHtml; // paging을 구현한 HTML
-	private Paging page; // 페이징 클래스의 변수 선언
-
-	// 검색
-	private String isSearch;
-
 	// 글 목록
 	@RequestMapping(value = "/faqList.see")
-	public ModelAndView FaqList(HttpServletRequest request) {
-
+	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
+	public ModelAndView FaqList(@RequestParam(defaultValue = "faq_subject") String searchOption,
+								@RequestParam(defaultValue = "") String keyword, 
+								@RequestParam(defaultValue = "1") int curPage) throws Exception {
+		
+		//레코드의 갯수 계산
+		int count = faqService.count(searchOption, keyword);
+		
+		//페이지 나누기 관련 처리
+		commonPaging c_Paging = new commonPaging(count, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
+		
+		List<FaqModel> faqList = faqService.FaqListAll(start, end, searchOption, keyword);
+		List<FaqModel> faqTop5List = faqService.FaqTop5List();
+		
+		//데이터를 맵에 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("faqList", faqList);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
+		map.put("faqTop5List", faqTop5List);
+		
 		ModelAndView mav = new ModelAndView();
-
-		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
-				|| request.getParameter("currentPage").equals("0")) {
-			currentPage = 1;
-		} else {
-
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
-
-		List<FaqModel> faqList = null;
-		// 검색
-		isSearch = request.getParameter("isSearch");
-		// 검색했을 때
-		if (isSearch != null) {
-
-			faqList = faqService.FaqSearchList(isSearch);
-
-			totalCount = faqList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList", isSearch);
-			pagingHtml = page.getPagingHtml().toString();
-
-			int lastCount = totalCount;
-
-			if (page.getEndCount() < totalCount) {
-				lastCount = page.getEndCount() + 1;
-			}
-
-			faqList = faqList.subList(page.getStartCount(), lastCount);
-
-			mav.addObject("isSearch", isSearch);
-			mav.addObject("totalCount", totalCount);
-			mav.addObject("pagingHtml", pagingHtml);
-			mav.addObject("currentPage", currentPage);
-			mav.addObject("faqList", faqList);
-			mav.setViewName("adminFaqList"); 
-
-			return mav;
-			
-
-		}
-		// 검색하지 않았을 때
-		faqList = faqService.FaqList();
-		
-		totalCount = faqList.size();
-		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
-		pagingHtml = page.getPagingHtml().toString();
-
-		int lastCount = totalCount;
-
-		if (page.getEndCount() < totalCount) {
-			lastCount = page.getEndCount() + 1;
-		}
-
-		faqList = faqList.subList(page.getStartCount(), lastCount);
-
-		mav.addObject("totalCount", totalCount);
-		mav.addObject("pagingHtml", pagingHtml);
-		mav.addObject("currentPage", currentPage);
-		mav.addObject("faqList", faqList);
-		mav.setViewName("adminFaqList"); 
-
-		
+		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장
+		mav.setViewName("adminFaqList"); //뷰를 tiles의 이름이 adminFaqList로 이동
 		
 		return mav;
-		
-		
 	}
-
 	// 게시글 작성 화면
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
 	public String FaqWriteForm() {
@@ -131,8 +82,8 @@ public class FaqController {
 	}
 
 	// 글 상세보기
-	@RequestMapping(value = "/faqView.see")
-	public ModelAndView FaqView(@RequestParam int faq_no, HttpSession session) {
+	@RequestMapping(value = "/faqView.see", method=RequestMethod.GET)
+	public ModelAndView FaqView(@RequestParam int faq_no, HttpSession session) throws Exception {
 
 		// 조회수 증가 처리
 		faqService.FaqHitUpdate(faq_no, session);
@@ -148,7 +99,7 @@ public class FaqController {
 
 	// 게시글 수정 폼
 	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.GET)
-	public ModelAndView FaqUpdateForm(@RequestParam int faq_no) {
+	public ModelAndView FaqUpdateForm(@RequestParam int faq_no) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 
@@ -161,7 +112,7 @@ public class FaqController {
 
 	// 게시글 수정
 	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.POST)
-	public ModelAndView FaqUpdate(@ModelAttribute FaqModel faqModel) {
+	public ModelAndView FaqUpdate(@ModelAttribute FaqModel faqModel) throws Exception { 
 
 		ModelAndView mav = new ModelAndView();
 
@@ -174,7 +125,7 @@ public class FaqController {
 
 	// 게시글 삭제
 	@RequestMapping(value = "/faqDelete.see")
-	public String FaqDelete(@RequestParam int faq_no) {
+	public String FaqDelete(@RequestParam int faq_no) throws Exception {
 
 		faqService.FaqDelete(faq_no);
 
