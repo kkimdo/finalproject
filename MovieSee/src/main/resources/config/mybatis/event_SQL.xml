@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이벤트 namespace -->
+<mapper namespace="event">
+	
+	<resultMap type="eventModel" id="eventModelRes">
+		<result property="event_no" column="event_no" />
+		<result property="event_subject" column="event_subject" />
+		<result property="event_content" column="event_content" />
+		<result property="event_hit" column="event_hit" />
+		<result property="event_start_date" column="event_start_date" />
+		<result property="event_end_date" column="event_end_date" />
+		<result property="event_img" column="event_img" />
+		<result property="event_category" column="event_category" />
+	</resultMap>
+	
+	<sql id="select-all">
+		select * from event
+	</sql>
+	
+	
+
+</mapper>

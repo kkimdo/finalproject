@@ -10,6 +10,8 @@ public class EventModel {
 	private Date event_start_date;
 	private Date event_end_date;
 	private String event_img;
+	private int event_hit;
+	private String event_category;
 	
 	public int getEvent_no() {
 		return event_no;
@@ -47,7 +49,17 @@ public class EventModel {
 	public void setEvent_img(String event_img) {
 		this.event_img = event_img;
 	}
-	
-	
+	public int getEvent_hit() {
+		return event_hit;
+	}
+	public void setEvent_hit(int event_hit) {
+		this.event_hit = event_hit;
+	}
+	public String getEvent_category() {
+		return event_category;
+	}
+	public void setEvent_category(String event_category) {
+		this.event_category = event_category;
+	}
 
 }
