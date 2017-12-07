@@ -18,7 +18,7 @@ public class EventUpload {
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
-	@RequestMapping(value="/eventWrite.see", method=RequestMethod.GET)
+	/*@RequestMapping(value="/eventWrite.see", method=RequestMethod.GET)
 	public String EventWriteForm(){
 		return "/admin/event/AdminEventWrite";
 	}
@@ -28,35 +28,37 @@ public class EventUpload {
 		
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("imageFile");
 		
+		log.info("파일이름 :" + multipartFile.getOriginalFilename());
+		log.info("파일크기 : " + multipartFile.getSize());
+		log.info("컨텐트 타입 : " + multipartFile.getContentType());
+		
 		String originalName = multipartFile.getOriginalFilename();
-		String root = multipartHttpServletRequest.getSession().getServletContext().getRealPath("/");
-		//String a = "C:/github/finalproject/MovieSee/src/main/webapp/";
-		String savedPath = root + "resources/uploads/";
+		//String root = multipartHttpServletRequest.getSession().getServletContext().getRealPath("/");
+		String path = "C:/github/finalproject/MovieSee/src/main/webapp/uploads/event/";
+		
+		//String savedPath = root + "resources/uploads/";
 		byte[] fileData = multipartFile.getBytes();
 		
 		System.out.println("originalName : " + originalName);
-		System.out.println("root : " + root);
-		System.out.println("savedPath : " + savedPath);
+		System.out.println("path : " + path);
 		
 		// uuid 생성(Universal Unique IDentifier, 범용 고유 식별자)
 		UUID uuid = UUID.randomUUID();
 		
 		//랜덤 생성 + 파일 이름 저장
 		String savedName = uuid.toString() + "_" + originalName;
-		File file = new File(savedPath + savedName);
+		File file = new File(path , savedName);
 		// 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사
         // FileCopyUtils.copy(바이트배열, 파일객체)
         FileCopyUtils.copy(fileData, file);
         
-		multipartFile.transferTo(file);
-		
         ModelAndView mav = new ModelAndView();
         
-        mav.addObject("originalName", originalName);
+        mav.addObject("savedName", savedName);
         mav.setViewName("/admin/event/AdminEventView");
         
         return mav;
-	}
+	}*/
 
 	
 }
