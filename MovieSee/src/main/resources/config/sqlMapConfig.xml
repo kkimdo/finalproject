@@ -8,6 +8,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 
 	<typeAliases>  
 	
+		<!-- event -->
+		<typeAlias alias="eventModel" type="movie.event.EventModel"/>
+	
 		<!-- notice --> 
 		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />	   
 		
@@ -15,10 +18,14 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="faqModel" type="movie.faq.FaqModel" />	
 		
 		<!-- qna -->
-		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />	
+		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />
+			
 	</typeAliases>
 	
 	<mappers>
+	
+		<!-- event -->
+		<mapper resource="config/mybatis/event_SQL.xml"/>
 	
 		<!-- notice -->
 		<mapper resource="config/mybatis/notice_SQL.xml"/>

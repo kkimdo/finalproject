@@ -11,7 +11,7 @@
 </head>
 <body>
 
-파일명 : ${oldNames}
+파일명 : ${fullName}
 
 </body>
 </html>
