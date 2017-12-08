@@ -1,5 +1,7 @@
 package movie.event;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,7 +23,17 @@ public class EventServiceImpl implements EventService{
 	}
 	
 	@Override
-	public int EventGetSEQ() {
+	public int EventGetSEQ() throws Exception{
 		return eventDAO.EventGetSEQ();
+	}
+	
+	@Override
+	public List<EventModel> EventListAll(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventListAll(start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public int count(String searchOption, String keyword) throws Exception {
+		return eventDAO.count(searchOption, keyword);
 	}
 }

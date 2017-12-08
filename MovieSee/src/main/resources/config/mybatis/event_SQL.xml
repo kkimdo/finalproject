@@ -20,6 +20,45 @@
 		select * from event
 	</sql>
 	
+	<!-- 페이징 sql -->
+	<sql id="pagingHeader">
+		select * from (select rownum as rn, a.* from (
+	</sql>
+	<sql id="pagingFooter">
+		)a ) where rn between #{start} and #{end}
+	</sql>
+	
+	<!-- 검색 조건 -->
+	<sql id="search">
+		<choose>
+			<!-- 검색 옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				where (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%' or event_category like '%'||#{keyword}||'%')
+			</when>
+			
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				where ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 게시글 목록 조회 및 검색 조회 까지 -->
+	<select id="eventListAll" resultMap="eventModelRes">
+		<include refid="pagingHeader" />
+		select rownum, event_no, event_subject, event_content, event_start_date, event_end_date, event_hit, event_category, event_original_file_name, event_stored_file_name from event
+		<include refid="search" />
+		order by event_no desc
+		<include refid="pagingFooter"></include>
+	</select>
+	
+	<!-- 게시글 레코드 갯수 -->
+	<select id="count" resultType="int">
+		select count(*) from event
+		<!-- where 절을 include 태그로 삽입 -->
+		<include refid="search" />
+	</select>
+	
 	<!-- 게시글 작성 -->
 	<select id="eventWrite" parameterType="eventModel">
 		insert into event (event_no, event_subject, event_content, event_start_date, event_end_date, event_original_file_name, event_stored_file_name, event_category) 

@@ -1,54 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>이벤트</title>
 </head>
 <body>
 
 	<div id="container" class="sub">
         <!-- content -->
         <div id="content">
-            <!-- event_cwrap -->
-            <div class="event_cwrap">
-                <div class="clear_fix">
-                    <h2 class="sub_stit">영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span></h2><!--20170308 sunho 예매 삭제 -->
-
-                    <div class="category">
-                        <fieldset>
-                            <legend>분야별 선택 검색</legend>
-                            <input type="text" class="ipt_txt" title="검색어 입력" onkeydown="keyDownEventLists(event);">
-                            <a href="javascript:void(0);" class="btn_search">검색</a>
-                        </fieldset>
-                    </div>
+        	<div class="event_Hwrap allevPg">
+        		<ul class="btnc_right">
+                    <li><a href="#none">지난 이벤트</a></li>
+                    <li></li>
+                </ul>
+                <div id="clear_fix_20" class="clear_fix" style="">
+                    <h2 class="sub_stit">영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span></h2>
+                    <!---20160307 sunho 영화&amp;예매 에서 영화-->
+                    <a href="javascript:void(0);" onclick="javascript:goToEventList('20'); return false;" class="btn_more" title="영화 더보기">MORE</a>
                 </div>
-                
                 	<!-- emovie_list -->
-                	<ul class="emovie_list">
+                <ul class="emovie_list">
+                	<c:forEach var="eventList" items="${map.eventList}">
                 		<li>
                 			<a href="#none" onclick="">
-                				<img src ="/movie/resources/uploads/event/eventImage_91.jpg" alt="메리와 마녀의 꽃 선착순 현장 이벤트" />
+                				<%-- <img src ="/movie/resources/uploads/event/#{eventList.event_stored_file_name}" alt="${eventList.event_subject}" /> --%>
                 			</a>
                 			<dl class="imgsub">
                 				<dt class="event">
                 					<a href="#none" onclick="javascript:goEventDtailsMove(&quot;201010016917193&quot;, &quot;101&quot;, &quot;0&quot;, &quot;1&quot;); return false;">
-                						&lt;메리와 마녀의 꽃&gt; 현장경품 이벤트
+                						${eventList.event_subject}
                 					</a>
                 				</dt>
                 				<dd class="eventdate">
                 					기간
                 				 	<span>
-                						${eventModel.event_start_date} ~ ${eventModel.event_end_date}
+                						${eventList.event_start_date} ~ ${eventList.event_end_date}
                 					</span>
                 				</dd>
                 			</dl>
                 		</li>
-                	</ul>
-                </div>
+                	 </c:forEach>
+                </ul>
 			</div>
-		</div>
+		</div>	
+	</div>
 
 
 </body>

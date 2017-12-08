@@ -21,6 +21,9 @@
 	<definition name="adminEventView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventView.jsp" />
 	</definition>
+	<definition name="adminEventList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList.jsp" />
+	</definition>
 	
 	<!-- notice -->
 	<definition name="adminNoticeList" extends="main">
