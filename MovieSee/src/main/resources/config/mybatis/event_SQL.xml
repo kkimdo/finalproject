@@ -11,7 +11,8 @@
 		<result property="event_hit" column="event_hit" />
 		<result property="event_start_date" column="event_start_date" />
 		<result property="event_end_date" column="event_end_date" />
-		<result property="event_img" column="event_img" />
+		<result property="event_original_file_name" column="event_original_file_name" />
+		<result property="event_stored_file_name" column="event_stored_file_name" />
 		<result property="event_category" column="event_category" />
 	</resultMap>
 	
@@ -19,6 +20,15 @@
 		select * from event
 	</sql>
 	
+	<!-- 게시글 작성 -->
+	<select id="eventWrite" parameterType="eventModel">
+		insert into event (event_no, event_subject, event_content, event_start_date, event_end_date, event_original_file_name, event_stored_file_name, event_category) 
+		values (event_no_seq.NEXTVAL, #{event_subject}, #{event_content}, to_date(#{event_start_date}, 'YYYY.MM.DD'), to_date(#{event_end_date}, 'YYYY.MM.DD'), #{event_original_file_name}, #{event_stored_file_name}, #{event_category})
+	</select>
 	
+	<!-- 이벤트 해당 게시글 번호 -->
+	<select id="eventGetSEQ" resultType="int">
+		select event_no_seq.NEXTVAL from dual
+	</select>
 
 </mapper>

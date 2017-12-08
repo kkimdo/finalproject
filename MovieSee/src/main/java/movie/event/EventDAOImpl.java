@@ -16,4 +16,9 @@ public class EventDAOImpl implements EventDAO{
 		return sqlSessionTemplate.insert("event.eventWrite", eventModel);
 	}
 	
+	@Override
+	public int EventGetSEQ() {
+		return sqlSessionTemplate.selectOne("event.eventGetSEQ");
+	}
+	
 }

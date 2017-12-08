@@ -14,6 +14,14 @@
 		<put-attribute name="main_footer" value="/WEB-INF/views/tiles/main/footer/main_footer.jsp" />
 	</definition>
 	
+	<!-- event -->
+	<definition name="adminEventWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventWrite.jsp" />
+	</definition>
+	<definition name="adminEventView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventView.jsp" />
+	</definition>
+	
 	<!-- notice -->
 	<definition name="adminNoticeList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeList.jsp" />
