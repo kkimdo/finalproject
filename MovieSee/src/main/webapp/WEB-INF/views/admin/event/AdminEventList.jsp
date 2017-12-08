@@ -30,7 +30,7 @@
                 	<c:forEach var="eventList" items="${map.eventList}">
                 		<li>
                 			<a href="#none" onclick="">
-                				<%-- <img src ="/movie/resources/uploads/event/#{eventList.event_stored_file_name}" alt="${eventList.event_subject}" /> --%>
+                				<img src ="/movie/resources/uploads/event/#{eventList.event_stored_file_name}" alt="${eventList.event_subject}" />
                 			</a>
                 			<dl class="imgsub">
                 				<dt class="event">
