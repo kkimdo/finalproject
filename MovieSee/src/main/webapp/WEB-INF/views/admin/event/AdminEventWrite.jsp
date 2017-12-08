@@ -55,23 +55,23 @@
 								</th>
                                 	<td>
                                         <span class="ipt_radio mr40">
-                                        	<input type="radio" id="event_category1" name="event_category" value="영화" checked="checked">
+                                        	<input type="radio" id="event_category1" name="event_category" value="1" checked="checked">
                                         		<label for="event_category1">영화</label>
                                         </span>
                                         <span class="ipt_radio mr40">
-                                        	<input type="radio" id="event_category2" name="event_category" value="시사회/무대인사">
+                                        	<input type="radio" id="event_category2" name="event_category" value="2">
                                         		<label for="event_category2">시사회/무대인사</label>
                                         </span>
                                         <span class="ipt_radio mr40">
-                                       		<input type="radio" id="event_category3" name="event_category" value="롯시NOW">
+                                       		<input type="radio" id="event_category3" name="event_category" value="3">
                                        			<label for="event_category3">롯시NOW</label>
                                        	</span>
                                        	<span class="ipt_radio mr40">
-                                       		<input type="radio" id="event_category4" name="event_category" value="제휴할인">
+                                       		<input type="radio" id="event_category4" name="event_category" value="4">
                                        			<label for="event_category4">제휴할인</label>
                                        	</span>
                                        	<span class="ipt_radio mr40">
-                                       		<input type="radio" id="event_category5" name="event_category" value="우리동네영화관">
+                                       		<input type="radio" id="event_category5" name="event_category" value="5">
                                        			<label for="event_category5">우리동네영화관</label>
                                        	</span>
                                     </td>

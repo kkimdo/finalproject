@@ -29,18 +29,18 @@
                 	<ul class="emovie_list">
                 		<li>
                 			<a href="#none" onclick="">
-                				<img src="http://caching.lottecinema.co.kr//Media/Event/8b31f5983fd647fd9f7c003763bc0a26.jpg" alt="메리와 마녀의 꽃 선착순 현장 이벤트" />
+                				<img src ="/movie/resources/uploads/event/eventImage_91.jpg" alt="메리와 마녀의 꽃 선착순 현장 이벤트" />
                 			</a>
                 			<dl class="imgsub">
                 				<dt class="event">
-                					<a href="javascript:void(0);" onclick="javascript:goEventDtailsMove(&quot;201010016917193&quot;, &quot;101&quot;, &quot;0&quot;, &quot;1&quot;); return false;">
+                					<a href="#none" onclick="javascript:goEventDtailsMove(&quot;201010016917193&quot;, &quot;101&quot;, &quot;0&quot;, &quot;1&quot;); return false;">
                 						&lt;메리와 마녀의 꽃&gt; 현장경품 이벤트
                 					</a>
                 				</dt>
                 				<dd class="eventdate">
                 					기간
                 				 	<span>
-                						2017.12.07 ~ 2017.12.13
+                						${eventModel.event_start_date} ~ ${eventModel.event_end_date}
                 					</span>
                 				</dd>
                 			</dl>
