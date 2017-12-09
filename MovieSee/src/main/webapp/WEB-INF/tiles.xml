@@ -21,9 +21,30 @@
 	<definition name="adminEventView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventView.jsp" />
 	</definition>
-	<definition name="adminEventList" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList.jsp" />
+	<!-- event Main -->
+	<definition name="adminEventListMain" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventListMain.jsp" />
 	</definition>
+	<!-- event 1 -->
+	<definition name="adminEventList_1" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_1.jsp" />
+	</definition>
+	<!-- event 2 -->
+	<definition name="adminEventList_2" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_2.jsp" />
+	</definition>
+	<!-- event 3 -->
+	<definition name="adminEventList_3" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_3.jsp" />
+	</definition>
+	<!-- event 4 -->
+	<definition name="adminEventList_4" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_4.jsp" />
+	</definition>
+	<!-- event 5 -->
+	<!-- <definition name="adminEventList_5" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_5.jsp" />
+	</definition> -->
 	
 	<!-- notice -->
 	<definition name="adminNoticeList" extends="main">

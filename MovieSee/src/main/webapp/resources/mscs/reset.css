@@ -980,7 +980,7 @@ input.disabled {
 .header .gnb>ul>li {
 	display: inline-block;
 	width: 128px;
-	background: url('/LCHS/Image/bg/bg_gnb_menuBar.gif') no-repeat left top;
+	background: url('/movie/images/bg/bg_gnb_menuBar.gif') no-repeat left top;
 	text-align: center;
 	font-size: 16px;
 	line-height: 16px;
@@ -1154,7 +1154,7 @@ input.disabled {
 	padding-right: 23px;
 	height: 15px;
 	line-height: 14px;
-	background: url('/LCHS/Image/bg/bg_m_arrow.png') no-repeat 100% 1px;
+	background: url('/movie/images/bg/bg_m_arrow.png') no-repeat 100% 1px;
 	font-size: 12px;
 	color: #666
 } /*0404 ie 수평깨짐현상 수정*/
@@ -1597,7 +1597,7 @@ input.disabled {
 #footer .footer_link li {
 	float: left;
 	padding: 0 8px 0 9px;
-	background: url('/LCHS/Image/Bg/bg_c_line.gif') no-repeat 0 2px;
+	background: url('/movie/images/bg/bg_c_line.gif') no-repeat 0 2px;
 }
 
 #footer .footer_link li:first-child {

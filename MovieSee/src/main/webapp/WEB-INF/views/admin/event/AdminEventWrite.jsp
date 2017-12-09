@@ -15,12 +15,12 @@
 
 	$(function() {
 		$("#start_date").datepicker({
-			dateFormat : "yymmdd",
+			dateFormat : "yy.mm.dd",
 			showButtonPanel: true
 		});
 		
 		$("#end_date").datepicker({
-			dateFormat : "yymmdd",
+			dateFormat : "yy.mm.dd",
 			showButtonPanel: true
 		});
 		

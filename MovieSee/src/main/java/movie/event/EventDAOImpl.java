@@ -26,7 +26,7 @@ public class EventDAOImpl implements EventDAO{
 	}
 	
 	@Override
-	public List<EventModel> EventListAll(int start, int end, String searchOption, String keyword) throws Exception {
+	public List<EventModel> EventList_1(int start, int end, String searchOption, String keyword) throws Exception {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -36,7 +36,49 @@ public class EventDAOImpl implements EventDAO{
 		map.put("start", start);
 		map.put("end", end);
 		
-		return sqlSessionTemplate.selectList("event.eventListAll", map);
+		return sqlSessionTemplate.selectList("event.eventList_1", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_2(int start, int end, String searchOption, String keyword) throws Exception {
+			
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_2", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_3(int start, int end, String searchOption, String keyword) throws Exception {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_3", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_4(int start, int end, String searchOption, String keyword) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_4", map);
 	}
 	
 	@Override
