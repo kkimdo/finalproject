@@ -105,7 +105,7 @@ public class EventController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
-
+		
 		mav.addObject("map", map);
 		mav.setViewName("adminEventList");
 
