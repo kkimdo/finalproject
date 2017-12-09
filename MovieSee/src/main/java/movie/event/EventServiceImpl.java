@@ -28,8 +28,23 @@ public class EventServiceImpl implements EventService{
 	}
 	
 	@Override
-	public List<EventModel> EventListAll(int start, int end, String searchOption, String keyword) throws Exception {
-		return eventDAO.EventListAll(start, end, searchOption, keyword);
+	public List<EventModel> EventList_1(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventList_1(start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public List<EventModel> EventList_2(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventList_2(start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public List<EventModel> EventList_3(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventList_3(start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public List<EventModel> EventList_4(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventList_4(start, end, searchOption, keyword);
 	}
 	
 	@Override
