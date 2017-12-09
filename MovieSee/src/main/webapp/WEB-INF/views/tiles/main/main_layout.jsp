@@ -12,7 +12,7 @@
 <head>
 <title>MovieSee</title>
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/common.css" />
-<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=201712060001" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?ver=201712080001" />
