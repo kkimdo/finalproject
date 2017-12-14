@@ -36,13 +36,6 @@ public class FaqDAOImpl implements FaqDAO {
 
 		return sqlSessionTemplate.selectList("faq.faqListAll", map);
 	}
-	// 게시글 조회수 Top5 목록
-	@Override
-	public List<FaqModel> FaqTop5List() throws Exception {
-	
-		return sqlSessionTemplate.selectList("faq.faqTop5List");
-	}
-	
 
 	@Override
 	public int count(String searchOption, String keyword) throws Exception {

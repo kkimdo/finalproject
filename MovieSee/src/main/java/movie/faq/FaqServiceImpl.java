@@ -31,13 +31,6 @@ public class FaqServiceImpl implements FaqService {
 	public List<FaqModel> FaqListAll(int start, int end, String searchOption, String keyword) throws Exception {
 		return faqDAO.FaqListAll(start, end, searchOption, keyword);
 	}
-	
-	// 게시글 조회수 Top5 목록
-	@Override
-	public List<FaqModel> FaqTop5List() throws Exception {
-		return faqDAO.FaqTop5List();
-	}
-	
 
 	// 게시글 레코드 갯수
 	@Override

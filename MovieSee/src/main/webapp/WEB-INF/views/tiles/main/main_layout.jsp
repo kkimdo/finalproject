@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=201712060001" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?v=201712050000" />
-
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/qna.css"/>
 <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
 
 </head>

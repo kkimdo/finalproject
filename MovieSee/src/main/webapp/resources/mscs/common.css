@@ -12145,7 +12145,7 @@
 }
 
 /* faq */
-.faqTop5 {
+/* .faqTop5 {
 	width: 100%;
 	margin-bottom: 50px;
 	border-bottom: 1px solid #c0c0c0;
@@ -12201,7 +12201,7 @@
 
 .faqTop5 li.on .answer_box {
 	display: block;
-}
+} */
 
 .answer_box {
 	position: relative;
@@ -12239,8 +12239,8 @@
 	border: 0;
 	padding: 15px 0;
 	border-bottom: 1px solid #c0c0c0;
-	background: url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat left center;
 	font-weight: bold;
+	
 }
 
 .tbl_faq thead th:first-child {

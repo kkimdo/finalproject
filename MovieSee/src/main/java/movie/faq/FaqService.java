@@ -8,9 +8,6 @@ public interface FaqService {
 
 		// 게시글 전체 목록
 		public List<FaqModel> FaqListAll(int start, int end, String searchOption, String keyword) throws Exception;
-		
-		// 게시글 조회수 Top5 목록
-		public List<FaqModel> FaqTop5List() throws Exception;
 			
 		// 글 작성
 		public int FaqWrite(FaqModel faqModel) throws Exception;
