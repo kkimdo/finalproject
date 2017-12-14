@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -27,49 +29,50 @@ public class EventController {
 
 	@Inject
 	private EventService eventService;
-	private static final String ImagePath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/event/";
+	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/event/";
+	private String original_file_name = "";
+	private String stored_file_name = "";
+	private long fileSize = 0;
 
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.GET)
 	public String EventWriteForm() {
 		return "adminEventWrite";
 	}
 
+	// 다시 작업
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.POST)
 	public ModelAndView EventWrite(@ModelAttribute("eventModel") EventModel eventModel,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
-		// multipartHttpServletRequest.getSession().getServletContext().getRealPath("/uploads/event/");
 
-		int eventSeqName = eventService.EventGetSEQ();
-		eventModel.setEvent_no(eventSeqName);
+		int eventSeqNum = eventService.EventGetSEQ();
+		eventModel.setEvent_no(eventSeqNum);
 
-		MultipartFile multipartFile = multipartHttpServletRequest.getFile("imageFile");
-
-		// log test
-		log.info("파일이름 :" + multipartFile.getOriginalFilename());
-		log.info("파일크기 : " + multipartFile.getSize());
-		log.info("컨텐트 타입 : " + multipartFile.getContentType());
-
-		String originalFileName = multipartFile.getOriginalFilename();
-		String originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-
-		if (originalFileExtension != "") {
-
-			String storedFileName = "eventImage_" + eventSeqName + "." + originalFileExtension;
-
-			File file = new File(ImagePath + storedFileName);
-
-			System.out.println("storedFileName : " + storedFileName);
-
-			multipartFile.transferTo(file);
-
-			System.out.println("originalFileName : " + originalFileName);
-
-			eventModel.setEvent_original_file_name(originalFileName);
-			eventModel.setEvent_stored_file_name(storedFileName);
+		File dir = new File(uploadPath);
+		if (!dir.isDirectory()) {
+			dir.mkdirs();
 		}
 
-		eventService.EventWrite(eventModel);
-
+		List<MultipartFile> mf = multipartHttpServletRequest.getFiles("files");
+		
+		if(mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")){
+			
+		}else{
+			
+			for(int i = 0; i < mf.size(); i++){
+				
+				original_file_name = mf.get(i).getOriginalFilename();
+				stored_file_name = "eventImage_" + eventSeqNum + "." + original_file_name.substring(original_file_name.lastIndexOf(".") + 1);
+				
+				String savePath = uploadPath + stored_file_name;
+				fileSize = mf.get(i).getSize();
+				mf.get(i).transferTo(new File(savePath));
+				
+			}
+			
+			eventService.EventUploadFile(original_file_name, stored_file_name, fileSize);
+			
+		}
+		
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("eventModel", eventModel);
@@ -242,6 +245,24 @@ public class EventController {
 
 		mav.addObject("map", map);
 		mav.setViewName("adminEventList_4");
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/eventView.see", method = RequestMethod.GET)
+	public ModelAndView EventView(HttpServletRequest request, HttpSession session) throws Exception {
+
+		int event_no = Integer.parseInt(request.getParameter("event_no"));
+		String imageNames = request.getParameter("event_stored_file_name");
+
+		EventModel eventModel = new EventModel();
+		eventModel = eventService.EventView(event_no);
+
+		eventService.EventHitUpdate(event_no, session);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("eventModel", eventModel);
+		mav.setViewName("adminEventView");
 
 		return mav;
 	}

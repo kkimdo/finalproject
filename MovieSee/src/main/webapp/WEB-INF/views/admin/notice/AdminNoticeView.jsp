@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -54,7 +53,7 @@
 							<h3 class="cinema_stit" id="hTitle">${noticeModel.notice_subject}</h3>
 							<ul class="view_info">
 								<li><strong>영화관  : </strong><span id="spanCinema">${noticeModel.notice_area}</span></li>
-								<li><strong>등록일 : </strong><span id="spanCreateDate">${noticeModel.notice_date}</span></li>
+								<li><strong>등록일 : </strong><span id="spanCreateDate"><fmt:formatDate value="${noticeModel.notice_date}" pattern="yyyy-MM-dd" /></span></li>
 								<li><strong>조회수 : </strong><span id="spanSearchCount">${noticeModel.notice_hit}</span></li>
 							</ul>
 						</div>
@@ -62,21 +61,23 @@
                         </div>
 						<ul class="view_list">
 							<li>
-								<strong class="prev">다음글</strong>
+								<strong class="prev">이전글</strong>
 								<div>
-									<a href="javascript:void(0);" id="aNext">다음글이 없습니다.</a>
+										이전글이 없습니다.
+											<a href="<%=cp %>/admin/noticeView.see?notice_no=${noticePrev.notice_no}&curPage=${curPage}" id="aPrev">${noticePrev.notice_subject}</a>
 								</div>
 							</li>
 							<li>
-								<strong class="next">이전글</strong>
+								<strong class="next">다음글</strong>
 								<div>
-									<a href="javascript:goNoticeDetail(1770);" id="aPrev">L.pay 서비스 점검 안내</a>
+										다음글이 없습니다.
+											<a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeNext.notice_no}&curPage=${curPage}" id="aNext">${noticeNext.notice_subject}</a>
 								</div>
 							</li>
 						</ul>
 						<div class="btn_box btn_cbox">
 							<a href="<%= cp %>/admin/noticeList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}" class="btnc_check" >목록</a>
-							<a href="<%= cp%>/admin/noticeUpdate.see?notice_no=${noticeModel.notice_no}" class="btnc_check" >수정</a>
+							<a href="<%= cp %>/admin/noticeUpdate.see?notice_no=${noticeModel.notice_no}" class="btnc_check" >수정</a>
 							<a href="#none" class="btnc_check" onclick="btnDelete();">삭제</a>
 						</div>
                     </div>

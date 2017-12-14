@@ -28,7 +28,6 @@
 							<li ><a href="<%=cp%>/admin/eventList_3.see"
 								title="롯시NOW">롯시NOW</a></li>
 							<li class="active"><a href="<%=cp%>/admin/eventList_4.see" title="제휴할인">제휴할인</a></li>
-							<li><a href="<%=cp%>/admin/eventList_5.see" title="우리동네영화관">우리동네영화관</a></li>
 						</ul>
 					</div></li>
 

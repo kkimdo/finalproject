@@ -1,8 +1,10 @@
 package movie.event;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,13 @@ public class EventServiceImpl implements EventService{
 		eventModel.setEvent_content(content);
 		
 		return eventDAO.EventWrite(eventModel);
+	}
+	
+	@Override
+	public void EventUploadFile(String eventfile_original_file_name, String eventfile_stored_file_name,
+			long eventfile_size) {
+		eventDAO.EventUploadFile(eventfile_original_file_name, eventfile_stored_file_name, eventfile_size);
+		
 	}
 	
 	@Override
@@ -51,4 +60,30 @@ public class EventServiceImpl implements EventService{
 	public int count(String searchOption, String keyword) throws Exception {
 		return eventDAO.count(searchOption, keyword);
 	}
+	
+	@Override
+	public void EventHitUpdate(int event_no, HttpSession session) throws Exception {
+
+		long update_time = 0;
+		
+		if(session.getAttribute("update_time_" + event_no) != null){
+			
+			update_time = (long)session.getAttribute("update_time_" + event_no);
+		}
+		
+		long current_time = System.currentTimeMillis();
+		if(current_time - update_time > 60*60*1000){
+			
+			eventDAO.EventHitUpdate(event_no);
+			
+			session.setAttribute("update_time_" + event_no, current_time);
+		}
+		
+	}
+	
+	@Override
+	public EventModel EventView(int event_no) throws Exception {
+		return eventDAO.EventView(event_no);
+	}
+	
 }

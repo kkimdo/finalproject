@@ -13,6 +13,20 @@
 		<result property="notice_area" column="notice_area" />
 	</resultMap>
 	
+	<resultMap type="noticeModel" id="noticeModelPrev">
+		<result property="notice_no" column="notice_no" />
+		<result property="notice_subject" column="notice_subject" />
+		<result property="notice_prev" column="notice_prev" />
+		<result property="notice_prev_subject" column="notice_prev_subject" />
+	</resultMap>
+	
+	<resultMap type="noticeModel" id="noticeModelNext">
+		<result property="notice_no" column="notice_no" />
+		<result property="notice_subject" column="notice_subject" />
+		<result property="notice_next" column="notice_next" />
+		<result property="notice_next_subject" column="notice_next_subject" />
+	</resultMap>
+	
 	<sql id="select-all">
 		select * from notice
 	</sql>
@@ -89,6 +103,26 @@
 		where notice_no = #{notice_no}
 	</delete>
 	
-	
+	<!-- 게시글 이전 글 -->
+	<select id="noticePrev" parameterType="int" resultMap="noticeModelPrev">
+			select * from
+				(select notice_no, notice_subject,
+    			lag(notice_no,1) over(order by notice_no) notice_prev,
+    			lag(notice_subject,1) over(order by notice_no) notice_prev_subject
+    			from notice
+    			)
+			where notice_no = #{notice_no}
+	</select>
+		
+	<!-- 게시글 다음 글 -->
+	<select id="noticeNext" parameterType="int" resultMap="noticeModelNext">
+			select * from
+				(select notice_no, notice_subject,
+    			nvl(lead(notice_no,1) over(order by notice_no), 0) notice_next,
+    			lead(notice_subject,1) over(order by notice_no) notice_next_subject
+    			from notice
+    			)
+			where notice_no = #{notice_no}
+	</select>
 	
 </mapper>

@@ -15,9 +15,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이벤트</title>
 
-<script type="text/javascript">
-	//더보기 기능 구현 해야함
-</script>
 </head>
 <body>
 	<div class="header">
@@ -31,7 +28,6 @@
 							<li><a href="<%=cp%>/admin/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
 							<li><a href="<%=cp%>/admin/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
 							<li><a href="<%=cp%>/admin/eventList_4.see" title="제휴할인">제휴할인</a></li>
-							<li><a href="<%=cp%>/admin/eventList_5.see" title="우리동네영화관">우리동네영화관</a></li>
 						</ul>
 					</div></li>
 
@@ -61,13 +57,13 @@
 				<!-- emovie_list_1 -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_1" items="${map.eventList_1}" end="3">
-						<li><a href="#none" onclick=""> <img
+						<li><a href="<%=cp %>/admin/eventView.see?event_no=${eventList_1.event_no}&curPage=${map.c_Paging.curPage}"> <img
 								src="/movie/resources/uploads/event/${eventList_1.event_stored_file_name}"
 								alt="${eventList_1.event_subject}" />
 						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="#none" onclick=""> ${eventList_1.event_subject} </a>
+									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_1.event_no}&curPage=${map.c_Paging.curPage}"> ${eventList_1.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_1.event_start_date} ~
@@ -94,7 +90,7 @@
 								alt="${eventList_2.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="#none" onclick=""> ${eventList_2.event_subject} </a>
+									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_2.event_no}&curPage=${map.c_Paging.curPage}"> ${eventList_2.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_2.event_start_date} ~
@@ -120,7 +116,7 @@
 								alt="${eventList_3.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="javascript:void(0);" onclick="">
+									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_3.event_no}&curPage=${map.c_Paging.curPage}">
 										${eventList_3.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
@@ -143,12 +139,12 @@
 				<!-- emovie_list_4 -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_4" items="${map.eventList_4}" end="3">
-						<li><a href="javascript:void(0);" onclick=""> <img
+						<li><a href="#none"> <img
 								src="/movie/resources/uploads/event/${eventList_4.event_stored_file_name}"
 								alt="${eventList_4.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="javascript:void(0);" onclick="">
+									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_4.event_no}&curPage=${map.c_Paging.curPage}">
 										${eventList_4.event_subject} </a>
 								</dt>
 								<dd class="eventdate">

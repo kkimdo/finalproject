@@ -15,6 +15,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이벤트</title>
 </head>
+
+<script type="text/javascript">
+
+	
+
+</script>
+
 <body>
 	<div class="header">
 		<div class="gnb">
@@ -27,7 +34,6 @@
 							<li><a href="<%=cp%>/admin/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
 							<li><a href="<%=cp%>/admin/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
 							<li><a href="<%=cp%>/admin/eventList_4.see" title="제휴할인">제휴할인</a></li>
-							<li><a href="<%=cp%>/admin/eventList_5.see" title="우리동네영화관">우리동네영화관</a></li>
 						</ul>
 					</div></li>
 
@@ -54,7 +60,7 @@
 						</fieldset>
 					</div>
 				</div>
-
+				
 				<!-- emovie_list -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_1" items="${map.eventList_1}">
@@ -70,10 +76,19 @@
 									기간 <span> ${eventList_1.event_start_date} ~
 										${eventList_1.event_end_date} </span>
 								</dd>
-							</dl></li>
+							</dl>
+						</li>
 					</c:forEach>
 				</ul>
-
+				
+				<!-- 더보기 -->
+				<div id="btn_view">
+					<a href="#none" id="eventLoad" class="btn_view">
+						<span>더보기</span>
+					</a>
+				</div>
+				<!--  -->
+			
 			</div>
 		</div>
 	</div>

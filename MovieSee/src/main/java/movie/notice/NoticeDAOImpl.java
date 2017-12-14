@@ -76,5 +76,16 @@ public class NoticeDAOImpl implements NoticeDAO {
 		
 	}
 	
+	//이전 글
+	@Override
+	public NoticeModel NoticePrev(int notice_no) throws Exception {
+		return sqlSessionTemplate.selectOne("notice.noticePrev", notice_no);
+	}
+	
+	//다음 글
+	@Override
+	public NoticeModel NoticeNext(int notice_no) throws Exception {
+		return sqlSessionTemplate.selectOne("notice.noticeNext", notice_no);
+	}
 	
 }

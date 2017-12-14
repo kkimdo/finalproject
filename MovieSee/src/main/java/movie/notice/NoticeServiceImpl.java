@@ -88,5 +88,17 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeDAO.NoticeDelete(notice_no);
 		
 	}
-
+	
+	//이전글
+	@Override
+	public NoticeModel NoticePrev(int notice_no) throws Exception {
+		return noticeDAO.NoticePrev(notice_no);
+	}
+	
+	//다음글
+	@Override
+	public NoticeModel NoticeNext(int notice_no) throws Exception {
+		return noticeDAO.NoticeNext(notice_no);
+	}
+	
 }

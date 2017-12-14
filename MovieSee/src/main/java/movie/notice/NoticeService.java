@@ -27,5 +27,11 @@ public interface NoticeService {
 	//데이터를 삭제하는 메소드(게시글 삭제)
 	public void NoticeDelete(int notice_no) throws Exception;
 	
+	//이전 글
+	public NoticeModel NoticePrev(int notice_no) throws Exception;
+	
+	//다음 글
+	public NoticeModel NoticeNext(int notice_no) throws Exception;
+	
 }
 
