@@ -15,7 +15,8 @@
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=201712060001" />
-<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?ver=201712080001" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?v=201712050000" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/qna.css"/>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 

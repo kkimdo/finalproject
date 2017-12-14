@@ -62,11 +62,6 @@
 		where faq_no = #{faq_no}
 	</select>
 	
-	<!--조회수 높은순서-->
-	<select id="faqTop5List" resultMap ="faqModelRes">
-	<![CDATA[	select * from faq where rownum <= 5 order by faq_hit desc ]]>
-	</select>
-	
 	<!-- 글 작성 -->
 	<insert id="faqWrite" parameterType="faqModel">
 		insert into faq(faq_no, faq_subject, faq_content, faq_date)

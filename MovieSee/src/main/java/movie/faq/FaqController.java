@@ -45,7 +45,6 @@ public class FaqController {
 		int end = c_Paging.getPageEnd();
 		
 		List<FaqModel> faqList = faqService.FaqListAll(start, end, searchOption, keyword);
-		List<FaqModel> faqTop5List = faqService.FaqTop5List();
 		
 		//데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -54,7 +53,6 @@ public class FaqController {
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("c_Paging", c_Paging);
-		map.put("faqTop5List", faqTop5List);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map); //맵에 저장된 데이터를 mav에 저장

@@ -10,7 +10,8 @@ public class QnaModel {
 	private String qna_name; //회언 이름
 	private String qna_phone; //회원 폰번호
 	private String qna_email; //회원 이메일
-	private String qna_category; //문의 종류
+	private String qna_question_kinds; //문의 종류
+	private String qna_category; //문의 분류
 	private String qna_area; //해당 지역
 	private String qna_subject; //글 제목
 	private String qna_content; //글 내용
@@ -47,6 +48,12 @@ public class QnaModel {
 	}
 	public void setQna_email(String qna_email) {
 		this.qna_email = qna_email;
+	}
+	public String getQna_question_kinds() {
+		return qna_question_kinds;
+	}
+	public void setQna_question_kinds(String qna_question_kinds) {
+		this.qna_question_kinds = qna_question_kinds;
 	}
 	public String getQna_category() {
 		return qna_category;
