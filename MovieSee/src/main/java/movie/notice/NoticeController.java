@@ -70,7 +70,7 @@ public class NoticeController {
 		//데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("noticeList", noticeList);
-		map.put("count", count);
+		map.put("count", count); 
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("c_Paging", c_Paging);

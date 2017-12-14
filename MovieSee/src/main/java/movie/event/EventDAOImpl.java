@@ -1,5 +1,9 @@
 package movie.event;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,4 +20,77 @@ public class EventDAOImpl implements EventDAO{
 		return sqlSessionTemplate.insert("event.eventWrite", eventModel);
 	}
 	
+	@Override
+	public int EventGetSEQ() {
+		return sqlSessionTemplate.selectOne("event.eventGetSEQ");
+	}
+	
+	@Override
+	public List<EventModel> EventList_1(int start, int end, String searchOption, String keyword) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_1", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_2(int start, int end, String searchOption, String keyword) throws Exception {
+			
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_2", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_3(int start, int end, String searchOption, String keyword) throws Exception {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_3", map);
+	}
+	
+	@Override
+	public List<EventModel> EventList_4(int start, int end, String searchOption, String keyword) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		map.put("start", start);
+		map.put("end", end);
+		
+		return sqlSessionTemplate.selectList("event.eventList_4", map);
+	}
+	
+	@Override
+	public int count(String searchOption, String keyword) throws Exception {
+		
+		Map<String,String> map = new HashMap<String, String>();
+		
+		//검색 옵션, 키워드 맵에 저장
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		return sqlSessionTemplate.selectOne("event.count", map);
+		
+	}
 }
