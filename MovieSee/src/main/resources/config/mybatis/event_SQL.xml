@@ -16,14 +16,6 @@
 		<result property="event_category" column="event_category" />
 	</resultMap>
 	
-	<resultMap type="eventUploadFile" id="eventUploadFileRes">
-		<result property="eventfile_num" column="eventfile_num" />
-		<result property="eventfile_original_file_name" column="eventfile_original_file_name" />
-		<result property="eventfile_stored_file_name" column="eventfile_stored_file_name" />
-		<result property="eventfile_size" column="eventfile_size" />
-		<result property="event_no" column="event_no" />
-	</resultMap>
-	
 	<sql id="select-all">
 		select * from event
 	</sql>
@@ -100,13 +92,6 @@
 		values (event_no_seq.NEXTVAL, #{event_subject}, #{event_content}, #{event_start_date}, #{event_end_date}, #{event_original_file_name}, #{event_stored_file_name}, #{event_category})
 	</insert>
 	
-	<!-- 게시글 파일 업로드 -->
-	<insert id="eventFileUpload" parameterType="eventUploadFileRes">
-		insert into eventfile (eventfile_num, eventfile_original_file_name, eventfile_stored_file_name, eventfile_size, event_no)
-		values (eventfile_num_seq.NEXTVAL, #{eventfile_original_file_name}, #{eventfile_stored_file_name}, #{eventfile_size}, event_no_seq.currval)
-		
-	</insert>
-		
 	<!-- 해당 게시글 번호 -->
 	<select id="eventGetSEQ" resultType="int">
 		select event_no_seq.NEXTVAL from dual

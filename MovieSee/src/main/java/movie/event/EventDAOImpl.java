@@ -21,20 +21,6 @@ public class EventDAOImpl implements EventDAO{
 	}
 	
 	@Override
-	public void EventUploadFile(String eventfile_original_file_name, String eventfile_stored_file_name,
-			long eventfile_size) {
-		
-		HashMap<String, Object> map = new HashMap<>();
-		
-		map.put("eventfile_original_file_name", eventfile_original_file_name);
-		map.put("eventfile_stored_file_name", eventfile_stored_file_name);
-		map.put("eventfile_size", eventfile_size);
-		
-		sqlSessionTemplate.insert("event.eventUploadFile", map);
-		
-	}
-	
-	@Override
 	public int EventGetSEQ() {
 		return sqlSessionTemplate.selectOne("event.eventGetSEQ");
 	}

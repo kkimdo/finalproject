@@ -69,8 +69,6 @@ public class EventController {
 				
 			}
 			
-			eventService.EventUploadFile(original_file_name, stored_file_name, fileSize);
-			
 		}
 		
 		ModelAndView mav = new ModelAndView();
