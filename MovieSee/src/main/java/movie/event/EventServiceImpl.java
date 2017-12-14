@@ -25,13 +25,6 @@ public class EventServiceImpl implements EventService{
 	}
 	
 	@Override
-	public void EventUploadFile(String eventfile_original_file_name, String eventfile_stored_file_name,
-			long eventfile_size) {
-		eventDAO.EventUploadFile(eventfile_original_file_name, eventfile_stored_file_name, eventfile_size);
-		
-	}
-	
-	@Override
 	public int EventGetSEQ() throws Exception{
 		return eventDAO.EventGetSEQ();
 	}

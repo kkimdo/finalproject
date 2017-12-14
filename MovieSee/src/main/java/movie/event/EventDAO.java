@@ -7,9 +7,6 @@ public interface EventDAO {
 	//게시글 작성
 	public int EventWrite(EventModel eventModel) throws Exception;
 	
-	//게시글 작성에 해당하는 파일 업로드
-	public void EventUploadFile(String eventfile_original_file_name, String eventfile_stored_file_name, long eventfile_size);
-
 	// 이벤트 해당 게시글 번호
 	public int EventGetSEQ() throws Exception;
 	

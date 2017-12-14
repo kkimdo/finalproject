@@ -11,9 +11,6 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<!-- event -->
 		<typeAlias alias="eventModel" type="movie.event.EventModel"/>
 		
-		<!-- event file upload -->
-		<typeAlias alias="eventUploadFile" type="movie.event.EventUploadFile"/>
-	
 		<!-- notice --> 
 		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />	   
 		
