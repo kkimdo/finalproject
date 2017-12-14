@@ -103,10 +103,32 @@
 							</tr>
 							<tr>
 								<th scope="row">
-									<label for="fileUpload">첨부파일</label></th>
+									<label for="fileUpload1">첨부파일1</label></th>
 								<td>
 									<div>
-										<input type="file" name="imageFile" id="fileUpload" />
+										<input type="file" name="files" id="fileUpload1" />
+									</div> 
+									<span class="txt_left">
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="fileUpload2">첨부파일2</label></th>
+								<td>
+									<div>
+										<input type="file" name="files" id="fileUpload2" />
+									</div> 
+									<span class="txt_left">
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<label for="fileUpload3">첨부파일3</label></th>
+								<td>
+									<div>
+										<input type="file" name="files" id="fileUpload3" />
 									</div> 
 									<span class="txt_left">
 									</span>

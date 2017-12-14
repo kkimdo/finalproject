@@ -1,16 +1,18 @@
 package movie.event;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class EventModel {
 	
 	private int event_no;
 	private String event_subject;
 	private String event_content;
-	private String event_original_file_name;
-	private String event_stored_file_name;
 	private String event_start_date;
 	private String event_end_date;
 	private int event_hit;
 	private String event_category;
+	
+	private MultipartFile[] file1;
 	
 	public int getEvent_no() {
 		return event_no;
@@ -29,18 +31,6 @@ public class EventModel {
 	}
 	public void setEvent_content(String event_content) {
 		this.event_content = event_content;
-	}
-	public String getEvent_original_file_name() {
-		return event_original_file_name;
-	}
-	public void setEvent_original_file_name(String event_original_file_name) {
-		this.event_original_file_name = event_original_file_name;
-	}
-	public String getEvent_stored_file_name() {
-		return event_stored_file_name;
-	}
-	public void setEvent_stored_file_name(String event_stored_file_name) {
-		this.event_stored_file_name = event_stored_file_name;
 	}
 	public String getEvent_start_date() {
 		return event_start_date;
@@ -66,5 +56,11 @@ public class EventModel {
 	public void setEvent_category(String event_category) {
 		this.event_category = event_category;
 	}
-
+	public MultipartFile[] getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile[] file1) {
+		this.file1 = file1;
+	}
+	
 }

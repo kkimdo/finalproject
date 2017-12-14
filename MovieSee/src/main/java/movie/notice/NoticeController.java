@@ -29,6 +29,12 @@ public class NoticeController {
 	@Inject
 	private NoticeService noticeService;
 	
+	private NoticeModel noticePrev = new NoticeModel();
+	private int preNum = 0;
+	
+	private NoticeModel noticeNext = new NoticeModel();
+	private int nextNum = 0;
+	
 	// 게시글 작성 화면
 	// RequestMapping("admin/noticeWrite.see")
 	// value="", method="전송방식"
@@ -93,10 +99,32 @@ public class NoticeController {
 		
 		//조회수 증가 처리
 		noticeService.NoticeHitUpdate(notice_no, session);
+		
+		noticePrev = noticeService.NoticePrev(notice_no);
+		noticeNext = noticeService.NoticeNext(notice_no);
+		
+		if(noticePrev != null){
+			
+			preNum = noticePrev.getNotice_prev();
+			
+		}
+		
+		if(noticeNext != null){
+			
+			nextNum = noticeNext.getNotice_next();
+			
+		}
+		
 		//모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		//뷰에 전달할 데이터
+		
 		mav.addObject("noticeModel", noticeService.NoticeView(notice_no));
+		
+		mav.addObject("noticePrev", noticeService.NoticeView(preNum)); //이전글
+		mav.addObject("noticeNext", noticeService.NoticeView(nextNum)); //다음글
+		mav.addObject("preNum", preNum);
+		mav.addObject("nextNum", nextNum);
 		//뷰의 이름
 		mav.setViewName("adminNoticeView");
 		
