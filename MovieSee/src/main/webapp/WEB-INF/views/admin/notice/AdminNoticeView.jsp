@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <% String cp = request.getContextPath(); %>
 
@@ -63,15 +64,27 @@
 							<li>
 								<strong class="prev">이전글</strong>
 								<div>
-										이전글이 없습니다.
+									<c:choose>
+										<c:when test="${preNum ne 0 }">
 											<a href="<%=cp %>/admin/noticeView.see?notice_no=${noticePrev.notice_no}&curPage=${curPage}" id="aPrev">${noticePrev.notice_subject}</a>
+										</c:when>
+										<c:otherwise>
+											이전글이 없습니다.
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</li>
 							<li>
 								<strong class="next">다음글</strong>
 								<div>
-										다음글이 없습니다.
+									<c:choose>
+										<c:when test="${nextNum ne 0 }">
 											<a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeNext.notice_no}&curPage=${curPage}" id="aNext">${noticeNext.notice_subject}</a>
+										</c:when>
+										<c:otherwise>
+											다음글이 없습니다.
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</li>
 						</ul>

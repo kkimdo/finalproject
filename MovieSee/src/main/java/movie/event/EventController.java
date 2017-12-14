@@ -1,6 +1,7 @@
 package movie.event;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,6 @@ public class EventController {
 	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/event/";
 	private String original_file_name = "";
 	private String stored_file_name = "";
-	private long fileSize = 0;
 
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.GET)
 	public String EventWriteForm() {
@@ -46,34 +46,18 @@ public class EventController {
 
 		int eventSeqNum = eventService.EventGetSEQ();
 		eventModel.setEvent_no(eventSeqNum);
-
+		
 		File dir = new File(uploadPath);
-		if (!dir.isDirectory()) {
-			dir.mkdirs();
-		}
+        if (!dir.isDirectory()) {
+            dir.mkdirs();
+        }
+		
+        List<MultipartFile> mf = multipartHttpServletRequest.getFiles("files");
 
-		List<MultipartFile> mf = multipartHttpServletRequest.getFiles("files");
-		
-		if(mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")){
-			
-		}else{
-			
-			for(int i = 0; i < mf.size(); i++){
-				
-				original_file_name = mf.get(i).getOriginalFilename();
-				stored_file_name = "eventImage_" + eventSeqNum + "." + original_file_name.substring(original_file_name.lastIndexOf(".") + 1);
-				
-				String savePath = uploadPath + stored_file_name;
-				fileSize = mf.get(i).getSize();
-				mf.get(i).transferTo(new File(savePath));
-				
-			}
-			
-		}
-		
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("eventModel", eventModel);
+		
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
 		return mav;
