@@ -67,5 +67,4 @@ public class EventModel {
 		this.event_stored_file_name = event_stored_file_name;
 	}
 	
-	
 }

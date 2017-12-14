@@ -89,7 +89,7 @@
 	<!-- 게시글 작성 -->
 	<insert id="eventWrite" parameterType="eventModel">
 		insert into event (event_no, event_subject, event_content, event_start_date, event_end_date, event_original_file_name, event_stored_file_name, event_category) 
-		values (event_no_seq.NEXTVAL, #{event_subject}, #{event_content}, #{event_start_date}, #{event_end_date}, #{event_original_file_name}, #{event_stored_file_name}, #{event_category})
+		values (event_no_seq.NEXTVAL, #{event_subject}, #{event_content}, #{event_start_date}, #{event_end_date}, #{event_original_file_name}, #{event_original_file_name}, #{event_category})
 	</insert>
 	
 	<!-- 해당 게시글 번호 -->
