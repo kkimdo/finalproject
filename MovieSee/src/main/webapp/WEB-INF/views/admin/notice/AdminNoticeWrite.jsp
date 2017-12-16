@@ -14,9 +14,9 @@
 <title>공지 사항</title>
 
 <script type="text/javascript">
-
-	function selected(){
-		window.open("/movie/admin/noticeSelected.see","selected","width=500, height=500");
+	function selected() {
+		window.open("/movie/admin/noticeSelected.see", "selected",
+				"width=500, height=500");
 	}
 </script>
 
@@ -37,15 +37,15 @@
 			<div class="tabCont">
 				<div>
 					<fieldset>
-						<legend>이벤트내용입력</legend>
+						<legend>공지사항내용입력</legend>
 						<div class="titYtxt mt50">
-							<h3 class="mem_tit">이벤트</h3>
+							<h3 class="mem_tit">공지사항</h3>
 							<span><strong title="필수항목">*</strong> 표시 항목은 필수 입력 항목입니다.</span>
 						</div>
 
 						<table class="tbl_style01">
 
-							<caption>이벤트 작성란</caption>
+							<caption>공지사항 작성란</caption>
 							<colgroup>
 								<col style="width: 13%">
 								<col style="width: *">
@@ -58,16 +58,16 @@
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td><input name="notice_subject" type="text"
-										maxlength="40" id="subject" class="ipt_txt03" />
-										<font color="red"><form:errors path="notice_subject" /></font>
-									</td>
+										maxlength="40" id="subject" class="ipt_txt03" /> <font
+										color="red"><form:errors path="notice_subject" /></font></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="content">내용 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td><textarea name="notice_content" rows="10" cols="30"
-											id="content" class="textarea01"></textarea>
+											id="content" class="textarea01"></textarea> <font color="red"><form:errors
+												path="notice_content" /></font>
 										<div class="txt_wrap">
 											<span class="byte_txt"><strong>0</strong> / 한글 2,000자</span>
 										</div></td>
@@ -77,18 +77,20 @@
 									<!-- 1023 영화관 선택 구조 변경 -->
 									<th scope="row">영화관 <span class="point_red" title="필수 입력">*</span></th>
 									<!-- 1026 label 삭제 -->
-									<td>
-									<input name="notice_area" type="text"
-										maxlength="40" id="notice_area" class="ipt_txt">
-									<span class="area" id="spanCinemaName"> </span> <a
-										href="javascript:selected();" title="레이어 열림" class="btnv_pick"
-										>영화관선택</a></td>
+									<td><input name="notice_area" type="text" maxlength="40"
+										id="notice_area" class="ipt_txt"> <span class="area"
+										id="spanCinemaName"> </span> <a href="javascript:selected();"
+										title="레이어 열림" class="btnv_pick">영화관선택</a> <font color="red"><form:errors
+												path="notice_area" /></font></td>
 								</tr>
 							</tbody>
 						</table>
 					</fieldset>
 					<div class="btn_box btn_cbox">
-						<input type="submit" value="확인">
+						<span> <input type="submit" value="확인">
+						</span> <span onclick="history.go(-1);"> <input type="button"
+							value="취소" />
+						</span>
 					</div>
 				</div>
 			</div>
