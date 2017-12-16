@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -46,7 +47,7 @@ public class NoticeController {
 
 	// 게시글 작성 처리
 	@RequestMapping(value = "/noticeWrite.see", method = RequestMethod.POST)
-	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result)
+	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, HttpServletRequest request)
 			throws Exception {
 		ModelAndView mav = new ModelAndView();
 

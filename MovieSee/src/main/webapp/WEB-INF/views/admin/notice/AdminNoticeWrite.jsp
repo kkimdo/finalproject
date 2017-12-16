@@ -16,7 +16,7 @@
 <script type="text/javascript">
 
 	function selected(){
-		window.open("/movie/admin/noticeSelected.see","selected","width=300, height=300");
+		window.open("/movie/admin/noticeSelected.see","selected","width=500, height=500");
 	}
 </script>
 
@@ -58,7 +58,9 @@
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td><input name="notice_subject" type="text"
-										maxlength="40" id="subject" class="ipt_txt03"></td>
+										maxlength="40" id="subject" class="ipt_txt03" />
+										<font color="red"><form:errors path="notice_subject" /></font>
+									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="content">내용 <span
