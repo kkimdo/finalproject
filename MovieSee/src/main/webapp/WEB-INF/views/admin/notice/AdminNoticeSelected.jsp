@@ -37,22 +37,18 @@
 						<strong class="favor_tit2">전체영화관 <span>문의와 관련된
 								영화관을 1곳 선택해 주세요.</span></strong>
 						<ul class="theater_zone bg_bullet">
-							<li><span class="area_zone zone_01 area0001 on"><a
-									class="on" href="javascript:void(0)">서울</a></span>
+							<li>
+								<!-- <span class="area_zone zone_01 area0001 on">
+									<a class="on" href="javascript:void(0)">서울</a>
+								</span> -->
 								<div class="area_cont on">
 									<ul class="area_list d0001">
-										<li><a href="javascript:selected_input('강남')"
-											class="cinema1013 100011013">강남</a></li>
+										<li>
+											<a href="javascript:selected_input('서울/강남')"
+											class="cinema1013 100011013">서울/강남</a></li>
 									</ul>
-								</div></li>
-							<li><span class="area_zone zone_08  area0007 on"><a
-									class="on" href="javascript:void(0)">제주</a></span>
-								<div class="area_cont on">
-									<ul class="area_list d0007">
-										<li><a href="javascript:void(0)"
-											class="cinema9013 100079013">서귀포</a></li>
-									</ul>
-								</div></li>
+								</div>
+							</li>
 						</ul>
 					</div>
 				</div>

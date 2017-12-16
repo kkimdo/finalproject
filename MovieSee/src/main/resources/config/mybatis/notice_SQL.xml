@@ -11,6 +11,7 @@
 		<result property="notice_hit" column="notice_hit" />
 		<result property="notice_date" column="notice_date" />
 		<result property="notice_area" column="notice_area" />
+		<result property="notice_content_file" column="notice_content_file" />
 	</resultMap>
 
 	<resultMap type="noticeModel" id="noticeModelPrev">
@@ -60,7 +61,7 @@
 	<select id="noticeListAll" resultMap="noticeModelRes">
 		<include refid="pagingHeader" />
 		select rownum, notice_no, notice_subject, notice_content, notice_date,
-		notice_hit, notice_area from notice
+		notice_hit, notice_area, notice_content_file from notice
 		<include refid="search" />
 		order by notice_no desc, notice_date desc
 		<include refid="pagingFooter"></include>
@@ -80,14 +81,20 @@
 		<include refid="select-all" />
 		where notice_no = #{notice_no}
 	</select>
+	
+	<!-- 해당 게시글 번호 -->
+	<select id="noticeGetSEQ" resultType="int">
+		select notice_no_seq.NEXTVAL
+		from dual
+	</select>
 
 	<!-- 게시글 작성 -->
 	<insert id="noticeWrite" parameterType="noticeModel">
 		insert into
 		notice(notice_no, notice_subject, notice_content, notice_date,
-		notice_area)
+		notice_area, notice_content_file)
 		values (notice_no_seq.NEXTVAL, #{notice_subject},
-		#{notice_content}, sysdate, #{notice_area})
+		#{notice_content}, sysdate, #{notice_area}, #{notice_content_file})
 	</insert>
 
 	<!-- 게시글 조회수 증가 -->
@@ -103,7 +110,8 @@
 		update notice
 		set
 		notice_subject = #{notice_subject}, notice_content =
-		#{notice_content}, notice_area = #{notice_area}, notice_date = sysdate
+		#{notice_content}, notice_area = #{notice_area}, notice_date = sysdate,
+		notice_content_file = #{notice_content_file}
 		where notice_no = #{notice_no}
 	</update>
 
