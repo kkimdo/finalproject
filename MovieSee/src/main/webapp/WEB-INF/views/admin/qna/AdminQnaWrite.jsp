@@ -9,10 +9,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>QNA</title>
+
+<script type="text/javascript">
+	
+	function btnWrite() {
+		var frm = document.formWrite;
+		
+		if(frm.qna_name.value == "") {
+			alert("성명을 입력해주세요.");
+			frm.qna_name.focus();
+			return false;
+		}
+		else if(frm.qna_phone.value == ""){
+			alert("연락처를 입력해주세요.");
+			frm.qna_phone.focus();
+			return false;
+		}
+		else{
+			alert("작성완료 되었습니다.");
+			 f.submit();
+		   }  
+		   return true;
+	}
+
+</script>
 </head>
 <body>
 	
-		<form action="qnaWrite.see" method="post" enctype="multipart/form-data">
+		<form name="formWrite" action="qnaWrite.see" method="post" onsubmit="return btnWrite();"> 
+<%-- 	<form action="qnaWrite.see" method="post" enctype="multipart/form-data">  --%>
 			<div class="titYtxt">
 				<h3 class="mem_tit">회원정보</h3>
 					<span><strong title="필수항목">*</strong> 표시 항목은 필수 입력 항목입니다.</span>
@@ -20,7 +45,7 @@
 			<table>
 			<tr>
 				<td>성명</td>
-				<td><input type="text" name="qna_name" />
+				<td><input type="text" class="btnWrite" name="qna_name" />
 			</tr>
 			<tr>
 				<td>아이디</td>
@@ -39,32 +64,46 @@
 			<h3>문의내용</h3>
 			<tr>
 				<td>문의 종류</td>
-				<td><input type="radio" name="qna_question_kinds" value="1"
+				<td><input type="radio" name="qna_question_kinds" value="문의"
 					checked="checked"><label>문의</label> <input type="radio"
-					name="qna_question_kinds" value="2" checked="checked"><label>칭찬</label>
-					<input type="radio" name="qna_question_kinds" value="3"
+					name="qna_question_kinds" value="칭찬" checked="checked"><label>칭찬</label>
+					<input type="radio" name="qna_question_kinds" value="불만"
 					checked="checked"><label>불만</label> <input type="radio"
-					name="qna_question_kinds" value="4" checked="checked"><label>건의</label>
+					name="qna_question_kinds" value="건의" checked="checked"><label>건의</label>
 				</td>
 			</tr>
 			<tr>
 				<td>문의분류</td>
 				<td><select name="qna_category" size="1">
-						<option value="1" selected>영화관 문의</option>
-						<option value="2">영화문의</option>
-						<option value="3">회원 및 포인트 문의</option>
-						<option value="4">결제 및 관람권 문의</option>
-						<option value="5">이벤트/시사회/무대인사 문의</option>
-						<option value="6">홈페이지/모바일 이용관련 문의</option>
+						<option value="영화관 문의" selected>영화관 문의</option>
+						<option value="영화 문의">영화 문의</option>
+						<option value="회원 및 포인트 문의">회원 및 포인트 문의</option>
+						<option value="결제 및 관람권 문의">결제 및 관람권 문의</option>
+						<option value="이벤트/시사회/무대인사 문의">이벤트/시사회/무대인사 문의</option>
+						<option value="홈페이지/모바일 이용관련 문의">홈페이지/모바일 이용관련 문의</option>
 				</select>
 				</td>
 			</tr>
 			<tr>
 				<td>지역선택</td>
 				<td><select name="qna_area" size="1">
-						<option value="1" selected>서울</option>
-						<option value="2">경기</option>
-						<option value="3">부산</option>
+						<option value="서울" selected>서울</option>
+						<option value="경기">경기</option>
+						<option value="인천">인천</option>
+						<option value="강원">강원</option>
+						<option value="부산">부산</option>
+						<option value="대구">대구</option>
+						<option value="경북">경북</option>
+						<option value="경남">경남</option>
+						<option value="대전">대전</option>
+						<option value="전북">전북</option>
+						<option value="전남">전남</option>
+						<option value="광주">광주</option>
+						<option value="울산">울산</option>
+						<option value="충북">충북</option>
+						<option value="충남">충남</option>
+						<option value="강원">강원</option>
+						<option value="제주">제주</option>
 				</select>
 				<td>
 			</tr>
@@ -76,13 +115,13 @@
 				<td>내용</td>
 				<td><textarea name="qna_content"></textarea></td>
 			</tr>
-			<tr>
+		<!-- 	<tr>
 				<td>첨부파일</td>
-				<td><input type="file" name="qna_orgfile"/><span class="date">&nbsp;&nbsp;*&nbsp;임의로 파일명이 변경될 수 있습니다.</span></td>	
-			</tr>
+				<td><input type="file" name="qna_orgfile"></td>
+			</tr> -->
 			
 		</table>
-		<input type="submit" value="확인" />
+		<input name="submit" type="submit" value="확인" />
 	</form>
 </body>
 </html>

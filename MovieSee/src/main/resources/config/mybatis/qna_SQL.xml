@@ -48,8 +48,20 @@
 	<!-- 글 작성 -->
 	<insert id="qnaWrite" parameterType="qnaModel">
 		insert into qna(qna_no, qna_id, qna_name, qna_phone, qna_email, qna_question_kinds, qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date)
-		values (qna_no_seq.NEXTVAL, #{qna_id}, #{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds}, #{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, #{qna_orgfile}, #{qna_savfile}, sysdate)
+		values (qna_no_seq.NEXTVAL, #{qna_id}, #{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds}, #{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, null, null, sysdate)
 
 	</insert>
+	
+	<!-- 글 상세보기 -->
+	<select id="qnaView" parameterType="int" resultMap="qnaModelRes">
+		<include refid="select-all" />
+		where qna_no = #{qna_no}
+	</select>
+	
+	<!-- 글 삭제 -->
+	<update id="qnaDelete">
+		delete from qna 
+		where qna_no = #{qna_no}
+	</update>
 	
 </mapper>

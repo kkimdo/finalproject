@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class QnaServiceImpl implements QnaService {
 
@@ -35,5 +34,30 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public int count(String searchOption, String keyword) throws Exception {
 		return qnaDAO.count(searchOption, keyword);
+	}
+
+	// 게시글 상세보기
+	@Override
+	public QnaModel QnaView(int qna_no) throws Exception {
+		return qnaDAO.QnaView(qna_no);
+	}
+
+	// 게시글 삭제
+	@Override
+	public void QnaDelete(int qna_no) throws Exception {
+		qnaDAO.QnaDelete(qna_no);
+
+	}
+
+	// 답변 작성
+	@Override
+	public int QnaCommentWrite(QnaCommentModel qnaCommentModel) throws Exception {
+
+		// replace(A, B) A를 B로 변경
+		String content = qnaCommentModel.getQna_comment_content().replaceAll("\r\n", "<br>"); // 줄바꿈 문자 처리
+
+		qnaCommentModel.setQna_comment_content(content);
+
+		return qnaDAO.QnaCommentWrite(qnaCommentModel);
 	}
 }

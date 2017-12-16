@@ -74,4 +74,14 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
 	</definition>
 	
+	<!-- qna -->
+	<definition name="adminQnaList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaList.jsp" />
+	</definition>
+	<definition name="adminQnaView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
+	</definition>
+	<definition name="adminQnaWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
+	</definition>
 </tiles-definitions>
