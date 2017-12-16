@@ -21,6 +21,11 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
+	@Override
+	public int NoticeGetSEQ() throws Exception {
+		return sqlSessionTemplate.selectOne("notice.noticeGetSEQ");
+	}
+	
 	//게시글 전체 목록
 	@Override
 	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) throws Exception {

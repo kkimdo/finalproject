@@ -25,6 +25,11 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.NoticeWrite(noticeModel);
 	}
 	
+	
+	@Override
+	public int NoticeGetSEQ() throws Exception {
+		return noticeDAO.NoticeGetSEQ();
+	}
 	//게시글 전체 목록
 	@Override
 	public List<NoticeModel> NoticeListAll(int start, int end, String searchOption, String keyword) throws Exception {

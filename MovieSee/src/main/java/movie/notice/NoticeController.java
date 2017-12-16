@@ -1,11 +1,11 @@
 package movie.notice;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.commonPaging;
@@ -30,6 +32,8 @@ public class NoticeController {
 	// IoC 의존관계 역전
 	@Inject
 	private NoticeService noticeService;
+	
+	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/notice/";
 
 	private NoticeModel noticePrev = new NoticeModel();
 	private int preNum = 0;
@@ -47,8 +51,33 @@ public class NoticeController {
 
 	// 게시글 작성 처리
 	@RequestMapping(value = "/noticeWrite.see", method = RequestMethod.POST)
-	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, HttpServletRequest request)
+	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, MultipartHttpServletRequest multipartHttpServletRequest)
 			throws Exception {
+		
+		int noticeSeqNum = noticeService.NoticeGetSEQ();
+		noticeModel.setNotice_no(noticeSeqNum);
+		
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile("content_file");
+		String content_name = multipartFile.getOriginalFilename();
+		String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+		if (content_ext != "") {
+
+			String content_full_name = "noticeContent_" + noticeSeqNum + "." + content_ext;
+			File file = new File(uploadPath + content_full_name);
+
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+
+			try {
+				multipartFile.transferTo(file);
+			} catch (Exception e) {
+			}
+
+			noticeModel.setNotice_content_file(content_full_name);
+		}
+		
 		ModelAndView mav = new ModelAndView();
 
 		new NoticeValidator().validate(noticeModel, result);
@@ -57,6 +86,8 @@ public class NoticeController {
 			mav.setViewName("adminNoticeWrite");
 			return mav;
 		}
+		
+		
 
 		noticeService.NoticeWrite(noticeModel);
 

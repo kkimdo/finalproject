@@ -83,6 +83,18 @@
 										title="레이어 열림" class="btnv_pick">영화관선택</a> <font color="red"><form:errors
 												path="notice_area" /></font></td>
 								</tr>
+								
+								<tr>
+								<th scope="row">
+									<label for="fileUpload1">내용 이미지</label></th>
+								<td>
+									<div>
+										<input type="file" name="content_file" id="fileUpload1" />
+									</div> 
+									<span class="txt_left">
+									</span>
+								</td>
+							</tr>
 							</tbody>
 						</table>
 					</fieldset>

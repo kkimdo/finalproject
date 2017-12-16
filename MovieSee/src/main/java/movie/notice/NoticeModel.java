@@ -11,6 +11,7 @@ public class NoticeModel {
 	private String notice_hit; //글 조회수
 	private Date notice_date; //글 등록 일
 	private String notice_area; //글의 해당 지역
+	private String notice_content_file; //내용 이미지
 	
 	private int notice_prev;
 	private String notice_prev_subject;
@@ -78,6 +79,11 @@ public class NoticeModel {
 	public void setNotice_next_subject(String notice_next_subject) {
 		this.notice_next_subject = notice_next_subject;
 	}
-	
+	public String getNotice_content_file() {
+		return notice_content_file;
+	}
+	public void setNotice_content_file(String notice_content_file) {
+		this.notice_content_file = notice_content_file;
+	}
 	
 }
