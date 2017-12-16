@@ -32,7 +32,7 @@
 					<div id="img">
 						<p class="img">
 							<img
-								src="<%= cp %>/resources/uploads/event/${eventModel.event_stored_file_name}"
+								src="<%= cp %>/resources/uploads/event/${eventModel.event_content_file}"
 								alt="롯데시네마와 함께하는" />
 						</p>
 					</div>

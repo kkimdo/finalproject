@@ -13,31 +13,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지 사항</title>
 
-<!-- 
-나중에 작업
 <script type="text/javascript">
-	
-	function btnWrite() {
-		var frm = document.formWrite;
-		
-		if(frm.notice_subject.value == "") {
-			alert("제목을 입력해주세요.");
-			frm.notice_subject.focus();
-			return false;
-		}
-		else if(frm.notice_content.value == ""){
-			alert("내용을 입력해주세요.");
-			frm.notice_content.focus();
-			return false;
-		}
-		else(frm.notice_area.value == ""){
-			alert("영화관을 입력해주세요.");
-			frm.notice_area.focus();
-			return false;
-		}
-		return true;
+
+	function selected(){
+		window.open("/movie/admin/noticeSelected.see","selected","width=300, height=300");
 	}
-</script> -->
+</script>
+
 
 </head>
 <body>
@@ -51,22 +33,62 @@
 			<li><a href="javascript:customerCenterMenu(3);">단체관람/대관문의</a></li>
 			<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
 		</ul>
-		<form name="formWrite" action="noticeWrite.see" method="post" onsubmit="return btnWrite();">
-			<div>
-				제목 <input name="notice_subject" id="notice_subject" size="80"
-					placeholder="제목을 입력해주세요.">
-			</div>
-			<div>
-				내용
-				<textarea name="notice_content" id="notice_content" rows="4"
-					cols="80" placeholder="내용을 입력해주세요."></textarea>
-			</div>
-			<div>
-				영화관 <input name="notice_area" id="notice_area"
-					placeholder="영화관을 입력해주세요.">
-			</div>
-			<div style="width: 650px; text-align: center;">
-				<input type="submit" value="작성" />
+		<form name="formWrite" action="noticeWrite.see" method="post">
+			<div class="tabCont">
+				<div>
+					<fieldset>
+						<legend>이벤트내용입력</legend>
+						<div class="titYtxt mt50">
+							<h3 class="mem_tit">이벤트</h3>
+							<span><strong title="필수항목">*</strong> 표시 항목은 필수 입력 항목입니다.</span>
+						</div>
+
+						<table class="tbl_style01">
+
+							<caption>이벤트 작성란</caption>
+							<colgroup>
+								<col style="width: 13%">
+								<col style="width: *">
+							</colgroup>
+
+							<tbody>
+
+								<tr>
+									<th scope="row"><label for="subject"> 제목 <span
+											class="point_red" title="필수 입력">*</span>
+									</label></th>
+									<td><input name="notice_subject" type="text"
+										maxlength="40" id="subject" class="ipt_txt03"></td>
+								</tr>
+								<tr>
+									<th scope="row"><label for="content">내용 <span
+											class="point_red" title="필수 입력">*</span>
+									</label></th>
+									<td><textarea name="notice_content" rows="10" cols="30"
+											id="content" class="textarea01"></textarea>
+										<div class="txt_wrap">
+											<span class="byte_txt"><strong>0</strong> / 한글 2,000자</span>
+										</div></td>
+								</tr>
+
+								<tr>
+									<!-- 1023 영화관 선택 구조 변경 -->
+									<th scope="row">영화관 <span class="point_red" title="필수 입력">*</span></th>
+									<!-- 1026 label 삭제 -->
+									<td>
+									<input name="notice_area" type="text"
+										maxlength="40" id="notice_area" class="ipt_txt">
+									<span class="area" id="spanCinemaName"> </span> <a
+										href="javascript:selected();" title="레이어 열림" class="btnv_pick"
+										>영화관선택</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+					<div class="btn_box btn_cbox">
+						<input type="submit" value="확인">
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>

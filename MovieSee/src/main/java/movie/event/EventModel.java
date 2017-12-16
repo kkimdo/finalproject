@@ -9,9 +9,9 @@ public class EventModel {
 	private String event_end_date;
 	private int event_hit;
 	private String event_category;
-	private String event_original_file_name;
-	private String event_stored_file_name;
-	
+	private String event_poster_file;
+	private String event_content_file;
+
 	public int getEvent_no() {
 		return event_no;
 	}
@@ -54,17 +54,17 @@ public class EventModel {
 	public void setEvent_category(String event_category) {
 		this.event_category = event_category;
 	}
-	public String getEvent_original_file_name() {
-		return event_original_file_name;
+	public String getEvent_poster_file() {
+		return event_poster_file;
 	}
-	public void setEvent_original_file_name(String event_original_file_name) {
-		this.event_original_file_name = event_original_file_name;
+	public void setEvent_poster_file(String event_poster_file) {
+		this.event_poster_file = event_poster_file;
 	}
-	public String getEvent_stored_file_name() {
-		return event_stored_file_name;
+	public String getEvent_content_file() {
+		return event_content_file;
 	}
-	public void setEvent_stored_file_name(String event_stored_file_name) {
-		this.event_stored_file_name = event_stored_file_name;
+	public void setEvent_content_file(String event_content_file) {
+		this.event_content_file = event_content_file;
 	}
 	
 }
