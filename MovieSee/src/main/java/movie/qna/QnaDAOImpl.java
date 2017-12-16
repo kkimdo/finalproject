@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-
 @Repository // 현재 클래스를 DAO bean으로 등록
 public class QnaDAOImpl implements QnaDAO {
 
@@ -37,16 +36,35 @@ public class QnaDAOImpl implements QnaDAO {
 
 		return sqlSessionTemplate.selectList("qna.qnaListAll", map);
 	}
-	
+
 	@Override
 	public int count(String searchOption, String keyword) throws Exception {
-		
-		Map<String,String> map = new HashMap<String, String>();
-		
-		//검색 옵션, 키워드 맵에 저장
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		// 검색 옵션, 키워드 맵에 저장
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		
+
 		return sqlSessionTemplate.selectOne("qna.count", map);
+	}
+
+	// faq_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
+	@Override
+	public QnaModel QnaView(int qna_no) throws Exception {
+		return sqlSessionTemplate.selectOne("qna.qnaView", qna_no);
+	}
+
+	// 데이터를 삭제하는 메소드(게시글 삭제)
+	@Override
+	public void QnaDelete(int qna_no) {
+		sqlSessionTemplate.delete("qna.qnaDelete", qna_no);
+
+	}
+
+	// 답변 작성
+	@Override
+	public int QnaCommentWrite(QnaCommentModel qnaCommentModel) throws Exception {
+		return sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
 	}
 }

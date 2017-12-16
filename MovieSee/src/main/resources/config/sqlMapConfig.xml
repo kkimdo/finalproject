@@ -19,7 +19,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- qna -->
 		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />
-			
+		<typeAlias alias="qnaCommentModel" type="movie.qna.QnaCommentModel" />
+		
 	</typeAliases>
 	
 	<mappers>
