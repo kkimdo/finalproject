@@ -53,12 +53,14 @@
 								<select class="select_box" name="searchOption">
 									<!-- 검색조건을 검색처리 후 결과 화면에 보여주기 위해  c:out 출력태그 사용, 삼항연산자 -->
 									<option value="all"
-										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>제목
-										+ 내용</option>
+										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
 									<option value="notice_subject"
 										<c:out value="${map.searchOption == 'notice_subject'?'ed':''}"/>>제목</option>
 									<option value="notice_content"
 										<c:out value="${map.searchOption == 'notice_content'?'ed':''}"/>>내용</option>
+									<option value="notice_area"
+										<c:out value="${map.searchOption == 'notice_area'?'ed':''}"/>>영화관</option>
+										
 
 								</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
 									class="ipt_txt mt0"> <input type="submit" value="검색"

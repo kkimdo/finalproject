@@ -1,7 +1,6 @@
 package movie.event;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,9 +29,8 @@ public class EventController {
 
 	@Inject
 	private EventService eventService;
+
 	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/event/";
-	private String original_file_name = "";
-	private String stored_file_name = "";
 
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.GET)
 	public String EventWriteForm() {
@@ -46,18 +44,53 @@ public class EventController {
 
 		int eventSeqNum = eventService.EventGetSEQ();
 		eventModel.setEvent_no(eventSeqNum);
-		
-		File dir = new File(uploadPath);
-        if (!dir.isDirectory()) {
-            dir.mkdirs();
-        }
-		
-        List<MultipartFile> mf = multipartHttpServletRequest.getFiles("files");
+
+		MultipartFile multipartFile1 = multipartHttpServletRequest.getFile("poster_file");
+		String poster_name = multipartFile1.getOriginalFilename();
+		String poster_ext = poster_name.substring(poster_name.lastIndexOf('.') + 1);
+
+		if (poster_ext != "") {
+
+			String poster_full_name = "eventPoster_" + eventSeqNum + "." + poster_ext;
+			File file1 = new File(uploadPath + poster_full_name);
+
+			if (!file1.exists()) {
+				file1.mkdirs();
+			}
+
+			try {
+				multipartFile1.transferTo(file1);
+			} catch (Exception e) {
+			}
+
+			eventModel.setEvent_poster_file(poster_full_name);
+		}
+
+		MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("content_file");
+		String content_name = multipartFile2.getOriginalFilename();
+		String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+		if (content_ext != "") {
+
+			String content_full_name = "eventContent_" + eventSeqNum + "." + content_ext;
+			File file2 = new File(uploadPath + content_full_name);
+
+			if (!file2.exists()) {
+				file2.mkdirs();
+			}
+
+			try {
+				multipartFile2.transferTo(file2);
+			} catch (Exception e) {
+			}
+
+			eventModel.setEvent_content_file(content_full_name);
+		}
+
+		eventService.EventWrite(eventModel);
 
 		ModelAndView mav = new ModelAndView();
-
 		mav.addObject("eventModel", eventModel);
-		
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
 		return mav;
@@ -86,7 +119,6 @@ public class EventController {
 		List<EventModel> eventList_3 = eventService.EventList_3(start, end, searchOption, keyword);
 		// 4. 제휴할인
 		List<EventModel> eventList_4 = eventService.EventList_4(start, end, searchOption, keyword);
-		// 5. 우리동네영화관
 
 		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -235,7 +267,6 @@ public class EventController {
 	public ModelAndView EventView(HttpServletRequest request, HttpSession session) throws Exception {
 
 		int event_no = Integer.parseInt(request.getParameter("event_no"));
-		String imageNames = request.getParameter("event_stored_file_name");
 
 		EventModel eventModel = new EventModel();
 		eventModel = eventService.EventView(event_no);
@@ -248,5 +279,7 @@ public class EventController {
 
 		return mav;
 	}
+	
+	
 
 }

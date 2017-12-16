@@ -3,7 +3,7 @@
 
 <!-- 이벤트 namespace -->
 <mapper namespace="event">
-	
+
 	<resultMap type="eventModel" id="eventModelRes">
 		<result property="event_no" column="event_no" />
 		<result property="event_subject" column="event_subject" />
@@ -11,15 +11,15 @@
 		<result property="event_hit" column="event_hit" />
 		<result property="event_start_date" column="event_start_date" />
 		<result property="event_end_date" column="event_end_date" />
-		<result property="event_original_file_name" column="event_original_file_name" />
-		<result property="event_stored_file_name" column="event_stored_file_name" />
 		<result property="event_category" column="event_category" />
+		<result property="event_poster_file" column="event_poster_file" />
+		<result property="event_content_file" column="event_content_file" />
 	</resultMap>
-	
+
 	<sql id="select-all">
 		select * from event
 	</sql>
-	
+
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">
 		select * from (select rownum as rn, a.* from (
@@ -27,87 +27,138 @@
 	<sql id="pagingFooter">
 		)a ) where rn between #{start} and #{end}
 	</sql>
-	
+
 	<!-- 검색 조건 -->
 	<sql id="search">
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
-				where (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%' or event_category like '%'||#{keyword}||'%')
+				where (event_subject like '%'||#{keyword}||'%' or
+				event_content like '%'||#{keyword}||'%' or event_category like
+				'%'||#{keyword}||'%')
 			</when>
-			
+
 			<!-- 전체 검색이 아닐 경우 -->
 			<otherwise>
 				where ${searchOption} like '%'||#{keyword}||'%'
 			</otherwise>
 		</choose>
 	</sql>
-	
-	<!-- 게시글 목록 조회 및 검색 조회 까지 (1.영화)-->
+
+	<!-- select 쿼리문 정의 -->
+	<!-- 게시글 목록 조회 및 검색 조회 까지 (1.영화) -->
 	<select id="eventList_1" resultMap="eventModelRes">
 		<include refid="pagingHeader" />
-		select rownum, event_no, event_subject, event_content, event_start_date, event_end_date, event_hit, event_category, event_original_file_name, event_stored_file_name from event
-		where event_category = '1' and (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%')
+		select rownum, event_no, event_subject, event_content,
+		event_start_date, event_end_date, event_hit, event_category,
+		event_poster_file, event_content_file
+		from event
+		where
+		event_category = '1' and (event_subject like '%'||#{keyword}||'%'
+		or
+		event_content like '%'||#{keyword}||'%')
 		order by event_no desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
-	<!-- 게시글 목록 조회 및 검색 조회 까지 (2.시대회/무대인사)-->
+
+	<!-- 게시글 목록 조회 및 검색 조회 까지 (2.시대회/무대인사) -->
 	<select id="eventList_2" resultMap="eventModelRes">
 		<include refid="pagingHeader" />
-		select rownum, event_no, event_subject, event_content, event_start_date, event_end_date, event_hit, event_category, event_original_file_name, event_stored_file_name from event
-		where event_category = '2' and (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%')
-		order by event_no desc
+		select rownum, event_no, event_subject, event_content,
+		event_start_date, event_end_date, event_hit, event_category,
+		event_poster_file, event_content_file
+		from event
+		where
+		event_category = '2' and (event_subject like
+		'%'||#{keyword}||'%'
+		or
+		event_content like '%'||#{keyword}||'%')
+		order
+		by event_no desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
-	<!-- 게시글 목록 조회 및 검색 조회 까지 (3. 롯시NOW)-->
+
+	<!-- 게시글 목록 조회 및 검색 조회 까지 (3. 롯시NOW) -->
 	<select id="eventList_3" resultMap="eventModelRes">
 		<include refid="pagingHeader" />
-		select rownum, event_no, event_subject, event_content, event_start_date, event_end_date, event_hit, event_category, event_original_file_name, event_stored_file_name from event
-		where event_category = '3' and (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%')
+		select rownum, event_no, event_subject, event_content,
+		event_start_date, event_end_date, event_hit, event_category,
+		event_poster_file, event_content_file
+		from event
+		where
+		event_category = '3' and (event_subject like '%'||#{keyword}||'%'
+		or
+		event_content like '%'||#{keyword}||'%')
 		order by event_no desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
-	<!-- 게시글 목록 조회 및 검색 조회 까지 (4. 제휴할인)-->
+
+	<!-- 게시글 목록 조회 및 검색 조회 까지 (4. 제휴할인) -->
 	<select id="eventList_4" resultMap="eventModelRes">
 		<include refid="pagingHeader" />
-		select rownum, event_no, event_subject, event_content, event_start_date, event_end_date, event_hit, event_category, event_original_file_name, event_stored_file_name from event
-		where event_category = '4' and (event_subject like '%'||#{keyword}||'%' or event_content like '%'||#{keyword}||'%')
+		select rownum, event_no, event_subject, event_content,
+		event_start_date, event_end_date, event_hit, event_category,
+		event_poster_file, event_content_file
+		from event
+		where
+		event_category = '4' and (event_subject like '%'||#{keyword}||'%'
+		or
+		event_content like '%'||#{keyword}||'%')
 		order by event_no desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
+
 	<!-- 게시글 레코드 갯수 -->
 	<select id="count" resultType="int">
 		select count(*) from event
 		<!-- where 절을 include 태그로 삽입 -->
 		<include refid="search" />
 	</select>
-	
-	<!-- 게시글 작성 -->
-	<insert id="eventWrite" parameterType="eventModel">
-		insert into event (event_no, event_subject, event_content, event_start_date, event_end_date, event_original_file_name, event_stored_file_name, event_category) 
-		values (event_no_seq.NEXTVAL, #{event_subject}, #{event_content}, #{event_start_date}, #{event_end_date}, #{event_original_file_name}, #{event_original_file_name}, #{event_category})
-	</insert>
-	
+
 	<!-- 해당 게시글 번호 -->
 	<select id="eventGetSEQ" resultType="int">
-		select event_no_seq.NEXTVAL from dual
+		select event_no_seq.NEXTVAL
+		from dual
 	</select>
-	
-	<!-- 게시글 조회수 증가 -->
-	<update id="eventHitUpdate">
-		update event
-		set event_hit = event_hit + 1
-		where event_no = #{event_no}
-	</update>
-	
+
 	<!-- 게시글 상세보기 -->
 	<select id="eventView" resultMap="eventModelRes">
 		<include refid="select-all" />
 		where event_no = #{event_no}
 	</select>
-	
+
+	<!-- insert 쿼리문 정의 -->
+	<!-- 게시글 작성 -->
+	<insert id="eventWrite" parameterType="eventModel">
+		insert into event
+		(event_no, event_subject, event_content, event_start_date,
+		event_end_date, event_category, event_poster_file,
+		event_content_file)
+		values (event_no_seq.NEXTVAL,
+		#{event_subject},
+		#{event_content},
+		#{event_start_date},
+		#{event_end_date},
+		#{event_category}, #{event_poster_file},
+		#{event_content_file})
+	</insert>
+
+	<!-- update 쿼리문 정의 -->
+	<!-- 게시글 조회수 증가 -->
+	<update id="eventHitUpdate">
+		update event
+		set event_hit = event_hit + 1
+		where
+		event_no = #{event_no}
+	</update>
+
+	<!-- 게시글 수정 -->
+	<!-- <update id="eventUpdate" parameterType="eventModel"> update event set 
+		event_subject = #{event_subject}, event_content = #{event_content}, event_start_date 
+		= #{event_start_date}, event_end_date = #{event_end_date}, event_category 
+		= #{event_category}, event_poster_file = #{event_poster_file}, 
+		event_content_file = #{event_content_file} where event_no = #{event_no} 
+		</update> -->
+
+
 </mapper>
