@@ -15,6 +15,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이벤트</title>
 
+<script type="text/javascript">
+
+	 function eventDate(endDate, number){
+
+		var today = new Date(); 
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1; 
+		var day = today.getDate();
+		
+		if (("" + month).length == 1) month = "0" + month;
+		if (("" + day).length  == 1) day  = "0" + day;
+		var toDate	= year+''+month+''+day;
+		
+		if(toDate <= endDate){ 
+		 location.href='<%=cp%>/admin/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
+		}else{ 
+		  alert('이벤트 기간이 아닙니다.');
+		}
+	}
+	
+</script>
+
 </head>
 <body>
 	<div class="header">
@@ -56,14 +78,22 @@
 				</div>
 				<!-- emovie_list_1 -->
 				<ul class="emovie_list">
+				<!-- String형으로 '2017.12.17' 이런식으로 값이 들어오기 때문에, String 을 Date 형식으로 변환해서 eventEndDate1에 저장 후,
+					다시 원하는 포맷에 맞게 바꿔줌 , 이벤트 기간 비교하기 위해 다시 yyyyMMdd로 포맷함 -->
 					<c:forEach var="eventList_1" items="${map.eventList_1}" end="3">
-						<li><a href="<%=cp %>/admin/eventView.see?event_no=${eventList_1.event_no}&curPage=${map.c_Paging.curPage}"> <img
+						<fmt:parseDate value="${eventList_1.event_end_date}"
+							var="eventEndDate1" pattern="yyyy.MM.dd" />
+						<li><a href="javascript:void(0);"
+							onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+								<img
 								src="/movie/resources/uploads/event/${eventList_1.event_poster_file}"
 								alt="${eventList_1.event_subject}" />
 						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_1.event_no}&curPage=${map.c_Paging.curPage}"> ${eventList_1.event_subject} </a>
+									<a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+										${eventList_1.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_1.event_start_date} ~
@@ -85,12 +115,19 @@
 				<!-- emovie_list_2 -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_2" items="${map.eventList_2}" end="3">
-						<li><a href="javascript:void(0);" onclick=""> <img
+						<fmt:parseDate value="${eventList_2.event_end_date}"
+							var="eventEndDate2" pattern="yyyy.MM.dd" />
+						<li><a href="javascript:void(0);"
+							onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'>
+								<img
 								src="/movie/resources/uploads/event/${eventList_2.event_poster_file}"
-								alt="${eventList_2.event_subject}"></a>
+								alt="${eventList_2.event_subject}">
+						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_2.event_no}&curPage=${map.c_Paging.curPage}"> ${eventList_2.event_subject} </a>
+									<a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'>
+										${eventList_2.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_2.event_start_date} ~
@@ -111,12 +148,18 @@
 				<!-- emovie_list_3 -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_3" items="${map.eventList_3}" end="3">
-						<li><a href="javascript:void(0);" onclick=""> <img
+						<fmt:parseDate value="${eventList_3.event_end_date}"
+							var="eventEndDate3" pattern="yyyy.MM.dd" />
+						<li><a href="javascript:void(0);"
+							onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'>
+								<img
 								src="/movie/resources/uploads/event/${eventList_3.event_poster_file}"
-								alt="${eventList_3.event_subject}"></a>
+								alt="${eventList_3.event_subject}">
+						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_3.event_no}&curPage=${map.c_Paging.curPage}">
+									<a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'>
 										${eventList_3.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
@@ -139,12 +182,18 @@
 				<!-- emovie_list_4 -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_4" items="${map.eventList_4}" end="3">
-						<li><a href="#none"> <img
+						<fmt:parseDate value="${eventList_4.event_end_date}"
+							var="eventEndDate4" pattern="yyyy.MM.dd" />
+						<li><a href="javascript:void(0);"
+							onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
+								<img
 								src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
-								alt="${eventList_4.event_subject}"></a>
+								alt="${eventList_4.event_subject}">
+						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="<%=cp %>/admin/eventView.see?event_no=${eventList_4.event_no}&curPage=${map.c_Paging.curPage}">
+									<a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
 										${eventList_4.event_subject} </a>
 								</dt>
 								<dd class="eventdate">

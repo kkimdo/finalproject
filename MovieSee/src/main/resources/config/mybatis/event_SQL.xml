@@ -163,6 +163,12 @@
 		where 
 		event_no = #{event_no} 
 	</update>
+	
+	<!-- 게시글 삭제 -->
+	<update id="eventDelete">
+		delete from event 
+		where event_no = #{event_no}
+	</update>
 
 
 </mapper>
