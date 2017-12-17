@@ -87,4 +87,9 @@ public class EventServiceImpl implements EventService{
 		return eventDAO.EventUpdate(eventModel);
 	}
 	
+	@Override
+	public void EventDelete(int event_no) throws Exception {
+		eventDAO.EventDelete(event_no);
+	}
+	
 }

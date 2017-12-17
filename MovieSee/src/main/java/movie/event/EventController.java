@@ -393,5 +393,12 @@ public class EventController {
 	}
 	
 	// 게시글 삭제
+	@RequestMapping(value="/eventDelete.see")
+	public String EventDelete(@RequestParam int event_no) throws Exception{
+		
+		eventService.EventDelete(event_no);
+		
+		return "redirect:/admin/eventListMain.see";
+	}
 
 }

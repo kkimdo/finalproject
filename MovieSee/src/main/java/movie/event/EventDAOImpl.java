@@ -109,5 +109,10 @@ public class EventDAOImpl implements EventDAO {
 	public int EventUpdate(EventModel eventModel) throws Exception {
 		return sqlSessionTemplate.update("event.eventUpdate", eventModel);
 	}
+	
+	@Override
+	public void EventDelete(int event_no) throws Exception {
+		sqlSessionTemplate.delete("event.eventDelete", event_no);
+	}
 
 }
