@@ -33,7 +33,7 @@
 			<li><a href="javascript:customerCenterMenu(3);">단체관람/대관문의</a></li>
 			<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
 		</ul>
-		<form name="formWrite" action="noticeWrite.see" method="post">
+		<form name="formWrite" action="noticeWrite.see" method="post" enctype="multipart/form-data">
 			<div class="tabCont">
 				<div>
 					<fieldset>

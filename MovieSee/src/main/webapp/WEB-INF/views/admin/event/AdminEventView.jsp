@@ -15,9 +15,23 @@
 
 <script type="text/javascript">
 
+function btnList(){
+	location.href="<%= cp %>/admin/eventListMain.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}";
+	}
 	
-
+function btnUpdate(){
+	location.href="<%= cp%>/admin/eventUpdate.see?event_no=${eventModel.event_no}";
+	}
+  
+function btnDelete() {
+	if (confirm("정말 삭제하시겠습니까?") == true) { //확인
+		location.href ="<%= cp%>/admin/eventDelete.see?event_no=${eventModel.event_no}";
+		} else { //취소
+			return;
+		}
+	}
 </script>
+
 </head>
 <body>
 	<div id="container" class="sub" style="">
@@ -29,14 +43,13 @@
 				<!-- event_sinner -->
 				<div class="event_sinner">
 					<h2 class="sub_tit02">${eventModel.event_subject}</h2>
-					<div id="img">
-						<p class="img">
-							<img
-								src="<%= cp %>/resources/uploads/event/${eventModel.event_content_file}"
-								alt="롯데시네마와 함께하는" />
-						</p>
-					</div>
-
+					 <c:if test="${eventModel.event_content_file ne null }">
+						<div id="img">
+							<p class="img">
+								<img src="<%= cp %>/resources/uploads/event/${eventModel.event_content_file}" alt="${eventModel.event_subject}" />
+							</p>
+						</div>
+					</c:if>
 					<div id="event_movie"></div>
 					<div id="event_img"></div>
 				</div>
@@ -46,17 +59,18 @@
 				<div class="view_add">
 					<strong>유의사항</strong>
 					<p>
-						<strong> 내용
-						</strong>
+						<strong> ${eventModel.event_content} </strong>
 					</p>
 				</div>
 				<!--// view_add -->
 
 				<ul class="view_list">
 				</ul>
-				
+
 				<div id="btn_list" class="btn_box btn_cbox">
-					<a href="/admin/eventListMain.see" class="btnc_list">목록</a>
+					<a href="javascript:void(0);" class="btnc_check" onclick="btnList();">목록</a>
+					<a href="javascript:void(0);" class="btnc_check" onclick="btnUpdate();">수정</a>
+					<a href="javascript:void(0);" class="btnc_check" onclick="btnDelete();">삭제</a>
 				</div>
 
 			</div>

@@ -41,10 +41,10 @@
 	<definition name="adminEventList_4" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_4.jsp" />
 	</definition>
-	<!-- event 5 -->
-	<!-- <definition name="adminEventList_5" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventList_5.jsp" />
-	</definition> -->
+	<definition name="adminEventUpdate" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventUpdate.jsp" />
+	</definition>
+	
 	
 	<!-- notice -->
 	<definition name="adminNoticeList" extends="main">
