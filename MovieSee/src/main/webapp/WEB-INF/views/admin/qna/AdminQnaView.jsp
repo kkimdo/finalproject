@@ -19,13 +19,25 @@
     	}  
 	function btnDelete() {
 		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
-			location.href ="<%=cp%>
-	/qna/qnaDelete.see?qna_no=${qnaModel.qna_no}";
+			location.href ="<%=cp%>/qna/qnaDelete.see?qna_no=${qnaModel.qna_no}";
 		} else { //취소
 			return;
 		}
+	
 	}
 </script>
+
+<script type="text/javascript">
+
+	function qnaCommentDelete(url) {
+		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
+			location.href = url;
+		} else { //취소
+			return;
+		}
+		}  
+</script>
+
 </head>
 
 <body>
@@ -81,22 +93,48 @@
 						pattern="yyyy.MM.dd" /></td>
 			</tr>
 
-			<tr>
-				<td>답변</td>
-				<td><textarea name="qna_comment_content"></textarea></td>
-			</tr>
 		</tbody>
 
 	</table>
+	
+		<form:form action="qnaCommentWrite.see" method="post" name="cfrms"
+			onsubmit="return validation();">
+			<div class="reply_form">
+				<div class="reply_inp">
+					<input type="hidden" name="qna_no" value="${qnaModel.qna_no}" />
+					<input type="hidden" name="qna_comment_no" value="${qna_comment_no}" />
+				</div>
 
+				<div class="reply_write">
+					<div class="textarea_grp">
+						<pre>
+							<textarea name="qna_comment_content"></textarea>
+						<form:errors path="qna_comment_content" />
+						</pre>
+					</div>
+				
+					 <input type="submit" value="입력" />
+				</div>
+			</div>
+		</form:form>
 
-	<%-- ${pagingHtml}
-			<input type="button" onclick="location.href='qnaList.see'" value="목록" />
-			 --%>
+		<%-- <c:if test="commentlist.size() > 0"> --%>
+		<%-- </c:if> --%>
+
+		<c:forEach var="qna_comment" items="${QnaCommentList}">
+		
+				<div class="reply_cts">
+					<p>${qna_comment.qna_comment_content}</p>
+					<input type="button" onclick="qnaCommentDelete('<%=cp%>/qna/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')" value="댓글삭제" />
+					<input type="button" onclick="location.href='qnaCommentUpdate.see?qna_comment_no=${qna_comment.qna_comment_no}'"value="수정" />
+				</div>
+			
+		</c:forEach>
+
 	<div>
-		<a href="<%= cp %>/qna/qnaList.see?curPage=${curPage}"
-			class="btnc_check">목록</a> <a href="#none" class="btnc_check"
-			onclick="btnDelete();">삭제</a>
+		<a href="<%= cp %>/qna/qnaList.see?curPage=${curPage}" class="btnc_check">목록</a> 
+		<a href="#none" class="btnc_check" onclick="btnDelete();">삭제</a>
+
 	</div>
 
 </body>

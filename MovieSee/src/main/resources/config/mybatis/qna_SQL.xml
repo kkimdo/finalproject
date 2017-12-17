@@ -20,11 +20,19 @@
 		<result property="qna_date" column="qna_date" />
 
 	</resultMap>
+
+
+	<resultMap type="qnaCommentModel" id="qnaCommentModelRes">
+		<result property="qna_comment_no" column="qna_comment_no" />
+		<result property="qna_no" column="qna_no" />
+		<result property="qna_comment_content" column="qna_comment_content" />
+	</resultMap>
+
 	<!-- 공동 select -->
 	<sql id="select-all">
 		select * from qna
 	</sql>
-	
+
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">
 		select * from (select rownum as rn, a.* from (
@@ -32,36 +40,73 @@
 	<sql id="pagingFooter">
 		)a ) where rn between #{start} and #{end}
 	</sql>
-	
+
 	<!-- 게시글 목록 조회 -->
 	<select id="qnaListAll" resultMap="qnaModelRes">
 		<include refid="pagingHeader" />
-		select rownum, qna_no, qna_id, qna_name, qna_phone, qna_email, qna_question_kinds, qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date from qna
+		select rownum, qna_no, qna_id, qna_name, qna_phone, qna_email,
+		qna_question_kinds, qna_category, qna_area, qna_subject, qna_content,
+		qna_orgfile, qna_savfile, qna_date from qna
 		<include refid="pagingFooter"></include>
 	</select>
-	
+
 	<!-- 게시글 레코드 갯수 -->
 	<select id="count" resultType="int">
 		select count(*) from qna
 	</select>
-	
+
+	<!-- 댓글 목록 -->
+	<select id="qnaCommentList" resultMap="qnaCommentModelRes">
+		select * from qna_comment
+		where qna_no = #{qna_no}
+		order by qna_comment_no desc
+	</select>
+
 	<!-- 글 작성 -->
 	<insert id="qnaWrite" parameterType="qnaModel">
-		insert into qna(qna_no, qna_id, qna_name, qna_phone, qna_email, qna_question_kinds, qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date)
-		values (qna_no_seq.NEXTVAL, #{qna_id}, #{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds}, #{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, null, null, sysdate)
+		insert into qna(qna_no,
+		qna_id, qna_name, qna_phone, qna_email, qna_question_kinds,
+		qna_category, qna_area, qna_subject, qna_content, qna_orgfile,
+		qna_savfile, qna_date)
+		values (qna_no_seq.NEXTVAL, #{qna_id},
+		#{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds},
+		#{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, null,
+		null, sysdate)
 
 	</insert>
-	
+
+	<!-- 댓글 입력 -->
+	<insert id="qnaCommentWrite">
+		INSERT INTO qna_comment (qna_comment_no, qna_no, qna_comment_content)
+		VALUES (qna_comment_no_seq.NEXTVAL, #{qna_no}, #{qna_comment_content})
+	</insert>
+
 	<!-- 글 상세보기 -->
 	<select id="qnaView" parameterType="int" resultMap="qnaModelRes">
 		<include refid="select-all" />
 		where qna_no = #{qna_no}
 	</select>
-	
+
 	<!-- 글 삭제 -->
 	<update id="qnaDelete">
-		delete from qna 
+		delete from qna
 		where qna_no = #{qna_no}
 	</update>
-	
+
+	<!-- 댓글 삭제 -->
+	<update id="qnaCommentDelete">
+		delete from qna_comment 
+		where qna_comment_no = #{qna_comment_no}
+	</update>
+
+	<!-- 댓글 수정 -->
+	 <select id="qnaCommentUpdate">
+        UPDATE qna_comment 
+        SET qna_comment_content = #{qna_comment_content}
+        WHERE qna_comment_no = #{qna_comment_no}
+    </select> 
+
+
+
+
 </mapper>

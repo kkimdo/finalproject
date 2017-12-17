@@ -49,15 +49,25 @@ public class QnaServiceImpl implements QnaService {
 
 	}
 
-	// 답변 작성
-	@Override
-	public int QnaCommentWrite(QnaCommentModel qnaCommentModel) throws Exception {
-
-		// replace(A, B) A를 B로 변경
-		String content = qnaCommentModel.getQna_comment_content().replaceAll("\r\n", "<br>"); // 줄바꿈 문자 처리
-
-		qnaCommentModel.setQna_comment_content(content);
-
-		return qnaDAO.QnaCommentWrite(qnaCommentModel);
-	}
+	// 댓글 목록
+    @Override
+    public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
+        return qnaDAO.CommentList(qna_no);
+    }
+    // 댓글 작성
+    @Override
+    public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
+    	qnaDAO.CommentInsert(qnaCommentModel);
+    }
+    // 댓글 수정
+    @Override
+    public void CommentUpdate(QnaCommentModel qnaCommentModel) throws Exception {
+    	qnaDAO.CommentUpdate(qnaCommentModel);
+    }
+    // 댓글 삭제
+    @Override
+    public void CommentDelete(int qna_comment_no) throws Exception {
+    	qnaDAO.CommentDelete(qna_comment_no);
+ 
+    }
 }

@@ -30,14 +30,13 @@
 
 
 		<tbody>
-			<tbody>
 			<c:forEach var="qnaList" items="${map.qnaList}">
-						<c:url var="viewURL" value="qnaView.see">
-							<c:param name="qna_no" value="${qnaList.qna_no }" />
-							<c:param name="currentPage" value="${currentPage }" />
-						</c:url>
+				<c:url var="viewURL" value="qnaView.see">
+					<c:param name="qna_no" value="${qnaList.qna_no }" />
+					<c:param name="currentPage" value="${currentPage }" />
+				</c:url>
 				<tr class="qna">
-				
+
 					<td>${qnaList.qna_no}</td>
 					<td>${qnaList.qna_id}</td>
 					<td><a href="${viewURL}">${qnaList.qna_subject }</a></td>
@@ -45,11 +44,8 @@
 							pattern="yyyy-MM-dd" /></td>
 				</tr>
 			</c:forEach>
+			
 		</tbody>
-		
-
-
-	
 	</table>
 	
 	${pagingHtml}

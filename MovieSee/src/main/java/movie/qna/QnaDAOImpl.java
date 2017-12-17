@@ -59,12 +59,28 @@ public class QnaDAOImpl implements QnaDAO {
 	@Override
 	public void QnaDelete(int qna_no) {
 		sqlSessionTemplate.delete("qna.qnaDelete", qna_no);
-
 	}
 
-	// 답변 작성
-	@Override
-	public int QnaCommentWrite(QnaCommentModel qnaCommentModel) throws Exception {
-		return sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
-	}
+	// 댓글 목록
+    @Override
+    public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
+        return sqlSessionTemplate.selectList("qna.qnaCommentList", qna_no);
+    }
+    // 댓글 작성
+    @Override
+    public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
+    	sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
+    }
+    // 댓글 수정
+    @Override
+    public void CommentUpdate(QnaCommentModel qnaCommentModel) throws Exception {
+    	sqlSessionTemplate.update("qna.qnaCommentUpdate", qnaCommentModel);
+    }
+    // 댓글 삭제
+    @Override
+    public void CommentDelete(int qna_comment_no) throws Exception {
+    	sqlSessionTemplate.delete("qna.qnaCommentDelete", qna_comment_no);
+
+    }
+ 
 }
