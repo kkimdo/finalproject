@@ -5,17 +5,23 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.commonPaging;
+
 
 @Controller // 현재 클래스를 컨트롤러 빈(bean)으로 등록
 @RequestMapping("/qna")
@@ -128,8 +134,13 @@ public class QnaController {
 
 		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
+
+		List<QnaCommentModel> QnaCommentList = qnaService.CommentList(qna_no);
+		QnaCommentList = qnaService.CommentList(qna_no);
+
 		// 뷰에 전달할 데이터
 		mav.addObject("qnaModel", qnaService.QnaView(qna_no));
+		mav.addObject("QnaCommentList", QnaCommentList);
 		// 뷰의 이름
 		mav.setViewName("adminQnaView");
 
@@ -145,10 +156,63 @@ public class QnaController {
 		return "redirect:/qna/qnaList.see";
 	}
 
-	//답변 작성
-	@RequestMapping(value = "/qnaCommentWrite.see", method = RequestMethod.GET)
-	public String QnaCommentWriteForm() {
-		return "admin/qna/AdminQnaCommentWrtie"; /// AdminQnaView.jsp 로 이동
+	// 댓글 입력
+	@RequestMapping(value = "/qnaCommentWrite.see")
+	public ModelAndView CommentInsert(HttpServletRequest request, HttpSession session) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+		QnaCommentModel qnaCommentModel = new QnaCommentModel();
+		
+		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
+		
+		// 리스트 넘버를 파라미터값으로 받는다
+		qnaCommentModel.setQna_comment_content(request.getParameter("qna_comment_content").replaceAll("\r\n", "<br />"));
+		qnaCommentModel.setQna_no(qna_no);
+
+		qnaService.CommentInsert(qnaCommentModel);
+		
+		mav.addObject("qnaCommentModel", qnaCommentModel);
+		mav.setViewName("redirect:qnaView.see?qna_no=" + qna_no);
+
+		return mav;
+	}
+	//댓글 수정
+	@RequestMapping(value="/qnaCommentUpdate.see", method = RequestMethod.GET)
+    public ResponseEntity<String> CommentUpdate(@PathVariable("qna_comment_no") int qna_comment_no, @RequestBody QnaCommentModel qnaCommentModel ){
+        ResponseEntity<String> entity = null;
+        try {
+        	qnaCommentModel.setQna_comment_no(qna_comment_no);
+            qnaService.CommentUpdate(qnaCommentModel);
+            // 댓글 수정이 성공하면 성공 상태메시지 저장
+            entity = new ResponseEntity<String>("success", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 댓글 수정이 실패하면 실패 상태메시지 저장
+            entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        // 수정 처리 HTTP 상태 메시지 리턴
+        return entity;
+    }
+    
+	
+	// 댓글 삭제
+	@RequestMapping(value = "/qnaCommentDelete.see", method = RequestMethod.GET)
+	public ModelAndView CommentDelete(HttpServletRequest request) throws Exception {
+		
+		ModelAndView mav = new ModelAndView();
+		/*QnaCommentModel qnaCommentModel = new QnaCommentModel();*/
+		
+		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
+		int qna_comment_no = Integer.parseInt(request.getParameter("qna_comment_no"));
+		/*
+		qnaCommentModel.setQna_comment_no(qna_comment_no);*/
+		//System.out.println("asdasd" + qna_comment_no);
+		qnaService.CommentDelete(qna_comment_no);
+		
+		mav.setViewName("redirect:/qna/qnaView.see?qna_no=" + qna_no);
+		
+		
+		return mav;
 	}
 
 }
