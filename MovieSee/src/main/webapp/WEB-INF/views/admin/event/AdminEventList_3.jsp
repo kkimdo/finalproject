@@ -59,7 +59,7 @@
 				<ul class="emovie_list">
 					<c:forEach var="eventList_3" items="${map.eventList_3}">
 						<li><a href="#none" onclick=""> <img
-								src="/movie/resources/uploads/event/${eventList_3.event_stored_file_name}"
+								src="/movie/resources/uploads/event/${eventList_3.event_poster_file}"
 								alt="${eventList_3.event_subject}" />
 						</a>
 							<dl class="imgsub">

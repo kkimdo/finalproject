@@ -46,51 +46,71 @@ public class EventController {
 		eventModel.setEvent_no(eventSeqNum);
 
 		MultipartFile multipartFile1 = multipartHttpServletRequest.getFile("poster_file");
-		String poster_name = multipartFile1.getOriginalFilename();
-		String poster_ext = poster_name.substring(poster_name.lastIndexOf('.') + 1);
+		MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("content_file");
 
-		if (poster_ext != "") {
+		String poster_full_name = "";
 
-			String poster_full_name = "eventPoster_" + eventSeqNum + "." + poster_ext;
-			File file1 = new File(uploadPath + poster_full_name);
+		if (!multipartFile1.isEmpty()) {
 
-			if (!file1.exists()) {
-				file1.mkdirs();
+			String poster_name = multipartFile1.getOriginalFilename();
+			String poster_ext = poster_name.substring(poster_name.lastIndexOf('.') + 1);
+
+			if (poster_ext != null && !poster_ext.equals("")) {
+
+				poster_full_name = "eventPoster_" + eventSeqNum + "." + poster_ext;
+				File file1 = new File(uploadPath + poster_full_name);
+
+				if (!file1.exists()) {
+					file1.mkdirs();
+				}
+
+				try {
+					multipartFile1.transferTo(file1);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				eventModel.setEvent_poster_file(poster_full_name);
 			}
 
-			try {
-				multipartFile1.transferTo(file1);
-			} catch (Exception e) {
-			}
+		} else {
 
 			eventModel.setEvent_poster_file(poster_full_name);
 		}
 
-		MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("content_file");
-		String content_name = multipartFile2.getOriginalFilename();
-		String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+		String content_full_name = "";
 
-		if (content_ext != "") {
+		if (!multipartFile2.isEmpty()) {
 
-			String content_full_name = "eventContent_" + eventSeqNum + "." + content_ext;
-			File file2 = new File(uploadPath + content_full_name);
+			String content_name = multipartFile2.getOriginalFilename();
+			String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
 
-			if (!file2.exists()) {
-				file2.mkdirs();
+			if (content_ext != null && !content_ext.equals("")) {
+
+				content_full_name = "eventContent_" + eventSeqNum + "." + content_ext;
+				File file2 = new File(uploadPath + content_full_name);
+
+				if (!file2.exists()) {
+					file2.mkdirs();
+				}
+
+				try {
+					multipartFile2.transferTo(file2);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				eventModel.setEvent_content_file(content_full_name);
 			}
 
-			try {
-				multipartFile2.transferTo(file2);
-			} catch (Exception e) {
-			}
+		} else {
 
 			eventModel.setEvent_content_file(content_full_name);
 		}
 
-		eventService.EventWrite(eventModel);
-
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("eventModel", eventModel);
+
+		mav.addObject("eventModel", eventService.EventWrite(eventModel));
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
 		return mav;
@@ -279,7 +299,99 @@ public class EventController {
 
 		return mav;
 	}
+
+	// 게시글 수정 폼
+	@RequestMapping(value = "/eventUpdate.see", method = RequestMethod.GET)
+	public ModelAndView EventUpdateForm(@RequestParam int event_no) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("eventModel", eventService.EventView(event_no));
+
+		mav.setViewName("adminEventUpdate");
+
+		return mav;
+	}
+
+	// 게시글 수정
+	@RequestMapping(value = "/eventUpdate.see", method = RequestMethod.POST)
+	public ModelAndView EventUpdate(@ModelAttribute EventModel eventModel,
+			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+
+		int eventSeqNum = eventService.EventGetSEQ();
+
+		MultipartFile multipartFile1 = multipartHttpServletRequest.getFile("poster_file");
+		MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("content_file");
+		
+		if (!multipartFile1.isEmpty()) {
+
+			String poster_name = multipartFile1.getOriginalFilename();
+			String poster_ext = poster_name.substring(poster_name.lastIndexOf('.') + 1);
+
+			if (poster_ext != null && !poster_ext.equals("")) {
+
+				File deleteFile1 = new File(uploadPath + eventModel.getEvent_poster_file());
+				deleteFile1.delete();
+
+				String poster_full_name = "eventPoster_" + eventSeqNum + "." + poster_ext;
+				File file1 = new File(uploadPath + poster_full_name);
+
+				if (!file1.exists()) {
+					file1.mkdirs();
+				}
+
+				try {
+					multipartFile1.transferTo(file1);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				eventModel.setEvent_poster_file(poster_full_name);
+			}
+
+		} else {
+
+			eventModel.setEvent_poster_file(eventModel.getEvent_poster_file());
+		}
+
+		if (!multipartFile2.isEmpty()) {
+
+			String content_name = multipartFile2.getOriginalFilename();
+			String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+			if (content_ext != null && !content_ext.equals("")) {
+
+				File deleteFile2 = new File(uploadPath + eventModel.getEvent_content_file());
+				deleteFile2.delete();
+
+				String content_full_name = "eventContent_" + eventSeqNum + "." + content_ext;
+				File file2 = new File(uploadPath + content_full_name);
+
+				if (!file2.exists()) {
+					file2.mkdirs();
+				}
+
+				try {
+					multipartFile2.transferTo(file2);
+				} catch (Exception e) {
+				}
+
+				eventModel.setEvent_content_file(content_full_name);
+			}
+
+		} else {
+
+			eventModel.setEvent_content_file(eventModel.getEvent_content_file());
+		}
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("eventModel", eventService.EventUpdate(eventModel));
+		mav.setViewName("redirect:/admin/eventListMain.see");
+
+		return mav;
+	}
 	
-	
+	// 게시글 삭제
 
 }

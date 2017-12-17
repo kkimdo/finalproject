@@ -153,12 +153,16 @@
 	</update>
 
 	<!-- 게시글 수정 -->
-	<!-- <update id="eventUpdate" parameterType="eventModel"> update event set 
-		event_subject = #{event_subject}, event_content = #{event_content}, event_start_date 
-		= #{event_start_date}, event_end_date = #{event_end_date}, event_category 
-		= #{event_category}, event_poster_file = #{event_poster_file}, 
-		event_content_file = #{event_content_file} where event_no = #{event_no} 
-		</update> -->
+	<update id="eventUpdate" parameterType="eventModel"> 
+		update event 
+		set 
+		event_subject = #{event_subject}, event_content = #{event_content}, 
+		event_start_date = #{event_start_date}, event_end_date = #{event_end_date}, 
+		event_category = #{event_category}, event_poster_file = #{event_poster_file}, 
+		event_content_file = #{event_content_file} 
+		where 
+		event_no = #{event_no} 
+	</update>
 
 
 </mapper>

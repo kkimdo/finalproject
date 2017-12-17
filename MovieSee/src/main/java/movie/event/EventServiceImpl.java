@@ -78,4 +78,13 @@ public class EventServiceImpl implements EventService{
 		return eventDAO.EventView(event_no);
 	}
 	
+	@Override
+	public int EventUpdate(EventModel eventModel) throws Exception {
+		
+		String content = eventModel.getEvent_content().replace("<br/>", "\r\n");
+		eventModel.setEvent_content(content);
+		
+		return eventDAO.EventUpdate(eventModel);
+	}
+	
 }

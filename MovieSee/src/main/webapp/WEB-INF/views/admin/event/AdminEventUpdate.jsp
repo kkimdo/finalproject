@@ -5,6 +5,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<%
+	String cp = request.getContextPath();
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +35,10 @@
 </head>
 <body>
 
-	<form action="eventWrite.see" method="post" enctype="multipart/form-data">
+	<form action="eventUpdate.see" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="event_no" value="${eventModel.event_no}" />
+			<input type="hidden" name="event_poster_file" value="${eventModel.event_poster_file}"/>
+			<input type="hidden" name="event_content_file" value="${eventModel.event_content_file}"/>
 		<div class="tabCont">
 			<div>
 				<fieldset>
@@ -80,7 +87,7 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" >
+										<input name="event_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" value="${eventModel.event_subject}">
 									</td>
 							</tr>
 							<tr>
@@ -90,7 +97,7 @@
 									</label>
 								</th>
 								<td>
-									<textarea name="event_content" rows="10" cols="30" id="content" class="textarea01"></textarea> 
+									<textarea name="event_content" rows="10" cols="30" id="content" class="textarea01">${eventModel.event_content}</textarea> 
 									<div class="txt_wrap">
 										<span class="byte_txt"><strong>0</strong>
 											/ 한글 2,000자</span>
@@ -103,6 +110,7 @@
 								<td>
 									<div>
 										<input type="file" name="poster_file" id="fileUpload1" />
+											${eventModel.event_poster_file}
 									</div> 
 									<span class="txt_left">
 									</span>
@@ -114,6 +122,7 @@
 								<td>
 									<div>
 										<input type="file" name="content_file" id="fileUpload2" />
+											${eventModel.event_content_file}
 									</div> 
 									<span class="txt_left">
 									</span>
@@ -127,7 +136,7 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_start_date" type="text" maxlength="40" id="start_date" class="ipt_txt03">
+										<input name="event_start_date" type="text" maxlength="40" id="start_date" class="ipt_txt03" value="${eventModel.event_start_date}" >
 									</td>
 							</tr>
 							<tr>
@@ -138,7 +147,7 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_end_date" type="text" maxlength="40" id="end_date" class="ipt_txt03">
+										<input name="event_end_date" type="text" maxlength="40" id="end_date" class="ipt_txt03" value="${eventModel.event_end_date}">
 									</td>
 							</tr>
 

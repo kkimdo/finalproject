@@ -32,7 +32,7 @@ public class NoticeController {
 	// IoC 의존관계 역전
 	@Inject
 	private NoticeService noticeService;
-	
+
 	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/notice/";
 
 	private NoticeModel noticePrev = new NoticeModel();
@@ -51,33 +51,44 @@ public class NoticeController {
 
 	// 게시글 작성 처리
 	@RequestMapping(value = "/noticeWrite.see", method = RequestMethod.POST)
-	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, MultipartHttpServletRequest multipartHttpServletRequest)
-			throws Exception {
-		
+	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result,
+			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+
 		int noticeSeqNum = noticeService.NoticeGetSEQ();
 		noticeModel.setNotice_no(noticeSeqNum);
-		
+
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("content_file");
-		String content_name = multipartFile.getOriginalFilename();
-		String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
 
-		if (content_ext != "") {
+		String content_full_name = "";
 
-			String content_full_name = "noticeContent_" + noticeSeqNum + "." + content_ext;
-			File file = new File(uploadPath + content_full_name);
+		if (!multipartFile.isEmpty()) {
 
-			if (!file.exists()) {
-				file.mkdirs();
+			String content_name = multipartFile.getOriginalFilename();
+			String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+			if (content_ext != null && !content_ext.equals("")) {
+
+				content_full_name = "noticeContent_" + noticeSeqNum + "." + content_ext;
+				File file = new File(uploadPath + content_full_name);
+
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+
+				try {
+					multipartFile.transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				noticeModel.setNotice_content_file(content_full_name);
 			}
 
-			try {
-				multipartFile.transferTo(file);
-			} catch (Exception e) {
-			}
+		} else {
 
 			noticeModel.setNotice_content_file(content_full_name);
 		}
-		
+
 		ModelAndView mav = new ModelAndView();
 
 		new NoticeValidator().validate(noticeModel, result);
@@ -86,8 +97,6 @@ public class NoticeController {
 			mav.setViewName("adminNoticeWrite");
 			return mav;
 		}
-		
-		
 
 		noticeService.NoticeWrite(noticeModel);
 
@@ -136,9 +145,6 @@ public class NoticeController {
 	@RequestMapping(value = "/noticeView.see", method = RequestMethod.GET)
 	public ModelAndView NoticeView(@RequestParam int notice_no, HttpSession session) throws Exception {
 
-		// System.out.println(notice_no + "notice_no");
-		// System.out.println(session + "session");
-
 		// 조회수 증가 처리
 		noticeService.NoticeHitUpdate(notice_no, session);
 
@@ -146,15 +152,11 @@ public class NoticeController {
 		noticeNext = noticeService.NoticeNext(notice_no);
 
 		if (noticePrev != null) {
-
 			preNum = noticePrev.getNotice_prev();
-
 		}
 
 		if (noticeNext != null) {
-
 			nextNum = noticeNext.getNotice_next();
-
 		}
 
 		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
@@ -189,10 +191,45 @@ public class NoticeController {
 	// 게시글 수정
 	// 게시글 수정 폼에서 입력한 내용들은 @ModelAttribute NoticeModel noticeModel 로 전달 됨.
 	@RequestMapping(value = "/noticeUpdate.see", method = RequestMethod.POST)
-	public ModelAndView NoticeUpdate(@ModelAttribute NoticeModel noticeModel, BindingResult result) throws Exception {
+	public ModelAndView NoticeUpdate(@ModelAttribute NoticeModel noticeModel,
+			MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
 
+		int noticeSeqNum = noticeService.NoticeGetSEQ();
+		
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile("content_file");
+		
+		if (!multipartFile.isEmpty()) {
+			
+			String content_name = multipartFile.getOriginalFilename();
+			String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+			if (content_ext != null && !content_ext.equals("")) {
+				
+				File deleteFile = new File(uploadPath + noticeModel.getNotice_content_file());
+				deleteFile.delete();
+				
+				String content_full_name = "noticeContent_" + noticeSeqNum + "." + content_ext;
+				File file = new File(uploadPath + content_full_name);
+
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+
+				try {
+					multipartFile.transferTo(file);
+				} catch (Exception e) {
+				}
+				
+				noticeModel.setNotice_content_file(content_full_name);
+			}
+
+		} else {
+			
+			noticeModel.setNotice_content_file(noticeModel.getNotice_content_file());
+		}
+		
 		ModelAndView mav = new ModelAndView();
-
+		
 		new NoticeValidator().validate(noticeModel, result);
 
 		if (result.hasErrors()) {
@@ -215,10 +252,10 @@ public class NoticeController {
 
 		return "redirect:/admin/noticeList.see";
 	}
-	
+
 	// 영화관 선택 폼
 	@RequestMapping(value = "/noticeSelected.see")
-	public String NoticeSelectedForm() throws Exception{
+	public String NoticeSelectedForm() throws Exception {
 		return "/admin/notice/AdminNoticeSelected";
 	}
 

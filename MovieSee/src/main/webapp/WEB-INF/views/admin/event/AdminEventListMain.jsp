@@ -86,7 +86,7 @@
 				<ul class="emovie_list">
 					<c:forEach var="eventList_2" items="${map.eventList_2}" end="3">
 						<li><a href="javascript:void(0);" onclick=""> <img
-								src="/movie/resources/uploads/event/<%-- ${eventList_2.event_stored_file_name} --%>"
+								src="/movie/resources/uploads/event/${eventList_2.event_poster_file}"
 								alt="${eventList_2.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">
@@ -112,7 +112,7 @@
 				<ul class="emovie_list">
 					<c:forEach var="eventList_3" items="${map.eventList_3}" end="3">
 						<li><a href="javascript:void(0);" onclick=""> <img
-								src="/movie/resources/uploads/event/<%-- ${eventList_3.event_stored_file_name} --%>"
+								src="/movie/resources/uploads/event/${eventList_3.event_poster_file}"
 								alt="${eventList_3.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">
@@ -140,7 +140,7 @@
 				<ul class="emovie_list">
 					<c:forEach var="eventList_4" items="${map.eventList_4}" end="3">
 						<li><a href="#none"> <img
-								src="/movie/resources/uploads/event/<%-- ${eventList_4.event_stored_file_name} --%>"
+								src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
 								alt="${eventList_4.event_subject}"></a>
 							<dl class="imgsub">
 								<dt class="event">

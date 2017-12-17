@@ -14,6 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>공지 사항</title>
+
 <script type="text/javascript">
 	//** 목록 버튼 클릭 이벤트 : 버튼 클릭시 상세보기화면에 있던 페이지, 검색옵션, 키워드 값을 가지로 목록으로 이동
 	function btnList(){
@@ -58,7 +59,10 @@
 								<li><strong>조회수 : </strong><span id="spanSearchCount">${noticeModel.notice_hit}</span></li>
 							</ul>
 						</div>
-                        <div class="board_cont" id="divContents">${noticeModel.notice_content}
+                        <div class="board_cont" id="divContents">${noticeModel.notice_content}<br/>
+                        <c:if test="${noticeModel.notice_content_file ne null }">
+                        	<img border="0" hspace="0" alt="${noticeModel.notice_content}" src="<%= cp %>/resources/uploads/notice/${noticeModel.notice_content_file}">
+                        </c:if>
                         </div>
 						<ul class="view_list">
 							<li>
@@ -89,9 +93,11 @@
 							</li>
 						</ul>
 						<div class="btn_box btn_cbox">
-							<a href="<%= cp %>/admin/noticeList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}" class="btnc_check" >목록</a>
-							<a href="<%= cp %>/admin/noticeUpdate.see?notice_no=${noticeModel.notice_no}" class="btnc_check" >수정</a>
-							<a href="#none" class="btnc_check" onclick="btnDelete();">삭제</a>
+							<%-- <a href="<%= cp %>/admin/noticeList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}" class="btnc_check" >목록</a>
+							<a href="<%= cp %>/admin/noticeUpdate.see?notice_no=${noticeModel.notice_no}" class="btnc_check" >수정</a> --%>
+							<a href="javascript:void(0);" class="btnc_check" onclick="btnList();">목록</a>
+							<a href="javascript:void(0);" class="btnc_check" onclick="btnUpdate();">수정</a>
+							<a href="javascript:void(0);" class="btnc_check" onclick="btnDelete();">삭제</a>
 						</div>
                     </div>
                    	</form>
