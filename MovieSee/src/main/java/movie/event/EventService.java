@@ -35,5 +35,8 @@ public interface EventService {
 	
 	// 게시글 수정
 	public int EventUpdate(EventModel eventModel) throws Exception;
+	
+	// 게시글 삭제
+	public void EventDelete(int event_no) throws Exception;
 
 }
