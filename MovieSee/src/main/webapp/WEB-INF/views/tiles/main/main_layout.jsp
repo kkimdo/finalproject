@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/common.css" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event2.css?ver=201712180001" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=201712060001" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?v=201712050000" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/qna.css"/>

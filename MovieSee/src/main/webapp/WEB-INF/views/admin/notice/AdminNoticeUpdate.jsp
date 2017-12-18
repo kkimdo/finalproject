@@ -23,7 +23,7 @@
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
 			<li class="active"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
-			<li><a href="javascript:customerCenterMenu(3);">단체관람/대관문의</a></li>
+			<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
 		</ul>
 		<form name="formUpdate" action="noticeUpdate.see" method="post" enctype="multipart/form-data">

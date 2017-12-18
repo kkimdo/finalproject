@@ -962,7 +962,7 @@
 
 .btnc_right li a {
 	display: inline-block;
-	min-width: 95px;
+	/* min-width: 95px; */
 	padding: 0 16px;
 	background: #34373c;
 	line-height: 30px;

@@ -18,6 +18,15 @@
 		window.open("/movie/admin/noticeSelected.see", "selected",
 				"width=500, height=500");
 	}
+	
+	$(function() {
+		$('#content').keyup(function(e) {
+			var content = $(this).val();
+			$(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+			$('#counter').html(content.length + '/ 한글 2,000자');
+		});
+		$('#content').keyup();
+	});
 </script>
 
 
@@ -28,10 +37,9 @@
 		<ul class="tab_st03">
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
 			<li class="active"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
-			<!-- goCustomerCenterMenu-->
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
-			<li><a href="javascript:customerCenterMenu(3);">단체관람/대관문의</a></li>
-			<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
+			<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
+			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 		</ul>
 		<form name="formWrite" action="noticeWrite.see" method="post" enctype="multipart/form-data">
 			<div class="tabCont">
@@ -69,7 +77,7 @@
 											id="content" class="textarea01"></textarea> <font color="red"><form:errors
 												path="notice_content" /></font>
 										<div class="txt_wrap">
-											<span class="byte_txt"><strong>0</strong> / 한글 2,000자</span>
+											<strong><span class="byte_txt" id="counter"></span></strong>
 										</div></td>
 								</tr>
 

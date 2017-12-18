@@ -8,8 +8,8 @@
 	src: url('/LCHS/Image/font/NanumGothic.eot');
 	src: url('/LCHS/Image/font/NanumGothic.eot?#iefix')
 		format('embedded-opentype'), url('/movie/images/font/NanumGothic.woff2')
-		format('woff2'), url('/LCHS/Image/font/NanumGothic.woff')
-		format('woff'), url('/LCHS/Image/font/NanumGothic.ttf')
+		format('woff2'), url('/movie/images/font/NanumGothic.woff')
+		format('woff'), url('/movie/images/font/NanumGothic.ttf')
 		format('truetype');
 }
 /*
@@ -1892,7 +1892,7 @@ input.disabled {
 	width: 100%;
 	height: 50px;
 	padding: 26px 140px 0 85px;
-	background: url("/LCHS/Image/bg/bg_mask04.png") repeat left top;
+	background: url("/movie/images/bg/bg_mask04.png") repeat left top;
 	box-sizing: border-box;
 }
 

@@ -36,13 +36,21 @@
 		
 	});
 	
+	$(function() {
+		$('#content').keyup(function(e) {
+			var content = $(this).val();
+			$(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+			$('#counter').html(content.length + '/ 한글 2,000자');
+		});
+		$('#content').keyup();
+	});
+	
 </script>
 
 </head>
 <body>
 
-	<form action="eventWrite.see" method="post"
-		enctype="multipart/form-data">
+	<form action="eventWrite.see" method="post" enctype="multipart/form-data">
 		<div class="tabCont">
 			<div>
 				<fieldset>
@@ -93,7 +101,7 @@
 								<td><textarea name="event_content" rows="10" cols="30"
 										id="content" class="textarea01"></textarea>
 									<div class="txt_wrap">
-										<span class="byte_txt"><strong>0</strong> / 한글 2,000자</span>
+										<strong><span class="byte_txt" id="counter"></span></strong>
 									</div></td>
 							</tr>
 							<tr>
