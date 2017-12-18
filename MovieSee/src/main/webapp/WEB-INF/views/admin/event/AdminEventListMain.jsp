@@ -65,8 +65,8 @@
 		<div id="content">
 			<div class="event_Hwrap allevPg">
 				<ul class="btnc_right">
-					<li><a href="#none">지난 이벤트</a></li>
-					<li></li>
+					<li><a href="<%=cp%>/admin/eventEndList.see">지난 이벤트</a></li>
+					<li><a href="<%=cp%>/admin/eventWrite.see" />글 쓰기</a></li>
 				</ul>
 				<!-- 영화 -->
 				<div id="clear_fix_20" class="clear_fix" style="">
@@ -78,28 +78,29 @@
 				</div>
 				<!-- emovie_list_1 -->
 				<ul class="emovie_list">
-				<!-- String형으로 '2017.12.17' 이런식으로 값이 들어오기 때문에, String 을 Date 형식으로 변환해서 eventEndDate1에 저장 후,
+				
+					<!-- String형으로 '2017.12.17' 이런식으로 값이 들어오기 때문에, String 을 Date 형식으로 변환해서 eventEndDate1에 저장 후,
 					다시 원하는 포맷에 맞게 바꿔줌 , 이벤트 기간 비교하기 위해 다시 yyyyMMdd로 포맷함 -->
 					<c:forEach var="eventList_1" items="${map.eventList_1}" end="3">
-						<fmt:parseDate value="${eventList_1.event_end_date}"
-							var="eventEndDate1" pattern="yyyy.MM.dd" />
-						<li><a href="javascript:void(0);"
-							onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
-								<img
-								src="/movie/resources/uploads/event/${eventList_1.event_poster_file}"
-								alt="${eventList_1.event_subject}" />
-						</a>
+						<fmt:parseDate var="eventEndDate1" value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
+						
+						<li>
+							<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+								<img src="/movie/resources/uploads/event/${eventList_1.event_poster_file}" alt="${eventList_1.event_subject}" />
+							</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="javascript:void(0);"
-										onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
-										${eventList_1.event_subject} </a>
+									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+										${eventList_1.event_subject} 
+									</a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_1.event_start_date} ~
 										${eventList_1.event_end_date} </span>
 								</dd>
-							</dl></li>
+							</dl>
+						</li>
+						
 					</c:forEach>
 				</ul>
 

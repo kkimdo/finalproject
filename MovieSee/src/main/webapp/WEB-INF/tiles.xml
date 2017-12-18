@@ -44,7 +44,10 @@
 	<definition name="adminEventUpdate" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventUpdate.jsp" />
 	</definition>
-	
+	<!-- 지난 이벤트 -->
+	<definition name="adminEventEndList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/event/AdminEventEndList.jsp" />
+	</definition>
 	
 	<!-- notice -->
 	<definition name="adminNoticeList" extends="main">
@@ -58,6 +61,17 @@
 	</definition>
 	<definition name="adminNoticeWrite" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
+	</definition>
+	
+	<!-- freeBoard -->
+	<definition name="freeBoardList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardList.jsp" />
+	</definition>
+	<definition name="freeBoardWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardWrite.jsp" />
+	</definition>
+	<definition name="freeBoardView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardView.jsp" />
 	</definition>
 	
 	<!-- faq -->
@@ -84,4 +98,10 @@
 	<definition name="adminQnaWrite" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
 	</definition>
+	
+	<!-- common -->
+	<definition name="privacy" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/common/privacy.jsp" />
+	</definition>
+	
 </tiles-definitions>

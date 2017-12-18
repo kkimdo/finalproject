@@ -109,15 +109,17 @@ public class EventController {
 		}
 
 		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("eventModel", eventService.EventWrite(eventModel));
+		
+		eventService.EventWrite(eventModel);
+		
+		mav.addObject("eventModel", eventModel);
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
 		return mav;
 
 	}
 
-	// 게시글 목록
+	// 게시글 목록 메인
 	@RequestMapping(value = "/eventListMain.see")
 	public ModelAndView EventListMain(@RequestParam(defaultValue = "event_subject") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -158,8 +160,38 @@ public class EventController {
 
 		return mav;
 	}
+	
+	// 게시글 지난 이벤트
+		@RequestMapping(value = "/eventEndList.see")
+		public ModelAndView EventEndList(@RequestParam(defaultValue = "event_subject") String searchOption,
+				@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
+				throws Exception {
 
-	// 게시글 목록
+			int count = eventService.count(searchOption, keyword);
+
+			commonPaging c_Paging = new commonPaging(count, curPage);
+			int start = c_Paging.getPageBegin();
+			int end = c_Paging.getPageEnd();
+			
+			List<EventModel> eventEndList = eventService.EventEndList(start, end, searchOption, keyword);
+
+			Map<String, Object> map = new HashMap<String, Object>();
+		
+			map.put("eventEndList", eventEndList);
+			map.put("count", count);
+			map.put("searchOption", searchOption);
+			map.put("keyword", keyword);
+			map.put("c_Paging", c_Paging);
+
+			ModelAndView mav = new ModelAndView();
+
+			mav.addObject("map", map);
+			mav.setViewName("adminEventEndList");
+
+			return mav;
+		}
+
+	// 게시글 목록 1
 	@RequestMapping(value = "/eventList_1.see")
 	public ModelAndView EventList_1(@RequestParam(defaultValue = "event_subject") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -190,7 +222,7 @@ public class EventController {
 		return mav;
 	}
 
-	// 게시글 목록
+	// 게시글 목록 2
 	@RequestMapping(value = "/eventList_2.see")
 	public ModelAndView EventList_2(@RequestParam(defaultValue = "event_subject") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -221,7 +253,7 @@ public class EventController {
 		return mav;
 	}
 
-	// 게시글 목록
+	// 게시글 목록 3
 	@RequestMapping(value = "/eventList_3.see")
 	public ModelAndView EventList_3(@RequestParam(defaultValue = "event_subject") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -252,7 +284,7 @@ public class EventController {
 		return mav;
 	}
 
-	// 게시글 목록
+	// 게시글 목록 4
 	@RequestMapping(value = "/eventList_4.see")
 	public ModelAndView EventList_4(@RequestParam(defaultValue = "event_subject") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -315,7 +347,7 @@ public class EventController {
 
 	// 게시글 수정
 	@RequestMapping(value = "/eventUpdate.see", method = RequestMethod.POST)
-	public ModelAndView EventUpdate(@ModelAttribute EventModel eventModel,
+	public ModelAndView EventUpdate(@ModelAttribute("eventModel") EventModel eventModel,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
 
 		int eventSeqNum = eventService.EventGetSEQ();
@@ -385,8 +417,10 @@ public class EventController {
 		}
 
 		ModelAndView mav = new ModelAndView();
+		
+		eventService.EventUpdate(eventModel);
 
-		mav.addObject("eventModel", eventService.EventUpdate(eventModel));
+		mav.addObject("eventModel", eventModel);
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
 		return mav;

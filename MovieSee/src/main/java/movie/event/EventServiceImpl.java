@@ -49,6 +49,11 @@ public class EventServiceImpl implements EventService{
 	}
 	
 	@Override
+	public List<EventModel> EventEndList(int start, int end, String searchOption, String keyword) throws Exception {
+		return eventDAO.EventEndList(start, end, searchOption, keyword);
+	}
+	
+	@Override
 	public int count(String searchOption, String keyword) throws Exception {
 		return eventDAO.count(searchOption, keyword);
 	}

@@ -21,6 +21,9 @@ public interface EventDAO {
 
 	// 게시글 목록 (4.제휴할인)
 	public List<EventModel> EventList_4(int start, int end, String searchOption, String keyword) throws Exception;
+	
+	// 게시글 지난 이벤트 목록
+	public List<EventModel> EventEndList(int start, int end, String searchOption, String keyword) throws Exception;
 
 	// 게시글 레코드 갯수
 	public int count(String searchOption, String keyword) throws Exception;

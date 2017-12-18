@@ -16,20 +16,31 @@
 <script type="text/javascript">
 
 function btnList(){
-	location.href="<%= cp %>/admin/eventListMain.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}";
+	location.href="<%=cp%>/admin/eventListMain.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}";
 	}
 	
 function btnUpdate(){
-	location.href="<%= cp%>/admin/eventUpdate.see?event_no=${eventModel.event_no}";
+	location.href="<%=cp%>/admin/eventUpdate.see?event_no=${eventModel.event_no}";
 	}
   
 function btnDelete() {
 	if (confirm("정말 삭제하시겠습니까?") == true) { //확인
-		location.href ="<%= cp%>/admin/eventDelete.see?event_no=${eventModel.event_no}";
+		location.href ="<%=cp%>/admin/eventDelete.see?event_no=${eventModel.event_no}";
 		} else { //취소
 			return;
 		}
 	}
+function aFacebook(){
+	location.href="https://www.facebook.com/login.php";
+}
+
+function aTwitter(){
+	location.href="https://twitter.com/intent/tweet";
+}
+
+function aKakaoStory(){
+	location.href="https://accounts.kakao.com/login/kakaostory";
+}
 </script>
 
 </head>
@@ -39,14 +50,25 @@ function btnDelete() {
 		<div id="content">
 			<!-- eventWrap -->
 			<div class="eventWrap">
-
+				<ul class="social_list">
+					<!-- 어드민 영역이 아니므로 마크업 위치 제외 -->
+					<li><a href="javascript:void(0);" onclick="aFacebook();" title="새창 열림"><img
+							src="/movie/images/icon/icon_facebook02.gif" alt="페이스북에 공유하기"></a></li>
+					<li><a href="javascript:void(0);" onclick="aTwitter();" title="새창 열림"><img
+							src="/movie/images/icon/icon_twitter02.gif" alt="트위터에 공유하기"></a></li>
+					<li><a href="javascript:void(0);" onclick="aKakaoStory();"
+						title="새창 열림"><img
+							src="/movie/images/icon/icon_kakaostory02.gif" alt="카카오스토리에 공유하기"></a></li>
+				</ul>
 				<!-- event_sinner -->
 				<div class="event_sinner">
 					<h2 class="sub_tit02">${eventModel.event_subject}</h2>
-					 <c:if test="${eventModel.event_content_file ne null }">
+					<c:if test="${eventModel.event_content_file ne null }">
 						<div id="img">
 							<p class="img">
-								<img src="<%= cp %>/resources/uploads/event/${eventModel.event_content_file}" alt="${eventModel.event_subject}" />
+								<img
+									src="<%= cp %>/resources/uploads/event/${eventModel.event_content_file}"
+									alt="${eventModel.event_subject}" />
 							</p>
 						</div>
 					</c:if>
@@ -68,9 +90,11 @@ function btnDelete() {
 				</ul>
 
 				<div id="btn_list" class="btn_box btn_cbox">
-					<a href="javascript:void(0);" class="btnc_check" onclick="btnList();">목록</a>
-					<a href="javascript:void(0);" class="btnc_check" onclick="btnUpdate();">수정</a>
-					<a href="javascript:void(0);" class="btnc_check" onclick="btnDelete();">삭제</a>
+					<a href="javascript:void(0);" class="btnc_check"
+						onclick="btnList();">목록</a> <a href="javascript:void(0);"
+						class="btnc_check" onclick="btnUpdate();">수정</a> <a
+						href="javascript:void(0);" class="btnc_check"
+						onclick="btnDelete();">삭제</a>
 				</div>
 
 			</div>

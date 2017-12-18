@@ -14,6 +14,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이벤트</title>
+
+<script type="text/javascript">
+
+	 function eventDate(endDate, number){
+
+		var today = new Date(); 
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1; 
+		var day = today.getDate();
+		
+		if (("" + month).length == 1) month = "0" + month;
+		if (("" + day).length  == 1) day  = "0" + day;
+		var toDate	= year+''+month+''+day;
+		
+		if(toDate <= endDate){ 
+		 location.href='<%=cp%>/admin/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
+		}else{ 
+		  alert('이벤트 기간이 아닙니다.');
+		}
+	}
+	
+</script>
+
 </head>
 <body>
 	<div class="header">
@@ -49,9 +72,18 @@
 					<div class="category">
 						<fieldset>
 							<legend>분야별 선택 검색</legend>
-							<input type="text" class="ipt_txt" title="검색어 입력"
-								onkeydown="keyDownEventLists(event);"> <a
-								href="javascript:void(0);" class="btn_search">검색</a>
+								<form name="form1" method="post" action="<%=cp%>/admin/eventList_4.see">
+									<select class="select_box" name="searchOption">
+									<option value="all"
+										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
+									<option value="event_subject"
+										<c:out value="${map.searchOption == 'event_subject'?'ed':''}"/>>제목</option>
+									<option value="event_content"
+										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
+								</select> 
+									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
+									<input type="submit" value="검색" class="boardBt">
+								</form>
 						</fieldset>
 					</div>
 				</div>
@@ -59,13 +91,13 @@
 				<!-- emovie_list -->
 				<ul class="emovie_list">
 					<c:forEach var="eventList_4" items="${map.eventList_4}">
-						<li><a href="#none" onclick=""> <img
+						<li><a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'> <img
 								src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
 								alt="${eventList_4.event_subject}" />
 						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="#none" onclick=""> ${eventList_4.event_subject} </a>
+									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'> ${eventList_4.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
 									기간 <span> ${eventList_4.event_start_date} ~

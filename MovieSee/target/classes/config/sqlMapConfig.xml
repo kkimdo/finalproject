@@ -12,7 +12,10 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="eventModel" type="movie.event.EventModel"/>
 		
 		<!-- notice --> 
-		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />	   
+		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />
+		
+		<!-- freeBoard -->
+		<typeAlias alias="freeBoardModel" type="movie.freeboard.FreeBoardModel"/>	   
 		
 		<!-- faq -->
 		<typeAlias alias="faqModel" type="movie.faq.FaqModel" />	
@@ -30,6 +33,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	
 		<!-- notice -->
 		<mapper resource="config/mybatis/notice_SQL.xml"/>
+		
+		<!-- freeBoard -->
+		<mapper resource="config/mybatis/freeBoard_SQL.xml"/>
 		
 		<!-- faq -->
 		<mapper resource="config/mybatis/faq_SQL.xml"/>
