@@ -8,6 +8,9 @@ public interface QnaDAO {
 		// 게시글 전체 목록
 		public List<QnaModel> QnaListAll(int start, int end, String searchOption, String keyword) throws Exception;
 	
+		// 해당 게시글 번호
+		public int QnaGetSEQ() throws Exception;
+		
 		//데이터를 삽입하는 메소드(게시글 작성)
 		public int QnaWrite(QnaModel qnaModel) throws Exception;
 		
@@ -25,9 +28,6 @@ public interface QnaDAO {
 	    
 	    // 댓글 입력
 	    public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception;
-	    
-	    // 댓글 수정
-	    public void CommentUpdate(QnaCommentModel qnaCommentModel) throws Exception;
 	    
 	    // 댓글 삭제
 	    public void CommentDelete(int qna_comment_no) throws Exception;

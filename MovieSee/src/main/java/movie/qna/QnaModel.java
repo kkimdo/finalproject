@@ -16,7 +16,6 @@ public class QnaModel {
 	private String qna_subject; //글 제목
 	private String qna_content; //글 내용
 	private String qna_orgfile; //파일
-	private String qna_savfile; //파일
 	private Date qna_date; //글 등록일
 	
 	public int getQna_no() {
@@ -84,12 +83,6 @@ public class QnaModel {
 	}
 	public void setQna_orgfile(String qna_orgfile) {
 		this.qna_orgfile = qna_orgfile;
-	}
-	public String getQna_savfile() {
-		return qna_savfile;
-	}
-	public void setQna_savfile(String qna_savfile) {
-		this.qna_savfile = qna_savfile;
 	}
 	public Date getQna_date() {
 		return qna_date;

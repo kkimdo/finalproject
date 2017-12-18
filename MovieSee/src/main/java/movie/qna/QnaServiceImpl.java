@@ -24,6 +24,11 @@ public class QnaServiceImpl implements QnaService {
 		return qnaDAO.QnaWrite(qnaModel);
 	}
 
+	@Override
+	public int QnaGetSEQ() throws Exception {
+		return qnaDAO.QnaGetSEQ();
+	}
+
 	// 게시글 전체 목록
 	@Override
 	public List<QnaModel> QnaListAll(int start, int end, String searchOption, String keyword) throws Exception {
@@ -58,11 +63,6 @@ public class QnaServiceImpl implements QnaService {
     @Override
     public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
     	qnaDAO.CommentInsert(qnaCommentModel);
-    }
-    // 댓글 수정
-    @Override
-    public void CommentUpdate(QnaCommentModel qnaCommentModel) throws Exception {
-    	qnaDAO.CommentUpdate(qnaCommentModel);
     }
     // 댓글 삭제
     @Override

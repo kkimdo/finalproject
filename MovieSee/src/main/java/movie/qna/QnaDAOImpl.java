@@ -21,6 +21,11 @@ public class QnaDAOImpl implements QnaDAO {
 		return sqlSessionTemplate.insert("qna.qnaWrite", qnaModel);
 	}
 
+	@Override
+	public int QnaGetSEQ() throws Exception {
+		return sqlSessionTemplate.selectOne("qna.qnaGetSEQ");
+	}
+	
 	// 모든 데이터를 가져와서 List<QnaModel>를 리턴하는 메소드(게시글 전체 목록)
 	@Override
 	public List<QnaModel> QnaListAll(int start, int end, String searchOption, String keyword) throws Exception {
@@ -70,11 +75,6 @@ public class QnaDAOImpl implements QnaDAO {
     @Override
     public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
     	sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
-    }
-    // 댓글 수정
-    @Override
-    public void CommentUpdate(QnaCommentModel qnaCommentModel) throws Exception {
-    	sqlSessionTemplate.update("qna.qnaCommentUpdate", qnaCommentModel);
     }
     // 댓글 삭제
     @Override

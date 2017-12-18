@@ -26,3 +26,43 @@ body {
 .titYtxt span strong {
     color: #cd190b;
 }
+
+.board_view>table {
+    width: 100%;
+    border-top: 2px solid #503396;
+}
+
+.board_view>table tr th {
+    font-size: 13px;
+    color: #666;
+    background-color: #f2f2f2;
+}
+
+.board_view>table tr th, .board_view>table tr td {
+    font-size: 12px;
+    height: 38px;
+    color: #333;
+    border-bottom: 1px solid #dcdcdc;
+    padding-left: 26px;
+    padding-right: 29px;
+}
+
+th {
+    text-align: left;
+}
+
+.reply_cts p {
+    font-size: 12px;
+    height: 38px;
+    color: #333;
+    border-bottom: 1px solid #dcdcdc;
+    padding-left: 26px;
+    padding-right: 29px;
+}
+
+.img_btn.mypage.board_list {
+    display: inline-block;
+    width: 60px;
+    height: 22px;
+    background-position: -500px -500px;
+}
