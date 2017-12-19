@@ -21,7 +21,7 @@
     	}  
 	function btnDelete() {
 		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
-			location.href ="<%=cp%> /qna/qnaDelete.see?qna_no=${qnaModel.qna_no}";
+			location.href ="<%=cp%>/qna/qnaDelete.see?qna_no=${qnaModel.qna_no}";
 		} else { //취소
 			return;
 		}
@@ -149,18 +149,15 @@
 
 		<div class="reply_cts">
 			<p>${qna_comment.qna_comment_content}</p>
-			<input type="button"
-				onclick="qnaCommentDelete('<%=cp%>/qna/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')"
-				value="댓글삭제" />
-			<%-- <input type="button" onclick="location.href='qnaCommentUpdate.see?qna_comment_no=${qna_comment.qna_comment_no}'"value="수정" /> --%>
+		<input type="button" onclick="qnaCommentDelete('<%=cp%>/qna/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')" value="댓글삭제" />
+			
 
 		</div>
 
 	</c:forEach>
 
 	<div>
-		<a href="<%= cp %>/qna/qnaList.see?curPage=${curPage}"
-			class="img_btn mypage board_list pull-left" onclick="btnList();">목록</a>
+		<a href="<%= cp %>/qna/qnaList.see?curPage=${curPage}" class="img_btn mypage board_list pull-left" onclick="btnList();">목록</a>
 		<a href="#none" class="btnc_check" onclick="btnDelete();">삭제</a>
 
 	</div>

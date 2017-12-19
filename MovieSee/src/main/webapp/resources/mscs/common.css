@@ -477,7 +477,7 @@
 }
 
 .tbl_style01 input[type=text] {
-	padding: 10px 0 10px 10px;
+	/* padding: 10px 0 10px 10px; */
 }
 
 .tbl_style01 th .point_red {

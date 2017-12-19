@@ -47,10 +47,6 @@ body {
     padding-right: 29px;
 }
 
-th {
-    text-align: left;
-}
-
 .reply_cts p {
     font-size: 12px;
     height: 38px;
@@ -65,4 +61,109 @@ th {
     width: 60px;
     height: 22px;
     background-position: -500px -500px;
+}
+
+.cs_center .info_etxt strong {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #231f20;
+}
+
+.cs_center .info_etxt {
+    padding-bottom: 40px;
+    font-size: 13px;
+    color: #777;
+}
+
+.titYtxt {
+    overflow: hidden;
+}
+
+.agree_box {
+    height: 167px;
+    margin-bottom: 0;
+    padding: 20px;
+    border: 1px solid #dedede;
+    overflow-y: auto;
+    background: #f9f6ec;
+    font-size: 14px;
+    color: #666;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.agree_box > strong:first-child {
+    margin-top: 0;
+}
+
+.agree_box > strong {
+    margin: 45px 0 15px;
+    color: #231f20;
+}
+
+.agree_box > strong {
+    margin: 45px 0 15px;
+    color: #231f20;
+}
+
+.agree_box p {
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.radck {
+    overflow: hidden;
+    padding: 10px 0 50px 10px;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+}
+
+input, select, textarea {
+    font-size: 12px;
+    font-family: 'NanumGothic';
+    color: #555;
+    vertical-align: middle;
+}
+
+.tbl_style01 th, .tbl_style01 td {
+    border-bottom: 1px solid #dedede;
+    word-break: break-all;
+}
+
+.tbl_style01 th {
+    padding: 10px 0 10px 20px;
+    height: 30px;
+    background: url(/LCHS/Image/bg/bg_eline03.gif) no-repeat 100% 23px;
+    line-height: 40px;
+    vertical-align: top;
+    text-align: left;
+    color: #231f20;
+    font-weight: bold;
+}
+
+.point_red {
+    color: #cd190b !important;
+}
+
+.btn_fileBx input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 35px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -moz-opacity: 0;
+    font-size: 30px;
+}
+
+.tbl_style01 input[type=text] {
+    padding: 10px 0 10px 70px;
 }
