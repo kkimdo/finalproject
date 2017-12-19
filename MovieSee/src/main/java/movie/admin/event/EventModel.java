@@ -1,4 +1,4 @@
-package movie.event;
+package movie.admin.event;
 
 public class EventModel {
 	

@@ -1,4 +1,4 @@
-package movie.notice;
+package movie.admin.notice;
 
 import java.util.HashMap;
 import java.util.List;

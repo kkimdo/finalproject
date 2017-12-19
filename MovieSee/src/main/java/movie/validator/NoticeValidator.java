@@ -3,7 +3,7 @@ package movie.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import movie.notice.NoticeModel;
+import movie.admin.notice.NoticeModel;
 
 public class NoticeValidator implements Validator{
 	

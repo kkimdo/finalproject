@@ -1,4 +1,4 @@
-package movie.event;
+package movie.admin.event;
 
 import java.util.HashMap;
 import java.util.List;
