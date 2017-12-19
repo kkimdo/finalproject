@@ -105,6 +105,17 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
 	</definition>
 	
+	<!-- Member -->
+	<definition name="member" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep1.jsp"></put-attribute>
+	</definition>
+	<definition name="memberInfo" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep2.jsp"></put-attribute>
+	</definition>
+	<definition name="memberEnd" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep3.jsp"></put-attribute>
+	</definition>
+	
 	<!-- common -->
 	<definition name="privacy" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/common/privacy.jsp" />

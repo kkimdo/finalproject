@@ -24,6 +24,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />
 		<typeAlias alias="qnaCommentModel" type="movie.qna.QnaCommentModel" />
 		
+		<!-- member -->
+		<typeAlias alias="memberModel" type="movie.member.MemberModel"/>
+		
 	</typeAliases>
 	
 	<mappers>
@@ -42,6 +45,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- qna -->
 		<mapper resource="config/mybatis/qna_SQL.xml"/>
+		
+		<!-- member -->
+		<mapper resource="config/mybatis/member_SQL.xml"/>
 	
 	</mappers>
 	

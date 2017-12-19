@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<resultMap type="memberModel" id="memberRes">
+		<result property="member_no" column="member_no" />
+		<result property="member_id" column="member_id" />
+		<result property="member_password1" column="member_password1" />
+		<result property="member_password2" column="member_password2" />
+		<result property="member_name" column="member_name" />
+		<result property="member_addr" column="member_addr" />
+		<result property="member_email" column="member_email" />
+		<result property="member_phone" column="member_phone" />
+		<result property="member_regdate" column="member_regdate" />
+		<result property="member_grade" column="member_grade" />
+	</resultMap>
+
+	<!-- 정보입력 -->
+	<insert id="insertMember" parameterType="memberModel">
+		insert into MEMBER
+		(member_no, member_id, member_password1, member_password2,
+		member_name, member_addr, member_email, member_phone, member_regdate,
+		member_grade)
+		values
+		(member_no_seq.nextval, #{member_id},
+		#{member_password1}, #{member_password2}, #{member_name},
+		#{member_addr}, #{member_email}, #{member_phone}, sysdate,
+		#{member_grade})
+	</insert>
+
+	<!-- 로그인 -->
+	<select id="login" parameterType="memberModel" resultMap="memberRes">
+		select
+		* from MEMBER
+		where member_id = #{member_id} and member_password1 =
+		#{member_password1}
+	</select>
+
+</mapper>
