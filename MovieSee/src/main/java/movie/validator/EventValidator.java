@@ -3,8 +3,7 @@ package movie.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import movie.event.EventModel;
-
+import movie.admin.event.EventModel;
 
 public class EventValidator implements Validator {
 	

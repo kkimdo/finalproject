@@ -9,10 +9,10 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>  
 	
 		<!-- event -->
-		<typeAlias alias="eventModel" type="movie.event.EventModel"/>
+		<typeAlias alias="eventModel" type="movie.admin.event.EventModel"/>
 		
 		<!-- notice --> 
-		<typeAlias alias="noticeModel" type="movie.notice.NoticeModel" />
+		<typeAlias alias="noticeModel" type="movie.admin.notice.NoticeModel" />
 		
 		<!-- freeBoard -->
 		<typeAlias alias="freeBoardModel" type="movie.freeboard.FreeBoardModel"/>	   
