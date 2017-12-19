@@ -50,7 +50,7 @@
 </head>
 <body>
 
-	<form action="eventWrite.see" method="post" enctype="multipart/form-data">
+	<form:form commandName="eventModel" action="eventWrite.see" method="post" enctype="multipart/form-data">
 		<div class="tabCont">
 			<div>
 				<fieldset>
@@ -91,15 +91,20 @@
 								<th scope="row"><label for="subject"> 제목 <span
 										class="point_red" title="필수 입력">*</span>
 								</label></th>
-								<td><input name="event_subject" type="text" maxlength="40"
-									id="subject" class="ipt_txt03"></td>
+								<td><form:input name="event_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" path="event_subject" />
+										<font color="red">
+											<form:errors path="event_subject" />
+										</font>
+								</td>
 							</tr>
 							<tr>
 								<th scope="row"><label for="content">내용 <span
 										class="point_red" title="필수 입력">*</span>
 								</label></th>
-								<td><textarea name="event_content" rows="10" cols="30"
-										id="content" class="textarea01"></textarea>
+								<td><form:textarea name="event_content" rows="10" cols="30" id="content" class="textarea01" path="event_content"></form:textarea>
+									<font color="red">
+											<form:errors path="event_content" />
+									</font>
 									<div class="txt_wrap">
 										<strong><span class="byte_txt" id="counter"></span></strong>
 									</div></td>
@@ -124,15 +129,23 @@
 								<th scope="row"><label for="start_date"> 이벤트 시작 일 <span
 										class="point_red" title="필수 입력">*</span>
 								</label></th>
-								<td><input name="event_start_date" type="text"
-									maxlength="40" id="start_date" class="ipt_txt03"></td>
+								<td>
+									<form:input name="event_start_date" type="text" maxlength="40" id="start_date" class="ipt_txt03" path="event_start_date" />
+										<font color="red">
+												<form:errors path="event_start_date" />
+										</font>
+								</td>
 							</tr>
 							<tr>
 								<th scope="row"><label for="end_date"> 이벤트 종료 일 <span
 										class="point_red" title="필수 입력">*</span>
 								</label></th>
-								<td><input name="event_end_date" type="text" maxlength="40"
-									id="end_date" class="ipt_txt03"></td>
+								<td>
+									<form:input name="event_end_date" type="text" maxlength="40" id="end_date" class="ipt_txt03" path="event_end_date"/>
+										<font color="red">
+												<form:errors path="event_end_date" />
+										</font>	
+								</td>
 							</tr>
 
 						</tbody>
@@ -148,6 +161,6 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form:form>
 </body>
 </html>

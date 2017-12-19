@@ -35,7 +35,7 @@
 </head>
 <body>
 
-	<form action="eventUpdate.see" method="post" enctype="multipart/form-data">
+	<form:form commandName="eventModel" action="eventUpdate.see" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="event_no" value="${eventModel.event_no}" />
 			<input type="hidden" name="event_poster_file" value="${eventModel.event_poster_file}"/>
 			<input type="hidden" name="event_content_file" value="${eventModel.event_content_file}"/>
@@ -87,7 +87,9 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" value="${eventModel.event_subject}">
+										<form:input name="event_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" value="${eventModel.event_subject}" path="event_subject"/>
+											<font color="red"><form:errors path="event_subject" />
+											</font>
 									</td>
 							</tr>
 							<tr>
@@ -97,7 +99,10 @@
 									</label>
 								</th>
 								<td>
-									<textarea name="event_content" rows="10" cols="30" id="content" class="textarea01">${eventModel.event_content}</textarea> 
+									<form:textarea name="event_content" rows="10" cols="30" id="content" class="textarea01" path="event_content"></form:textarea> 
+									<font color="red">
+											<form:errors path="event_content" />
+										</font>
 									<div class="txt_wrap">
 										<span class="byte_txt"><strong>0</strong>
 											/ 한글 2,000자</span>
@@ -136,7 +141,10 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_start_date" type="text" maxlength="40" id="start_date" class="ipt_txt03" value="${eventModel.event_start_date}" >
+										<form:input name="event_start_date" type="text" maxlength="40" id="start_date" class="ipt_txt03" value="${eventModel.event_start_date}" path="event_start_date" />
+											<font color="red">
+												<form:errors path="event_start_date" />
+											</font>
 									</td>
 							</tr>
 							<tr>
@@ -147,7 +155,10 @@
 									</label>
 								</th>
 									<td>
-										<input name="event_end_date" type="text" maxlength="40" id="end_date" class="ipt_txt03" value="${eventModel.event_end_date}">
+										<form:input name="event_end_date" type="text" maxlength="40" id="start_date" class="ipt_txt03" value="${eventModel.event_end_date}" path="event_end_date" />
+											<font color="red">
+												<form:errors path="event_end_date" />
+											</font>
 									</td>
 							</tr>
 
@@ -164,6 +175,6 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form:form>
 </body>
 </html>

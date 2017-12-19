@@ -45,6 +45,7 @@ public class NoticeServiceImpl implements NoticeService {
 	//게시글 상세보기
 	@Override
 	public NoticeModel NoticeView(int notice_no) throws Exception {
+		
 		return noticeDAO.NoticeView(notice_no);
 	}
 	
@@ -79,7 +80,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int NoticeUpdate(NoticeModel noticeModel) throws Exception {
 		
-		String content = noticeModel.getNotice_content().replaceAll("<br/>", "\r\n");
+		String content = noticeModel.getNotice_content().replaceAll("\r\n", "<br/>");
 		noticeModel.setNotice_content(content);
 		
 		return noticeDAO.NoticeUpdate(noticeModel);

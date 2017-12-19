@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.commonPaging;
+import movie.validator.EventValidator;
 
 @Controller
 @RequestMapping("/admin")
@@ -32,6 +34,12 @@ public class EventController {
 
 	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/event/";
 
+	// 유효성 검사시 EventModel 객체로 리턴 해줘야함.
+	@ModelAttribute
+	public EventModel formBack() {
+		return new EventModel();
+	}
+
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.GET)
 	public String EventWriteForm() {
 		return "adminEventWrite";
@@ -40,7 +48,7 @@ public class EventController {
 	// 다시 작업
 	@RequestMapping(value = "/eventWrite.see", method = RequestMethod.POST)
 	public ModelAndView EventWrite(@ModelAttribute("eventModel") EventModel eventModel,
-			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+			MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
 
 		int eventSeqNum = eventService.EventGetSEQ();
 		eventModel.setEvent_no(eventSeqNum);
@@ -109,9 +117,15 @@ public class EventController {
 		}
 
 		ModelAndView mav = new ModelAndView();
-		
+
+		new EventValidator().validate(eventModel, result);
+		if (result.hasErrors()) {
+			mav.setViewName("adminEventWrite");
+			return mav;
+		}
+
 		eventService.EventWrite(eventModel);
-		
+
 		mav.addObject("eventModel", eventModel);
 		mav.setViewName("redirect:/admin/eventListMain.see");
 
@@ -160,36 +174,36 @@ public class EventController {
 
 		return mav;
 	}
-	
+
 	// 게시글 지난 이벤트
-		@RequestMapping(value = "/eventEndList.see")
-		public ModelAndView EventEndList(@RequestParam(defaultValue = "event_subject") String searchOption,
-				@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
-				throws Exception {
+	@RequestMapping(value = "/eventEndList.see")
+	public ModelAndView EventEndList(@RequestParam(defaultValue = "event_subject") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
+			throws Exception {
 
-			int count = eventService.count(searchOption, keyword);
+		int count = eventService.count(searchOption, keyword);
 
-			commonPaging c_Paging = new commonPaging(count, curPage);
-			int start = c_Paging.getPageBegin();
-			int end = c_Paging.getPageEnd();
-			
-			List<EventModel> eventEndList = eventService.EventEndList(start, end, searchOption, keyword);
+		commonPaging c_Paging = new commonPaging(count, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
 
-			Map<String, Object> map = new HashMap<String, Object>();
-		
-			map.put("eventEndList", eventEndList);
-			map.put("count", count);
-			map.put("searchOption", searchOption);
-			map.put("keyword", keyword);
-			map.put("c_Paging", c_Paging);
+		List<EventModel> eventEndList = eventService.EventEndList(start, end, searchOption, keyword);
 
-			ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
 
-			mav.addObject("map", map);
-			mav.setViewName("adminEventEndList");
+		map.put("eventEndList", eventEndList);
+		map.put("count", count);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
 
-			return mav;
-		}
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("map", map);
+		mav.setViewName("adminEventEndList");
+
+		return mav;
+	}
 
 	// 게시글 목록 1
 	@RequestMapping(value = "/eventList_1.see")
@@ -334,11 +348,16 @@ public class EventController {
 
 	// 게시글 수정 폼
 	@RequestMapping(value = "/eventUpdate.see", method = RequestMethod.GET)
-	public ModelAndView EventUpdateForm(@RequestParam int event_no) throws Exception {
+	public ModelAndView EventUpdateForm(@ModelAttribute("eventModel") EventModel eventModel) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("eventModel", eventService.EventView(event_no));
+		eventModel = eventService.EventView(eventModel.getEvent_no());
+
+		String content = eventModel.getEvent_content().replaceAll("<br/>", "\r\n");
+		eventModel.setEvent_content(content);
+
+		mav.addObject("eventModel", eventModel);
 
 		mav.setViewName("adminEventUpdate");
 
@@ -348,13 +367,21 @@ public class EventController {
 	// 게시글 수정
 	@RequestMapping(value = "/eventUpdate.see", method = RequestMethod.POST)
 	public ModelAndView EventUpdate(@ModelAttribute("eventModel") EventModel eventModel,
-			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+			MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+		
+		new EventValidator().validate(eventModel, result);
+		if (result.hasErrors()) {
+			mav.setViewName("adminEventUpdate");
+			return mav;
+		}
 
 		int eventSeqNum = eventService.EventGetSEQ();
 
 		MultipartFile multipartFile1 = multipartHttpServletRequest.getFile("poster_file");
 		MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("content_file");
-		
+
 		if (!multipartFile1.isEmpty()) {
 
 			String poster_name = multipartFile1.getOriginalFilename();
@@ -416,8 +443,6 @@ public class EventController {
 			eventModel.setEvent_content_file(eventModel.getEvent_content_file());
 		}
 
-		ModelAndView mav = new ModelAndView();
-		
 		eventService.EventUpdate(eventModel);
 
 		mav.addObject("eventModel", eventModel);
@@ -425,13 +450,13 @@ public class EventController {
 
 		return mav;
 	}
-	
+
 	// 게시글 삭제
-	@RequestMapping(value="/eventDelete.see")
-	public String EventDelete(@RequestParam int event_no) throws Exception{
-		
+	@RequestMapping(value = "/eventDelete.see")
+	public String EventDelete(@RequestParam int event_no) throws Exception {
+
 		eventService.EventDelete(event_no);
-		
+
 		return "redirect:/admin/eventListMain.see";
 	}
 

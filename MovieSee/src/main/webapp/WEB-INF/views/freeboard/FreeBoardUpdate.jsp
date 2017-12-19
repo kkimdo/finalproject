@@ -23,6 +23,34 @@
 	});
 </script>
 
+<script type="text/javascript">
+
+	function btnUpdate() {
+		var frm = document.freeBoardUpdate;
+
+		if (frm.freeboard_name.value == "") {
+			alert("작성자를 입력해 주세요.");
+			frm.freeboard_name.focus();
+			return false;
+		} else if (frm.freeboard_passwd.value == "") {
+			alert("비밀번호를 입력해 주세요.");
+			frm.freeboard_passwd.focus();
+			return false;
+		} else if (frm.freeboard_subject.value == "") {
+			alert("제목을 입력해 주세요.");
+			frm.freeboard_subject.focus();
+			return false;
+		} else if (frm.freeboard_content.value == "") {
+			alert("내용을 입력해 주세요.");
+			frm.freeboard_content.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+
+
+
 </head>
 <body>
 	<div class="cs_center">
@@ -34,7 +62,9 @@
 			<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 		</ul>
-		<form:form commandName="freeBoardModel" action="freeBoardWrite.see" method="post">
+		<form name="freeBoardUpdate" action="freeBoardUpdateCheck.see" method="post" onsubmit="return btnUpdate();">
+			<input type="hidden" name="freeboard_no"
+				value="${freeBoardModel.freeboard_no}" />
 			<div class="tabCont">
 				<div>
 					<fieldset>
@@ -57,45 +87,33 @@
 									<th scope="row"><label for="name"> 작성자 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td>
-										<form:input name="freeboard_name" type="text" maxlength="40" id="name" class="input_txt" path="freeboard_name" />
-										<font color="red">
-											<form:errors path="freeboard_name" />
-										</font>
+									<td>${freeBoardModel.freeboard_name}<input
+										name="freeboard_name" type="hidden"
+										value="${freeBoardModel.freeboard_name}" id="name"
+										class="input_txt" />
 									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="passwd"> 비밀 번호 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td>
-										<form:input name="freeboard_passwd" type="password" maxlength="40" id="passwd" class="input_txt" path="freeboard_passwd" />
-											<font color="red">
-												<form:errors path="freeboard_passwd" />
-											</font>
-									</td>
+									<td><input name="freeboard_passwd" type="password"
+										maxlength="20" id="passwd" class="input_txt" /></td>
 								</tr>
-
 								<tr>
 									<th scope="row"><label for="subject"> 제목 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td>
-										<form:input name="freeboard_subject" type="text" maxlength="40" id="subject" class="ipt_txt03" path="freeboard_subject" />
-											<font color="red">
-												<form:errors path="freeboard_subject" />
-											</font>
-									</td>
+									<td><input name="freeboard_subject" type="text"
+										value="${freeBoardModel.freeboard_subject}" maxlength="40"
+										id="subject" class="ipt_txt03" /></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="content"> 내용 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td>
-										<form:textarea name="freeboard_content" rows="10" cols="30" id="content" class="textarea01" path="freeboard_content"></form:textarea>
-											<font color="red">
-												<form:errors path="freeboard_content" />
-											</font>
+									<td><textarea name="freeboard_content" rows="10" cols="30"
+											id="content" class="textarea01">${freeBoardModel.freeboard_content}</textarea>
 										<div class="txt_wrap">
 											<strong><span class="byte_txt" id="counter"></span></strong>
 										</div></td>
@@ -112,7 +130,7 @@
 					</div>
 				</div>
 			</div>
-		</form:form>
+		</form>
 	</div>
 </body>
 </html>

@@ -73,6 +73,12 @@
 	<definition name="freeBoardView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardView.jsp" />
 	</definition>
+	<definition name="freeBoardReply" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardReply.jsp" />
+	</definition>
+	<definition name="freeBoardUpdate" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardUpdate.jsp" />
+	</definition>
 	
 	<!-- faq -->
 	<definition name="adminFaqList" extends="main">

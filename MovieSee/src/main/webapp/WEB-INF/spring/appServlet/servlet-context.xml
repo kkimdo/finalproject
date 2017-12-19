@@ -28,6 +28,8 @@
 		<beans:property name="basenames">
 			<beans:list>
 				<beans:value>messages.noticeMessage_ko</beans:value>
+				<beans:value>messages.freeBoardMessage_ko</beans:value>
+				<beans:value>messages.eventMessage_ko</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

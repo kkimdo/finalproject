@@ -20,4 +20,15 @@ public interface FreeBoardDAO {
 	// 게시글 조회수 증가
 	public void FreeBoardHitUpdate(int freeboard_no) throws Exception;
 
+	// 답변 글 삭제
+	public int FreeRefDelete(int freeboard_no) throws Exception;
+
+	// 원본 글 삭제
+	public int FreeBoardDelete(int freeboard_ref) throws Exception;
+
+	// 답변글 작성
+	public int FreeBoardWriteReply(FreeBoardModel freeBoardModel) throws Exception;
+
+	// 게시글 수정
+	public int FreeBoardUpdate(FreeBoardModel freeBoardModel) throws Exception;
 }
