@@ -69,10 +69,17 @@
 	<!-- 게시글 작성 -->
 	<insert id="freeBoardWrite" parameterType="freeBoardModel">
 		insert into freeboard
-		(freeboard_no, freeboard_subject, freeboard_content, freeboard_name, freeboard_passwd, freeboard_hit, freeboard_date, freeboard_ref, freeboard_re_step)
-		values (freeboard_no_seq.NEXTVAL, #{freeboard_subject}, #{freeboard_content}, #{freeboard_name}, #{freeboard_passwd}, #{freeboard_hit}, sysdate, freeboard_no_seq.CURRVAL, #{freeboard_re_step})
+		(freeboard_no, freeboard_subject, freeboard_content, freeboard_name, freeboard_passwd, freeboard_date, freeboard_ref, freeboard_re_step)
+		values (freeboard_no_seq.NEXTVAL, #{freeboard_subject}, #{freeboard_content}, #{freeboard_name}, #{freeboard_passwd}, sysdate, freeboard_no_seq.CURRVAL, #{freeboard_re_step})
 	</insert>
-
+	
+	<!-- 답변 글 작성 -->
+	<insert id="freeBoardWriteReply" parameterType="Integer">
+		insert into freeboard
+		(freeboard_no, freeboard_subject, freeboard_content, freeboard_name, freeboard_passwd, freeboard_date, freeboard_ref, freeboard_re_step)
+		values (freeboard_no_seq.NEXTVAL, #{freeboard_subject}, #{freeboard_content}, #{freeboard_name}, #{freeboard_passwd}, sysdate, #{freeboard_ref}, #{freeboard_re_step})
+	</insert>
+	
 	<!-- 게시글 조회수 증가 -->
 	<update id="freeBoardHitUpdate">
 		update freeboard
@@ -82,19 +89,23 @@
 	</update>
 
 	<!-- 게시글 수정 -->
-	<!-- <update id="noticeUpdate" parameterType="noticeModel">
-		update notice
-		set
-		notice_subject = #{notice_subject}, notice_content =
-		#{notice_content}, notice_area = #{notice_area}, notice_date = sysdate,
-		notice_content_file = #{notice_content_file}
-		where notice_no = #{notice_no}
-	</update> -->
+	<update id="freeBoardUpdate" parameterType="freeBoardModel">
+		update freeboard
+		set freeboard_name = #{freeboard_name}, freeboard_subject = #{freeboard_subject},
+		freeboard_content = #{freeboard_content} where freeboard_no = #{freeboard_no}
+	</update>
 
-	<!-- 게시글 삭제 -->
-	<!-- <delete id="noticeDelete">
-		delete from notice
-		where notice_no = #{notice_no}
-	</delete> -->
+	<!-- 답변 글 삭제 -->
+	<delete id="freeRefDelete" parameterType="Integer">
+		delete from freeboard
+		where freeboard_no = #{freeboard_no}
+	</delete>
+	
+	<!-- 원본 글 삭제 -->
+	<delete id="freeBoardDelete" parameterType="Integer">
+		delete from freeboard
+		where freeboard_ref = #{freeboard_ref}
+	</delete>
+	
 
 </mapper>

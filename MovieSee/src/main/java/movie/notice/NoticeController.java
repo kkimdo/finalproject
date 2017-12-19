@@ -40,6 +40,12 @@ public class NoticeController {
 
 	private NoticeModel noticeNext = new NoticeModel();
 	private int nextNum = 0;
+	
+	// 유효성 검사시 NoticeModel 객체로 리턴 해줘야함.
+	@ModelAttribute
+	public NoticeModel formBack() {
+		return new NoticeModel();
+	}
 
 	// 게시글 작성 화면
 	// RequestMapping("admin/noticeWrite.see")
@@ -53,6 +59,8 @@ public class NoticeController {
 	@RequestMapping(value = "/noticeWrite.see", method = RequestMethod.POST)
 	public ModelAndView NoticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
 
 		int noticeSeqNum = noticeService.NoticeGetSEQ();
 		noticeModel.setNotice_no(noticeSeqNum);
@@ -88,11 +96,9 @@ public class NoticeController {
 
 			noticeModel.setNotice_content_file(content_full_name);
 		}
-
-		ModelAndView mav = new ModelAndView();
-
+ 
+		// noticeModel를 유효성 검사 객체로 담고, 결과를 result로 도출
 		new NoticeValidator().validate(noticeModel, result);
-
 		if (result.hasErrors()) {
 			mav.setViewName("adminNoticeWrite");
 			return mav;
@@ -177,11 +183,16 @@ public class NoticeController {
 
 	// 게시글 수정 폼
 	@RequestMapping(value = "/noticeUpdate.see", method = RequestMethod.GET)
-	public ModelAndView NoticeUpdateForm(@RequestParam int notice_no) throws Exception {
+	public ModelAndView NoticeUpdateForm(@ModelAttribute("noticeModel") NoticeModel noticeModel) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("noticeModel", noticeService.NoticeView(notice_no));
+		noticeModel = noticeService.NoticeView(noticeModel.getNotice_no());
+		
+		String content = noticeModel.getNotice_content().replaceAll("<br/>", "\r\n");
+		noticeModel.setNotice_content(content);
+		
+		mav.addObject("noticeModel", noticeModel);
 		mav.setViewName("adminNoticeUpdate");
 
 		return mav;
@@ -191,23 +202,32 @@ public class NoticeController {
 	// 게시글 수정
 	// 게시글 수정 폼에서 입력한 내용들은 @ModelAttribute NoticeModel noticeModel 로 전달 됨.
 	@RequestMapping(value = "/noticeUpdate.see", method = RequestMethod.POST)
-	public ModelAndView NoticeUpdate(@ModelAttribute NoticeModel noticeModel,
+	public ModelAndView NoticeUpdate(@ModelAttribute("noticeModel") NoticeModel noticeModel,
 			MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
 
+		ModelAndView mav = new ModelAndView();
+
+		new NoticeValidator().validate(noticeModel, result);
+
+		if (result.hasErrors()) {
+			mav.setViewName("adminNoticeUpdate");
+			return mav;
+		}
+		
 		int noticeSeqNum = noticeService.NoticeGetSEQ();
-		
+
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("content_file");
-		
+
 		if (!multipartFile.isEmpty()) {
-			
+
 			String content_name = multipartFile.getOriginalFilename();
 			String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
 
 			if (content_ext != null && !content_ext.equals("")) {
-				
+
 				File deleteFile = new File(uploadPath + noticeModel.getNotice_content_file());
 				deleteFile.delete();
-				
+
 				String content_full_name = "noticeContent_" + noticeSeqNum + "." + content_ext;
 				File file = new File(uploadPath + content_full_name);
 
@@ -219,25 +239,17 @@ public class NoticeController {
 					multipartFile.transferTo(file);
 				} catch (Exception e) {
 				}
-				
+
 				noticeModel.setNotice_content_file(content_full_name);
 			}
 
 		} else {
-			
+
 			noticeModel.setNotice_content_file(noticeModel.getNotice_content_file());
 		}
-		
-		ModelAndView mav = new ModelAndView();
-		
-		new NoticeValidator().validate(noticeModel, result);
 
-		if (result.hasErrors()) {
-			mav.setViewName("adminNoticeUpdate");
-			return mav;
-		}
-
-		mav.addObject("noticeModel", noticeService.NoticeUpdate(noticeModel));
+		noticeService.NoticeUpdate(noticeModel);
+		
 		mav.setViewName("redirect:/admin/noticeList.see");
 
 		return mav;

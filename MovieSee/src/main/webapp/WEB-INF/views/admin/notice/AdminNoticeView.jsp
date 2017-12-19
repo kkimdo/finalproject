@@ -47,7 +47,7 @@
 					<li class="active"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li> <!-- goCustomerCenterMenu-->
 					<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 					<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
-					<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
+					<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
                 </ul>
 				<form name="form1" method="post">
                     <div class="tabCont">

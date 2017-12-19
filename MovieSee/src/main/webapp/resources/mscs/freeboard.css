@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+body {
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: -0.05em;
+    word-break: keep-all;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+    font-weight: inherit;
+    border: 0;
+    vertical-align: baseline;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+#KOR *, #ENG * {
+    font-family: 'Noto Sans KR','sans-serif','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','AppleGothic','Dotum','돋움';
+}
+
+#mast-body .container {
+    padding: 30px;
+    width: auto;
+}
+
+#mast-body .container {
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 400px;
+}
+
+.__half {
+    margin: 0 0 40px !important;
+}
+
+.section > .row {
+    padding: 10px 0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.row {
+    display: table;
+    width: 100%;
+}
+
+.section > .row > .col-md:first-child {
+    width: 160px;
+    color: #999999;
+}
+
+.row .col-md, .row .col-md-1, .row .col-md-2, .row .col-md-3, .row .col-md-4, .row .col-md-5, .row .col-md-6, .row .col-md-7, .row .col-md-8, .row .col-md-9, .row .col-md-10, .row .col-md-11, .row .col-md-12 {
+    display: table-cell;
+    vertical-align: top;
+}
+
+
+
+

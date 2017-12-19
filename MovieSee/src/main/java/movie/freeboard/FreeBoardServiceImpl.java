@@ -16,7 +16,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Override
 	public int FreeBoardWrite(FreeBoardModel freeBoardModel) throws Exception {
 
-		String content = freeBoardModel.getFreeboard_content().replace("\r\n", "<br/>");
+		String content = freeBoardModel.getFreeboard_content().replaceAll("\r\n", "<br/>");
 		freeBoardModel.setFreeboard_content(content);
 
 		return freeBoardDAO.FreeBoardWrite(freeBoardModel);
@@ -61,6 +61,34 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 			session.setAttribute("update_time_" + freeboard_no, current_time);
 		}
 
+	}
+	
+	@Override
+	public int FreeRefDelete(int freeboard_no) throws Exception {
+		return freeBoardDAO.FreeRefDelete(freeboard_no);
+	}
+	
+	@Override
+	public int FreeBoardDelete(int freeboard_ref) throws Exception {
+		return freeBoardDAO.FreeBoardDelete(freeboard_ref);
+	}
+	
+	@Override
+	public int FreeBoardWriteReply(FreeBoardModel freeBoardModel) throws Exception {
+		
+		String content = freeBoardModel.getFreeboard_content().replaceAll("\r\n", "<br/>");
+		freeBoardModel.setFreeboard_content(content);
+		
+		return freeBoardDAO.FreeBoardWriteReply(freeBoardModel);
+	}
+	
+	@Override
+	public int FreeBoardUpdate(FreeBoardModel freeBoardModel) throws Exception {
+		
+		String content = freeBoardModel.getFreeboard_content().replaceAll( "\r\n", "<br/>");
+		freeBoardModel.setFreeboard_content(content);
+		
+		return freeBoardDAO.FreeBoardUpdate(freeBoardModel);
 	}
 
 }

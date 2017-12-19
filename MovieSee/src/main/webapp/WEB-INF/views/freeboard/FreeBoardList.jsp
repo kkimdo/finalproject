@@ -40,11 +40,10 @@
 						<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 						<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 						<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
-						<li><a href="javascript:customerCenterMenu(4);">분실물안내</a></li>
+						<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 					</ul>
 					<div class="tabCont">
-						<form name="form1" method="post"
-							action="<%=cp%>/free/freeBoardList.see">
+						<form name="form1" method="post" action="<%=cp%>/free/freeBoardList.see">
 							<div class="custCategory">
 								<select class="select_box" name="searchOption">
 									<option value="all"
@@ -54,7 +53,7 @@
 									<option value="freeboard_content"
 										<c:out value="${map.searchOption == 'freeboard_content'?'ed':''}"/>>내용</option>
 									<option value="freeboard_name"
-										<c:out value="${map.searchOption == 'freeboard_name'?'ed':''}"/>>작성자 이름</option>
+										<c:out value="${map.searchOption == 'freeboard_name'?'ed':''}"/>>작성자</option>
 
 
 								</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
@@ -68,8 +67,8 @@
 						<fieldset>
 							<table class="tbl_st03">
 								<colgroup>
-									<col style="width: 11%">
-									<col style="width: 49%">
+									<col style="width: 12%">
+									<col style="width: 48%">
 									<col style="width: 15%">
 									<col style="width: 14%">
 									<col style="width: 11%">
@@ -87,10 +86,16 @@
 
 								<tbody>
 									<c:forEach var="freeBoardList" items="${map.freeBoardList}">
+										<c:url var="freeBoardViewURL" value="freeBoardView.see">
+											<c:param name="freeboard_no" value="${freeBoardList.freeboard_no}" />
+											<c:param name="curPage" value="${map.c_Paging.curPage}"/>
+											<c:param name="searchOption" value="${map.searchOption}"/>
+											<c:param name="keyword" value="${map.keyword}"/>
+										</c:url>
 										<tr class="notice">
 											<td>${freeBoardList.freeboard_no}</td>
 											<td>
-												<a href="<%=cp %>/free/freeBoardView.see?freeboard_no=${freeBoardList.freeboard_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">
+												<a href="${freeBoardViewURL}">
 													<c:if test="${freeBoardList.freeboard_re_step == 1}">&nbsp;
 														<img src="/movie/images/icon/reply.gif">
 													</c:if>

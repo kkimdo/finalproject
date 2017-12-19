@@ -57,5 +57,25 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 	public void FreeBoardHitUpdate(int freeboard_no) throws Exception {
 		sqlSessionTemplate.update("freeboard.freeBoardHitUpdate", freeboard_no);
 	}
+
+	@Override
+	public int FreeRefDelete(int freeboard_no) throws Exception {
+		return sqlSessionTemplate.delete("freeboard.freeRefDelete", freeboard_no);
+	}
+	
+	@Override
+	public int FreeBoardDelete(int freeboard_ref) throws Exception {
+		return sqlSessionTemplate.delete("freeboard.freeBoardDelete", freeboard_ref);
+	}
+	
+	@Override
+	public int FreeBoardWriteReply(FreeBoardModel freeBoardModel) throws Exception {
+		return sqlSessionTemplate.insert("freeboard.freeBoardWriteReply", freeBoardModel);
+	}
+	
+	@Override
+	public int FreeBoardUpdate(FreeBoardModel freeBoardModel) throws Exception {
+		return sqlSessionTemplate.update("freeboard.freeBoardUpdate", freeBoardModel);
+	}
 	
 }
