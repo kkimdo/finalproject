@@ -2,6 +2,7 @@ package movie.qna;
 
 import java.util.List;
 
+
 public interface QnaService {
 
 	// 게시글 전체 목록
@@ -27,8 +28,9 @@ public interface QnaService {
 
 	// 댓글 입력
 	public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception;
-	
+
 	// 댓글 삭제
 	public void CommentDelete(int qna_comment_no) throws Exception;
+
 
 }
