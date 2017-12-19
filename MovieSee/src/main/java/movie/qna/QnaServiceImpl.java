@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class QnaServiceImpl implements QnaService {
 
@@ -55,19 +56,23 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	// 댓글 목록
-    @Override
-    public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
-        return qnaDAO.CommentList(qna_no);
-    }
-    // 댓글 작성
-    @Override
-    public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
-    	qnaDAO.CommentInsert(qnaCommentModel);
-    }
-    // 댓글 삭제
-    @Override
-    public void CommentDelete(int qna_comment_no) throws Exception {
-    	qnaDAO.CommentDelete(qna_comment_no);
- 
-    }
+	@Override
+	public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
+		return qnaDAO.CommentList(qna_no);
+	}
+
+	// 댓글 작성
+	@Override
+	public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
+		qnaDAO.CommentInsert(qnaCommentModel);
+	}
+
+	// 댓글 삭제
+	@Override
+	public void CommentDelete(int qna_comment_no) throws Exception {
+		qnaDAO.CommentDelete(qna_comment_no);
+
+	}
+
+	
 }

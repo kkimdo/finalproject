@@ -10,6 +10,7 @@
 
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/qna.css?ver=201712060002"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>1:1문의</title>
 
@@ -17,12 +18,12 @@
 
 	function btnWrite() {
 		var frm = document.formWrite;
+		var checked_radio = $('input:radio[name=U_checkAgreement1]:checked').val();
 		
-		if (frm.U_checkAgreement1.value == "n") {
-			alert("동의 해주세요.");
-			frm.U_checkAgreement1.focus();
+		if(checked_radio == 'N'){	
+			alert("동의 해주세요.");		
 			return false;
-		} else if (frm.qna_name.value == "") {
+		}else if (frm.qna_name.value == "") {
 			alert("성명을 입력해주세요.");
 			frm.qna_name.focus();
 			return false;
@@ -46,10 +47,14 @@
 			alert("내용을 입력해주세요.");
 			frm.qna_content.focus();
 			return false;
-		}
-			return true;
-	} 
+		 } else {
+	         alert("작성완료 되었습니다.");
+	         frm.submit();
+	      }
+	      return true;
+	   } 
 </script>
+
 <script type="text/javascript">
 $(function() {
     $('#content').keyup(function(e) {
@@ -138,12 +143,15 @@ $(function() {
 		<form name="formWrite" action="qnaWrite.see" method="post" enctype="multipart/form-data" onsubmit="return btnWrite();">		
 					<fieldset>
 					<ul class="radck">
-						<li><input id="U_checkAgreement1" type="radio" name="U_checkAgreement1" value="y"> 
-							<label for="U_checkAgreement1" > 동의</label></li>
+						<li><input id="U_checkAgreement1" type="radio" name="U_checkAgreement1"> 
+							<label for="U_checkAgreement1"> 동의</label>
+						</li>
 						
-						<li><input id="U_checkAgreement2" type="radio" name="U_checkAgreement1" checked="checked" value="n"> 
-							<label for="U_checkAgreement2"> 동의하지 않음</label></li>
+						<li><input id="U_checkAgreement2" type="radio" name="U_checkAgreement1" checked="checked" value="N"> 
+							<label for="U_checkAgreement2"> 동의하지 않음</label>
+						</li>
 					</ul>
+					
 						<legend>회원정보입력</legend>
 						<div class="titYtxt">
 							<h3 class="mem_tit">회원정보</h3>

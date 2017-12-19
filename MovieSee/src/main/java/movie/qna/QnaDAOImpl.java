@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+
 @Repository // 현재 클래스를 DAO bean으로 등록
 public class QnaDAOImpl implements QnaDAO {
 
@@ -25,7 +26,7 @@ public class QnaDAOImpl implements QnaDAO {
 	public int QnaGetSEQ() throws Exception {
 		return sqlSessionTemplate.selectOne("qna.qnaGetSEQ");
 	}
-	
+
 	// 모든 데이터를 가져와서 List<QnaModel>를 리턴하는 메소드(게시글 전체 목록)
 	@Override
 	public List<QnaModel> QnaListAll(int start, int end, String searchOption, String keyword) throws Exception {
@@ -67,20 +68,23 @@ public class QnaDAOImpl implements QnaDAO {
 	}
 
 	// 댓글 목록
-    @Override
-    public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
-        return sqlSessionTemplate.selectList("qna.qnaCommentList", qna_no);
-    }
-    // 댓글 작성
-    @Override
-    public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
-    	sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
-    }
-    // 댓글 삭제
-    @Override
-    public void CommentDelete(int qna_comment_no) throws Exception {
-    	sqlSessionTemplate.delete("qna.qnaCommentDelete", qna_comment_no);
+	@Override
+	public List<QnaCommentModel> CommentList(int qna_no) throws Exception {
+		return sqlSessionTemplate.selectList("qna.qnaCommentList", qna_no);
+	}
 
-    }
- 
+	// 댓글 작성
+	@Override
+	public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {
+		sqlSessionTemplate.insert("qna.qnaCommentWrite", qnaCommentModel);
+	}
+
+	// 댓글 삭제
+	@Override
+	public void CommentDelete(int qna_comment_no) throws Exception {
+		sqlSessionTemplate.delete("qna.qnaCommentDelete", qna_comment_no);
+
+	}
+
+
 }

@@ -138,7 +138,7 @@ input, select, textarea {
 .tbl_style01 th {
     padding: 10px 0 10px 20px;
     height: 30px;
-    background: url(/LCHS/Image/bg/bg_eline03.gif) no-repeat 100% 23px;
+    background: url('/movie/src/main/webapp/images/bg/bg_tab_line.gif') no-repeat 100% 23px;
     line-height: 40px;
     vertical-align: top;
     text-align: left;
@@ -163,7 +163,25 @@ input, select, textarea {
     -moz-opacity: 0;
     font-size: 30px;
 }
-
-.tbl_style01 input[type=text] {
-    padding: 10px 0 10px 70px;
+.tbl_qnast03 {
+    width: 100%;
+    border-top: 1px solid #c0c0c0;
+    font-size: 13px;
+    color: #231f20;
+    text-align: center;
+    line-height: 18px;
+    table-layout: fixed;
+}
+.tbl_qnast03 th {
+    padding: 14px 0 13px;
+    border-bottom: 1px solid #c0c0c0;
+    border-top: 1px solid #c0c0c0;
+    background: url(/LCHS/Image/Bg/bg_tab_line.gif) no-repeat left center;
+    vertical-align: middle;
+}
+.tbl_qnast03 td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #dedede;
+    color: #666;
+    vertical-align: middle;
 }

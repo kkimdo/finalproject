@@ -108,8 +108,8 @@
         SET qna_comment_content = #{qna_comment_content}
         WHERE qna_comment_no = #{qna_comment_no}
     </select> 
-
-
+	
+	
 
 
 </mapper>
