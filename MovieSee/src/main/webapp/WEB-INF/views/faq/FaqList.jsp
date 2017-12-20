@@ -102,10 +102,12 @@
 
 
 								<c:forEach var="faqList" items="${map.faqList}">
+									
 									<div class="faq">
 										<ul class="faqBody">
 											<li class="article" id="a1">
 												<p class="q">
+													<span>Q</span>${faqList.faq_category}			
 													<a href="#a1"><span>▲</span>${faqList.faq_subject}</a>
 												</p>
 												<p class="a">
