@@ -37,7 +37,7 @@
 					<h2 class="csTit">고객센터</h2>
 					<ul class="tab_st03">
 						<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-						<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+						<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
 						<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 						<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 						<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
@@ -56,12 +56,13 @@
 										<c:out value="${map.searchOption == 'freeboard_name'?'ed':''}"/>>작성자</option>
 
 
-								</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
-									class="ipt_txt mt0"> <input type="submit" value="검색"
-									class="boardBt"><input type="button" value="글쓰기"
-									onclick="btnWrite();" class="boardBt" /> <span> <!-- 레코드의 갯수를 출력 -->
+								</select> 
+									<input name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt mt0"> 
+									<input type="submit" value="검색" class="boardBt">
+										<input type="button" value="글쓰기" onclick="btnWrite();" class="boardBt" /> 
+									<span> <!-- 레코드의 갯수를 출력 -->
 									<strong>${map.count}</strong>개의 게시물이 있습니다.
-								</span>
+									</span>
 							</div>
 						</form>
 						<fieldset>
@@ -111,6 +112,7 @@
 							</table>
 						</fieldset>
 						<div class="paging">
+							
 							<!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
 							<c:if test="${map.c_Paging.curBlock > 1}">
 								<a href="javascript:list('1')" class="first"><img
@@ -148,7 +150,6 @@
 									class="last"><img
 									src="<%=cp%>/images/btn/btn_last_02.gif" /></a>
 							</c:if>
-
 						</div>
 					</div>
 				</div>

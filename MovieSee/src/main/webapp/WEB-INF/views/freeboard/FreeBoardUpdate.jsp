@@ -49,15 +49,13 @@
 	}
 </script>
 
-
-
 </head>
 <body>
 	<div class="cs_center">
 		<h2 class="csTit">고객센터</h2>
 		<ul class="tab_st03">
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 			<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
@@ -87,10 +85,9 @@
 									<th scope="row"><label for="name"> 작성자 <span
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td>${freeBoardModel.freeboard_name}<input
-										name="freeboard_name" type="hidden"
-										value="${freeBoardModel.freeboard_name}" id="name"
-										class="input_txt" />
+									<td>
+										${freeBoardModel.freeboard_name}
+										<input name="freeboard_name" type="hidden" value="${freeBoardModel.freeboard_name}" id="name" class="input_txt" />
 									</td>
 								</tr>
 								<tr>

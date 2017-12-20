@@ -90,5 +90,16 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		
 		return freeBoardDAO.FreeBoardUpdate(freeBoardModel);
 	}
+	
+	@Override
+	public int FreeRefAdminDelete(int freeboard_no) throws Exception {
+		return freeBoardDAO.FreeRefAdminDelete(freeboard_no);
+	}
+	
+	@Override
+	public int FreeBoardAdminDelete(int freeboard_ref) throws Exception {
+		return freeBoardDAO.FreeBoardAdminDelete(freeboard_ref);
+	}
+	
 
 }

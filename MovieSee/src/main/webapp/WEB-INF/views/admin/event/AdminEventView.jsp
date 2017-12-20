@@ -45,6 +45,18 @@ function aKakaoStory(){
 
 </head>
 <body>
+<div class="admin_grp">
+	<div class="admin_list">
+		<ul>
+			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+			<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+		</ul>
+	</div>
 	<div id="container" class="sub" style="">
 		<!-- content -->
 		<div id="content">
@@ -102,6 +114,6 @@ function aKakaoStory(){
 		</div>
 		<!-- //content -->
 	</div>
-
+</div>
 </body>
 </html>

@@ -29,7 +29,7 @@
 		<h2 class="csTit">고객센터</h2>
 		<ul class="tab_st03">
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 			<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
@@ -58,10 +58,8 @@
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td>
-										<form:input name="freeboard_name" type="text" maxlength="40" id="name" class="input_txt" path="freeboard_name" />
-										<font color="red">
-											<form:errors path="freeboard_name" />
-										</font>
+										${session_member_name}
+										<input type="hidden" name="freeboard_name" value="${session_member_name}" />
 									</td>
 								</tr>
 								<tr>

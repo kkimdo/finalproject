@@ -220,7 +220,7 @@ public class FreeBoardController {
 
 	@RequestMapping(value = "/freeBoardUpdate.see", method = RequestMethod.POST)
 	public ModelAndView FreeBoardUpdate(@ModelAttribute("freeBoardModel") FreeBoardModel freeBoardModel,
-			HttpServletRequest request ) throws Exception {
+			HttpServletRequest request) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 
@@ -241,7 +241,6 @@ public class FreeBoardController {
 		String input_passwd = request.getParameter("freeboard_passwd"); // 입력한
 																		// 비밀 번호
 																		// 값.
-
 		ModelAndView mav = new ModelAndView();
 
 		FreeBoardModel freeBoardModel2 = new FreeBoardModel();
@@ -260,6 +259,27 @@ public class FreeBoardController {
 
 		mav.setViewName("freeboard/FreeBoardUpdateResult");
 		return mav;
+	}
+
+	// 게시글 삭제
+	@RequestMapping(value = "/freeBoardAdminDelete.see")
+	public ModelAndView FreeBoardAdminDelete(FreeBoardModel freeBoardModel, HttpServletRequest request)
+			throws Exception {
+
+		int freeboard_no = Integer.parseInt(request.getParameter("freeboard_no"));
+		freeBoardModel = freeBoardService.FreeBoardView(freeboard_no);
+
+		ModelAndView mav = new ModelAndView();
+
+		if (freeBoardModel.getFreeboard_ref() == freeBoardModel.getFreeboard_no()) {
+			freeBoardService.FreeBoardAdminDelete(freeBoardModel.getFreeboard_ref());
+
+		} else {
+			freeBoardService.FreeRefAdminDelete(freeboard_no);
+		}
+		mav.setViewName("redirect:/free/freeBoardList.see");
+		return mav;
+
 	}
 
 }

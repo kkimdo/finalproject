@@ -78,4 +78,14 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 		return sqlSessionTemplate.update("freeboard.freeBoardUpdate", freeBoardModel);
 	}
 	
+	@Override
+	public int FreeRefAdminDelete(int freeboard_no) throws Exception {
+		return sqlSessionTemplate.delete("freeboard.freeRefAdminDelete", freeboard_no);
+	}
+	
+	@Override
+	public int FreeBoardAdminDelete(int freeboard_ref) throws Exception {
+		return sqlSessionTemplate.delete("freeboard.freeBoardAdminDelete", freeboard_ref);
+	}
+	
 }

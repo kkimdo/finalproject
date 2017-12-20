@@ -97,6 +97,36 @@
 	</definition>
 	
 		<!-- extends.main -->
+	
+	<!-- main event -->
+	<definition name="eventView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventView.jsp" />
+	</definition>
+	<!-- admin event Main -->
+	<definition name="eventListMain" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventListMain.jsp" />
+	</definition>
+	<!-- admin event 1 -->
+	<definition name="eventList_1" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_1.jsp" />
+	</definition>
+	<!-- admin event 2 -->
+	<definition name="eventList_2" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_2.jsp" />
+	</definition>
+	<!-- admin event 3 -->
+	<definition name="eventList_3" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_3.jsp" />
+	</definition>
+	<!-- admin event 4 -->
+	<definition name="eventList_4" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_4.jsp" />
+	</definition>
+	<!-- 지난 이벤트 -->
+	<definition name="eventEndList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/event/EventEndList.jsp" />
+	</definition>	
+		
 	<!-- main freeBoard -->
 	<definition name="freeBoardList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardList.jsp" />
@@ -139,6 +169,11 @@
 	</definition>
 	<definition name="memberEnd" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep3.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 1차수정 -->
+	<definition name="login" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/member/loginForm.jsp"></put-attribute>
 	</definition>
 	
 	<!-- common -->
