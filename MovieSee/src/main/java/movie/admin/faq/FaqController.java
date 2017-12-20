@@ -1,4 +1,4 @@
-package movie.faq;
+package movie.admin.faq;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ import movie.common.paging.commonPaging;
 
 
 @Controller
-@RequestMapping("/faq")
+@RequestMapping("/admin")
 public class FaqController {
 
 	Logger log = Logger.getLogger(this.getClass());
@@ -62,7 +62,7 @@ public class FaqController {
 	// 게시글 작성 화면
 	@RequestMapping(value = "/faqWrite.see", method = RequestMethod.GET)
 	public String FaqWriteForm() {
-		return "admin/faq/AdminFaqWrite"; // AdminFaqWrite.jsp 로 이동
+		return "adminFaqWrite"; // AdminFaqWrite.jsp 로 이동
 	}
 
 	// 게시글 작성 처리
@@ -73,7 +73,7 @@ public class FaqController {
 		faqService.FaqWrite(faqModel);
 
 		mav.addObject("faqModel", faqModel); // 데이터를 저장
-		mav.setViewName("redirect:/faq/faqList.see"); // AdminNoticeList.jsp 로 redirect
+		mav.setViewName("redirect:/admin/faqList.see"); // AdminNoticeList.jsp 로 redirect
 
 		return mav;
 	}
@@ -114,7 +114,7 @@ public class FaqController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("faqModel", faqService.FaqUpdate(faqModel));
-		mav.setViewName("redirect:/faq/faqList.see");
+		mav.setViewName("redirect:/admin/faqList.see");
 
 		return mav;
 
@@ -126,7 +126,7 @@ public class FaqController {
 
 		faqService.FaqDelete(faq_no);
 
-		return "redirect:/faq/faqList.see";
+		return "redirect:/admin/faqList.see";
 	}
 
 }

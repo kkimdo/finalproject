@@ -2554,6 +2554,7 @@
 .shPeriod {
 	padding: 20px 30px;
 	background: #f5f5f5;
+	margin: 0px 0 50px;
 }
 
 .shPeriod .tit {
@@ -11708,12 +11709,13 @@
 	width: 980px;
 	margin: 0 auto;
 	padding: 50px 0 50px;
+	px; */
 	color: #231f20;
 }
 
 .csTit {
-	padding-bottom: 20px;
-	font-size: 28px;
+    padding-bottom: 20px;
+    font-size: 28px;
 }
 
 .cs_center .tab_st03 {
@@ -11734,7 +11736,7 @@
 }
 
 .cs_center .tabCont.faqTabCont {
-	padding-top: 80px;
+	padding-top: 1px;
 }
 
 .cs_center .tabCont.helper_wrap {
@@ -12272,7 +12274,7 @@
 
 .tbl_faq tbody .question a {
 	display: block;
-	background: url('/LCHS/Image/Bg/bg_arrow_faq.png') no-repeat 720px 50%;
+	background: url('/movie/images/bg/bg_arrow_faq.png') no-repeat 720px 50%;
 } /*20170206 no-repeat 720px ; 에서 ; 제거 sunho*/
 .tbl_faq tbody .question.on a {
 	background-image: url('/LCHS/Image/Bg/bg_arrow_faq_on.png');
