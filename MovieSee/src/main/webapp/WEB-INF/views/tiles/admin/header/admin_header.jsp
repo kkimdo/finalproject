@@ -10,7 +10,7 @@
 			<li><a href="<%= cp %>/admin/movieList.see">상영작</a></li>
 			<li><a href="<%= cp %>/reserve/reserveMain.mt">예매</a></li>
 			<li><a href="<%= cp %>/magazine/magazineList.mt">매거진</a></li>
-			<li><a href="<%= cp %>/admin/eventList.see">이벤트</a></li>
+			<li><a href="<%= cp %>/admin/eventListMain.see">이벤트</a></li>
 			<li><a href="<%= cp %>/qna/qnaList.see">고객센터</a></li>
 		</ul>
 	</div>

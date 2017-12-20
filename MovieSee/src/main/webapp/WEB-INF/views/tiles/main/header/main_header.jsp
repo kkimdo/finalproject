@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<% String cp = request.getContextPath(); %>
+<% 
+	String cp = request.getContextPath(); 
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,16 +30,13 @@
                         <li>
                             </li>
                         <li>
-                            <a id="lbtnLogin" title="로그인" href="javascript:__doPostBack('ctl00$ctl00$lbtnLogin','')">로그인</a></li>
+                            <a id="lbtnLogin" title="로그인" href="<%=cp%>/member/login.see">로그인</a></li>
                         
-                        <!-- 20161222 - Util 영역 개선 -->
-                        <!--<li><a href="https://member.lpoint.com/door/user/regUser.jsp?sid=CINEMA&returnurl=" target="_blank" title="회원가입">회원가입</a></li>-->
-                        <li><a href="/LCHS/Contents/Membership/l-point.aspx" title="회원가입">회원가입</a></li>
-                        <!-- 20161222 - Util 영역 개선 -->
+                        <%-- <li><a href="<%=cp%>/member/member.see" target="_blank" title="회원가입">회원가입</a></li> --%>
+                        <li><a href="<%=cp%>/member/member.see" title="회원가입">회원가입</a></li>
                         <!--<li><a href="https://member.lpoint.com/door/user/requestId.jsp?sid=CINEMA&opentype=N&returnurl=" target="_blank" title="아이디찾기">아이디찾기</a></li>
                         <li><a href="https://member.lpoint.com/door/user/requestPasswd.jsp?sid=CINEMA&opentype=N&sch=&returnurl=" target="_blank" title="비밀번호찾기">비밀번호찾기</a></li>-->
                         
-                       <!--  <li><a href="javascript:goToMembershipMenu(0,4,1);" title="멤버십">멤버십</a></li> -->
                         <li><a href="<%=cp%>/faq/faqList.see" title="고객센터">고객센터</a></li>
                         <li class="lang">
                             <a href="javascript:void(0);" id="LanguageSetting" class="btn_english">ENGLISH</a>

@@ -57,6 +57,31 @@
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventEndList.jsp" />
 	</definition>
 	
+	<!-- admin faq -->
+	<definition name="adminFaqList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqList.jsp" />
+	</definition>
+	<definition name="adminFaqView" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqView.jsp" />
+	</definition>
+	<definition name="adminFaqUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqUpdate.jsp" />
+	</definition>
+	<definition name="adminFaqWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
+	</definition>
+	
+	<!-- admin qna -->
+	<definition name="adminQnaList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaList.jsp" />
+	</definition>
+	<definition name="adminQnaView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
+	</definition>
+	<definition name="adminQnaWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
+	</definition>
+	
 	<!-- admin notice -->
 	<definition name="adminNoticeList" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeList.jsp" />
@@ -71,7 +96,8 @@
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
 	</definition>
 	
-	<!-- freeBoard -->
+		<!-- extends.main -->
+	<!-- main freeBoard -->
 	<definition name="freeBoardList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardList.jsp" />
 	</definition>
@@ -88,29 +114,20 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/freeboard/FreeBoardUpdate.jsp" />
 	</definition>
 	
-	<!-- faq -->
-	<definition name="adminFaqList" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqList.jsp" />
+	<!-- main notice -->
+	<definition name="noticeList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/notice/NoticeList.jsp" />
 	</definition>
-	<definition name="adminFaqView" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqView.jsp" />
-	</definition>
-	<definition name="adminFaqUpdate" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqUpdate.jsp" />
-	</definition>
-	<definition name="adminFaqWrite" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
+	<definition name="noticeView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/notice/NoticeView.jsp" />
 	</definition>
 	
-	<!-- qna -->
-	<definition name="adminQnaList" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaList.jsp" />
+	<!-- main faq -->
+	<definition name="faqList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/faq/FaqList.jsp" />
 	</definition>
-	<definition name="adminQnaView" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
-	</definition>
-	<definition name="adminQnaWrite" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
+	<definition name="faqView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/faq/FaqView.jsp" />
 	</definition>
 	
 	<!-- Member -->

@@ -19,6 +19,10 @@
             <mvc:mapping path="/**"/>
             <beans:bean id="loggerInterceptor" class="movie.common.logger.LoggerInterceptor"></beans:bean>
         </mvc:interceptor>
+        <mvc:interceptor>
+        	<mvc:mapping path="/admin/**"/>
+        	<beans:bean id="loginInterceptor" class="movie.common.loginCheck.LoginInterceptor"></beans:bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 	<resources mapping="/resources/**" location="/resources/" />
