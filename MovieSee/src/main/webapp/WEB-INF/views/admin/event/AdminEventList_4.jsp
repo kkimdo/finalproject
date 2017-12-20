@@ -39,23 +39,17 @@
 
 </head>
 <body>
-	<div class="header">
-		<div class="gnb">
-			<ul>
-				<li class="active"><a href="<%=cp%>/admin/eventListMain.see"
-					title="이벤트">이벤트</a>
-					<div class="depth">
-						<ul>
-							<li><a href="<%=cp%>/admin/eventList_1.see" title="영화">영화</a></li>
-							<li><a href="<%=cp%>/admin/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
-							<li ><a href="<%=cp%>/admin/eventList_3.see"
-								title="롯시NOW">롯시NOW</a></li>
-							<li class="active"><a href="<%=cp%>/admin/eventList_4.see" title="제휴할인">제휴할인</a></li>
-						</ul>
-					</div></li>
-
-			</ul>
-		</div>
+<div class="admin_grp">
+	<div class="admin_list">
+		<ul>
+			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+			<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+		</ul>
 	</div>
 	<div id="container" class="sub">
 		<!-- content -->
@@ -110,7 +104,6 @@
 			</div>
 		</div>
 	</div>
-
-
+</div>
 </body>
 </html>

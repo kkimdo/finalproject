@@ -34,7 +34,18 @@
 
 </head>
 <body>
-
+<div class="admin_grp">
+	<div class="admin_list">
+		<ul>
+			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+			<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+		</ul>
+	</div>
 	<form:form commandName="eventModel" action="eventUpdate.see" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="event_no" value="${eventModel.event_no}" />
 			<input type="hidden" name="event_poster_file" value="${eventModel.event_poster_file}"/>
@@ -176,5 +187,6 @@
 			</div>
 		</div>
 	</form:form>
+</div>
 </body>
 </html>

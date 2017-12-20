@@ -29,6 +29,15 @@
 	      mt=(ch-sh)/2;     
 	      window.open(url, "confirm","width="+sw+", height="+sh+",top="+mt+", left="+ml+", toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no");
 	   }
+	  
+	// admin은 바로 지울 수 있게
+	function freeBoardAdminDelete() {
+		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
+			location.href ="<%=cp%>/free/freeBoardAdminDelete.see?freeboard_no=${freeBoardModel.freeboard_no}";
+		} else { //취소
+			return;
+		}
+	}
 	
 </script>
 </head>
@@ -39,7 +48,7 @@
 		<h2 class="csTit">고객센터</h2>
 		<ul class="tab_st03">
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 			<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
@@ -61,9 +70,20 @@
 				<div class="btn_box btn_cbox">
 						<a href="<%=cp%>/free/freeBoardList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}" class="btnc_check">목록</a>
 						<a href="<%=cp%>/free/freeBoardUpdate.see?freeboard_no=${freeBoardModel.freeboard_no}" class="btnc_check" >수정</a> 
-						<a href="javascript:void(0);" class="btnc_check" onclick="openFreeBoard('<%=cp%>/free/freeBoardCheckForm.see?freeboard_no=${freeBoardModel.freeboard_no}')">
-						삭제
-						</a>
+						
+						<c:choose>
+							<c:when test="${session_member_grade eq 1 }">
+								<a href="javascript:void(0);" class="btnc_check" onclick="freeBoardAdminDelete();">
+								삭제
+								</a>
+                        	</c:when>
+							<c:otherwise>
+								<a href="javascript:void(0);" class="btnc_check" onclick="openFreeBoard('<%=cp%>/free/freeBoardCheckForm.see?freeboard_no=${freeBoardModel.freeboard_no}')">
+								삭제
+								</a>
+                        	</c:otherwise>
+						</c:choose>	
+							
 						<c:if test = "${ref ne 1 }">
 						<a href="<%=cp%>/free/freeBoardWriteReply.see?freeboard_no=${freeBoardModel.freeboard_no}" class="btnc_check">
 						<span>답변쓰기</span>

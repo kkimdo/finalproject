@@ -252,7 +252,7 @@ table .contents_img img{max-width:100%;}
 .tbl_type_02{border-bottom:1px solid #f0f0f0;}
 .tbl_type_02 thead th{background:#f8f8f8;padding:10px;}
 .tbl_type_02 tbody td{padding:10px;border-top:1px solid #f0f0f0;text-align:center;}
-.tbl_type_02 tbody td.subject{text-align:left;}
+.tbl_type_02 tbody td.subject{text-align:center;}
 .tbl_type_02 tbody td.subject a{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 /* 달력 */

@@ -34,16 +34,19 @@
 
 </head>
 <body>
-
-	<div class="cs_center">
-		<h2 class="csTit">고객센터</h2>
-		<ul class="tab_st03">
-			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-			<li class="active"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
-			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
-			<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
-			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
+	<div class="admin_grp">
+		<div class="admin_list">
+		<ul>
+			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li class="on"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
 		</ul>
+	</div>
+		<div class="admin_ct">
 		<form:form commandName="noticeModel" name="formWrite" action="noticeUpdate.see" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="notice_no" value="${noticeModel.notice_no}" />
 			<input type="hidden" name="notice_content_file" value="${noticeModel.notice_content_file}"/>
@@ -118,16 +121,18 @@
 							</tbody>
 						</table>
 					</fieldset>
-					<div class="btn_box btn_cbox">
-						<span> <input type="submit" value="확인">
-						</span> <span onclick="history.go(-1);"> <input type="button"
-							value="취소" />
-						</span>
+					<div class="btn_type_03">
+					<a href="javascript:history.back()" class="btn btnC_03 btnP_04 mr10"> 
+						<span>취소</span>
+					</a>
+					<span class="btn btnC_04 btnP_04">
+						<input type="submit" value="수정" />
+					</span>
 					</div>
 				</div>
 			</div>
 		</form:form>
 	</div>
-
+</div>
 </body>
 </html>

@@ -23,10 +23,11 @@ public class MemberController {
 	
 	ModelAndView mav = new ModelAndView();
 	
+	
 	// LoginPage
 	@RequestMapping(value="login.see", method=RequestMethod.GET)
 	public String loginForm() {
-		return "member/loginForm";
+		return "login";
 	}
 	
 	@RequestMapping(value="login.see", method=RequestMethod.POST)

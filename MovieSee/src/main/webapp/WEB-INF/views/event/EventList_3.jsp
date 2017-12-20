@@ -29,7 +29,7 @@
 		var toDate	= year+''+month+''+day;
 		
 		if(toDate <= endDate){ 
-		 location.href='<%=cp%>/admin/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
+		 location.href='<%=cp%>/event/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
 		}else{ 
 		  alert('이벤트 기간이 아닙니다.');
 		}
@@ -39,17 +39,22 @@
 
 </head>
 <body>
-<div class="admin_grp">
-	<div class="admin_list">
-		<ul>
-			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
-			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
-			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
-			<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
-			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
-		</ul>
+	<div class="header">
+		<div class="gnb">
+			<ul>
+				<li class="active"><a href="<%=cp%>/event/eventListMain.see"
+					title="이벤트">이벤트</a>
+					<div class="depth">
+						<ul>
+							<li><a href="<%=cp%>/event/eventList_1.see" title="영화">영화</a></li>
+							<li><a href="<%=cp%>/event/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
+							<li><a href="<%=cp%>/event/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
+							<li><a href="<%=cp%>/event/eventList_4.see" title="제휴할인">제휴할인</a></li>
+						</ul>
+					</div></li>
+
+			</ul>
+		</div>
 	</div>
 	<div id="container" class="sub">
 		<!-- content -->
@@ -58,14 +63,14 @@
 			<div class="event_cwrap">
 				<div class="clear_fix">
 					<h2 class="sub_stit">
-						시사회/무대인사<span class="event_etc">직접 만나는 설렘, 먼저 만나는 재미! 지금
-							참여하세요.</span>
+						롯시&nbsp;NOW<span class="event_etc">롯데시네마에서 진행중인 이벤트를 만나보세요.</span>
 					</h2>
+					<!--20170308 sunho 예매 삭제 -->
 
 					<div class="category">
 						<fieldset>
 							<legend>분야별 선택 검색</legend>
-								<form name="form1" method="post" action="<%=cp%>/admin/eventList_2.see">
+								<form name="form1" method="post" action="<%=cp%>/event/eventList_3.see">
 									<select class="select_box" name="searchOption">
 									<option value="all"
 										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
@@ -83,19 +88,19 @@
 
 				<!-- emovie_list -->
 				<ul class="emovie_list">
-					<c:forEach var="eventList_2" items="${map.eventList_2}">
-						<fmt:parseDate value="${eventList_2.event_end_date}" var="eventEndDate2" pattern="yyyy.MM.dd" />
-						<li><a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'> <img
-								src="/movie/resources/uploads/event/${eventList_2.event_poster_file}"
-								alt="${eventList_2.event_subject}" />
+					<c:forEach var="eventList_3" items="${map.eventList_3}">
+						<fmt:parseDate value="${eventList_3.event_end_date}" var="eventEndDate3" pattern="yyyy.MM.dd" />
+						<li><a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'> <img
+								src="/movie/resources/uploads/event/${eventList_3.event_poster_file}"
+								alt="${eventList_3.event_subject}" />
 						</a>
 							<dl class="imgsub">
 								<dt class="event">
-									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'> ${eventList_2.event_subject} </a>
+									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'> ${eventList_3.event_subject} </a>
 								</dt>
 								<dd class="eventdate">
-									기간 <span>${eventList_2.event_start_date} ~
-										${eventList_2.event_end_date}</span>
+									기간 <span> ${eventList_3.event_start_date} ~
+										${eventList_3.event_end_date} </span>
 								</dd>
 							</dl></li>
 					</c:forEach>
@@ -104,6 +109,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 </body>
 </html>

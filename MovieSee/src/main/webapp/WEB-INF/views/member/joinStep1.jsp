@@ -30,31 +30,29 @@
 	
 	function cancel(){
 		alert("약관의 동의하셔야 회원가입이 가능합니다.");
-		document.frmMain.action = "/project/main.see";
+		document.frmMain.action = "/movie/main.see";
 		document.frmMain.submit();
 	}
 	
 </script>
 <br/>
-<div class="sign_grp">
-	<div class="step">
-		<ul>
-			<li class="on">1. 약관동의</li>
-			<li>2. 회원정보입력</li>
-			<li>3. 가입완료</li>
-		</ul>
-	</div>
+<div class="login_top">
+
+	<h2>1. 약관동의</h2><br/>
+	<h2>2. 회원정보입력</h2><br/>
+	<h2>3. 가입완료</h2><br/>
+
 	<form id="frm" name="frmMain">
 		<!-- <input type="hidden" name="authType" value="1" />	 -->
 		<div class="sign_box">
-			<p class="tit"><span><img src="<%=cp %>/images/icon/sign_01.png" alt="약관동의" /></span>약관동의</p>
 			<div class="step_01">
 				<div class="inner">
-					<p>이용약관</p>
-					<div class="scroll_box" style="height:300;">
+					<div style="font-size: 15px; ">- 이용약관</div>
+					<br/>
+					<div class="agree_box" style="height:300;">
 						<p>
 							제1조. 목적 
-							이 약관은 MovieTicket(주)(이하 '회사'라 합니다)가 제공하는 온라인, 오프라인 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다. 
+							이 약관은 MovieSee(주)(이하 '회사'라 합니다)가 제공하는 온라인, 오프라인 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다. 
 							제 2조. 약관의 효력 및 변경 
 							이 약관은 서비스를 통하여 이를 공지함으로써 효력이 발생됩니다. 
 							회사는 사정상 중요한 사유가 발생될 경우 사전 고지 없이 이 약관의 내용을 변경할 수 있으며, 변경된 약관은 서비스를 통하여 공지합니다. 
@@ -102,8 +100,8 @@
 							제 9조. 개인정보의 이용 
 							회사가 수집하는 개인정보는 서비스의 제공에 필요한 최소한으로 하되, 필요한 경우 보다 더 자세한 정보를 요구할 수 있습니다. 
 							회사는 다음의 각 호와 같은 경우에는 이용자의 동의 하에 개인정보를 제3자에게 제공할 수 있습니다. 이러한 경우에도 개인정보의 제3자 제공은 이용자의 동의 하에서만 이루어지며 개인정보가 제공되는 것을 원하지 않는 경우에는, 특정 서비스를 이용하지 않거나 특정한 형태의 판촉이나 이벤트에 참여하지 않으면 됩니다. 
-							1) MovieTicket 사이트 유료 컨텐트 이용, 쇼핑몰에서의 물품구매 등 서비스 제공을 위해 이용자의 이름, 주소, 전화번호 등이 해당 유료 컨텐트 제공자, 쇼핑몰 업체, 배송업자에게 제공될 수 있습니다. 
-							2) MovieTicket 사이트 내에서 벌어지는 각종 이벤트 행사에 참여한 회원의 개인정보가 해당 이벤트의 주최자에게 제공될 수 있습니다. 
+							1) MovieSee 사이트 유료 컨텐트 이용, 쇼핑몰에서의 물품구매 등 서비스 제공을 위해 이용자의 이름, 주소, 전화번호 등이 해당 유료 컨텐트 제공자, 쇼핑몰 업체, 배송업자에게 제공될 수 있습니다. 
+							2) MovieSee 사이트 내에서 벌어지는 각종 이벤트 행사에 참여한 회원의 개인정보가 해당 이벤트의 주최자에게 제공될 수 있습니다. 
 							회사가 외부업체(이하 위탁 받는 업체)에 특정서비스의 제공을 위탁하는 경우 서비스 제공에 필요한 회원의 개인정보를 회원의 동의를 받아 위탁 받는 업체에 제공할 수 있으며 서비스 위탁 사실을 명시 합니다. 위탁 받는 업체는 제공받은 회원의 개인정보의 수집, 취급, 관리에 있어 위탁 받은 목적 외의 용도로 이를 이용하거나 제3자에게 제공하지 않습니다. 
 							회사는 회사가 제공하는 서비스를 이용하는 이용자를 대상으로 해당 서비스의 양적, 질적 향상을 위하여 이용자의 개인 식별이 가능한 개인정보를 이용자의 동의를 받아 이를 수집하여 맞춤서비스, 온라인광고서비스, 쇼핑몰서비스, 커뮤니티서비스, 유료컨텐츠서비스, 모바일서비스, 콜센터를 통한 보험, 신용카드 등의 텔레마케팅서비스 등에 이용할 수 있습니다. 
 							회사는 회원에게 제공되는 서비스의 질을 향상시키기 위해 맞춤서비스, 온라인광고서비스, 쇼핑몰서비스, 커뮤니티서비스, 유료컨텐츠서비스, 모바일서비스, 보험, 신용카드 등의 텔레마케팅서비스, 통계작성 또는 시장조사 등 다양한 서비스를 제공할 목적으로 여러 분야의 전문 컨텐츠 사업자 혹은 비즈니스 사업자와 함께 파트너쉽을 맺을 수 있습니다. 
@@ -225,19 +223,24 @@
 							(변경) 종전의 약관은 본 약관으로 대체합니다.
 						</p>
 					</div>
+					<br/>
 					<div class="chk">
 						<span class="chk_grp">
+						
 							<input type="checkbox" id="chk2" name="agreement[]" value="1" />
 							<label for="chk2">동의함</label>
 						</span>
 					</div>
 				</div>
+				<br/>
+				<br/>
 				<div class="inner">
-					<p>개인정보취급방침</p>
-					<div class="scroll_box" style="height:300;">
+						<div style="font-size: 15px; ">- 개인정보취급방침</div>
+					<br/>
+					<div class="agree_box" style="height:300;">
 						<p>
 							제1조. (개인정보의 처리 목적) 
-							이 약관은 MovieTicket(주)(이하 '회사'라 합니다)가 제공하는 온라인, 오프라인 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다. 
+							이 약관은 MovieSee(주)(이하 '회사'라 합니다)가 제공하는 온라인, 오프라인 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다. 
 							가. 서비스 제공 
 							콘텐츠 제공, 구매 및 요금 결제, 본인인증(금융거래, 금융서비스), 서비스 제공에 관한 계약의 이행 및 요금정산과 관련한 목적으로 개인정보를 처리합니다. 
 							나. 회원 가입 및 관리 
@@ -281,9 +284,10 @@
 							제 5조. (개인정보의 제3자 제공) 
 							회사는 원칙적으로 이용자의 개인정보를 제1조 (개인정보의 처리 목적)에서 명시한 범위 내에서 처리하며, 이용자의 사전 동의 없이는 본래의 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다. 단, 다음의 경우에는 개인정보를 처리할 수 있습니다. 
 							- 이용자들이 사전에 동의한 경우 
-							- 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우 
+						w	- 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우 
 						</p>
 					</div>
+					<br/>
 					<div class="chk">
 						<span class="chk_grp">
 							<input type="checkbox" id="chk3" name="agreement[]" value="1" />
@@ -293,21 +297,44 @@
 				</div>
 			</div>
 		</div>
-		
 		<div class="tac mt10 mb10">
 			<span class="chk_grp">
 				<input type="checkbox" id="chk1" onclick="all_check(this, 'agreement[]')" value="1"  />
 				<label for="chk1">이용약관, 개인정보 수집에 모두 동의합니다.</label>
 			</span>
 		</div>
-	
-		<div class="btn_type_04">
-			<a href="#none" class="btn btnC_03 btnF_02 mr10" onclick="cancel()">
-				<span>취소</span>
-			</a>
+		
+			
+			<div style="margin: auto;">
 			<span class="btn btnC_04 btnF_02">
-				<input type="button" value="동의" onclick="check_agreement()" />
+				<input type="button" value="동의" onclick="check_agreement()"   style=" background-color: #009bfa;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+				"/>
 			</span>
+			
+			<input type="button" value="취소" onclick="cancel()" style=" background-color: black;
+		    border: none;
+		    color: white;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 4px 2px;
+		    cursor: pointer;">
+			
+	<!-- 		<a href="#none" class="btn btnC_03 btnF_02 mr10" onclick="cancel()">
+				<span>취소</span>
+			</a> -->
+			
 		</div>
 	</form>
 </div>

@@ -39,82 +39,83 @@
 </script>
 
 <body>
-	<div class="header">
-		<div class="gnb">
+	<div class="admin_grp">
+		<div class="admin_list">
 			<ul>
-				<li class="active"><a href="<%=cp%>/admin/eventListMain.see"
-					title="이벤트">이벤트</a>
-					<div class="depth">
-						<ul>
-							<li><a href="<%=cp%>/admin/eventList_1.see" title="영화">영화</a></li>
-							<li><a href="<%=cp%>/admin/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
-							<li><a href="<%=cp%>/admin/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
-							<li><a href="<%=cp%>/admin/eventList_4.see" title="제휴할인">제휴할인</a></li>
-						</ul>
-					</div></li>
-
+				<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+				<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
 			</ul>
 		</div>
-	</div>
-	<div id="container" class="sub">
-		<!-- content -->
-		<div id="content">
-			<!-- event_cwrap -->
-			<div class="event_cwrap">
-				<div class="clear_fix">
-					<h2 class="sub_stit">
-						영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span>
-					</h2>
-					<div class="category">
-						<fieldset>
-							<legend>분야별 선택 검색</legend>
-								<form name="form1" method="post" action="<%=cp%>/admin/eventEndList.see">
-									<select class="select_box" name="searchOption">
-									<option value="all"
-										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
-									<option value="event_subject"
-										<c:out value="${map.searchOption == 'event_subject'?'ed':''}"/>>제목</option>
-									<option value="event_content"
-										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
-								</select> 
-									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
-									<input type="submit" value="검색" class="boardBt">
-								</form>
-						</fieldset>
+		<div class="admin_ct">
+			<div class="tbl_type_02">
+				<div id="container" class="sub">
+					<!-- content -->
+					<div id="content">
+						<!-- event_cwrap -->
+						<div class="event_cwrap">
+							<div class="clear_fix">
+								<h2 class="sub_stit">
+									지난 이벤트<span class="event_etc">무비씨에 진행한 다양한 이벤트를 확인해 보세요.</span>
+								</h2>
+								<div class="category">
+									<fieldset>
+										<legend>분야별 선택 검색</legend>
+										<form name="form1" method="post"
+											action="<%=cp%>/admin/eventEndList.see">
+											<select class="select_box" name="searchOption">
+												<option value="all"
+													<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
+												<option value="event_subject"
+													<c:out value="${map.searchOption == 'event_subject'?'ed':''}"/>>제목</option>
+												<option value="event_content"
+													<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
+											</select> <input type="text" name="keyword" value="${map.keyword}"
+												title="검색어 입력" class="ipt_txt"> <input type="submit"
+												value="검색" class="boardBt">
+										</form>
+									</fieldset>
+								</div>
+							</div>
+
+							<!-- emovie_list -->
+							<ul class="emovie_list">
+								<c:forEach var="eventEndList" items="${map.eventEndList}">
+									<fmt:parseDate var="eventEndDate1"
+										value="${eventEndList.event_end_date}" pattern="yyyy.MM.dd" />
+									<li><a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventEndList.event_no})'>
+											<img
+											src="/movie/resources/uploads/event/${eventEndList.event_poster_file}"
+											alt="${eventEndList.event_subject}" />
+									</a>
+										<dl class="imgsub">
+											<dt class="event">
+												<a href="javascript:void(0);"
+													onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventEndList.event_no})'>
+													${eventEndList.event_subject} </a>
+											</dt>
+											<dd class="eventdate">
+												기간 <span> ${eventEndList.event_start_date} ~
+													${eventEndList.event_end_date} </span>
+											</dd>
+										</dl></li>
+								</c:forEach>
+							</ul>
+
+							<!-- 더보기 -->
+							<div id="btn_view">
+								<a href="#none" id="eventLoad" class="btn_view"> <span>더보기</span>
+								</a>
+							</div>
+							<!--  -->
+						</div>
 					</div>
 				</div>
-				
-				<!-- emovie_list -->
-				<ul class="emovie_list">
-					<c:forEach var="eventEndList" items="${map.eventEndList}">
-						<fmt:parseDate var="eventEndDate1" value="${eventEndList.event_end_date}" pattern="yyyy.MM.dd" />
-						<li>
-							<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventEndList.event_no})'> 
-								<img src="/movie/resources/uploads/event/${eventEndList.event_poster_file}" alt="${eventEndList.event_subject}" />
-						</a>
-							<dl class="imgsub">
-								<dt class="event">
-									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventEndList.event_no})'>
-										${eventEndList.event_subject} 
-									</a>
-								</dt>
-								<dd class="eventdate">
-									기간 <span> ${eventEndList.event_start_date} ~
-										${eventEndList.event_end_date} </span>
-								</dd>
-							</dl>
-						</li>
-					</c:forEach>
-				</ul>
-				
-				<!-- 더보기 -->
-				<div id="btn_view">
-					<a href="#none" id="eventLoad" class="btn_view">
-						<span>더보기</span>
-					</a>
-				</div>
-				<!--  -->
-			
 			</div>
 		</div>
 	</div>

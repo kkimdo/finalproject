@@ -31,4 +31,11 @@ public interface FreeBoardDAO {
 
 	// 게시글 수정
 	public int FreeBoardUpdate(FreeBoardModel freeBoardModel) throws Exception;
+	
+	// admin 답변 글 삭제
+	public int FreeRefAdminDelete(int freeboard_no) throws Exception;
+
+	// admin 원본 글 삭제
+	public int FreeBoardAdminDelete(int freeboard_ref) throws Exception;
+	
 }

@@ -21,7 +21,27 @@
 		});
 		$('#content').keyup();
 	});
+	
+	function btnReplyWrite() {
+		var frm = document.freeBoardWrite;
+
+		if (frm.freeboard_passwd.value == "") {
+			alert("비밀번호를 입력해 주세요.");
+			frm.freeboard_passwd.focus();
+			return false;
+		} else if (frm.freeboard_subject.value == "") {
+			alert("제목을 입력해 주세요.");
+			frm.freeboard_subject.focus();
+			return false;
+		} else if (frm.freeboard_content.value == "") {
+			alert("내용을 입력해 주세요.");
+			frm.freeboard_content.focus();
+			return false;
+		}
+		return true;
+	}
 </script>
+
 
 </head>
 <body>
@@ -29,12 +49,12 @@
 		<h2 class="csTit">고객센터</h2>
 		<ul class="tab_st03">
 			<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
 			<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
 			<li class="active"><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 			<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 		</ul>
-		<form action="freeBoardReplySuccess.see" method="post">
+		<form name="freeBoardWrite" action="freeBoardReplySuccess.see" method="post" onsubmit="return btnReplyWrite();">
 			<input type="hidden" name="freeboard_no" value="${freeBoardModel.freeboard_no}" />
 			<div class="tabCont">
 				<div>
@@ -59,10 +79,11 @@
 											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td>
-									<%-- ${session_member_name}
-									<input type="hidden" name="freeboard_name" value="${session_member_name}" /> --%>
-									<input name="freeboard_name" type="text"
-										maxlength="40" id="name" class="input_txt" /></td>
+									${session_member_name}
+									<input type="hidden" name="freeboard_name" value="${session_member_name}" />
+									<!-- <input name="freeboard_name" type="text"
+										maxlength="40" id="name" class="input_txt" /> -->
+									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="passwd"> 비밀 번호 <span
