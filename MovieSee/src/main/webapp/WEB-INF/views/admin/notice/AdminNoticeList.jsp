@@ -73,8 +73,7 @@
 							</div>
 						</form>
 						<fieldset>
-							<!-- 레코드의 갯수를 출력 -->
-							<%-- ${map.count}개의 게시물이 있습니다. --%>
+							
 							<table class="tbl_st03">
 								<colgroup>
 									<col style="width: 11%">
