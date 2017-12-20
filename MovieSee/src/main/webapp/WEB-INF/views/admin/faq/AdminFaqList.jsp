@@ -50,7 +50,7 @@
 					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
 					<colgroup>
 						<col style="width: 5%;" />
-						<col />
+						<col style="width: 5%;" />
 						<col style="width: 10%;" />
 						<col style="width: 10%;" />
 						<col style="width: 5%;" />
@@ -59,6 +59,7 @@
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
+							<th scope="col">분류</th>
 							<th scope="col">제목</th>
 							<th scope="col">등록일</th>
 							<th scope="col">조회수</th>
@@ -72,6 +73,7 @@
 							</c:url>
 							<tr>
 								<td>${faqList.faq_no}</td>
+								<td>${faqList.faq_category}</td>
 								<td><a href="${faqViewURL}">${faqList.faq_subject}</a></td>
 								<td><fmt:formatDate value="${faqList.faq_date}"
 										pattern="yyyy-MM-dd" /></td>
@@ -90,6 +92,8 @@
 								<c:out value="${map.searchOption == 'qna_subject'?'ed':''}"/>>제목</option>
 							<option value="qna_content"
 								<c:out value="${map.searchOption == 'qna_content'?'ed':''}"/>>내용</option>
+							<option value="qna_category"
+								<c:out value="${map.searchOption == 'qna_category'?'ed':''}"/>>분류</option>
 
 
 						</select> 

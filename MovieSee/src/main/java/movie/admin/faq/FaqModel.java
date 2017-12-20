@@ -10,6 +10,7 @@ public class FaqModel {
 	private String faq_content; //글 내용
 	private int faq_hit; //글 조회수
 	private Date faq_date; //글 등록일
+	private String faq_category; //글 카테고리
 	
 	public int getFaq_no() {
 		return faq_no;
@@ -40,6 +41,12 @@ public class FaqModel {
 	}
 	public void setFaq_date(Date faq_date) {
 		this.faq_date = faq_date;
+	}
+	public String getFaq_category() {
+		return faq_category;
+	}
+	public void setFaq_category(String faq_category) {
+		this.faq_category = faq_category;
 	}
 	
 	
