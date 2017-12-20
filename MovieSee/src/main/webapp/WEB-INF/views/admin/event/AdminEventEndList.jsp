@@ -42,13 +42,14 @@
 	<div class="admin_grp">
 		<div class="admin_list">
 			<ul>
-				<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
-				<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
-				<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+       	 		<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+         		<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
 				<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
 				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
-				<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
 			</ul>
 		</div>
 		<div class="admin_ct">

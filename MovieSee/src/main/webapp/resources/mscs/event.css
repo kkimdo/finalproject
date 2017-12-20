@@ -246,7 +246,7 @@
 	display: block;
 	padding: 0 0 10px 25px;
 	margin: 0;
-	background: url('/LCHS/Image/Icon/icon_warn02.gif') no-repeat left top;
+	background: url('/movie/images/icon/icon_warn02.gif') no-repeat left top;
 	font-size: 14px;
 	font-weight: bold;
 	color: #231f20
@@ -289,11 +289,11 @@
 }
 
 .view_list li strong.prev {
-	background: url('/LCHS/Image/Bg/bg_prev_01.png') no-repeat 100% 50%
+	background: url('/movie/images/bg/bg_prev_01.png') no-repeat 100% 50%
 }
 
 .view_list li strong.next {
-	background: url('/LCHS/Image/Bg/bg_next_01.png') no-repeat 100% 50%
+	background: url('/movie/images/bg/bg_next_01.png') no-repeat 100% 50%
 }
 
 .view_list li div {
