@@ -1,0 +1,42 @@
+.ad-banner.full_banner {width:100%; }
+.ad-banner.banner_type01 .wrap_banner {position:relative; width:980px; margin:0 auto;}
+.ad-banner.banner_type02 .wrap_banner {width:980px; margin:20px auto 0;}
+.wrap_banner .btn_close {width:13px; height:13px; background-image:url('../image/banner/banner-close.png'); position:absolute; font:0/0 a; top:15px; right:0;}
+
+/*예매하기*/
+.ad-banner.wing_banner {position:fixed; top:250px; width:160px; height:300px; }
+.ad-banner.wing_banner.left_banner {left:50%; margin-left:-660px;}
+.ad-banner.wing_banner.right_banner {right:50%;margin-right:-660px;}
+
+/*영화 상영시간표*/
+.cont_ticket_Area .tab_st08 {margin-top:20px;}
+.time_wrap .time_line .btn_more_show {display:none;}
+.time_wrap .time_line.time-hide .btn_more_show {display:block;}
+.time_wrap .time_line.time-hide dl {display:none;}
+.time_wrap .time_line.time-hide .time_noData + dl ,
+.time_wrap .time_line.time-hide .time_noData + dl + dl ,
+.time_wrap .time_line.time-hide .time_noData + dl + dl + dl ,
+.time_wrap .time_line.time-hide .time_noData + dl + dl + dl + dl {display:block;}
+.time_wrap .time_line.time-hide .time_noData + .btn_more_show {display:none;}
+.time_wrap .time_line.time-hide .btn_more_show {margin-top:40px;}
+
+/*영화관*/
+.sub_visual {overflow:hidden;position:relative;}
+.spanSubVisual {background:#000;}
+.spanSubVisual .wrap-bg-video {opacity:0.8; height:100%;}
+.spanSubVisual .wrap-bg-video video {height:100%;}
+.screen_cwrap .curr_list.movie_clist .btn_more_show {width:980px; margin-left:20px;}
+.screen_cwrap .curr_list.movie_clist .btn_more_show {display:none;}
+.screen_cwrap .curr_list.movie_clist.movie-hide .btn_more_show {display:block;}
+.screen_cwrap .curr_list.movie_clist.movie-hide li {display:none;}
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li + li + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li + li + li + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li + li + li + li + li ,
+.screen_cwrap .curr_list.movie_clist.movie-hide li:first-child + li + li + li + li + li + li + li {display:block;}
+
+
+.displays {display:none;}
