@@ -17,10 +17,10 @@
 			<li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
 			<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
 			<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
-			<li><a href="<%=cp%>/admin/adminMagazineList.see">매거진</a></li>
-			<li><a href="<%=cp%>/admin/EventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/magazineList.see">MAGAZINE</a></li>
+			<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
 			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
-			<li><a href="<%=cp %>/admin/QnaList.see">Q & A</a></li>
+			<li><a href="<%=cp %>/admin/qnaList.see">Q & A</a></li>
 			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
 		</ul>
 	</div>

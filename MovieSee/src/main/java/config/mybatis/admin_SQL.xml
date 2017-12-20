@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+
+	<!-- 영화 -->
+	<resultMap id="adminModelRes" type="AdminMovieModel">
+		<result property="movie_no" column="movie_no" />
+		<result property="movie_name" column="movie_name" />
+		<result property="movie_director" column="movie_director" />
+		<result property="movie_director_picture" column="movie_director_picture" />
+		<result property="movie_actor" column="movie_actor" />
+		<result property="movie_actor1" column="movie_actor1" />
+		<result property="movie_actor2" column="movie_actor2" />
+		<result property="movie_actor_picture" column="movie_actor_picture" />
+		<result property="movie_actor_picture1" column="movie_actor_picture1" />
+		<result property="movie_actor_picture2" column="movie_actor_picture2" />
+		<result property="movie_company" column="movie_company" />
+		<result property="movie_story" column="movie_story" />
+		<result property="movie_poster" column="movie_poster" />
+		<result property="movie_stillcut" column="movie_stillcut" />
+		<result property="movie_stillcut1" column="movie_stillcut1" />
+		<result property="movie_stillcut2" column="movie_stillcut2" />
+		<result property="movie_stillcut3" column="movie_stillcut3" />
+		<result property="movie_stillcut4" column="movie_stillcut4" />
+		<result property="movie_genre" column="movie_genre" />
+		<result property="movie_age" column="movie_age" />
+		<result property="movie_date" column="movie_date" />
+		<result property="movie_regdate" column="movie_regdate" />
+		<result property="movie_type" column="movie_type" />
+		<result property="movie_intro" column="movie_intro" />
+	</resultMap>
+
+ 	<resultMap  id="adminTimeTableModelRes" type="AdminTimeTableModel" >
+		<result property="timetable_no" column="timetable_time_no"/>
+		<result property="timetable_movie_no" column="timetable_movie_no" />
+		<result property="timetable_movie_name" column="timetable_movie_name" />
+		<result property="timetable_start_date" column="timetable_start_date" />
+		<result property="timetable_end_date" column="timetable_end_date"/>
+		<result property="timetable_show_date" column="timetable_show_date" />
+		<result property="timetable_reserved_seat" column="timetable_reserved_seat"/>
+		<result property="timetable_total_seat" column="timetable_total_seat"/>
+		<result property="timetable_start_time" column="timetable_start_time"/>
+		<result property="timetable_end_time" column="timetable_end_time" />
+		<result property="timetable_adult_amt" column="timetable_adult_amt" />
+		<result property="timetable_child_amt" column="timetable_child_amt" />
+	</resultMap> 
+	
+	
+	<!-- 영화이름,번호 리스트 뽑아오기 -->
+	<select id="selectMovie_name" resultMap="adminModelRes">
+		select movie_name , movie_no from MOVIE 
+		order by movie_no DESC
+	</select>
+
+	
+	<insert id="timetableInsert" parameterType="AdminTimeTableModel">
+		insert into TIMETABLE 
+		(
+			timetable_no,
+			timetable_movie_no,
+			timetable_movie_name,
+			timetable_start_date,
+			timetable_end_date,
+			timetable_show_date,
+			timetable_reserved_seat,
+			timetable_total_seat,
+			timetable_start_time,
+			timetable_end_time,
+			timetable_adult_amt,
+			timetable_child_amt
+		)
+		values 
+		(
+			TIMETABLE_NO_SEQ.nextval, 
+			#{timetable_movie_no}, 
+			#{timetable_movie_name,jdbcType=VARCHAR}, 
+			#{timetable_start_date}, 
+			#{timetable_end_date}, 
+			#{timetable_show_date},
+			#{timetable_reserved_seat,jdbcType=INTEGER}, 
+			#{timetable_total_seat,jdbcType=INTEGER},
+			#{timetable_start_time},
+			#{timetable_end_time},
+			#{timetable_adult_amt},
+			#{timetable_child_amt}
+		)
+			
+	</insert>
+	
+	<!-- 시간표 조회 -->
+	<select id="timetableSelect" resultMap="adminTimeTableModelRes">
+		select * from timetable order by timetable_no DESC
+	</select>
+	
+	<delete id="timeDetailDelete" parameterType="String">
+		delete from TIMETABLE_DETAIL 
+		where time_detail_no = #{time_detail_no}
+	</delete>
+	
+	<!-- 시간표 삭제 -->
+	<delete id="timetableDelete" parameterType="String">
+		delete from timetable
+		where timetable_no = #{timetable_no}
+	</delete>
+</mapper>

@@ -14,115 +14,26 @@
 		<put-attribute name="main_footer" value="/WEB-INF/views/tiles/main/footer/main_footer.jsp" />
 	</definition>
 	
-	<!-- admin page-->
-   	<definition name="admin" template="/WEB-INF/views/tiles/admin/admin_layout.jsp">
-      	<put-attribute name="title" value="MovieSeeAdmin" />
-      	<put-attribute name="admin_header" value="/WEB-INF/views/tiles/admin/header/admin_header.jsp" />
-      	<put-attribute name="admin_body" value="/WEB-INF/views/tiles/admin/body/admin_body.jsp" />
-      	<put-attribute name="admin_footer" value="/WEB-INF/views/tiles/admin/footer/admin_footer.jsp" />
-   	</definition>
-	
-	<!-- admin event -->
-	<definition name="adminEventWrite" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventWrite.jsp" />
-	</definition>
-	<definition name="adminEventView" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventView.jsp" />
-	</definition>
-	<!-- admin event Main -->
-	<definition name="adminEventListMain" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventListMain.jsp" />
-	</definition>
-	<!-- admin event 1 -->
-	<definition name="adminEventList_1" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_1.jsp" />
-	</definition>
-	<!-- admin event 2 -->
-	<definition name="adminEventList_2" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_2.jsp" />
-	</definition>
-	<!-- admin event 3 -->
-	<definition name="adminEventList_3" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_3.jsp" />
-	</definition>
-	<!-- admin event 4 -->
-	<definition name="adminEventList_4" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_4.jsp" />
-	</definition>
-	<definition name="adminEventUpdate" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventUpdate.jsp" />
-	</definition>
-	<!-- 지난 이벤트 -->
-	<definition name="adminEventEndList" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventEndList.jsp" />
-	</definition>
-	
-	<!-- admin faq -->
-	<definition name="adminFaqList" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqList.jsp" />
-	</definition>
-	<definition name="adminFaqView" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqView.jsp" />
-	</definition>
-	<definition name="adminFaqUpdate" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqUpdate.jsp" />
-	</definition>
-	<definition name="adminFaqWrite" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
-	</definition>
-	
-	<!-- admin qna -->
-	<definition name="adminQnaList" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaList.jsp" />
-	</definition>
-	<definition name="adminQnaView" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
-	</definition>
-	<definition name="adminQnaWrite" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
-	</definition>
-	
-	<!-- admin notice -->
-	<definition name="adminNoticeList" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeList.jsp" />
-	</definition>
-	<definition name="adminNoticeView" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeView.jsp" />
-	</definition>
-	<definition name="adminNoticeUpdate" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeUpdate.jsp" />
-	</definition>
-	<definition name="adminNoticeWrite" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
-	</definition>
-	
 		<!-- extends.main -->
-	
 	<!-- main event -->
 	<definition name="eventView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventView.jsp" />
 	</definition>
-	<!-- admin event Main -->
 	<definition name="eventListMain" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventListMain.jsp" />
 	</definition>
-	<!-- admin event 1 -->
 	<definition name="eventList_1" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_1.jsp" />
 	</definition>
-	<!-- admin event 2 -->
 	<definition name="eventList_2" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_2.jsp" />
 	</definition>
-	<!-- admin event 3 -->
 	<definition name="eventList_3" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_3.jsp" />
 	</definition>
-	<!-- admin event 4 -->
 	<definition name="eventList_4" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventList_4.jsp" />
 	</definition>
-	<!-- 지난 이벤트 -->
 	<definition name="eventEndList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/event/EventEndList.jsp" />
 	</definition>	
@@ -160,7 +71,19 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/faq/FaqView.jsp" />
 	</definition>
 	
-	<!-- Member -->
+	<!-- main qna (1:1문의) -->
+		<!-- 여기의 List는 회원 자신만 보는 list -->
+	<!-- <definition name="qnaList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaList.jsp" />
+	</definition>
+	<definition name="qnaView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaView.jsp" />
+	</definition>
+	<definition name="qnaWrite" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaWrite.jsp" />
+	</definition> -->
+	
+	<!-- main Member -->
 	<definition name="member" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep1.jsp"></put-attribute>
 	</definition>
@@ -171,14 +94,204 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep3.jsp"></put-attribute>
 	</definition>
 	
-	<!-- 1차수정 -->
+	<!-- main 1차수정 -->
 	<definition name="login" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/member/loginForm.jsp"></put-attribute>
 	</definition>
 	
-	<!-- common -->
+	<!-- main common -->
 	<definition name="privacy" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/common/privacy.jsp" />
 	</definition>
+	
+	<!-- main 상영시간표 메인 -->
+	<definition name="reserveMain" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/reserve/ReserveMain.jsp" />
+	</definition>
+	
+	<!-- main 상영시간표 페이지 -->
+	<definition name="reserveList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/reserve/ReserveList.jsp" />
+	</definition>
+   
+	<!-- main Movie 부분 -->
+	<definition name="movieTicketing" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing.jsp" />
+	</definition>
+	<definition name="movieTicketing1" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing1.jsp" />
+	</definition>
+	<definition name="movieTicketing2" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing2.jsp" />
+	</definition>
+	
+   
+		<!-- main 예매 진행부분 -->
+	<!-- main 영화 상세보기-->
+	<definition name="MovieView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/MovieView.jsp" />
+	</definition>
+   
+	<!-- main 영화 탭 -->
+	<!-- main 박스오피스  -->
+	<definition name="aMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/AmovieList.jsp" />
+	</definition>
+	<definition name="aaMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/AAmovieList.jsp" />
+	</definition>
+	
+	<!-- main 아르떼 -->
+	<definition name="bMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/BmovieList.jsp" />
+	</definition>
+   	<!-- main G시네마 -->
+	<definition name="cMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/CmovieList.jsp" />
+		</definition>
+	<!-- main 중국영화상영관/영화제 -->
+	<definition name="dMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/DmovieList.jsp" />
+	</definition>
+	<!-- main 오페라 -->
+	<definition name="eMovieList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/EmovieList.jsp" />
+	</definition>
+	
+	<!-- main 영화관 상세보기 -->
+	<definition name="aMovieTheater" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/AmovieTheater.jsp" />
+	</definition>
+	
+	<definition name="bMovieTheater" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/movie/BmovieTheater.jsp" />
+    </definition>
+   
+   <!-- main mypage --> 
+   <definition name="reserveList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/ReserveList.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="reserveCancel" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/ReserveCancel.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="vip" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/Vip.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="movieHistory" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/MovieHistory.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="qna" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/Qna.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mypage" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/Mypage.jsp"></put-attribute>
+	</definition>
+			
+	<!-- admin page-->
+   	<definition name="admin" template="/WEB-INF/views/tiles/admin/admin_layout.jsp">
+      	<put-attribute name="title" value="MovieSee 관리자 페이지" />
+      	<put-attribute name="admin_header" value="/WEB-INF/views/tiles/admin/header/admin_header.jsp" />
+      	<put-attribute name="admin_body" value="/WEB-INF/views/tiles/admin/body/admin_body.jsp" />
+      	<put-attribute name="admin_footer" value="/WEB-INF/views/tiles/admin/footer/admin_footer.jsp" />
+   	</definition>
+   	
+		<!-- extends.admin -->
+	<!-- admin event -->
+	<definition name="adminEventWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventWrite.jsp" />
+	</definition>
+	<definition name="adminEventView" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventView.jsp" />
+	</definition>
+	<definition name="adminEventListMain" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventListMain.jsp" />
+	</definition>
+	<definition name="adminEventList_1" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_1.jsp" />
+	</definition>
+	<definition name="adminEventList_2" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_2.jsp" />
+	</definition>
+	<definition name="adminEventList_3" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_3.jsp" />
+	</definition>
+	<definition name="adminEventList_4" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventList_4.jsp" />
+	</definition>
+	<definition name="adminEventUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventUpdate.jsp" />
+	</definition>
+	<definition name="adminEventEndList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/event/AdminEventEndList.jsp" />
+	</definition>
+	
+	<!-- admin faq -->
+	<definition name="adminFaqList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqList.jsp" />
+	</definition>
+	<definition name="adminFaqView" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqView.jsp" />
+	</definition>
+	<definition name="adminFaqUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqUpdate.jsp" />
+	</definition>
+	<definition name="adminFaqWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/faq/AdminFaqWrite.jsp" />
+	</definition>
+	
+	<!-- admin qna -->
+	<definition name="adminQnaList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/qna/AdminQnaList.jsp" />
+	</definition>
+	<definition name="adminQnaView" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
+	</definition>
+	<definition name="adminQnaWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
+	</definition>
+	
+	<!-- admin notice -->
+	<definition name="adminNoticeList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeList.jsp" />
+	</definition>
+	<definition name="adminNoticeView" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeView.jsp" />
+	</definition>
+	<definition name="adminNoticeUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeUpdate.jsp" />
+	</definition>
+	<definition name="adminNoticeWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
+	</definition>
+	
+	<definition name="MovieWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/movie/movieWrite.jsp" />
+	</definition>
+	
+    <!-- admin 상영작 수정폼 -->
+	<definition name="AdminMovieUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/movie/movieUpdate.jsp" />
+    </definition>      
+    
+    <!-- admin 현재 이벤트 & 배너 리스트 -->
+    <definition name="BannerList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/banner/bannerList.jsp" />
+	</definition>
+	
+	<!-- admin 현재 이벤트 & 배너 수정폼 -->
+    <definition name="BannerUpdate" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/banner/bannerUpdate.jsp" />
+	</definition>
+	
+    <definition name="TimeTableList" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/time/timeTableList.jsp" />
+    </definition>  
+	
+	
 	
 </tiles-definitions>
