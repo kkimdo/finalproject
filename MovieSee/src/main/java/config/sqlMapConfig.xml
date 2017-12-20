@@ -18,7 +18,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="freeBoardModel" type="movie.freeboard.FreeBoardModel"/>	   
 		
 		<!-- faq -->
-		<typeAlias alias="faqModel" type="movie.faq.FaqModel" />	
+		<typeAlias alias="faqModel" type="movie.admin.faq.FaqModel" />	
 		
 		<!-- qna -->
 		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />

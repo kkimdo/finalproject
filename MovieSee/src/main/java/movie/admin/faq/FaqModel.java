@@ -1,4 +1,4 @@
-package movie.faq;
+package movie.admin.faq;
 
 import java.util.Date;
 

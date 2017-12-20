@@ -13,162 +13,143 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>FAQ</title>
 
 <script type="text/javascript">
 
 	//**원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
 	function list(page){
-   	location.href="<%=cp%>/faq/faqList.see?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
+   	location.href="<%=cp%>/admin/faqList.see?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
 	}
 
 	function btnWrite(){
 	 // 페이지 주소 변경(이동)
-	location.href="<%=cp%>
-	/faq/faqWrite.see";
+	location.href="<%=cp%>/admin/faqWrite.see";
 	}
-</script>
-
-<script type="text/javascript">
-	$(function() {
-		$(".faq > .faqBody > .article > .a").hide(); //적용시 바로 안보이게
-
-		$(".faq > .faqBody > .article > .q").click(function(event) {
-
-			$(event.currentTarget).next().slideToggle(200, function() {
-				var $a = $(this);
-				var $faq = $a.prev();
-				console.log($a.css("display"));
-
-				if ($a.css("display") == "none") {
-					$faq.find("span").html("▼");
-				} else {
-					$faq.find("span").html("▲");
-				}
-			});
-		});
-	});
 </script>
 
 </head>
 <body>
-	<div class="cs_center">
-		<h2 class="csTit">FAQ</h2>
-		<!-- 검색 -->
-	
-	<div class="tabCont faqTabCont">
-	
-		<form name="form1" method="post" action="<%=cp%>/faq/faqList.see">
-			<div class="shPeriod">
-				<div class="goods">
-					<input type="text" placeholder="검색어를 입력하세요" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt mt0"> 
-					<input type="submit" value="검색" class="boardBt">
-				</div>
-			</div>
-		</form>
-	
-		<h3 class="mem_tit" id="faqTop5Title" style="">FAQ TOP5</h3>
-		<c:forEach var="faqTop5List" items="${map.faqTop5List}">
-			<div class="faqTop" id="a11">
-				<a href="#a11"><span>▲</span>${faqTop5List.faq_subject}</a>
-				<span class="qnTit"><em class="num">1</em>&nbsp;&nbsp;${faqTop5List.faq_content}</span>
-			</div>
-		</c:forEach>
-	
-	<table class="tbl_faq" style="table-layout: fixed">
-		<caption>faq 목록</caption>
-		<colgroup>
-			<col style="width: 190px">
-			<col style="width: 790px">
-		</colgroup>
-
-		<thead>
-			<tr>
-				<th scope="col">분류</th>
-				<th scope="col">질문</th>
-			</tr>
-		</thead>
-	</table>
-
-	<c:forEach var="faqList" items="${map.faqList}">
-		<div class="faq">
-			<ul class="faqBody">
-				<li class="article" id="a1">
-					<p class="q">
-						<a href="#a1"><span>▲</span>${faqList.faq_subject}</a>
-					</p>
-					<p class="a">
-						<span title="답변" class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
-					</p>
-				</li>
+	<div class="admin_grp">
+		<div class="admin_list">
+			<ul>
+				<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+				<li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
+				<li class="on"><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/adminQnaList.mt">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
 			</ul>
 		</div>
-		<!-- **상세보기 페이지로 이동시 게시글 목록페이지에 있는 검색조건, 키워드, 현재페이지 값을 유지하기 위해 -->
-		<td class="txtl"><a
-			href="<%=cp%>/faq/faqView.see?faq_no=${faqList.faq_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.faq_subject}</a></td>
-	</c:forEach>
+		<div class="admin_ct">
+			<h3 class="sub_tit">FAQ</h3>
+			<div class="tbl_type_02">
+				<table>
+					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
+					<colgroup>
+						<col style="width: 5%;" />
+						<col />
+						<col style="width: 10%;" />
+						<col style="width: 10%;" />
+						<col style="width: 5%;" />
+					</colgroup>
 
-	<%-- <c:forEach var="faqList" items="${faqList}" varStatus="stat">
+					<thead>
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">제목</th>
+							<th scope="col">등록일</th>
+							<th scope="col">조회수</th>
+						</tr>
+					</thead>
 
-		<dl class="faq">
-			<dt>
-				<h5>
-					<span>▲</span> ${faqList.faq_subject}
-				</h5>
-			</dt>
-			<dd>${faqList.faq_content}</dd>
-		</dl>
-
-	</c:forEach> --%>
-
-	<%-- <table>
-		<tr>
-			<td>번호</td>
-			<td>제목</td>
-			<td>등록일</td>
-			<td>조회수</td>
-		</tr>
-
-		<c:forEach var="faqList" items="${faqList}" varStatus="stat">
-
-			<c:url var="faqViewURL" value="faqView.see">
-				<c:param name="faq_no" value="${faqList.faq_no}" />
-				<c:param name="currentPage" value="${currentPage}" />
-			</c:url>
-
-			<tr>
-				<td>${faqList.faq_no}</td>
-				<td><a href="${faqViewURL}">${faqList.faq_subject}</a></td>
-				<td><fmt:formatDate value="${faqList.faq_date}"
-						pattern="yyyy-MM-dd" /></td>
-				<td>${faqList.faq_hit}</td>
-			</tr>
-		</c:forEach>
-		
-	</table> --%>
+					<tbody>
+						<c:forEach var="faqList" items="${map.faqList}" varStatus="stat">
+							<c:url var="faqViewURL" value="faqView.see">
+								<c:param name="faq_no" value="${faqList.faq_no}" />
+							</c:url>
+							<tr>
+								<td>${faqList.faq_no}</td>
+								<td><a href="${faqViewURL}">${faqList.faq_subject}</a></td>
+								<td><fmt:formatDate value="${faqList.faq_date}"
+										pattern="yyyy-MM-dd" /></td>
+								<td>${faqList.faq_hit}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<form name="form1" method="post" action="<%=cp%>/admin/faqList.see">
+					<div class="search_form">
+						<select class="slct w100" name="searchOption">
+							<!-- 검색조건을 검색처리 후 결과 화면에 보여주기 위해  c:out 출력태그 사용, 삼항연산자 -->
+							<option value="all"
+								<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
+							<option value="qna_subject"
+								<c:out value="${map.searchOption == 'qna_subject'?'ed':''}"/>>제목</option>
+							<option value="qna_content"
+								<c:out value="${map.searchOption == 'qna_content'?'ed':''}"/>>내용</option>
 
 
-	<%-- <c:if test="${fn:length(faqList) le 0}">
-		<center>등록된 게시물이 없습니다.</center>
-	</c:if> --%>
+						</select> 
+						<input name="keyword" value="${map.keyword}" title="검색어 입력" class="txt w100"> 
+						<span class="btn btnC_04 btnP_04">
+							<input type="submit" value="검색" />
+						</span> 
+						<span class="btn btnC_04 btnP_04"> 
+						<input type="button" value="글쓰기" onclick="btnWrite();" />
+						</span> 
+						<span> 
+							<strong>${map.count}</strong>개의 게시물이 있습니다.
+						</span>
+					</div>
+				</form>
+				<c:if test="${fn:length(map.faqList) le 0}">
+					<br />
+					<center>등록된 게시물이 없습니다</center>
+					<br />
+				</c:if> 
+				<div class="paging">
+					<!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
+					<c:if test="${map.c_Paging.curBlock > 1}">
+						<a href="javascript:list('1')" class="first"><img
+							src="<%=cp%>/images/btn/btn_first_02.gif" alt="처음으로 이동"></a>
+					</c:if>
+					<!-- **이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
+					<c:if test="${map.c_Paging.curBlock > 1}">
+						<a href="javascript:list('${map.c_Paging.prevPage}')"><img
+							src="<%=cp%>/images/btn/btn_prev_02.gif" alt="10페이지 이전으로 이동"></a>
+					</c:if>
 
-	<!-- <div>
-		<form method="post">
-			<div>
-					<input type="text" name="isSearch" /> 
-					<input type="submit" value="검색">
-					
-					<input type="button" value="글쓰기"
-									onclick="btnWrite();" class="boardBt" />
-					
+					<span class="pagingNum"> <!-- **하나의 블럭에서 반복문 수행 시작페이지부터 끝페이지까지 -->
+						<c:forEach var="num" begin="${map.c_Paging.blockBegin}"
+							end="${map.c_Paging.blockEnd}">
+							<!-- **현재페이지이면 하이퍼링크 제거 -->
+							<c:choose>
+								<c:when test="${num == map.c_Paging.curPage}">
+									<span class="on">${num}</span>&nbsp;
+                                    </c:when>
+								<c:otherwise>
+									<a href="javascript:list('${num}')">${num}</a>&nbsp;
+                                    </c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</span>
+					<!-- **다음페이지 블록으로 이동 : 현재 페이지 블럭이 전체 페이지 블럭보다 작거나 같으면 [다음]하이퍼링크를 화면에 출력 -->
+					<c:if test="${map.c_Paging.curBlock <= map.c_Paging.totBlock}">
+						<a href="javascript:list('${map.c_Paging.nextPage}')" class="next"><img
+							src="<%=cp%>/images/btn/btn_next_02.gif" alt="10페이지 다음으로 이동"></a>
+					</c:if>
+					<!-- **끝페이지로 이동 : 현재 페이지가 전체 페이지보다 작거나 같으면 [끝]하이퍼링크를 화면에 출력 -->
+					<c:if test="${map.c_Paging.curPage <= map.c_Paging.totPage}">
+						<a href="javascript:list('${map.c_Paging.totPage}')" class="last"><img
+							src="<%=cp%>/images/btn/btn_last_02.gif" /></a>
+					</c:if>
+
+				</div>
 			</div>
-		</form>
-	</div>-->
+		</div>
 	</div>
-	</div>
-	${pagingHtml}
-	<!-- <input type="button" onclick="location.href='faqWrite.see'" value="글쓰기" />%> -->
-	<input type="button" value="글쓰기" onclick="btnWrite();" class="boardBt" />
-
 </body>
 </html>

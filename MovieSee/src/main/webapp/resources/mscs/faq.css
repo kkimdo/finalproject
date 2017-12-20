@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 
+
 .faq .faqBody .article .q {
 	
 	border-collapse: separate;
@@ -57,7 +58,7 @@
 
 }
 
-.boardBt {
+.shPeriod.goods.boardBt {
 	min-width: 50px;
 	text-align: center;
 	height: 28px;
@@ -248,4 +249,64 @@ display: block;
 	padding-bottom: 6px;
     background: url(/movie/image/btn/btn_plus02.png) no-repeat 50% 100%;
 
+}
+
+.cs_center .shPeriod .tit {
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.shPeriod .tit {
+    display: inline-block;
+    width: 111px;
+    font-weight: bold;
+    color: #231f20;
+}
+
+.cs_center .shPeriod .goods {
+    float: left;
+    padding: 0 0 22px;
+    margin: 0;
+    border: 0;
+}
+
+.cs_center .shPeriod .goods .btn_goodsSrch {
+    width: 50px;
+    height: 30px;
+    border: 0;
+    background: #34373c;
+    color: #fefeff;
+}
+
+.sh_view {
+    clear: both;
+    margin: 0 0 0 114px;
+    padding-top: 20px;
+    border-top: 1px solid #dedede;
+}
+
+.sh_view .txt {
+    float: left;
+    padding: 0 50px 0 25px;
+    color: #666;
+    font-size: 13px;
+    line-height: 16px;
+    background: url(/movie/images/bg/bg_error4.png) no-repeat left 50%;
+}
+
+.sh_view [class^=btnv_] {
+    display: inline;
+    min-width: auto;
+    color: #231f20;
+    padding: 0 23px 0 0;
+    border: none;
+    background: url(/movie/images/icon/icn_btnaw1.png) no-repeat right 50%;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+}
+.faq .faqBody img {
+	float: right;
+	
 }
