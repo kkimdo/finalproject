@@ -42,14 +42,15 @@
 		<div class="admin_list">
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-       	 		<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-         		<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
 				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
 				<li class="on"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
 				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
 				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
-		</ul>
+			</ul>
 		</div>
 		<form name="form1" method="post">
 			<div class="tabCont">

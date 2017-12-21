@@ -34,10 +34,11 @@
 		<div class="admin_list">
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-       	 		<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-         		<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
-				<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
-				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li class="on"><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
 				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
 				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
@@ -49,7 +50,7 @@
 				<table>
 					<colgroup>
 						<col style="width: 5%;" />
-						<col />
+						<col style="width: 10%;" />
 						<col style="width: 10%;" />
 						<col style="width: 10%;" />
 						<col style="width: 5%;" />
@@ -67,16 +68,53 @@
 					<tbody>
 						<c:forEach var="noticeList" items="${map.noticeList}">
 							<tr>
-								<td>${noticeList.notice_no}</td>
-								<td class="subject"><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></td>
-								<td>${noticeList.notice_area}</td>
-								<td><fmt:formatDate value="${noticeList.notice_date}" pattern="yyyy-MM-dd" /></td>
-								<td>${noticeList.notice_hit}</td>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong>-</strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td>${noticeList.notice_no}</td>
+                        			</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></td>
+                        			</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong>${noticeList.notice_area}</strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td>${noticeList.notice_area}</td>
+                        			</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong><fmt:formatDate value="${noticeList.notice_date}" pattern="yyyy-MM-dd" /></strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td><fmt:formatDate value="${noticeList.notice_date}"
+										pattern="yyyy-MM-dd" /></td>
+                        			</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong>${noticeList.notice_hit}</strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td>${noticeList.notice_hit}</td>
+                        			</c:otherwise>
+								</c:choose>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<form name="form1" method="post" action="<%=cp%>/admin/noticeList.see">
+				<form name="form1" method="post"
+					action="<%=cp%>/admin/noticeList.see">
 					<div class="search_form">
 						<select class="slct w100" name="searchOption">
 							<!-- 검색조건을 검색처리 후 결과 화면에 보여주기 위해  c:out 출력태그 사용, 삼항연산자 -->
@@ -90,16 +128,12 @@
 								<c:out value="${map.searchOption == 'notice_area'?'ed':''}"/>>영화관</option>
 
 
-						</select> 
-						<input name="keyword" value="${map.keyword}" title="검색어 입력" class="txt w100"> 
-						<span class="btn btnC_04 btnP_04">	
+						</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
+							class="txt w100"> <span class="btn btnC_04 btnP_04">
 							<input type="submit" value="검색" />
-						</span>
-						<span class="btn btnC_04 btnP_04">
-							<input type="button" value="글쓰기" onclick="btnWrite();"/> 
-						</span>
-						<span>
-							<strong>${map.count}</strong>개의 게시물이 있습니다.
+						</span> <span class="btn btnC_04 btnP_04"> <input type="button"
+							value="글쓰기" onclick="btnWrite();" />
+						</span> <span> <strong>${map.count}</strong>개의 게시물이 있습니다.
 						</span>
 					</div>
 				</form>

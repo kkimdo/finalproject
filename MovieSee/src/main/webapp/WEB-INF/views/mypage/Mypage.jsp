@@ -36,7 +36,7 @@
 </li>
 
 <li>
-<a href="http://event.lottecinema.co.kr/LCHS/Contents/Event/event-summary-list.aspx" title="이벤트">이벤트</a>
+<a href="<%=cp %>/event/eventListMain.see" title="이벤트">이벤트</a>
 <div class="depth">
 </div>
 </li>
@@ -96,7 +96,7 @@
                     </li>
                     
                     <li class="myContact" style="">
-                        <a href="<%= cp %>/mypage/qna.see">나의 문의 내역</a>
+                        <a href="<%= cp %>/mypage/qnaMemberList.see">나의 문의 내역</a>
 
                     </li>
                     <li class="active" style="">

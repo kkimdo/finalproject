@@ -38,81 +38,84 @@
 </script>
 
 <body>
-<div class="admin_grp">
-	<div class="admin_list">
-		<ul>
-			<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-       	 	<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-         	<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
-			<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
-			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
-		</ul>
-	</div>
-	<div id="container" class="sub">
-		<!-- content -->
-		<div id="content">
-			<!-- event_cwrap -->
-			<div class="event_cwrap">
-				<div class="clear_fix">
-					<h2 class="sub_stit">
-						영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span>
-					</h2>
-					<div class="category">
-						<fieldset>
-							<legend>분야별 선택 검색</legend>
-								<form name="form1" method="post" action="<%=cp%>/admin/eventList_1.see">
+	<div class="admin_grp">
+		<div class="admin_list">
+			<ul>
+				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+				<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
+			</ul>
+		</div>
+		<div id="container" class="sub">
+			<!-- content -->
+			<div id="content">
+				<!-- event_cwrap -->
+				<div class="event_cwrap">
+					<div class="clear_fix">
+						<h2 class="sub_stit">
+							영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span>
+						</h2>
+						<div class="category">
+							<fieldset>
+								<legend>분야별 선택 검색</legend>
+								<form name="form1" method="post"
+									action="<%=cp%>/admin/eventList_1.see">
 									<select class="select_box" name="searchOption">
-									<option value="all"
-										<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
-									<option value="event_subject"
-										<c:out value="${map.searchOption == 'event_subject'?'ed':''}"/>>제목</option>
-									<option value="event_content"
-										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
-								</select> 
-									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
-									<input type="submit" value="검색" class="boardBt">
+										<option value="all"
+											<c:out value="${map.searchOption == 'all'?'ed':''}"/>>모두</option>
+										<option value="event_subject"
+											<c:out value="${map.searchOption == 'event_subject'?'ed':''}"/>>제목</option>
+										<option value="event_content"
+											<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
+									</select> <input type="text" name="keyword" value="${map.keyword}"
+										title="검색어 입력" class="ipt_txt"> <input type="submit"
+										value="검색" class="boardBt">
 								</form>
-						</fieldset>
+							</fieldset>
+						</div>
 					</div>
-				</div>
-				
-				<!-- emovie_list -->
-				<ul class="emovie_list">
-					<c:forEach var="eventList_1" items="${map.eventList_1}">
-						<fmt:parseDate var="eventEndDate1" value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
-						<li>
-							<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'> 
-								<img src="/movie/resources/uploads/event/${eventList_1.event_poster_file}" alt="${eventList_1.event_subject}" />
+
+					<!-- emovie_list -->
+					<ul class="emovie_list">
+						<c:forEach var="eventList_1" items="${map.eventList_1}">
+							<fmt:parseDate var="eventEndDate1"
+								value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
+							<li><a href="javascript:void(0);"
+								onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+									<img
+									src="/movie/resources/uploads/event/${eventList_1.event_poster_file}"
+									alt="${eventList_1.event_subject}" />
+							</a>
+								<dl class="imgsub">
+									<dt class="event">
+										<a href="javascript:void(0);"
+											onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+											${eventList_1.event_subject} </a>
+									</dt>
+									<dd class="eventdate">
+										기간 <span> ${eventList_1.event_start_date} ~
+											${eventList_1.event_end_date} </span>
+									</dd>
+								</dl></li>
+						</c:forEach>
+					</ul>
+
+					<!-- 더보기 -->
+					<div id="btn_view">
+						<a href="#none" id="eventLoad" class="btn_view"> <span>더보기</span>
 						</a>
-							<dl class="imgsub">
-								<dt class="event">
-									<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
-										${eventList_1.event_subject} 
-									</a>
-								</dt>
-								<dd class="eventdate">
-									기간 <span> ${eventList_1.event_start_date} ~
-										${eventList_1.event_end_date} </span>
-								</dd>
-							</dl>
-						</li>
-					</c:forEach>
-				</ul>
-				
-				<!-- 더보기 -->
-				<div id="btn_view">
-					<a href="#none" id="eventLoad" class="btn_view">
-						<span>더보기</span>
-					</a>
+					</div>
+					<!--  -->
+
 				</div>
-				<!--  -->
-			
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

@@ -43,8 +43,9 @@
 		<div class="admin_list">
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-       	 		<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-         		<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
 				<li class="on"><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
 				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
 				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
@@ -82,12 +83,16 @@
 									<fmt:parseDate var="eventEndDate1"
 										value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
 
-									<li><a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
-											<img src="/movie/resources/uploads/event/${eventList_1.event_poster_file}" alt="${eventList_1.event_subject}" />
+									<li><a href="javascript:void(0);"
+										onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+											<img
+											src="/movie/resources/uploads/event/${eventList_1.event_poster_file}"
+											alt="${eventList_1.event_subject}" />
 									</a>
 										<dl class="imgsub">
 											<dt class="event">
-												<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+												<a href="javascript:void(0);"
+													onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
 													${eventList_1.event_subject} </a>
 											</dt>
 											<dd class="eventdate">
@@ -115,11 +120,14 @@
 										var="eventEndDate2" pattern="yyyy.MM.dd" />
 									<li><a href="javascript:void(0);"
 										onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'>
-											<img src="/movie/resources/uploads/event/${eventList_2.event_poster_file}" alt="${eventList_2.event_subject}">
+											<img
+											src="/movie/resources/uploads/event/${eventList_2.event_poster_file}"
+											alt="${eventList_2.event_subject}">
 									</a>
 										<dl class="imgsub">
 											<dt class="event">
-												<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'>
+												<a href="javascript:void(0);"
+													onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_2.event_no})'>
 													${eventList_2.event_subject} </a>
 											</dt>
 											<dd class="eventdate">
@@ -152,7 +160,8 @@
 									</a>
 										<dl class="imgsub">
 											<dt class="event">
-												<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'>
+												<a href="javascript:void(0);"
+													onclick='eventDate(<fmt:formatDate value="${eventEndDate3}" pattern="yyyyMMdd"/>, ${eventList_3.event_no})'>
 													${eventList_3.event_subject} </a>
 											</dt>
 											<dd class="eventdate">
@@ -179,12 +188,14 @@
 										var="eventEndDate4" pattern="yyyy.MM.dd" />
 									<li><a href="javascript:void(0);"
 										onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
-											<img src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
+											<img
+											src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
 											alt="${eventList_4.event_subject}">
 									</a>
 										<dl class="imgsub">
 											<dt class="event">
-												<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
+												<a href="javascript:void(0);"
+													onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
 													${eventList_4.event_subject} </a>
 											</dt>
 											<dd class="eventdate">

@@ -11,20 +11,22 @@
 <div class="admin_grp">
 	<div class="admin_list">
 		<ul>
-			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
-			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
-			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
-			<li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
-			<li class="on"><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
-			<li><a href="<%=cp %>/admin/adminQnaList.mt">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+			<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+			<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+			<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li class="on"><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
 		</ul>
 	</div>
 	<div class="admin_ct">
 		<h3 class="sub_tit">FAQ 수정</h3>
 		<form action="faqUpdate.see" method="post">
-			<input type="hidden" name="faq_no" value="${faqModel.faq_no}" />
-			<input type="hidden" name="currentPage" value="${currentPage}" />
+			<input type="hidden" name="faq_no" value="${faqModel.faq_no}" /> <input
+				type="hidden" name="currentPage" value="${currentPage}" />
 			<div class="tbl_type_01">
 				<table>
 					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
@@ -53,9 +55,8 @@
 			<div class="btn_type_03">
 				<span class="btn btnC_03 btnP_04 mr10" onclick="history.go(-1);">
 					<input type="button" value="취소" />
-				</span> 
-				<span class="btn btnC_04 btnP_04">
-					<input type="submit" value="수정완료"/>
+				</span> <span class="btn btnC_04 btnP_04"> <input type="submit"
+					value="수정완료" />
 				</span>
 			</div>
 		</form>
