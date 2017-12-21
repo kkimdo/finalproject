@@ -50,7 +50,8 @@
 							<li><a href="<%=cp%>/event/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
 							<li><a href="<%=cp%>/event/eventList_4.see" title="제휴할인">제휴할인</a></li>
 						</ul>
-					</div></li>
+					</div>
+				</li>
 
 			</ul>
 		</div>

@@ -52,7 +52,7 @@
 				</ul></li>
 
 			<li><a
-				href="http://event.lottecinema.co.kr/LCHS/Contents/Event/event-summary-list.aspx"
+				href="<%=cp%>/event/eventListMain.see"
 				title="이벤트">이벤트</a>
 				<div class="depth">
 					<ul>
@@ -65,7 +65,7 @@
 				</div></li>
 
 			<li><a
-				href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema-Mall/gift-shop.aspx"
+				href="<%=cp%>/gift/giftShopList.see"
 				title="기프트샵">기프트샵</a></li>
 
 		</ul>

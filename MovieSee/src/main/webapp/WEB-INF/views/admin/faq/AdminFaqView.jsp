@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -19,13 +20,15 @@
 <div class="admin_grp">
 	<div class="admin_list">
 		<ul>
-			<li><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
-			<li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
-			<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
-			<li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
-			<li class="on"><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
-			<li><a href="<%=cp %>/admin/adminQnaList.mt">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+			<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+			<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+			<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+			<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+			<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+			<li class="on"><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
 		</ul>
 	</div>
 	<div class="admin_ct">
@@ -58,13 +61,13 @@
 			</div>
 		</div>
 		<div class="btn_type_03">
-			<a href="#none" class="btn btnC_03 btnP_04 mr10" onclick="location.href='faqList.see?currentPage=${currentPage}'">
+			<a href="#none" class="btn btnC_03 btnP_04 mr10"
+				onclick="location.href='faqList.see?currentPage=${currentPage}'">
 				<span>목록</span>
-			</a>
-			<span class="btn btnC_04 btnP_04">
-				<input type="button" onclick="location.href='faqUpdate.see?faq_no=${faqModel.faq_no}'" value="수정" />
-			</span>
-			<span class="btn btnC_04 btnP_04" style="padding-left: 10px;">
+			</a> <span class="btn btnC_04 btnP_04"> <input type="button"
+				onclick="location.href='faqUpdate.see?faq_no=${faqModel.faq_no}'"
+				value="수정" />
+			</span> <span class="btn btnC_04 btnP_04" style="padding-left: 10px;">
 				<input type="button" onclick="faqDelete()" value="삭제" />
 			</span>
 		</div>

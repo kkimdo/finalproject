@@ -31,7 +31,6 @@ import movie.movie.MovieService;
 @RequestMapping("/admin")
 public class AdminController {
 	
-	
 	@Resource 
 	private MovieService movieService;
 	@Resource
@@ -44,11 +43,9 @@ public class AdminController {
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
-	/*private String uploadPath = "C:\\Users\\Jong\\Desktop\\1209 a11h\\movie\\src\\main\\webapp\\resources\\upload\\movie\\main_movie\\";*/
-	private String uploadPath = "C:\\Users\\jong\\git\\KHmovie1\\movie\\src\\main\\webapp\\resources\\upload\\movie\\main_banner\\";
-	//C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/
+	private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/";
+
 	// 상영작 리스트
-	
 	@RequestMapping(value="/movieList.see", method = RequestMethod.GET)
 	public ModelAndView movieList(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -60,7 +57,6 @@ public class AdminController {
 		mv.setViewName("admin");
 		return mv;
 	}
-	
 
 	// 상영작 상세보기
 	@RequestMapping(value="/movieView.see", method = RequestMethod.GET)
@@ -77,7 +73,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	// 상영작 글쓰기 폼get
+	// 상영작 글쓰기 폼 get
 	@RequestMapping(value="/movieWrite.see")
 	public ModelAndView movieWrite(HttpServletRequest request) {
 
@@ -480,7 +476,6 @@ public class AdminController {
 			timetablemodel.setTimetable_end_time(timetable_end_time);
 			timetablemodel.setTimetable_adult_amt(timetable_adult_amt);
 			timetablemodel.setTimetable_child_amt(timetable_child_amt);
-			
 			
 			adminService.timeDetailInsert(timetablemodel);
 			

@@ -6,9 +6,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<%=cp%>/resources/mscs/common.css" />
-<link rel="stylesheet" type="text/css" href="<%=cp%>/resources/mscs/reset.css" />
-<link rel="stylesheet" type="text/css" href="<%=cp%>/resources/mscs/event.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=cp%>/resources/mscs/common.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=cp%>/resources/mscs/reset.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=cp%>/resources/mscs/event.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>영화관 선택</title>
 
@@ -35,16 +38,12 @@
 								영화관을 1곳 선택해 주세요.</span></strong>
 						<ul class="theater_zone bg_bullet">
 							<li>
-								<!-- <span class="area_zone zone_01 area0001 on">
-									<a class="on" href="javascript:void(0)">서울</a>
-								</span> -->
-								<div class="area_cont on">
-									<ul class="area_list d0001">
-										<li>
-											<a href="javascript:selected_input('서울/강남')"
-											class="cinema1013 100011013">서울/강남</a></li>
-									</ul>
-								</div>
+								<ul class="area_list d0001">
+									<li><a href="javascript:selected_input('전체')"
+										class="cinema1013 100011013">전체</a></li>
+									<li><a href="javascript:selected_input('서울/강남')"
+										class="cinema1013 100011013">서울/강남</a></li>
+								</ul>
 							</li>
 						</ul>
 					</div>
