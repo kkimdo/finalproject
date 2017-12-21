@@ -6,7 +6,7 @@
 <%
 	String cp = request.getContextPath();
 %>
-
+<%-- 
 <script type="text/javascript">
 	function faqDelete() {
 		if (confirm("정말 삭제하시겠습니까??") == true) { //확인
@@ -15,7 +15,7 @@
 			return;
 		}
 	}
-</script>
+</script> --%>
 
 <div class="admin_grp">
 	<div class="admin_list">
@@ -33,7 +33,7 @@
 	</div>
 	<div class="admin_ct">
 		<div class="movie_list">
-			<h3 class="sub_tit">공지사항 상세보기</h3>
+			<h3 class="sub_tit">FAQ 상세보기</h3>
 			<div class="tbl_type_01">
 				<table>
 					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
@@ -68,7 +68,7 @@
 				onclick="location.href='faqUpdate.see?faq_no=${faqModel.faq_no}'"
 				value="수정" />
 			</span> <span class="btn btnC_04 btnP_04" style="padding-left: 10px;">
-				<input type="button" onclick="faqDelete()" value="삭제" />
+				<input type="button" onclick="location.href='faqDelete.see?faq_no=${faqModel.faq_no}'" value="삭제" />
 			</span>
 		</div>
 	</div>

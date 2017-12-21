@@ -12249,11 +12249,11 @@
 	background-image: none;
 }
 
-.tbl_faq tbody td {
+/* .tbl_faq tbody td {
 	padding: 20px;
 	border-bottom: 1px solid #dedede;
 	font-size: 14px;
-}
+} */
 
 .tbl_faq tbody td:first-child {
 	font-weight: bold;

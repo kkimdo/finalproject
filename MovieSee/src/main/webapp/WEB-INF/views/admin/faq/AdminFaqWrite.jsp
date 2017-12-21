@@ -66,7 +66,7 @@
 						</tr>
 						<tr>
 							<th scope="row">제목</th>
-							<td><input type="text" name="faq_subject" class="txt w200" /></td>
+							<td><input type="text" name="faq_subject"  class="txt w200" /></td>
 						</tr>
 						<tr>
 							<th scope="row">내용</th>

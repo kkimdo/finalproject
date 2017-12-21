@@ -27,7 +27,7 @@
 	$(function() {
 		$(".faq > .faqBody > .article > .a").hide(); //적용시 바로 안보이게
 
-		$(".faq > .faqBody > .article > .q").click(function(event) {
+		$(".faq > .faqBody > .article >  .q").click(function(event) {
 
 			$(event.currentTarget).next().slideToggle(200, function() {
 				var $a = $(this);
@@ -75,9 +75,9 @@
 									<div class="sh_view">
 										<p class="txt">더 궁금한 점이 있거나, 이미 문의한 내용과 답변을 확인하려면?</p>
 										<!-- 0223 텍스트 수정 -->
-										<a href="<%=cp%>/qna/qnaWrite.see" class="btnv_inquery"
+										<a href="<%=cp%>/qna/qnaWrite.see" class="btnv1_inquery"
 											onclick="javascript:customerCenterMenu(2);">1:1문의 바로가기</a> <a
-											href="javascript:void(0);" class="btnv_use"
+											href="javascript:void(0);" class="btnv1_use"
 											onclick="javascript:goLotteMyCinema(5, 0);">나의 문의 내역 바로가기</a>
 									</div>
 									<div class="srchResult_none" id="divSearchNone"
@@ -98,6 +98,7 @@
 											<th scope="col">질문</th>
 										</tr>
 									</thead>
+									
 								</table>
 
 
@@ -105,13 +106,14 @@
 									
 									<div class="faq">
 										<ul class="faqBody">
+								
 											<li class="article" id="a1">
+												<p class="Q"><span>Q</span>${faqList.faq_category}</p>
 												<p class="q">
-													<span>Q</span>${faqList.faq_category}			
-													<a href="#a1"><span>▲</span>${faqList.faq_subject}</a>
+													<span class="s">▲</span><a href="#a1" class=a1>${faqList.faq_subject}</a>
 												</p>
 												<p class="a">
-													<span title="답변" class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
+													<span title="답변"  class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
 												</p>
 											</li>
 										</ul>

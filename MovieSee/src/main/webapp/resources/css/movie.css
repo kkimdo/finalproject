@@ -545,7 +545,7 @@
 .myCinemaCont .tab_st03 > li.myContact > a {width:140px;} 
 
 .myCinemaCont .tabCont {padding:80px 0 0; color:#231f20;}
-.shPeriod {padding:20px 30px; background:#f5f5f5;}
+.shPeriod {padding:20px 30px;background:#f5f5f5;}
 .shPeriod .tit {display:inline-block; width:111px; font-weight:bold; color:#231f20;}
 .shPeriod select {width:74px; height:30px; padding:5px 0 5px 20px; font-size:13px; color:#231f20; line-height:30px;}
 .shPeriod select#sYear,
@@ -2467,13 +2467,13 @@
 
 /* 고객센터 */
 .cs_center .paging {margin-top:30px}
-.cs_center {width:980px; margin:0 auto; padding:50px 0 50px; color:#231f20;}
+.cs_center {width:980px;margin:0 auto;padding:50px 0 50px;color:#231f20;}
 .csTit {padding-bottom:20px; font-size:28px;}
 .cs_center .tab_st03 {margin-bottom:0;}
 .cs_center .tab_st03 > li:first-child > a {width:196px;}
 .cs_center .tab_st03 > li > a {}
 .cs_center .tabCont {padding-top:30px; font-size:14px;}
-.cs_center .tabCont.faqTabCont {padding-top:80px;}
+.cs_center .tabCont.faqTabCont {/* padding-top:80px; */}
 .cs_center .tabCont.helper_wrap {padding-top:80px; margin:0 !important;}
 .cs_center .view_list li strong.prev {background-image:url('/LCHS/Image/Bg/bg_prev_02.png');}
 .cs_center .view_list li strong.next {background-image:url('/LCHS/Image/Bg/bg_next_02.png');}
@@ -2486,7 +2486,7 @@
 .cs_center .info_etxt2 {padding-bottom:40px; font-size:13px; color:#777;}
 .cs_center .info_etxt2 strong {display:block; padding-bottom:10px; font-size:14px; color:#231f20;}
 .cs_center .info_etxt3 {padding-bottom:40px; font-size:14px; color:#231f20; font-weight:bold;}
-.sh_view [class^=btnv_] {display:inline; min-width:auto; color:#231f20; padding:0 23px 0 0; border:none; background:url('/LCHS/Image/Icon/icn_btnaw1.png') no-repeat right 50%; font-size:13px; font-weight:bold; line-height:16px;}
+.sh_view [class^=btnv_] {display:inline;min-width:auto;color:#231f20;padding:0 23px 0 0;border:none;background:url('/LCHS/Image/Icon/icn_btnaw1.png') no-repeat right 50%;font-size:13px;font-weight:bold;line-height:16px;}
 
 [class^=btnv_] {display:inline-block; min-width:78px; padding:0 13px; height:30px; border:1px solid #999;  background:#fff; line-height:30px; text-align:center; color:#231f20; font-size:13px; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box}
 .cs_center .btnv_use {margin-left:30px;}
@@ -2582,7 +2582,7 @@
 
 /* tbl_faq */
 .tbl_faq {width:100%; border:0; border-top:1px solid #c0c0c0; font-size:13px;}
-.tbl_faq thead th {border:0; padding:15px 0; border-bottom:1px solid #c0c0c0; background:url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat left center; font-weight:bold;}
+.tbl_faq thead th {border:0;padding:15px 0;border-bottom:1px solid #c0c0c0; background:url('/movie/images/bg/bg_tab_line.gif') no-repeat left center; font-weight:bold;}
 .tbl_faq thead th:first-child {background-image:none;}
 .tbl_faq tbody td {padding:20px; border-bottom:1px solid #dedede; font-size:14px;}
 .tbl_faq tbody td:first-child {font-weight:bold;}
@@ -2599,7 +2599,7 @@
 
 .sh_view {clear:both; margin:0 0 0 114px; padding-top:20px; border-top:1px solid #dedede;}
 .sh_view:after {content:''; display:block; clear:both;}
-.sh_view .txt {float:left; padding:0 50px 0 25px; color:#666; font-size:13px; line-height:16px; background:url('/LCHS/Image/Bg/bg_error4.png') no-repeat left 50%;}
+.sh_view .txt {float:left;padding:0 50px 0 25px;color:#666;font-size:13px;line-height:16px;/* background:url('/LCHS/Image/Bg/bg_error4.png') no-repeat left 50%; */}
 
 /* 공지사항검색 */
 .custCategory {padding:0 0 15px 0;}
