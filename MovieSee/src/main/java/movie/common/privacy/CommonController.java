@@ -11,5 +11,10 @@ public class CommonController {
 	public String privacy(){
 		return "privacy";
 	}
+	
+	@RequestMapping(value = "/memberClause.see")
+	public String memberClause(){
+		return "memberClause";
+	}
 
 }

@@ -36,19 +36,16 @@
 						href="<%=cp%>/member/login.see">로그인</a></li>
 					<li><a href="" title="회원가입">회원가입</a></li>
 					<li><a href="<%=cp%>/faq/faqList.see" title="고객센터">고객센터</a></li>
-					<li class="lang"><a href="javascript:void(0);"
-						id="LanguageSetting" class="btn_english">ENGLISH</a></li>
 				</c:if>
 
 				<c:if test="${session_member_name != null }">
 					<li>${session_member_name}&nbsp;님</li>
+					<li><a href="<%=cp%>/mypage/mypage.see">MyPage</a></li>
 					<c:if test="${session_member_name == 'admin' }">
 						<li><a href="<%=cp%>/admin/movieList.see">관리자페이지</a></li>
 					</c:if>
 					<li><a href="<%=cp%>/member/logout.see" title="로그아웃">로그아웃</a></li>
 					<li><a href="<%=cp%>/faq/faqList.see" title="고객센터">고객센터</a></li>
-					<li class="lang"><a href="javascript:void(0);"
-						id="LanguageSetting" class="btn_english">ENGLISH</a></li>
 				</c:if>
 
 			</ul>

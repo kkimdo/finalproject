@@ -1,4 +1,4 @@
-package movie.qna;
+package movie.admin.qna;
 
 public class QnaCommentModel {
 	

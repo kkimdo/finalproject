@@ -21,8 +21,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="faqModel" type="movie.admin.faq.FaqModel" />	
 		
 		<!-- qna -->
-		<typeAlias alias="qnaModel" type="movie.qna.QnaModel" />
-		<typeAlias alias="qnaCommentModel" type="movie.qna.QnaCommentModel" />
+		<typeAlias alias="qnaModel" type="movie.admin.qna.QnaModel" />
+		<typeAlias alias="qnaCommentModel" type="movie.admin.qna.QnaCommentModel" />
 		
 		<!-- movie --> 
 		<typeAlias alias="movieModel" type="movie.movie.MovieModel" />

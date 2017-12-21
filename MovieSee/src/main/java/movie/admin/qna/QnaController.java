@@ -1,4 +1,4 @@
-package movie.qna;
+package movie.admin.qna;
 
 import java.io.File;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ import movie.common.paging.commonPaging;
 
 
 @Controller // 현재 클래스를 컨트롤러 빈(bean)으로 등록
-@RequestMapping("/qna")
+@RequestMapping("/admin")
 public class QnaController {
 
 	Logger log = Logger.getLogger(this.getClass());
@@ -66,7 +66,7 @@ public class QnaController {
 	}
 
 	// 게시글 작성 화면
-	// RequestMapping("qna/qnaWrite.see")
+	// RequestMapping("admin/qnaWrite.see")
 	// value="", method="전송방식"
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.GET)
 	public String QnaWriteForm() {
@@ -118,7 +118,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); //데이터를 저장
-		mav.setViewName("redirect:/qna/qnaList.see");
+		mav.setViewName("redirect:/admin/qnaList.see");
 
 		return mav;
 
@@ -149,7 +149,7 @@ public class QnaController {
 
 		qnaService.QnaDelete(qna_no);
 
-		return "redirect:/qna/qnaList.see";
+		return "redirect:/admin/qnaList.see";
 	}
 
 	// 댓글 입력
@@ -188,7 +188,7 @@ public class QnaController {
 		//System.out.println("asdasd" + qna_comment_no);
 		qnaService.CommentDelete(qna_comment_no);
 		
-		mav.setViewName("redirect:/qna/qnaView.see?qna_no=" + qna_no);
+		mav.setViewName("redirect:/admin/qnaView.see?qna_no=" + qna_no);
 		
 		
 		return mav;
