@@ -23,24 +23,51 @@
 		</ul>
 	</div>
 	<div class="admin_ct">
-		<h3 class="sub_tit">FAQ 수정</h3>
-		<form action="faqUpdate.see" method="post">
-			<input type="hidden" name="faq_no" value="${faqModel.faq_no}" /> <input
-				type="hidden" name="currentPage" value="${currentPage}" />
-			<div class="tbl_type_01">
-				<table>
-					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
-					<colgroup>
-						<col style="width: 120px;" />
-						<col />
-					</colgroup>
-					<tbody>
-						<tr>
-							<th scope="row">글제목</th>
-							<td><input class="txt w200" name="faq_subject"
-								value="${faqModel.faq_subject}" /> <font color="red"><form:errors
-										path="faq_subject" /></font></td>
+	<form:form commandName="faqModel" name="formWrite" action="faqUpdate.see" method="post">
+		<input type="hidden" name="faq_no" value="${faqModel.faq_no}" />
+			<div class="tabCont">
+					<div>
+						<fieldset>
+							<legend>FAQ내용입력</legend>
+							<div class="titYtxt mt50">
+								<h3 class="mem_tit">FAQ</h3>
+							
+							</div>
+
+							<table class="tbl_style01">
+
+								<caption>FAQ 작성란</caption>
+								<colgroup>
+									<col style="width: 13%">
+									<col style="width: *">
+								</colgroup>
+
+								<tbody>
+									<tr>
+							<th scope="row">카테고리</th>
+							<td><span class="ipt_radio mr40"> <input type="radio"
+									id="faq_category1" name="faq_category" value="영화관 이용"
+									checked="checked"> <label for="faq_category1">영화관
+										이용</label>
+							</span> <span class="ipt_radio mr40"> <input type="radio"
+									id="faq_category2" name="faq_category" value="할인혜택"> <label
+									for="faq_category2">할인혜택</label>
+							</span> <span class="ipt_radio mr40"> <input type="radio"
+									id="faq_category3" name="faq_category" value="회원"> <label
+									for="faq_category3">회원</label>
+							</span> <span class="ipt_radio mr40"> <input type="radio"
+									id="faq_category4" name="faq_category" value="관람권"> <label
+									for="faq_category4">관람권</label>
+							</span></td>
 						</tr>
+									<tr>
+										<th scope="row"><label for="subject"> 제목 </label></th>
+										<td><form:input name="faq_subject" type="text"
+												value="${faqModel.faq_subject}" maxlength="40"
+												id="subject" class="ipt_txt03" path="faq_subject" /> <font
+											color="red"><form:errors path="faq_subject" /></font></td>
+									</tr>
+								
 						<tr>
 							<th scope="row">글내용</th>
 							<td>
@@ -51,6 +78,7 @@
 						</tr>
 					</tbody>
 				</table>
+			</fieldset>
 			</div>
 			<div class="btn_type_03">
 				<span class="btn btnC_03 btnP_04 mr10" onclick="history.go(-1);">
@@ -59,6 +87,7 @@
 					value="수정완료" />
 				</span>
 			</div>
-		</form>
-	</div>
+			</div>
+			</form:form>
+		</div>
 </div>

@@ -1,29 +1,26 @@
 @CHARSET "UTF-8";
 
 
-.faq .faqBody .article .q {
-	
+/* f/* aq .faqBody .article .q {
 	border-collapse: separate;
 	border-spacing: 1px;
 	text-align: left;
 	line-height: 1.5;
-	/* border: 1px solid red; */
 	margin: 20px 10px;
 	font-size: 15px;
-
-}
+	padding: 1px;
+	border-bottom: 1px solid #dedede;
+}  */
 
 .q {
-
-	padding: 30px 20px 30px 70px;
-    background: #ffffff;
-    font-size: 15px;
-    line-height: 22px;
-    color: #666;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border-bottom: 1px solid #dedede;
+	background: #ffffff;
+	font-size: 15px;
+	line-height: 22px;
+	color: #666;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-bottom: 1px solid #dedede;
 }
 
 .faq .faqBody .article .a {
@@ -31,9 +28,9 @@
 	border-spacing: 1px;
 	text-align: left;
 	line-height: 1.5;
-	/* border: 1px solid red; */
 	margin: 20px 10px;
 	font-size: 15px;
+	/* margin: 0 2230px 0 0; */
 }
 .a {    
     padding: 30px 20px 30px 70px;
@@ -89,64 +86,6 @@
 
 }
 
-.faqTop .faqTopBody .article1 .q1 {
-	display: block;
-    padding: 30px 20px 30px 70px;
-	font-size: 14px;
-    margin-bottom: 50px;
-    border-top:1px solid #c0c0c0;
-	margin: 20px 10px;
-}	
-
-.faqTop .faqTopBody .article1 .a2 {
-display: block;
-    padding: 30px 20px 30px 70px;
-	font-size: 14px;
-    margin-bottom: 50px;
-    border-top:1px solid #c0c0c0;
-	margin: 20px 10px;
-}
-
-.faqTop .q1 .number {
-   display: inline-block;
-   width: 20px;
-   height: 20px;
-   vertical-align: middle;
-   margin-right: 10px;
-   background: url('/movie/images/bg/bg_faq.png') no-repeat 0 0;
-   font-size: 15px;
-   color: #f6f6e9;
-   font-family: 'linlivertine';
-   text-align: center;
-   line-height: 20px;
-   position: absolute;
-   left:180px;
-   
-
-}
-.faqTop .A{
-	position: absolute;
-	font-size: 30px;
-    left: 180px;
-    font-style: italic;
-    font-weight: bold;
-    color: #e01e27;
-
-}
-.faqTop .Q{
-	position: absolute;
-	font-size: 30px;
-    left: 180px;
-    font-style: italic;
-    font-weight: bold;
-    color: #e01e27;
-
-}
-
-.faqTop .a22{
-	font-size: 14px;
-
-}
 
 .sh {
 	padding: 20px 30px;
@@ -223,13 +162,7 @@ display: block;
     font-size: 13px;
 
 }
-.tblfaq thead th {
-	border: 0;
-    padding: 15px 0;
-    border-bottom: 1px solid #c0c0c0;
-    font-weight: bold;
 
-}
 .btn-wrap{
     display: block;
     width: 100%;
@@ -247,7 +180,7 @@ display: block;
 }
 .button{
 	padding-bottom: 6px;
-    background: url(/movie/image/btn/btn_plus02.png) no-repeat 50% 100%;
+    background: url('/movie/image/btn/btn_plus02.png') no-repeat 50% 100%;
 
 }
 
@@ -292,21 +225,54 @@ display: block;
     color: #666;
     font-size: 13px;
     line-height: 16px;
-    background: url(/movie/images/bg/bg_error4.png) no-repeat left 50%;
+    background: url('/movie/images/bg/bg_error4.png') no-repeat left 50%;
 }
 
-.sh_view [class^=btnv_] {
+.sh_view [class^=btnv1_] {
     display: inline;
     min-width: auto;
     color: #231f20;
     padding: 0 23px 0 0;
     border: none;
-    background: url(/movie/images/icon/icn_btnaw1.png) no-repeat right 50%;
+    background: url('/movie/images/icon/icn_btnaw1.png') no-repeat right 50%;
     font-size: 13px;
     font-weight: bold;
     line-height: 16px;
 }
-.faq .faqBody img {
-	float: right;
-	
+
+.cs_center .btnv1_use {
+    margin-left: 30px;
 }
+
+.faq .faqBody .article .q span {
+	float: right;
+}
+
+.faq .faqBody .article .q .a1{
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: left;
+	line-height: 1.5;
+	margin: 190px;
+	font-size: 15px;
+	padding: 10px 10px 10px 10px;
+}
+.tbl_faq tbody td {
+    padding: 20px;
+    border-bottom: 1px solid #dedede;
+    font-size: 14px;
+}
+.faq .faqBody .article .Q{
+	font-size: 14px;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 50px 20px 0 20px;
+
+}
+.faq .faqBody .article .Q span{
+	font-size: 22px;
+	padding: 0 12px 0 0;
+
+
+}
+

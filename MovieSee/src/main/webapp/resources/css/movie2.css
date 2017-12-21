@@ -54,7 +54,7 @@ ol, ul, li { list-style:none}
 form, fieldset {border:0;}
 img { border:0; vertical-align:middle;}
 address, caption, em { font-weight:normal; font-style:normal;}
-a { text-decoration:none; color:#555;}
+a {color:#555;}
 a:hover{color:#555; text-decoration:none; }
 input, select, textarea{font-size:12px; font-family:'NanumGothic'; color:#555; vertical-align:middle;}
 table {border-collapse: collapse; border-spacing:0;}
