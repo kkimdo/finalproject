@@ -39,6 +39,22 @@
 	<sql id="pagingFooter">
 		)a ) where rn between #{start} and #{end}
 	</sql>
+	
+	<!-- 검색 조건 -->
+	<sql id="search">
+		<choose>
+			<!-- 검색 옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				where (qna_name like '%'||#{keyword}||'%' or qna_id like '%'||#{keyword}||'%' or qna_subject like
+				'%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%')
+			</when>
+
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				where ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
 
 	<!-- 게시글 목록 조회 -->
 	<select id="qnaListAll" resultMap="qnaModelRes">
@@ -46,12 +62,15 @@
 		select rownum, qna_no, qna_id, qna_name, qna_phone, qna_email,
 		qna_question_kinds, qna_category, qna_area, qna_subject, qna_content,
 		qna_orgfile, qna_date from qna
+		<include refid="search" />
+		order by qna_no desc, qna_date desc
 		<include refid="pagingFooter"></include>
 	</select>
 
 	<!-- 게시글 레코드 갯수 -->
 	<select id="count" resultType="int">
 		select count(*) from qna
+		<include refid="search" />
 	</select>
 
 	<!-- 댓글 목록 -->

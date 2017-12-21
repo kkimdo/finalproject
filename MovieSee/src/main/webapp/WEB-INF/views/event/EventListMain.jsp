@@ -39,7 +39,6 @@
 
 </head>
 <body>
-	<div class="header">
 		<div class="gnb">
 			<ul>
 				<li><a href="<%=cp%>/reserve/movieTicketing.see" title="예매">예매</a>
@@ -50,7 +49,7 @@
 						<li></li>
 					</ul></li>
 
-				<li class="active"><a href="<%=cp%>/aMovieList.see" title="영화">영화</a>
+				<li><a href="<%=cp%>/aMovieList.see" title="영화">영화</a>
 					<div class="depth">
 
 						<ul>
@@ -95,7 +94,6 @@
 			</ul>
 		</div>
 		<!-- //GNB area -->
-	</div>
 
 	<div id="container" class="sub">
 		<!-- content -->
@@ -227,8 +225,7 @@
 							var="eventEndDate4" pattern="yyyy.MM.dd" />
 						<li><a href="javascript:void(0);"
 							onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
-								<img
-								src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
+								<img src="/movie/resources/uploads/event/${eventList_4.event_poster_file}"
 								alt="${eventList_4.event_subject}">
 						</a>
 							<dl class="imgsub">
@@ -247,7 +244,6 @@
 			</div>
 		</div>
 	</div>
-
 
 </body>
 </html>

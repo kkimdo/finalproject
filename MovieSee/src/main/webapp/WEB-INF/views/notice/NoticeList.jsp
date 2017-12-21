@@ -36,7 +36,7 @@
 					<ul class="tab_st03">
 						<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
 						<li class="active"><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
-						<li><a href="javascript:customerCenterMenu(2);">1:1문의</a></li>
+						<li><a href="<%=cp%>/qna/qnaList.see">1:1문의</a></li>
 						<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 						<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 					</ul>

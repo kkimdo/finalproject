@@ -79,9 +79,10 @@
 	<definition name="qnaView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaView.jsp" />
 	</definition>
+	-->
 	<definition name="qnaWrite" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaWrite.jsp" />
-	</definition> -->
+	</definition>
 	
 	<!-- main Member -->
 	<definition name="member" extends="main">
@@ -102,6 +103,9 @@
 	<!-- main common -->
 	<definition name="privacy" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/common/privacy.jsp" />
+	</definition>
+	<definition name="memberClause" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/common/memberClause.jsp" />
 	</definition>
 	
 	<!-- main 상영시간표 메인 -->
@@ -124,7 +128,6 @@
 	<definition name="movieTicketing2" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing2.jsp" />
 	</definition>
-	
    
 		<!-- main 예매 진행부분 -->
 	<!-- main 영화 상세보기-->

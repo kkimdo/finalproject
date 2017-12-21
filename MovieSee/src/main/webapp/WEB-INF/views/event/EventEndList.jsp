@@ -39,9 +39,44 @@
 </script>
 
 <body>
-	<div class="header">
 		<div class="gnb">
 			<ul>
+				<li><a href="<%=cp%>/reserve/movieTicketing.see" title="예매">예매</a>
+					<div class="depth"></div>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul></li>
+
+				<li><a href="<%=cp%>/aMovieList.see" title="영화">영화</a>
+					<div class="depth">
+
+						<ul>
+							<li class="active"><a href="<%=cp%>/aMovieList.see"
+								title="박스오피스">박스오피스</a></li>
+							<li class=""><a href="<%=cp%>/bMovieList.see" title="아르떼">아르떼</a></li>
+							<li class=""><a href="<%=cp%>/cMovieList.see" title="G시네마">G시네마</a></li>
+							<li class=""><a href="<%=cp%>/dMovieList.see"
+								title="중국영화상영관/영화제">중국영화상영관/영화제</a></li>
+							<li class=""><a href="<%=cp%>/eMovieList.see" title="오페라">오페라</a></li>
+						</ul>
+					</div></li>
+
+				<li><a href="<%=cp%>/aMovieTheater.see" title="영화관">영화관</a>
+					<div class="depth"></div>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul></li>
+
 				<li class="active"><a href="<%=cp%>/event/eventListMain.see"
 					title="이벤트">이벤트</a>
 					<div class="depth">
@@ -51,11 +86,13 @@
 							<li><a href="<%=cp%>/event/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
 							<li><a href="<%=cp%>/event/eventList_4.see" title="제휴할인">제휴할인</a></li>
 						</ul>
-					</div></li>
+					</div>
+				</li>
+				<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
+				</li>
 
 			</ul>
 		</div>
-	</div>
 	<div id="container" class="sub">
 		<!-- content -->
 		<div id="content">
@@ -63,7 +100,7 @@
 			<div class="event_cwrap">
 				<div class="clear_fix">
 					<h2 class="sub_stit">
-						영화<span class="event_etc">신작 영화 이벤트에 지금 참여하세요.</span>
+						지난 이벤트 <span class="event_etc"></span>
 					</h2>
 					<div class="category">
 						<fieldset>
@@ -78,7 +115,7 @@
 										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
 								</select> 
 									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
-									<input type="submit" value="검색" class="boardBt">
+									<input type="submit" value="검색" class="btn_search">
 								</form>
 						</fieldset>
 					</div>
@@ -114,9 +151,8 @@
 					</a>
 				</div>
 				<!--  -->
-			
+				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

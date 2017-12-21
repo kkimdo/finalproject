@@ -50,7 +50,7 @@
 				<div class="footer_box"></div>
 			</div>
 			<ul class="footer_link">
-				<li><a href="" title="회원약관">회원약관</a></li>
+				<li><a href="<%=cp%>/common/memberClause.see" title="회원약관">회원약관</a></li>
 				<li class="active"><a href="<%=cp%>/common/privacy.see"
 					title="개인정보처리방침">개인정보처리방침</a></li>
 
