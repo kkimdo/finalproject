@@ -64,7 +64,9 @@
 		});
 		$('#content').keyup();
 	})
+	
 </script>
+
 </head>
 <body>
 	<div id="wrap">
@@ -74,7 +76,7 @@
 					<ul class="tab_st03">
 						<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
 						<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
-						<li class="active"><a href="<%=cp%>/qna/qnaList.see">1:1문의</a></li>
+						<li class="active"><a href="<%=cp%>/qna/qnaWrite.see">1:1문의</a></li>
 						<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
 						<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
 					</ul>
@@ -151,35 +153,43 @@
 								<tr>
 									<th scope="row">
 										<label for="name">
-											성명 <span class="point_red" title="필수 입력">*</span>
+											성명
 										</label>
 									</th>
 									<td>
-										<input type="text" class="btnWrite" name="qna_name" maxlength="40" id="name" />
+										${session_member_name}
+										<input type="hidden" name="qna_name" value="${session_member_name}" />
 									</td>
 								</tr>
 								<tr>
 									<th scope="row">
 										<label for="id">
-											아이디 <span class="point_red" title="필수 입력">*</span>
+											아이디
 									</label></th>
-									<td><input type="text" name="qna_id" id="id" /></td>
+									<td>
+										${session_member_id}
+										<input type="hidden" name="qna_id" value="${session_member_id}" />
+									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label
 										for="phone">
-											연락처 <span class="point_red" title="필수 입력">*</span>
+											연락처 
 									</label></th>
-									<td><input type="text" name="qna_phone" id="phone" /></td>
+									<td>
+										${session_member_phone}
+										<input type="hidden" name="qna_phone" value="${session_member_phone}" />
+									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label
 										for="email">
-											이메일 <span class="point_red" title="필수 입력">*</span>
+											이메일
 									</label></th>
 									<td>
 										<div class="ipt_left_txt">
-											<input name="qna_email" type="text" maxlength="60" id="email" class="ipt_txt01">
+											${session_member_email}
+											<input type="hidden" name="qna_email" value="${session_member_email}" />
 										</div>
 									</td>
 								</tr>
@@ -293,7 +303,8 @@
 									<td>
 										<div>
 											<input type="file" name="qna_orgfile" id="fileUpload1" />
-										</div> <span class="txt_left"></span>
+										</div> 
+										<span class="txt_left"></span>
 									</td>
 								</tr>
 							</tbody>

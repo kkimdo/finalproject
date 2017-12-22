@@ -1,12 +1,15 @@
 package movie.admin.qna;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -22,7 +25,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.commonPaging;
 
-
 @Controller // 현재 클래스를 컨트롤러 빈(bean)으로 등록
 @RequestMapping("/admin")
 public class QnaController {
@@ -31,14 +33,19 @@ public class QnaController {
 
 	@Inject
 	private QnaService qnaService;
+
+	@Resource(name = "downloadView")
+	private org.springframework.web.servlet.View downloadView;
+
+	//private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 	
-	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 	// 글 목록
 	@RequestMapping(value = "/qnaList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
 	public ModelAndView QnaList(@RequestParam(defaultValue = "qna_subject") String searchOption,
-								@RequestParam(defaultValue = "") String keyword, 
-								@RequestParam(defaultValue = "1") int curPage) throws Exception {
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
+			throws Exception {
 
 		// 레코드의 갯수 계산
 		int count = qnaService.count(searchOption, keyword);
@@ -77,7 +84,7 @@ public class QnaController {
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.POST)
 	public ModelAndView QnaWrite(@ModelAttribute("qnaModel") QnaModel qnaModel, BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
-		
+
 		int qnaSeqNum = qnaService.QnaGetSEQ();
 		qnaModel.setQna_no(qnaSeqNum);
 
@@ -113,11 +120,9 @@ public class QnaController {
 			qnaModel.setQna_orgfile(orgfile_full_name);
 		}
 
-		
-
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); //데이터를 저장
+
+		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); // 데이터를 저장
 		mav.setViewName("redirect:/admin/qnaList.see");
 
 		return mav;
@@ -158,40 +163,52 @@ public class QnaController {
 
 		ModelAndView mav = new ModelAndView();
 		QnaCommentModel qnaCommentModel = new QnaCommentModel();
-		
+
 		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
-		
+
 		// 리스트 넘버를 파라미터값으로 받는다
-		qnaCommentModel.setQna_comment_content(request.getParameter("qna_comment_content").replaceAll("\r\n", "<br />"));
+		qnaCommentModel
+				.setQna_comment_content(request.getParameter("qna_comment_content").replaceAll("\r\n", "<br />"));
 		qnaCommentModel.setQna_no(qna_no);
 
 		qnaService.CommentInsert(qnaCommentModel);
-		
+
 		mav.addObject("qnaCommentModel", qnaCommentModel);
 		mav.setViewName("redirect:qnaView.see?qna_no=" + qna_no);
 
 		return mav;
 	}
 
-	
 	// 댓글 삭제
 	@RequestMapping(value = "/qnaCommentDelete.see", method = RequestMethod.GET)
 	public ModelAndView CommentDelete(HttpServletRequest request) throws Exception {
-		
+
 		ModelAndView mav = new ModelAndView();
-		/*QnaCommentModel qnaCommentModel = new QnaCommentModel();*/
-		
+		/* QnaCommentModel qnaCommentModel = new QnaCommentModel(); */
+
 		int qna_no = Integer.parseInt(request.getParameter("qna_no"));
 		int qna_comment_no = Integer.parseInt(request.getParameter("qna_comment_no"));
 		/*
-		qnaCommentModel.setQna_comment_no(qna_comment_no);*/
-		//System.out.println("asdasd" + qna_comment_no);
+		 * qnaCommentModel.setQna_comment_no(qna_comment_no);
+		 */
+		// System.out.println("asdasd" + qna_comment_no);
 		qnaService.CommentDelete(qna_comment_no);
-		
+
 		mav.setViewName("redirect:/admin/qnaView.see?qna_no=" + qna_no);
-		
-		
+
 		return mav;
+	}
+
+	@RequestMapping(value = "/fileDownload.see", method = RequestMethod.GET)
+	public ModelAndView FileDownload(HttpServletRequest request) {
+
+		String downloadName = request.getParameter("qna_orgfile");
+		System.out.println(downloadName);
+		
+		File file = new File(uploadPath, downloadName);
+
+		return new ModelAndView("fileDownloadView", "fileDownload", file);
+
 	}
 
 }

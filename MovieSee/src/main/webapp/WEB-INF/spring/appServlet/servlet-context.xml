@@ -74,4 +74,10 @@
         <beans:property name="maxInMemorySize" value="100000000" />
 	</beans:bean>
 	
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <beans:property name="order" value="0" />
+    </beans:bean>
+
+	 <beans:bean id="downloadView" class="movie.admin.qna.DownloadFile"/>
+
 </beans:beans>

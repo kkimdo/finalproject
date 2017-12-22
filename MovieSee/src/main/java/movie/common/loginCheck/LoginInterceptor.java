@@ -10,11 +10,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		try{
-			if(request.getSession().getAttribute("session_member_grade") == "0" || request.getSession().getAttribute("session_member_grade") == null)
+			
+			if(request.getSession().getAttribute("session_member_grade") == "0" || 
+					request.getSession().getAttribute("session_member_grade") == null)
 			{
 				response.sendRedirect("/movie/main.see");
 				return false;
+			}else{
+				
+				return true;
 			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}

@@ -45,6 +45,10 @@ public class MemberController {
 			session.setAttribute("session_member_name", result.getMember_name());
 			session.setAttribute("session_member_no", result.getMember_no());
 			session.setAttribute("session_member_grade", result.getMember_grade());
+			
+			//추가
+			session.setAttribute("session_member_email", result.getMember_email());
+			session.setAttribute("session_member_phone", result.getMember_phone());
 		
 			mav.setViewName("redirect:/main.see");
 			return mav;
