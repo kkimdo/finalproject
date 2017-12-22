@@ -92,11 +92,15 @@
 						</tr>
 						<tr>
 							<th scope="row"><label for="uploadfile"> 첨부파일 </label></th>
-							<td id="uploadfile"><c:if
-									test="${qnaModel.qna_orgfile ne null }">
-									<img border="0" hspace="0" alt="${qnaModel.qna_content}"
-										src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_orgfile}">
-								</c:if></td>
+							<td id="uploadfile">
+								<c:if test="${qnaModel.qna_orgfile ne null }">
+									<img border="0" hspace="0" alt="${qnaModel.qna_content}" src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_orgfile}">
+								</c:if>
+								<a href="<%=cp%>/admin/fileDownload.see?qna_orgfile=${qnaModel.qna_orgfile}">${qnaModel.qna_orgfile}</a>
+								<c:if test="${qnaModel.qna_orgfile eq null }">
+								첨부 파일이 없습니다.
+								</c:if>
+							</td>
 						</tr>
 					</tbody>
 				</table>

@@ -39,7 +39,7 @@
 				</c:if>
 
 				<c:if test="${session_member_name != null }">
-					<li>${session_member_name}&nbsp;님</li>
+					<li><strong>${session_member_name}&nbsp;님 환영합니다.</strong></li>
 					<li><a href="<%=cp%>/mypage/mypage.see">MyPage</a></li>
 					<c:if test="${session_member_name == 'admin' }">
 						<li><a href="<%=cp%>/admin/movieList.see">관리자페이지</a></li>

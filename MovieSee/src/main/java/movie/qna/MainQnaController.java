@@ -35,7 +35,7 @@ public class MainQnaController {
 	
 	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 	// 글 목록
-	//@RequestMapping(value = "/qnaList.see")
+	@RequestMapping(value = "/qnaMyList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
 	public ModelAndView QnaList(@RequestParam(defaultValue = "qna_subject") String searchOption,
 								@RequestParam(defaultValue = "") String keyword, 

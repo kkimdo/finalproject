@@ -128,8 +128,7 @@
 									<p style="border-bottom: 1px dotted #999; width: 203px;">
 										현재 등록된 이미지 : <img
 											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_poster}"
-											width="60" height="60" alt=""
-											onerror="this.src='/pet/resources/images/noimg_130.gif'" />
+											width="60" height="60" alt="" onerror="this.src='/pet/resources/images/noimg_130.gif'" />
 										<input type="hidden" name="movie_poster"
 											value="${movieModel.movie_poster}">
 									</p>
