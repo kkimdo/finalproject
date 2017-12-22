@@ -118,7 +118,7 @@
 							<a href="javascript:history.back()"
 								class="btn btnC_03 btnP_04 mr10"> <span>취소</span>
 							</a> <span class="btn btnC_04 btnP_04"> <input type="submit"
-								value="수정" />
+								value="등록" />
 							</span>
 						</div>
 					</div>

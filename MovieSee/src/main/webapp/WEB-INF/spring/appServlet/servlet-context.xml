@@ -35,6 +35,7 @@
 				<beans:value>messages.freeBoardMessage_ko</beans:value>
 				<beans:value>messages.eventMessage_ko</beans:value>
 				<beans:value>messages.memberMessage_ko</beans:value>
+				<beans:value>messages.giftShopProductMessage_ko</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -77,7 +78,6 @@
     <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
         <beans:property name="order" value="0" />
     </beans:bean>
-
-	 <beans:bean id="downloadView" class="movie.admin.qna.DownloadFile"/>
+	<beans:bean id="downloadView" class="movie.admin.qna.DownloadFile"/>
 
 </beans:beans>

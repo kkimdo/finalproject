@@ -272,6 +272,14 @@
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/notice/AdminNoticeWrite.jsp" />
 	</definition>
 	
+	<!-- admin 기프트 샵 -->
+	<definition name="adminGiftShopWrite" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/giftshop/AdminGiftShopWrite.jsp" />
+	</definition>
+	<definition name="adminGiftShopListProduct" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/giftshop/AdminGiftShopListProduct.jsp" />
+	</definition>
+	
 	<definition name="MovieWrite" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/movie/movieWrite.jsp" />
 	</definition>
@@ -294,7 +302,5 @@
     <definition name="TimeTableList" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/time/timeTableList.jsp" />
     </definition>  
-	
-	
 	
 </tiles-definitions>

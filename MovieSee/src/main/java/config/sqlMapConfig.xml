@@ -24,6 +24,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="qnaModel" type="movie.admin.qna.QnaModel" />
 		<typeAlias alias="qnaCommentModel" type="movie.admin.qna.QnaCommentModel" />
 		
+		<!-- giftshop product -->
+		<typeAlias alias="giftShopProductModel" type="movie.admin.giftshop.GiftShopProductModel"/>
+		
 		<!-- movie --> 
 		<typeAlias alias="movieModel" type="movie.movie.MovieModel" />
 		<typeAlias alias="moviebannerModel" type="movie.movie.MovieBannerModel" />
@@ -55,6 +58,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- qna -->
 		<mapper resource="config/mybatis/qna_SQL.xml"/>
+		
+		<mapper resource="config/mybatis/giftshop_SQL.xml"/>
 		
 		<!-- movie -->
 		<mapper resource="config/mybatis/movie_SQL.xml"/>
