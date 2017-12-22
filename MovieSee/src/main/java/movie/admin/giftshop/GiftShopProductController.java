@@ -42,7 +42,7 @@ public class GiftShopProductController {
 		return "adminGiftShopWrite";
 	}
 
-	@RequestMapping(value = "/giftShopWrite.see", method=RequestMethod.POST)
+	@RequestMapping(value = "/giftShopWrite.see", method = RequestMethod.POST)
 	public ModelAndView GiftShopWrite(@ModelAttribute("giftShopProductModel") GiftShopProductModel giftShopProductModel, MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
@@ -50,7 +50,8 @@ public class GiftShopProductController {
 		int giftSeqNum = giftShopProductService.GiftProductGetSEQ();
 		giftShopProductModel.setGiftshop_product_no(giftSeqNum);
 		
-		MultipartFile multipartFile = multipartHttpServletRequest.getFile("giftshop_product_url");
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile("product_file");
+		System.out.println("asdasd" + multipartFile);
 
 		String file_full_name = "";
 		// 첨부파일(상품사진)이 있으면
@@ -71,12 +72,12 @@ public class GiftShopProductController {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				giftShopProductModel.setGiftshop_product_url(file_full_name);
+				giftShopProductModel.setGiftshop_product_file(file_full_name);
 
 			}
 
 		} else {
-			giftShopProductModel.setGiftshop_product_url(file_full_name);
+			giftShopProductModel.setGiftshop_product_file(file_full_name);
 
 		}
 		
@@ -88,7 +89,6 @@ public class GiftShopProductController {
 
 		giftShopProductService.GiftShopProductWrite(giftShopProductModel);
 
-		mav.addObject("giftShopProductModel", giftShopProductModel);
 		mav.setViewName("redirect:/admin/giftShopList.see");
 		return mav;
 	}

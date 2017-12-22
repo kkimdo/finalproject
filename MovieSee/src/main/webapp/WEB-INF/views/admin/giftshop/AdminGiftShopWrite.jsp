@@ -63,7 +63,30 @@
 	
 	 return true;
 	 }  */
+	 
+	 /* $(function() {
+			$("#start_date").datepicker({
+				dateFormat : "yy.mm.dd",
+				showButtonPanel : true,
+				onClose : function(selectedDate) {
+					// 시작일(fromDate) datepicker가 닫힐때
+					// 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+					$("#end_date").datepicker("option", "minDate", selectedDate);
+				}
+			});
 
+			$("#end_date").datepicker({
+				dateFormat : "yy.mm.dd",
+				showButtonPanel : true,
+				onClose : function(selectedDate) {
+					// 종료일(end_date) datepicker가 닫힐때
+					// 시작일(start_date)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
+					$("#start_date").datepicker("option", "maxDate", selectedDate);
+				}
+			});
+
+		}); */
+	 
 /* 	$(function() {
 		$('#content').keyup(function(e) {
 			var content = $(this).val();
@@ -92,7 +115,7 @@
 			</ul>
 		</div>
 		<div class="admin_ct">
-			<form:form commandName="giftShopProductModel" name="formWrite" action="giftShopWrite.see" method="post" enctype="multipart/form-data">
+			<form:form commandName="giftShopProductModel" action="giftShopWrite.see" method="post" enctype="multipart/form-data">
 				<div class="tabCont">
 					<div>
 						<fieldset>
@@ -124,8 +147,8 @@
 										<th scope="row"><label for="price"> 상품 판매 가격 <span
 												class="point_red" title="필수 입력">* </span>
 										</label></th>
-										<td><form:input name="giftshop_product_price" type="text"
-											maxlength="40" id="price" class="ipt_txt03" path="giftshop_product_price"/>
+										<td><input name="giftshop_product_price" type="text"
+											maxlength="40" id="price" class="ipt_txt03" />
 										</td>
 									</tr>
 									<tr>
@@ -145,6 +168,26 @@
 												path="giftshop_product_periodofuse" /> <font color="red">
 												 <form:errors path="giftshop_product_periodofuse" /></font></td>
 									</tr>
+									<%-- <tr>
+									<th scope="row"><label for="start_date"> 상품 사용 기간(시작)
+											<span class="point_red" title="필수 입력">*</span>
+									</label></th>
+									<td><form:input name="giftshop_product_startdate" type="text"
+											maxlength="40" id="start_date" class="ipt_txt03"
+											path="giftshop_product_startdate" /> <font color="red"> <form:errors
+												path="giftshop_product_startdate" />
+									</font></td>
+									</tr>
+									<tr>
+									<th scope="row"><label for="end_date"> 상품 사용 기간(종료) <span
+											class="point_red" title="필수 입력">*</span>
+									</label></th>
+									<td><form:input name="giftshop_product_enddate" type="text"
+											maxlength="40" id="end_date" class="ipt_txt03"
+											path="giftshop_product_enddate" /> <font color="red"> <form:errors
+												path="giftshop_product_enddate" />
+									</font></td>
+									</tr> --%>
 									<tr>
 										<th scope="row">
 											<label for="desc1"> 상품 사용 방법 <span
@@ -191,11 +234,11 @@
 											</div></td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="product_url">상품 이미지</label>
+										<th scope="row"><label for="fileUpload2">상품 이미지</label>
 										</th>
 										<td>
 											<div>
-												<input type="file" name="giftshop_product_url" id="product_url" />
+												<input type="file" name="product_file" id="fileUpload2" />
 											</div> <span class="txt_left"> </span>
 										</td>
 									</tr>
