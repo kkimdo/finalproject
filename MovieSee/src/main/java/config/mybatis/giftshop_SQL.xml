@@ -8,7 +8,7 @@
 		<result property="giftshop_product_no" column="giftshop_product_no" />
 		<result property="giftshop_product_name" column="giftshop_product_name" />
 		<result property="giftshop_product_price" column="giftshop_product_price" />
-		<result property="giftshop_product_url" column="giftshop_product_url" />
+		<result property="giftshop_product_file" column="giftshop_product_file" />
 		<result property="giftshop_product_restrictions" column="giftshop_product_restrictions" />
 		<result property="giftshop_product_periodofuse" column="giftshop_product_periodofuse" />
 		<result property="giftshop_product_desc1" column="giftshop_product_desc1" />
@@ -52,7 +52,7 @@
 		(giftshop_product_no, 
 		giftshop_product_name, 
 		giftshop_product_price, 
-		giftshop_product_url, 
+		giftshop_product_file, 
 		giftshop_product_restrictions,
 		giftshop_product_periodofuse,
 		giftshop_product_desc1, 
@@ -63,7 +63,7 @@
 		(giftshop_product_no_seq.NEXTVAL,
 		#{giftshop_product_name},
 		#{giftshop_product_price},
-		#{giftshop_product_url},
+		#{giftshop_product_file},
 		#{giftshop_product_restrictions},
 		#{giftshop_product_periodofuse},
 		#{giftshop_product_desc1},
@@ -75,7 +75,7 @@
 	<select id="gspListProduct" resultMap="giftShopProductModelRes">
 		<include refid="pagingHeader" />
 		select rownum, giftshop_product_no, giftshop_product_name,
-		giftshop_product_price, giftshop_product_url,
+		giftshop_product_price, giftshop_product_file,
 		giftshop_product_restrictions, giftshop_product_periodofuse, giftshop_product_desc1,
 		giftshop_product_desc2, giftshop_product_desc3, giftshop_product_date
 		from giftshop_product

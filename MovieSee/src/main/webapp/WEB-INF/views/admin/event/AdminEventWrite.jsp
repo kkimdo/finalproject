@@ -165,13 +165,15 @@
 						</table>
 					</fieldset>
 
-					<div class="btn_box btn_cbox">
-						<!-- <a href="javascript:void(0);" class="btnc_cancel" id="aCancel">취소</a>
-					<a onclick="return checkRegistration();" id="MasterContentPlaceHolder_PageMasterContentPlaceHolder_btnSubmit"
-						class="btnc_check"
-						href="javascript:__doPostBack('ctl00$ctl00$MasterContentPlaceHolder$PageMasterContentPlaceHolder$btnSubmit','')">확인</a> -->
-						<input type="submit" value="확인" />
-					</div>
+					<div class="btn_type_03">
+							<a href="javascript:history.back()"
+								class="btn btnC_03 btnP_04 mr10">
+								<span>취소</span>
+							</a> 
+							<span class="btn btnC_04 btnP_04">
+							 <input type="submit" value="등록" />
+							</span>
+						</div>
 				</div>
 			</div>
 		</form:form>
