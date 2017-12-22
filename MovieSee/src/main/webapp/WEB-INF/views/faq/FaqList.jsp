@@ -19,8 +19,10 @@
 
 	//**원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
 	function list(page){
-   	location.href="<%=cp%>/faq/faqList.see?curPage=" + page + "&searchOption=${map.searchOption}" + "&keyword=${map.keyword}";
-}
+   	location.href="<%=cp%>/faq/faqList.see?curPage=" + page
+				+ "&searchOption=${map.searchOption}"
+				+ "&keyword=${map.keyword}";
+	}
 </script>
 
 <script type="text/javascript">
@@ -34,11 +36,11 @@
 				var $faq = $a.prev();
 				console.log($a.css("display"));
 
-				 if ($a.css("display") == "none") {
+				if ($a.css("display") == "none") {
 					$faq.find("span").html("▼");
-				} else {							
+				} else {
 					$faq.find("span").html("▲");
-				} 
+				}
 			});
 		});
 	});
@@ -98,27 +100,25 @@
 											<th scope="col">질문</th>
 										</tr>
 									</thead>
-									
+
 								</table>
 
 
 								<c:forEach var="faqList" items="${map.faqList}">
-									
-									<div class="faq">
-										<ul class="faqBody">
-								
-											<li class="article" id="a1">
-												<p class="Q"><span>Q</span>${faqList.faq_category}</p>
-												<p class="q">
-													<span class="s">▲</span><a href="#a1" class=a1>${faqList.faq_subject}</a>
-												</p>
-												<p class="a">
-													<span title="답변"  class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
-												</p>
-											</li>
-										</ul>
-									</div>
-
+											<div class="faq">
+												<div class="faqBody">
+													<span class="article" id="a1">
+														<span class="Q">
+															<span>Q</span>${faqList.faq_category}</span>
+														<span class="q">
+															<span class="s">▲</span><a href="#a1" class=a1>${faqList.faq_subject}</a>
+														</span>
+														<span class="a">
+															<span title="답변" class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
+														</span>
+													</span>
+												</div>
+											</div>
 									<!-- **상세보기 페이지로 이동시 게시글 목록페이지에 있는 검색조건, 키워드, 현재페이지 값을 유지하기 위해 -->
 									<td class="txtl"><a
 										href="<%=cp%>/faq/faqView.see?faq_no=${faqList.faq_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.faq_subject}</a></td>
