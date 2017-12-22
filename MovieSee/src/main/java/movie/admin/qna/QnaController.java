@@ -37,8 +37,8 @@ public class QnaController {
 	@Resource(name = "downloadView")
 	private org.springframework.web.servlet.View downloadView;
 
-	//private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	//private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 	
 	// 글 목록
 	@RequestMapping(value = "/qnaList.see")
@@ -89,13 +89,17 @@ public class QnaController {
 		qnaModel.setQna_no(qnaSeqNum);
 
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("qna_orgfile");
+		System.out.println("asdasd" + multipartFile);
 
 		String orgfile_full_name = "";
+		String orgfile_name = "";
 
 		if (!multipartFile.isEmpty()) {
 
-			String orgfile_name = multipartFile.getOriginalFilename();
+			orgfile_name = multipartFile.getOriginalFilename();
+			System.out.println("실제 파일 명 : " + orgfile_full_name);
 			String orgfile_ext = orgfile_name.substring(orgfile_name.lastIndexOf('.') + 1);
+			System.out.println("중복 안되게 파일 명 : " + orgfile_ext);
 
 			if (orgfile_ext != null && !orgfile_ext.equals("")) {
 
@@ -111,13 +115,17 @@ public class QnaController {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
-				qnaModel.setQna_orgfile(orgfile_full_name);
+				
+				System.out.println("실제 파일 명 : " + orgfile_full_name);
+				qnaModel.setQna_savfile(orgfile_full_name); //savfile은 orgfile_full_name에 저장
+				qnaModel.setQna_orgfile(orgfile_name);		//orgfile은 orgfile_name에 저장
 			}
 
 		} else {
-
-			qnaModel.setQna_orgfile(orgfile_full_name);
+			
+			qnaModel.setQna_savfile(orgfile_full_name);
+			qnaModel.setQna_orgfile(orgfile_name);
+			
 		}
 
 		ModelAndView mav = new ModelAndView();

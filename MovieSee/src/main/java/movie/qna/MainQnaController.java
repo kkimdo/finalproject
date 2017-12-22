@@ -1,9 +1,7 @@
 package movie.qna;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -22,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.qna.QnaCommentModel;
 import movie.admin.qna.QnaModel;
 import movie.admin.qna.QnaService;
-import movie.common.paging.commonPaging;
 
 @Controller
 @RequestMapping("/qna")
@@ -32,36 +29,34 @@ public class MainQnaController {
 
 	@Inject
 	private QnaService qnaService;
-	
-	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+
+	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	//private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+
 	// 글 목록
 	@RequestMapping(value = "/qnaMyList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
 	public ModelAndView QnaList(@RequestParam(defaultValue = "qna_subject") String searchOption,
-								@RequestParam(defaultValue = "") String keyword, 
-								@RequestParam(defaultValue = "1") int curPage) throws Exception {
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
+			throws Exception {
 
-		/*// 레코드의 갯수 계산
-		int count = qnaService.count(searchOption, keyword);
-
-		// 페이지 나누기 관련 처리
-		commonPaging c_Paging = new commonPaging(count, curPage);
-		int start = c_Paging.getPageBegin();
-		int end = c_Paging.getPageEnd();
-
-		List<QnaModel> qnaList = qnaService.QnaListAll(start, end, searchOption, keyword);
-
-		// 데이터를 맵에 저장
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("qnaList", qnaList);
-		map.put("count", count);
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
-		map.put("c_Paging", c_Paging);*/
+		/*
+		 * // 레코드의 갯수 계산 int count = qnaService.count(searchOption, keyword);
+		 * 
+		 * // 페이지 나누기 관련 처리 commonPaging c_Paging = new commonPaging(count, curPage);
+		 * int start = c_Paging.getPageBegin(); int end = c_Paging.getPageEnd();
+		 * 
+		 * List<QnaModel> qnaList = qnaService.QnaListAll(start, end, searchOption,
+		 * keyword);
+		 * 
+		 * // 데이터를 맵에 저장 Map<String, Object> map = new HashMap<String, Object>();
+		 * map.put("qnaList", qnaList); map.put("count", count); map.put("searchOption",
+		 * searchOption); map.put("keyword", keyword); map.put("c_Paging", c_Paging);
+		 */
 
 		ModelAndView mav = new ModelAndView();
-		//mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
-		//mav.setViewName("qnaList");
+		// mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
+		// mav.setViewName("qnaList");
 
 		return mav;
 	}
@@ -75,18 +70,22 @@ public class MainQnaController {
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.POST)
 	public ModelAndView QnaWrite(@ModelAttribute("qnaModel") QnaModel qnaModel, BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
-		
+
 		int qnaSeqNum = qnaService.QnaGetSEQ();
 		qnaModel.setQna_no(qnaSeqNum);
 
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("qna_orgfile");
+		System.out.println("asdasd" + multipartFile);
 
 		String orgfile_full_name = "";
+		String orgfile_name = "";
 
 		if (!multipartFile.isEmpty()) {
 
-			String orgfile_name = multipartFile.getOriginalFilename();
+			orgfile_name = multipartFile.getOriginalFilename();
+			System.out.println("실제 파일 명 : " + orgfile_full_name);
 			String orgfile_ext = orgfile_name.substring(orgfile_name.lastIndexOf('.') + 1);
+			System.out.println("중복 안되게 파일 명 : " + orgfile_ext);
 
 			if (orgfile_ext != null && !orgfile_ext.equals("")) {
 
@@ -103,18 +102,22 @@ public class MainQnaController {
 					e.printStackTrace();
 				}
 
-				qnaModel.setQna_orgfile(orgfile_full_name);
+				System.out.println("실제 파일 명 : " + orgfile_full_name);
+				qnaModel.setQna_savfile(orgfile_full_name); // savfile은 orgfile_full_name에 저장
+				qnaModel.setQna_orgfile(orgfile_name); // orgfile은 orgfile_name에 저장
 			}
 
 		} else {
 
-			qnaModel.setQna_orgfile(orgfile_full_name);
+			qnaModel.setQna_savfile(orgfile_full_name);
+			qnaModel.setQna_orgfile(orgfile_name);
+
 		}
 
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); //데이터를 저장
-		mav.setViewName("redirect:/qna/qnaMyList.see"); //문의 내역
+
+		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); // 데이터를 저장
+		mav.setViewName("redirect:/qna/qnaList.see");
 
 		return mav;
 

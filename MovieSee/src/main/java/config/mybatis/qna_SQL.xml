@@ -16,6 +16,7 @@
 		<result property="qna_subject" column="qna_subject" />
 		<result property="qna_content" column="qna_content" />
 		<result property="qna_orgfile" column="qna_orgfile" />
+		<result property="qna_savfile" column="qna_savfile" />
 		<result property="qna_date" column="qna_date" />
 
 	</resultMap>
@@ -61,7 +62,7 @@
 		<include refid="pagingHeader" />
 		select rownum, qna_no, qna_id, qna_name, qna_phone, qna_email,
 		qna_question_kinds, qna_category, qna_area, qna_subject, qna_content,
-		qna_orgfile, qna_date from qna
+		qna_orgfile, qna_savfile, qna_date from qna
 		<include refid="search" />
 		order by qna_no desc, qna_date desc
 		<include refid="pagingFooter"></include>
@@ -84,10 +85,10 @@
 	<insert id="qnaWrite" parameterType="qnaModel">
 		insert into qna(qna_no,
 		qna_id, qna_name, qna_phone, qna_email, qna_question_kinds,
-		qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_date)
+		qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date)
 		values (qna_no_seq.NEXTVAL, #{qna_id},
 		#{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds},
-		#{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, #{qna_orgfile}, sysdate)
+		#{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, #{qna_orgfile}, #{qna_savfile}, sysdate)
 
 	</insert>
 

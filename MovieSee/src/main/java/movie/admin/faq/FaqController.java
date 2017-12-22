@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import movie.common.paging.commonPaging;
 
 
@@ -96,11 +95,16 @@ public class FaqController {
 
 	// 게시글 수정 폼
 	@RequestMapping(value = "/faqUpdate.see", method = RequestMethod.GET)
-	public ModelAndView FaqUpdateForm(@RequestParam int faq_no) throws Exception {
+	public ModelAndView FaqUpdateForm(@ModelAttribute("faqModel") FaqModel faqModel) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("faqModel", faqService.FaqView(faq_no));
+		
+		faqModel = faqService.FaqView(faqModel.getFaq_no());
+		
+		String content = faqModel.getFaq_content().replaceAll("<br/>", "\r\n");
+		faqModel.setFaq_content(content);
+		
+		mav.addObject("faqModel", faqModel);
 		mav.setViewName("adminFaqUpdate");
 
 		return mav;
@@ -112,6 +116,7 @@ public class FaqController {
 	public ModelAndView FaqUpdate(@ModelAttribute FaqModel faqModel) throws Exception { 
 
 		ModelAndView mav = new ModelAndView();
+		
 
 		mav.addObject("faqModel", faqService.FaqUpdate(faqModel));
 		mav.setViewName("redirect:/admin/faqList.see");

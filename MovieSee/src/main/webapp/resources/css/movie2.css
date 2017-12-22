@@ -59,7 +59,7 @@ a:hover{color:#555; text-decoration:none; }
 input, select, textarea{font-size:12px; font-family:'NanumGothic'; color:#555; vertical-align:middle;}
 table {border-collapse: collapse; border-spacing:0;}
 input[type=submit] {border:0}
-button, label, input[type=image],input[type="button"] {cursor:pointer}
+button, label, input[type=image],input[type="button"] {/* cursor:pointer */}
 button {vertical-align:top}
 select {border:1px solid #e8e8e8} 
 

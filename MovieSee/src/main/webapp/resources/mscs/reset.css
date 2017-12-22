@@ -98,11 +98,11 @@ table {
 }
 
 input[type=submit] {
-	border: 0
+	border: 0;
 }
 
 button, label, input[type=image], input[type="button"] {
-	cursor: pointer
+	cursor: pointer;
 }
 
 button {
@@ -142,7 +142,7 @@ textarea {
 	resize: none;
 	padding: 10px;
 	background: #f5f5f5;
-	border: 1px solid #e8e8e8
+	border: 1px solid #e8e8e8;
 }
 
 input[type=text], input[type=password] {
