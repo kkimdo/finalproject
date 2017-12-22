@@ -10,7 +10,7 @@ input,select,textarea,button{border:none;}
 form,fieldset,img {border:none;}
 nav,ul,ol,li{list-style:none;}
 table{width:100%;border-spacing:0;border-collapse:collapse;word-break:break-all;table-layout:fixed;}
-table thead th,table tbody th,strong{font-family:'나눔 고딕 볼드',Nanum Gothic-Bold,'맑은 고딕',Malgun Gothic,sans-serif;font-weight:800;}
+table thead th,table tbody th,strong{font-family:'나눔 고딕 볼드',Nanum Gothic-Bold,'맑은 고딕',Malgun Gothic,sans-serif;/* font-weight:800; */}
 address,caption,cite,code,em{font-style:normal;font-weight:normal;}
 caption{margin:0;padding:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden;}
 legend{position:absolute;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
@@ -292,11 +292,11 @@ textarea{width:100%;font-size:12px;resize:none;}
 	font-size:14px;
 	color:#fff;
 	-webkit-border-radius:3px;
-		-moz-border-radius:3px;
-			  border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
 	-webkit-text-shadow:0 1px 1px rgba(0, 0, 0, 0.6);
-		-moz-text-shadow:0 1px 1px rgba(0, 0, 0, 0.6);
-			  text-shadow:0 1px 1px rgba(0, 0, 0, 0.6);
+	-moz-text-shadow:0 1px 1px rgba(0, 0, 0, 0.6);
+	text-shadow:0 1px 1px rgba(0, 0, 0, 0.6);
 	/* 
 	-webkit-box-shadow:inset -1px 1px 0px 1px rgba(255,255,255,0.35);
 	   -moz-box-shadow:inset -1px 1px 0px 1px rgba(255,255,255,0.35);

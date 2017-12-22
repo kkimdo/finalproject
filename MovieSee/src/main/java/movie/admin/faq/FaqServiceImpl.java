@@ -19,7 +19,7 @@ public class FaqServiceImpl implements FaqService {
 	public int FaqWrite(FaqModel faqModel) throws Exception {
 
 		// replace(A, B) A를 B로 변경
-		String content = faqModel.getFaq_content().replace("\r\n", "<br>"); // 줄바꿈 문자 처리
+		String content = faqModel.getFaq_content().replaceAll("\r\n", "<br/>"); // 줄바꿈 문자 처리
 
 		faqModel.setFaq_content(content);
 
@@ -75,7 +75,7 @@ public class FaqServiceImpl implements FaqService {
 	public int FaqUpdate(FaqModel faqModel) throws Exception {
 
 		// 수정 다시
-		String content = faqModel.getFaq_content().replaceAll("<br>", "\r\n");
+		String content = faqModel.getFaq_content().replaceAll("<br/>", "\r\n");
 
 		faqModel.setFaq_content(content);
 

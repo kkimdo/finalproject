@@ -94,12 +94,18 @@
 							<th scope="row"><label for="uploadfile"> 첨부파일 </label></th>
 							<td id="uploadfile">
 								<c:if test="${qnaModel.qna_orgfile ne null }">
-									<img border="0" hspace="0" alt="${qnaModel.qna_content}" src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_orgfile}">
+									<img border="0" hspace="0" alt="${qnaModel.qna_content}" src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_savfile}">
 								</c:if>
-								<a href="<%=cp%>/admin/fileDownload.see?qna_orgfile=${qnaModel.qna_orgfile}">${qnaModel.qna_orgfile}</a>
 								<c:if test="${qnaModel.qna_orgfile eq null }">
 								첨부 파일이 없습니다.
 								</c:if>
+							</td>
+						</tr>
+						<tr>
+							<th class="do" scope="row"><label for="uploadfile"> 파일이름</label></th>
+							<td class="do" id="uploadfile">
+								<a href="<%=cp%>/admin/fileDownload.see?qna_orgfile=${qnaModel.qna_orgfile}">${qnaModel.qna_orgfile}
+								</a>
 							</td>
 						</tr>
 					</tbody>
@@ -114,8 +120,8 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>답변</th>
-							<td>답변 내용이 없습니다.</td>
+							<th class="co">답변</th>
+							<td class="co">답변 내용이 없습니다.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -132,9 +138,11 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>답변작성</th>
-							<td><textarea name="qna_comment_content"></textarea></td>
-							<td> <input type="submit" value="답변입력" /></td>
+							<th class="co">답변작성</th>
+							<td class="co" id="qna_comment_content"><textarea name="qna_comment_content"></textarea></td>
+							<td class="co"> 
+								<input class="dodos" type="submit" value="답변입력" />
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -148,10 +156,10 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>답변내용</th>
-							<td>${qna_comment.qna_comment_content}</td>
-							<td>
-							<input type="button" onclick="qnaCommentDelete('<%=cp%>/admin/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')" value="댓글삭제" />
+							<th class="coco">답변내용</th>
+							<td class="co" id="qna_comment_content">${qna_comment.qna_comment_content}</td>
+							<td class="co">
+							<input class="dodo" type="button" onclick="qnaCommentDelete('<%=cp%>/admin/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')" value="댓글삭제" />
 							</td>
 						</tr>
 					</tbody>

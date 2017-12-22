@@ -456,7 +456,7 @@
 
 .tbl_style01 th, .tbl_style01 td {
 	border-bottom: 1px solid #dedede;
-	word-break: break-all
+	word-break: break-all;
 }
 
 .tbl_style01 td .txtId {
@@ -11825,7 +11825,7 @@
 	font-size: 13px;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box
+	-moz-box-sizing: border-box;
 }
 
 .cs_center .btnv_use {

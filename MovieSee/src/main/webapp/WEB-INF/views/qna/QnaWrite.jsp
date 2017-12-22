@@ -10,7 +10,8 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<%=cp%>/resources/mscs/qna.css?ver=201712060002" />
+<link rel="stylesheet" type="text/css"
+	href="<%=cp%>/resources/mscs/qna.css?ver=201712060002" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>1:1문의</title>
 
@@ -47,6 +48,16 @@
 			alert("내용을 입력해주세요.");
 			frm.qna_content.focus();
 			return false;
+		} else if ($("#fileUpload1").val() != "") {
+
+			var ext = $('#fileUpload1').val().split('.').pop().toLowerCase();
+
+			if ($.inArray(ext, ['jpeg', 'gif', 'png', 'jpeg','bmp','pdf','jpg' ]) == -1) {
+				alert("jpeg,gif,png,jpeg,bmp,pdf,jpg 파일만 업로드 할수 있습니다.");
+
+				return false;
+
+			}
 		} else {
 			alert("작성완료 되었습니다.");
 			frm.submit();
@@ -63,8 +74,7 @@
 			$('#counter').html(content.length + '/ 한글 2,000자');
 		});
 		$('#content').keyup();
-	})
-	
+	});
 </script>
 
 </head>
@@ -73,13 +83,13 @@
 		<div id="container" class="subGnbNo">
 			<div class="cs_center">
 				<h2 class="csTit">고객센터</h2>
-					<ul class="tab_st03">
-						<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
-						<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
-						<li class="active"><a href="<%=cp%>/qna/qnaWrite.see">1:1문의</a></li>
-						<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
-						<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
-					</ul>
+				<ul class="tab_st03">
+					<li><a href="<%=cp%>/faq/faqList.see">FAQ</a></li>
+					<li><a href="<%=cp%>/notice/noticeList.see">공지사항</a></li>
+					<li class="active"><a href="<%=cp%>/qna/qnaWrite.see">1:1문의</a></li>
+					<li><a href="<%=cp%>/free/freeBoardList.see">자유게시판</a></li>
+					<li><a href="<%=cp%>/common/privacy.see">개인정보처리방침</a></li>
+				</ul>
 
 				<div class="tabCont">
 					<p class="info_etxt">
@@ -87,7 +97,8 @@
 						오후 6시 이후 접수된 문의는 그 다음주에 처리될 수 있습니다. FAQ를 이용하시면 궁금증을 더 빠르게 해결하실 수
 						있습니다.
 					</p>
-					<div id="MasterContentPlaceHolder_PageMasterContentPlaceHolder_pnlMain"
+					<div
+						id="MasterContentPlaceHolder_PageMasterContentPlaceHolder_pnlMain"
 						onkeypress="javascript:return WebForm_FireDefaultButton(event, 'MasterContentPlaceHolder_PageMasterContentPlaceHolder_btnSubmit')">
 
 						<fieldset>
@@ -151,45 +162,29 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<th scope="row">
-										<label for="name">
-											성명
-										</label>
-									</th>
-									<td>
-										${session_member_name}
-										<input type="hidden" name="qna_name" value="${session_member_name}" />
+									<th scope="row"><label for="name"> 성명 </label></th>
+									<td>${session_member_name}<input type="hidden"
+										name="qna_name" value="${session_member_name}" />
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">
-										<label for="id">
-											아이디
-									</label></th>
-									<td>
-										${session_member_id}
-										<input type="hidden" name="qna_id" value="${session_member_id}" />
+									<th scope="row"><label for="id"> 아이디 </label></th>
+									<td>${session_member_id}<input type="hidden" name="qna_id"
+										value="${session_member_id}" />
 									</td>
 								</tr>
 								<tr>
-									<th scope="row"><label
-										for="phone">
-											연락처 
-									</label></th>
-									<td>
-										${session_member_phone}
-										<input type="hidden" name="qna_phone" value="${session_member_phone}" />
+									<th scope="row"><label for="phone"> 연락처 </label></th>
+									<td>${session_member_phone}<input type="hidden"
+										name="qna_phone" value="${session_member_phone}" />
 									</td>
 								</tr>
 								<tr>
-									<th scope="row"><label
-										for="email">
-											이메일
-									</label></th>
+									<th scope="row"><label for="email"> 이메일 </label></th>
 									<td>
 										<div class="ipt_left_txt">
-											${session_member_email}
-											<input type="hidden" name="qna_email" value="${session_member_email}" />
+											${session_member_email} <input type="hidden" name="qna_email"
+												value="${session_member_email}" />
 										</div>
 									</td>
 								</tr>
@@ -226,12 +221,10 @@
 								</tr>
 
 								<tr>
-									<th scope="row"><label
-										for="category">분류
-											<span class="point_red" title="필수 입력">*</span>
+									<th scope="row"><label for="category">분류 <span
+											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td><select name="qna_category"
-										id="category"
+									<td><select name="qna_category" id="category"
 										class="select_box select02" onchange="changDivisionCode();">
 
 											<option selected="selected" value="영화관 문의">영화관 문의</option>
@@ -249,12 +242,10 @@
 
 
 								<tr>
-									<th scope="row"><label
-										for="area">지역
-											선택 <span class="point_red" title="필수 입력">*</span>
+									<th scope="row"><label for="area">지역 선택 <span
+											class="point_red" title="필수 입력">*</span>
 									</label></th>
-									<td><select name="qna_area"
-										id="area"
+									<td><select name="qna_area" id="area"
 										class="select_box select02" onchange="changDivisionCode();">
 
 											<option selected="selected" value="서울">서울</option>
@@ -278,13 +269,11 @@
 									<td>
 								</tr>
 								<tr>
-									<th scope="row"><label
-										for="subject">제목
-											<span class="point_red" title="필수 입력">*</span>
+									<th scope="row"><label for="subject">제목 <span
+											class="point_red" title="필수 입력">*</span>
 									</label></th>
 									<td><input name="qna_subject" type="text" maxlength="40"
-										id="subject"
-										class="ipt_txt03"></td>
+										id="subject" class="ipt_txt03"></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="content">내용 <span
@@ -300,11 +289,13 @@
 
 								<tr>
 									<th scope="row" rowspan="2"><label for="fileUpload1">첨부파일</label></th>
-									<td>
+									<td class="kj">
 										<div>
 											<input type="file" name="qna_orgfile" id="fileUpload1" />
-										</div> 
-										<span class="txt_left"></span>
+											jpeg, gif, png, jpeg, bmp, pdf, jpg 이 파일만 가능합니다.
+
+										</div>
+
 									</td>
 								</tr>
 							</tbody>

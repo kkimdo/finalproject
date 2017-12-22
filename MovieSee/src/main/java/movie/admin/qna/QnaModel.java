@@ -15,7 +15,8 @@ public class QnaModel {
 	private String qna_area; //해당 지역
 	private String qna_subject; //글 제목
 	private String qna_content; //글 내용
-	private String qna_orgfile; //파일
+	private String qna_orgfile; //실제 파일 이름
+	private String qna_savfile; //중복되지않게 하는 파일이름  
 	private Date qna_date; //글 등록일
 	
 	public int getQna_no() {
@@ -90,7 +91,12 @@ public class QnaModel {
 	public void setQna_date(Date qna_date) {
 		this.qna_date = qna_date;
 	}
+	public String getQna_savfile() {
+		return qna_savfile;
+	}
+	public void setQna_savfile(String qna_savfile) {
+		this.qna_savfile = qna_savfile;
+	}
 
-	
 	
 }
