@@ -7,7 +7,7 @@ public class GiftShopProductModel {
 	private int giftshop_product_no; //상품 번호
 	private String giftshop_product_name; //상품 이름
 	private int giftshop_product_price; //상품 판매 가격
-	private String giftshop_product_url; //상품 이미지
+	private String giftshop_product_file; //상품 이미지
 	private String giftshop_product_restrictions;  //상품 구매 제한
 	private String giftshop_product_periodofuse; //상품 사용 기간
 	private String giftshop_product_desc1; //상품 사용 방법
@@ -33,11 +33,11 @@ public class GiftShopProductModel {
 	public void setGiftshop_product_price(int giftshop_product_price) {
 		this.giftshop_product_price = giftshop_product_price;
 	}
-	public String getGiftshop_product_url() {
-		return giftshop_product_url;
+	public String getGiftshop_product_file() {
+		return giftshop_product_file;
 	}
-	public void setGiftshop_product_url(String filename) {
-		this.giftshop_product_url = filename;
+	public void setGiftshop_product_file(String giftshop_product_file) {
+		this.giftshop_product_file = giftshop_product_file;
 	}
 	public String getGiftshop_product_restrictions() {
 		return giftshop_product_restrictions;
