@@ -18,9 +18,8 @@
 <title>공지 사항</title>
 
 <script type="text/javascript">
-	//** 목록 버튼 클릭 이벤트 : 버튼 클릭시 상세보기화면에 있던 페이지, 검색옵션, 키워드 값을 가지로 목록으로 이동
 	function btnList(){
-    	location.href="<%=cp%>/admin/noticeList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}";
+    	location.href="<%=cp%>/admin/noticeList.see";
     	}
     	
 	function btnUpdate(){

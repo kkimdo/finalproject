@@ -1,7 +1,9 @@
 package movie.qna;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.qna.QnaCommentModel;
 import movie.admin.qna.QnaModel;
 import movie.admin.qna.QnaService;
+import movie.common.paging.commonPaging;
 
 @Controller
 @RequestMapping("/qna")
@@ -31,51 +34,61 @@ public class MainQnaController {
 	private QnaService qnaService;
 
 	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-	//private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	// private static final String uploadPath =
+	// "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 
 	// 글 목록
-	@RequestMapping(value = "/qnaMyList.see")
+	@RequestMapping(value = "/qnaMemberList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
-	public ModelAndView QnaList(@RequestParam(defaultValue = "qna_subject") String searchOption,
-			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
-			throws Exception {
-
-		/*
-		 * // 레코드의 갯수 계산 int count = qnaService.count(searchOption, keyword);
-		 * 
-		 * // 페이지 나누기 관련 처리 commonPaging c_Paging = new commonPaging(count, curPage);
-		 * int start = c_Paging.getPageBegin(); int end = c_Paging.getPageEnd();
-		 * 
-		 * List<QnaModel> qnaList = qnaService.QnaListAll(start, end, searchOption,
-		 * keyword);
-		 * 
-		 * // 데이터를 맵에 저장 Map<String, Object> map = new HashMap<String, Object>();
-		 * map.put("qnaList", qnaList); map.put("count", count); map.put("searchOption",
-		 * searchOption); map.put("keyword", keyword); map.put("c_Paging", c_Paging);
-		 */
+	public ModelAndView QnaMemberList(@RequestParam(defaultValue = "qna_subject") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage,
+			HttpSession session) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
-		// mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
-		// mav.setViewName("qnaList");
+
+		String qna_id = (String) session.getAttribute("session_member_id");
+
+		// 로그인이 안되 있을 경우, 로그인 창으로 이동
+		if (qna_id == null) {
+			mav.setViewName("qna/QnaLoginConfirm");
+			return mav;
+		}
+
+		int qnaMemberCount = qnaService.QnaMemberCount(qna_id, searchOption, keyword);
+
+		commonPaging c_Paging = new commonPaging(qnaMemberCount, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
+
+		List<QnaModel> qnaMemberList = qnaService.QnaMemberList(qna_id, start, end, searchOption, keyword);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qnaMemberList", qnaMemberList);
+		map.put("qnaMemberCount", qnaMemberCount);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
+
+		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
+		mav.setViewName("qnaList");
 
 		return mav;
 	}
 
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.GET)
-	public String QnaWriteForm() {
+	public String QnaMemberWriteForm() {
 		return "qnaWrite";
 	}
 
 	// 게시글 작성 처리
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.POST)
-	public ModelAndView QnaWrite(@ModelAttribute("qnaModel") QnaModel qnaModel, BindingResult result,
+	public ModelAndView QnaMemberWrite(@ModelAttribute("qnaModel") QnaModel qnaModel, BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
 
 		int qnaSeqNum = qnaService.QnaGetSEQ();
 		qnaModel.setQna_no(qnaSeqNum);
 
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("qna_orgfile");
-		System.out.println("asdasd" + multipartFile);
 
 		String orgfile_full_name = "";
 		String orgfile_name = "";
@@ -103,8 +116,11 @@ public class MainQnaController {
 				}
 
 				System.out.println("실제 파일 명 : " + orgfile_full_name);
-				qnaModel.setQna_savfile(orgfile_full_name); // savfile은 orgfile_full_name에 저장
-				qnaModel.setQna_orgfile(orgfile_name); // orgfile은 orgfile_name에 저장
+				qnaModel.setQna_savfile(orgfile_full_name); // savfile은
+															// orgfile_full_name에
+															// 저장
+				qnaModel.setQna_orgfile(orgfile_name); // orgfile은 orgfile_name에
+														// 저장
 			}
 
 		} else {
@@ -116,23 +132,23 @@ public class MainQnaController {
 
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("qnaModel", qnaService.QnaWrite(qnaModel)); // 데이터를 저장
-		mav.setViewName("redirect:/qna/qnaList.see");
+		qnaService.QnaWrite(qnaModel);
+
+		mav.addObject("qnaModel", qnaModel);
+		mav.setViewName("redirect:/qna/qnaMemberList.see");
 
 		return mav;
 
 	}
 
 	// 글 상세보기
-	@RequestMapping(value = "/qnaView.see", method = RequestMethod.GET)
-	public ModelAndView QnaView(@RequestParam int qna_no, HttpSession session) throws Exception {
-
-		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value = "/qnaMemberView.see", method = RequestMethod.GET)
+	public ModelAndView QnaMemberView(@RequestParam int qna_no) throws Exception {
 
 		List<QnaCommentModel> QnaCommentList = qnaService.CommentList(qna_no);
 		QnaCommentList = qnaService.CommentList(qna_no);
-
+		
+		ModelAndView mav = new ModelAndView();
 		// 뷰에 전달할 데이터
 		mav.addObject("qnaModel", qnaService.QnaView(qna_no));
 		mav.addObject("QnaCommentList", QnaCommentList);

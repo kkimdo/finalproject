@@ -73,13 +73,12 @@
 	
 	<!-- main qna (1:1문의) -->
 		<!-- 여기의 List는 회원 자신만 보는 list -->
-	<!-- <definition name="qnaList" extends="main">
+	<definition name="qnaList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaList.jsp" />
 	</definition>
 	<definition name="qnaView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaView.jsp" />
 	</definition>
-	-->
 	<definition name="qnaWrite" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaWrite.jsp" />
 	</definition>

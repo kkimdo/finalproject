@@ -63,7 +63,7 @@
 		</div>
 		<div class="btn_type_03">
 			<a href="#none" class="btn btnC_03 btnP_04 mr10"
-				onclick="location.href='faqList.see?currentPage=${currentPage}'">
+				onclick="location.href='faqList.see'">
 				<span>목록</span>
 			</a> <span class="btn btnC_04 btnP_04"> <input type="button"
 				onclick="location.href='faqUpdate.see?faq_no=${faqModel.faq_no}'"

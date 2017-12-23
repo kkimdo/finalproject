@@ -88,6 +88,7 @@
 					<!-- emovie_list -->
 					<ul class="emovie_list">
 						<c:forEach var="eventList_4" items="${map.eventList_4}">
+							<fmt:parseDate value="${eventList_4.event_end_date}" var="eventEndDate4" pattern="yyyy.MM.dd" />
 							<li><a href="javascript:void(0);"
 								onclick='eventDate(<fmt:formatDate value="${eventEndDate4}" pattern="yyyyMMdd"/>, ${eventList_4.event_no})'>
 									<img

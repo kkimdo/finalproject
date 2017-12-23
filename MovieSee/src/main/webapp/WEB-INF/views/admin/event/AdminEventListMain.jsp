@@ -55,7 +55,7 @@
 		</div>
 		<div class="admin_ct">
 			<h3 class="sub_tit">이벤트</h3>
-			<div class="tbl_type_02">
+			<div class="tbl_type_02"> 
 				<div id="container" class="sub">
 					<!-- content -->
 					<div id="divADLeftPlotting" class="ad_pic" style="top: 323px;">
@@ -82,24 +82,21 @@
 								<c:forEach var="eventList_1" items="${map.eventList_1}" end="3">
 									<fmt:parseDate var="eventEndDate1"
 										value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
-
 									<li><a href="javascript:void(0);"
 										onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
-											<img
-											src="/movie/resources/uploads/event/${eventList_1.event_poster_file}"
-											alt="${eventList_1.event_subject}" />
+											<img src="/movie/resources/uploads/event/${eventList_1.event_poster_file}" alt="${eventList_1.event_subject}" />
 									</a>
 										<dl class="imgsub">
 											<dt class="event">
-												<a href="javascript:void(0);"
-													onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+												<a href="javascript:void(0);" onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
 													${eventList_1.event_subject} </a>
 											</dt>
 											<dd class="eventdate">
 												기간 <span> ${eventList_1.event_start_date} ~
-													${eventList_1.event_end_date} </span>
+													${eventList_1.event_end_date} 
+													</span>
 											</dd>
-										</dl></li>
+										</dl>
 
 								</c:forEach>
 							</ul>

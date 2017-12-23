@@ -195,7 +195,7 @@
 										</th>
 										<td>
 											<div>
-												<input type="file" name="giftshop_product_url" id="product_url" />
+												<input type="file" name="giftshop_product_file" id="product_url" />
 											</div> <span class="txt_left"> </span>
 										</td>
 									</tr>

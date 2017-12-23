@@ -40,7 +40,7 @@
 
 				<c:if test="${session_member_name != null }">
 					<li><strong>${session_member_name}&nbsp;님 환영합니다.</strong></li>
-					<li><a href="<%=cp%>/mypage/mypage.see">MyPage</a></li>
+					<li><a href="<%=cp%>/mypage/mypage.see">마이시네마</a></li>
 					<c:if test="${session_member_name == 'admin' }">
 						<li><a href="<%=cp%>/admin/movieList.see">관리자페이지</a></li>
 					</c:if>

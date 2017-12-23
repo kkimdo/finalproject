@@ -27,6 +27,23 @@
 	 // 페이지 주소 변경(이동)
 	location.href="<%=cp%>/admin/faqWrite.see";
 	}
+	
+	$(function(){
+		var faq_btn = $(".faq_delete");
+		
+		faq_btn.each(function(){
+			var btn = $(this).children('.btn');
+			
+			btn.on('click',function(){
+				var check = confirm("삭제하시겠습니까?");	
+				if(check){
+					return true;
+				}else{
+					return false;
+				}
+			})
+		})
+	})
 </script>
 
 </head>
@@ -47,15 +64,15 @@
 		</div>
 		<div class="admin_ct">
 			<h3 class="sub_tit">FAQ</h3>
-			<div class="tbl_type_02">
+				<div class="tbl_type_02">
 				<table>
-					<caption>번호,제목,날짜,조회를 나타내는 FAQ 표</caption>
 					<colgroup>
 						<col style="width: 5%;" />
 						<col style="width: 5%;" />
-						<col style="width: 10%;" />
+						<col style="width: 30%;" />
 						<col style="width: 10%;" />
 						<col style="width: 5%;" />
+						<col style="width: 8%;" />
 					</colgroup>
 
 					<thead>
@@ -65,6 +82,7 @@
 							<th scope="col">제목</th>
 							<th scope="col">등록일</th>
 							<th scope="col">조회수</th>
+							<th scope="col">삭제유무</th>
 						</tr>
 					</thead>
 
@@ -80,6 +98,11 @@
 								<td><fmt:formatDate value="${faqList.faq_date}"
 										pattern="yyyy-MM-dd" /></td>
 								<td>${faqList.faq_hit}</td>
+								<td class="faq_delete">
+									<a href="<%=cp%>/admin/faqDelete.see?faq_no=${faqList.faq_no}"class="btn btnC_04 btnP_03">
+									<span>삭제</span>
+								</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
