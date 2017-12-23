@@ -28,7 +28,7 @@
 		)a ) where rn between #{start} and #{end}
 	</sql>
 
-	<!-- 검색 조건 -->
+	<!-- 전체 검색 조건 -->
 	<sql id="search">
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
@@ -44,6 +44,21 @@
 			</otherwise>
 		</choose>
 	</sql>
+	
+	<!-- 부분 리스트 마다 검색 -->
+	<sql id="search2">
+		<choose>
+			<when test="searchOption == 'all'">
+				(event_subject like '%'||#{keyword}||'%' or
+				event_content like '%'||#{keyword}||'%' or event_category like
+				'%'||#{keyword}||'%')
+			</when>
+
+			<otherwise>
+				(${searchOption} like '%'||#{keyword}||'%')
+			</otherwise>
+		</choose>
+	</sql>
 
 	<!-- select 쿼리문 정의 -->
 	<!-- 게시글 목록 조회 및 검색 조회 및 이벤트 종료일 끝나지 않은거만  (1.영화) -->
@@ -55,12 +70,12 @@
 		event_poster_file, event_content_file
 		from event
 		where ( to_char(sysdate,'YYYY.MM.dd') < to_date(event_end_date, 'YYYY.MM.dd') and
-		event_category = '1' ) and (event_subject like '%'||#{keyword}||'%'
-		or
-		event_content like '%'||#{keyword}||'%')
+		event_category = '1' ) 
+	 ]]>
+		and
+		<include refid="search2" />
 		order by event_no desc
 		)a ) where rn between #{start} and #{end}
-	 ]]>
 	</select>
 
 	<!-- 게시글 목록 조회 및 검색 조회 및 이벤트 종료일 끝나지 않은거만 (2.시대회/무대인사) -->
@@ -72,14 +87,12 @@
 		event_poster_file, event_content_file
 		from event
 		where ( to_char(sysdate,'YYYY.MM.dd') < to_date(event_end_date, 'YYYY.MM.dd') and
-		event_category = '2' ) and (event_subject like
-		'%'||#{keyword}||'%'
-		or
-		event_content like '%'||#{keyword}||'%')
-		order
-		by event_no desc
-		)a ) where rn between #{start} and #{end}
+		event_category = '2' )
 	 ]]>
+		and
+		<include refid="search2" />
+		order by event_no desc
+		)a ) where rn between #{start} and #{end}
 	</select>
 
 	<!-- 게시글 목록 조회 및 검색 조회 및 이벤트 종료일 끝나지 않은거만 (3. 롯시NOW) -->
@@ -91,12 +104,12 @@
 		event_poster_file, event_content_file
 		from event
 		where ( to_char(sysdate,'YYYY.MM.dd') < to_date(event_end_date, 'YYYY.MM.dd') and
-		event_category = '3' ) and (event_subject like '%'||#{keyword}||'%'
-		or
-		event_content like '%'||#{keyword}||'%')
+		event_category = '3' )
+	 ]]>
+	 	and
+		<include refid="search2" />
 		order by event_no desc
 		)a ) where rn between #{start} and #{end}
-	 ]]>
 	</select>
 
 	<!-- 게시글 목록 조회 및 검색 조회 및 이벤트 종료일 끝나지 않은거만 (4. 제휴할인) -->
@@ -108,12 +121,12 @@
 		event_poster_file, event_content_file
 		from event
 		where ( to_char(sysdate,'YYYY.MM.dd') < to_date(event_end_date, 'YYYY.MM.dd') and
-		event_category = '4' ) and (event_subject like '%'||#{keyword}||'%'
-		or
-		event_content like '%'||#{keyword}||'%')
+		event_category = '4' ) 
+	 ]]>
+	 	and
+		<include refid="search2" />
 		order by event_no desc
 		)a ) where rn between #{start} and #{end}
-	 ]]>
 	</select>
 	
 	<!-- 지난 이벤트 목록  -->

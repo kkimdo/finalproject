@@ -19,6 +19,23 @@
 	function list(page){
    	location.href="<%=cp%>/admin/qnaList.see?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
 	}
+	
+	$(function(){
+		var qna_btn = $(".qna_delete");
+		
+		qna_btn.each(function(){
+			var btn = $(this).children('.btn');
+			
+			btn.on('click',function(){
+				var check = confirm("삭제하시겠습니까?");	
+				if(check){
+					return true;
+				}else{
+					return false;
+				}
+			})
+		})
+	})
 </script>
 
 <link rel="stylesheet" type="text/css"
@@ -44,43 +61,55 @@
 		</div>
 		<div class="admin_ct">
 			<h3 class="sub_tit">Q&amp;A</h3>
-			<fieldset>
-				<table class="tbl_qnast03">
+			<div class="tbl_type_02">
+				<table>
 					<colgroup>
-						<col style="width: 11%">
-						<col style="width: 45%">
+						<col style="width: 5%">
+						<col style="width: 7%">
+						<col style="width: 7%">
 						<col style="width: 14%">
-						<col style="width: 15%">
+						<col style="width: 35%">
+						<col style="width: 7%">
+						<col style="width: 7%">
 						<col style="width: 11%">
+						<col style="width: 8%">
 					</colgroup>
 
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
+							<th scope="col">지역</th>
+							<th scope="col">문의 종류</th>
+							<th scope="col">문의 분류</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
 							<th scope="col">아이디</th>
 							<th scope="col">등록일</th>
+							<th scope="col">삭제유무</th>
 						</tr>
 					</thead>
-
 
 					<tbody>
 						<c:forEach var="qnaList" items="${map.qnaList}">
 							<c:url var="viewURL" value="qnaView.see">
 								<c:param name="qna_no" value="${qnaList.qna_no }" />
-								<c:param name="currentPage" value="${currentPage }" />
 							</c:url>
 							<tr class="qna">
-
 								<td>${qnaList.qna_no}</td>
+								<td>${qnaList.qna_area}</td>
+								<td>${qnaList.qna_question_kinds}</td>
+								<td>${qnaList.qna_category}</td>
 								<td><a href="${viewURL}">${qnaList.qna_subject }</a></td>
 								<td>${qnaList.qna_id}</td>
 								<td>${qnaList.qna_name}</td>
 								<td><fmt:formatDate value="${qnaList.qna_date}" pattern="yyyy-MM-dd" /></td>
+								<td class="qna_delete">
+									<a href="<%=cp%>/admin/qnaDelete.see?qna_no=${qnaList.qna_no}"class="btn btnC_04 btnP_03">
+									<span>삭제</span>
+								</a>
+								</td>
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
 				<form name="form1" method="post"
@@ -98,6 +127,15 @@
 								<c:out value="${map.searchOption == 'qna_subject'?'ed':''}"/>>제목</option>
 							<option value="qna_content"
 								<c:out value="${map.searchOption == 'qna_content'?'ed':''}"/>>내용</option>
+							<option value="qna_question_kinds"
+								<c:out value="${map.searchOption == 'qna_question_kinds'?'ed':''}"/>>문의 종류
+							</option>
+							<option value="qna_category"
+								<c:out value="${map.searchOption == 'qna_category'?'ed':''}"/>>문의 분류
+							</option>
+							<option value="qna_area"
+								<c:out value="${map.searchOption == 'qna_area'?'ed':''}"/>>지역
+							</option>
 
 
 						</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
@@ -148,5 +186,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

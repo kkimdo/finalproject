@@ -73,6 +73,14 @@ public class QnaServiceImpl implements QnaService {
 		qnaDAO.CommentDelete(qna_comment_no);
 
 	}
-
 	
+	@Override
+	public List<QnaModel> QnaMemberList(String qna_id, int start, int end, String searchOption, String keyword) throws Exception {
+		return qnaDAO.QnaMemberList(qna_id, start, end, searchOption, keyword);
+	}
+
+	@Override
+	public int QnaMemberCount(String qna_id, String searchOption, String keyword) throws Exception {
+		return qnaDAO.QnaMemberCount(qna_id, searchOption, keyword);
+	}
 }

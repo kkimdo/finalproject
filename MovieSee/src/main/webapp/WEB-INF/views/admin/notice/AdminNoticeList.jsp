@@ -26,6 +26,23 @@
 	 // 페이지 주소 변경(이동)
 	location.href="<%=cp%>/admin/noticeWrite.see";
 	}
+	
+	$(function(){
+		var notice_btn = $(".notice_delete");
+		
+		notice_btn.each(function(){
+			var btn = $(this).children('.btn');
+			
+			btn.on('click',function(){
+				var check = confirm("삭제하시겠습니까?");	
+				if(check){
+					return true;
+				}else{
+					return false;
+				}
+			})
+		})
+	})
 </script>
 
 </head>
@@ -49,19 +66,21 @@
 			<div class="tbl_type_02">
 				<table>
 					<colgroup>
+						<col style="width: 7%;" />
+						<col style="width: 8%;" />
+						<col style="width: 30%;" />
+						<col style="width: 8%;" />
 						<col style="width: 5%;" />
-						<col style="width: 10%;" />
-						<col style="width: 10%;" />
-						<col style="width: 10%;" />
-						<col style="width: 5%;" />
+						<col style="width: 8%;" />
 					</colgroup>
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
-							<th scope="col">제목</th>
 							<th scope="col">영화관</th>
+							<th scope="col">제목</th>
 							<th scope="col">등록일</th>
 							<th scope="col">조회수</th>
+							<th scope="col">삭제유무</th>
 						</tr>
 					</thead>
 
@@ -78,18 +97,18 @@
 								</c:choose>
 								<c:choose>
 									<c:when test="${noticeList.notice_area eq '전체'}">
-										<td><strong><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></strong></td>
-                        				</c:when>
-									<c:otherwise>
-										<td><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></td>
-                        			</c:otherwise>
-								</c:choose>
-								<c:choose>
-									<c:when test="${noticeList.notice_area eq '전체'}">
 										<td><strong>${noticeList.notice_area}</strong></td>
                         				</c:when>
 									<c:otherwise>
 										<td>${noticeList.notice_area}</td>
+                        			</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${noticeList.notice_area eq '전체'}">
+										<td><strong><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></strong></td>
+                        				</c:when>
+									<c:otherwise>
+										<td><a href="<%=cp %>/admin/noticeView.see?notice_no=${noticeList.notice_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.notice_subject}</a></td>
                         			</c:otherwise>
 								</c:choose>
 								<c:choose>
@@ -109,8 +128,18 @@
 										<td>${noticeList.notice_hit}</td>
                         			</c:otherwise>
 								</c:choose>
+								<td class="notice_delete">
+									<a href="<%=cp%>/admin/noticeDelete.see?notice_no=${noticeList.notice_no}"class="btn btnC_04 btnP_03">
+									<span>삭제</span>
+								</a>
+								</td>
 							</tr>
 						</c:forEach>
+						<c:if test="${fn:length(map.noticeList) le 0}">
+					<tr>
+						<td colspan="13" class="tac">등록된 공지사항이 없습니다.</td>
+					</tr>
+					</c:if>
 					</tbody>
 				</table>
 				<form name="form1" method="post"

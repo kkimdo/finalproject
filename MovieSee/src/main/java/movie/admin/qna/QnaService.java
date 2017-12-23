@@ -31,6 +31,12 @@ public interface QnaService {
 
 	// 댓글 삭제
 	public void CommentDelete(int qna_comment_no) throws Exception;
+	
+	// 회원이 문의한 게시판 목록
+	public List<QnaModel> QnaMemberList(String qna_id, int start, int end, String searchOption, String keyword) throws Exception;
+
+	// 회원이 문의한 게시글 레코드 갯수
+	public int QnaMemberCount(String qna_id, String searchOption, String keyword) throws Exception;
 
 
 }

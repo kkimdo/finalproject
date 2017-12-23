@@ -21,7 +21,7 @@
 <script type="text/javascript">
 	//** 목록 버튼 클릭 이벤트 : 버튼 클릭시 상세보기화면에 있던 페이지, 검색옵션, 키워드 값을 가지로 목록으로 이동
 	function btnList(){
-    	location.href="<%=cp%>/admin/qnaList.see?curPage=${curPage}";
+    	location.href="<%=cp%>/admin/qnaList.see";
     	}  
 	function btnDelete() {
 		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
@@ -89,6 +89,18 @@
 							<th scope="row"><label for="date"> 등록일 </label></th>
 							<td id="date"><fmt:formatDate value="${qnaModel.qna_date}"
 									pattern="yyyy.MM.dd" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="area"> 지역 </label></th>
+							<td id="area">${qnaModel.qna_area}</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="kinds"> 문의 종류 </label></th>
+							<td id="kinds">${qnaModel.qna_question_kinds}</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="category"> 문의 분류 </label></th>
+							<td id="category">${qnaModel.qna_category}</td>
 						</tr>
 						<tr>
 							<th scope="row"><label for="uploadfile"> 첨부파일 </label></th>

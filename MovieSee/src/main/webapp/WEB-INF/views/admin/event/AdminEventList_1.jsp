@@ -18,23 +18,23 @@
 
 <script type="text/javascript">
 
-	 function eventDate(endDate, number){
+function eventDate(endDate, number){
 
-		var today = new Date(); 
-		var year = today.getFullYear();
-		var month = today.getMonth() + 1; 
-		var day = today.getDate();
-		
-		if (("" + month).length == 1) month = "0" + month;
-		if (("" + day).length  == 1) day  = "0" + day;
-		var toDate	= year+''+month+''+day;
-		
-		if(toDate <= endDate){ 
-		 location.href='<%=cp%>/admin/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
-		}else{ 
-		  alert('이벤트 기간이 아닙니다.');
-		}
-		
+	var today = new Date(); 
+	var year = today.getFullYear();
+	var month = today.getMonth() + 1; 
+	var day = today.getDate();
+	
+	if (("" + month).length == 1) month = "0" + month;
+	if (("" + day).length  == 1) day  = "0" + day;
+	var toDate	= year+''+month+''+day;
+	
+	if(toDate <= endDate){ 
+	 location.href='<%=cp%>/admin/eventView.see?event_no=' + number + '&curPage=${map.c_Paging.curPage}';
+	}else{ 
+	  alert('이벤트 기간이 아닙니다.');
+	}
+}
 </script>
 
 <body>
@@ -74,8 +74,8 @@
 										<option value="event_content"
 											<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
 									</select> <input type="text" name="keyword" value="${map.keyword}"
-										title="검색어 입력" class="ipt_txt"> <input type="submit"
-										value="검색" class="boardBt">
+										title="검색어 입력" class="ipt_txt"> 
+										<input type="submit" value="검색" class="boardBt">
 								</form>
 							</fieldset>
 						</div>
@@ -84,8 +84,8 @@
 					<!-- emovie_list -->
 					<ul class="emovie_list">
 						<c:forEach var="eventList_1" items="${map.eventList_1}">
-							<fmt:parseDate var="eventEndDate1"
-								value="${eventList_1.event_end_date}" pattern="yyyy.MM.dd" />
+							<fmt:parseDate value="${eventList_1.event_end_date}"
+								var="eventEndDate1" pattern="yyyy.MM.dd" />
 							<li><a href="javascript:void(0);"
 								onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
 									<img
@@ -95,12 +95,12 @@
 								<dl class="imgsub">
 									<dt class="event">
 										<a href="javascript:void(0);"
-											onclick='eventDate(<fmt:formatDate value="${eventEndDate1}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
+											onclick='eventDate(<fmt:formatDate value="${eventEndDate2}" pattern="yyyyMMdd"/>, ${eventList_1.event_no})'>
 											${eventList_1.event_subject} </a>
 									</dt>
 									<dd class="eventdate">
-										기간 <span> ${eventList_1.event_start_date} ~
-											${eventList_1.event_end_date} </span>
+										기간 <span>${eventList_1.event_start_date} ~
+											${eventList_1.event_end_date}</span>
 									</dd>
 								</dl></li>
 						</c:forEach>

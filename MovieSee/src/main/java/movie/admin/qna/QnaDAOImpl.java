@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-
 @Repository // 현재 클래스를 DAO bean으로 등록
 public class QnaDAOImpl implements QnaDAO {
 
@@ -86,5 +85,32 @@ public class QnaDAOImpl implements QnaDAO {
 
 	}
 
+	@Override
+	public List<QnaModel> QnaMemberList(String qna_id, int start, int end, String searchOption, String keyword)
+			throws Exception {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("qna_id", qna_id);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+
+		map.put("start", start);
+		map.put("end", end);
+
+		return sqlSessionTemplate.selectList("qna.qnaMemberList", map);
+	}
+
+	@Override
+	public int QnaMemberCount(String qna_id, String searchOption, String keyword) throws Exception {
+		
+		Map<String, String> map = new HashMap<String, String>();
+
+		map.put("qna_id", qna_id);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+
+		return sqlSessionTemplate.selectOne("qna.qnaMemberCount", map);
+	}
 
 }

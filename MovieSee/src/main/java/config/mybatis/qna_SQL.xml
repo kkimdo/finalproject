@@ -47,12 +47,30 @@
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
 				where (qna_name like '%'||#{keyword}||'%' or qna_id like '%'||#{keyword}||'%' or qna_subject like
-				'%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%')
+				'%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%' or qna_question_kinds like '%'||#{keyword}||'%'
+				or qna_category like '%'||#{keyword}||'%' or qna_area like '%'||#{keyword}||'%'
+				)
 			</when>
 
 			<!-- 전체 검색이 아닐 경우 -->
 			<otherwise>
 				where ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 회원 문의 내역 검색 조건 -->
+	<sql id="search2">
+		<choose>
+			<!-- 검색 옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				(qna_subject like '%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%' or qna_question_kinds like '%'||#{keyword}||'%'
+				or qna_category like '%'||#{keyword}||'%' or qna_area like '%'||#{keyword}||'%'
+				)
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				(${searchOption} like '%'||#{keyword}||'%')
 			</otherwise>
 		</choose>
 	</sql>
@@ -127,9 +145,25 @@
         UPDATE qna_comment 
         SET qna_comment_content = #{qna_comment_content}
         WHERE qna_comment_no = #{qna_comment_no}
-    </select> 
+     </select> 
 	
+	<!-- 회원 문의 내역 목록 -->
+	<select id="qnaMemberList" resultMap="qnaModelRes">
+		<include refid="pagingHeader" />
+		select rownum, qna_id, qna_no, qna_name, qna_phone, qna_email,
+		qna_question_kinds, qna_category, qna_area, qna_subject, qna_content,
+		qna_orgfile, qna_savfile, qna_date from qna
+		where <include refid="search2" /> 
+		and qna_id = #{qna_id}
+		order by qna_no desc, qna_date desc
+		<include refid="pagingFooter"></include>
+	</select>
 	
-
+	<!-- 회원 문의 게시글 레코드 갯수 -->
+	<select id="qnaMemberCount" resultType="int">
+		select count(*) from qna
+		where <include refid="search2" />
+		and qna_id = #{qna_id}
+	</select>
 
 </mapper>
