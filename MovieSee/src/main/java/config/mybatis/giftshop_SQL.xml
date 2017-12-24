@@ -6,6 +6,7 @@
 
 	<resultMap type="giftShopProductModel" id="giftShopProductModelRes">
 		<result property="giftshop_product_no" column="giftshop_product_no" />
+		<result property="giftshop_product_category" column="giftshop_product_category" />
 		<result property="giftshop_product_name" column="giftshop_product_name" />
 		<result property="giftshop_product_price" column="giftshop_product_price" />
 		<result property="giftshop_product_file" column="giftshop_product_file" />
@@ -15,6 +16,17 @@
 		<result property="giftshop_product_desc2" column="giftshop_product_desc2" />
 		<result property="giftshop_product_desc3" column="giftshop_product_desc3" />
 		<result property="giftshop_product_date" column="giftshop_product_date" />
+		<result property="giftshop_product_components" column="giftshop_product_components" />
+		<result property="giftshop_product_count" column="giftshop_product_count" />
+	</resultMap>
+
+	<resultMap type="mainGiftShopPurchaseModel" id="mainGiftShopPurchaseModelRes">
+		<result property="giftpurchase_no" column="giftpurchase_no" />
+		<result property="giftshop_product_no" column="giftshop_product_no" />
+		<result property="giftpurchase_member_id" column="giftpurchase_member_id" />
+		<result property="giftpurchase_product_name" column="giftpurchase_product_name" />
+		<result property="giftpurchase_count" column="giftpurchase_count" />
+		<result property="giftpurchase_price" column="giftpurchase_price" />
 	</resultMap>
 
 	<sql id="select-all">
@@ -34,14 +46,17 @@
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
-				where (giftshop_product_name like '%'||#{keyword}||'%' or
-				giftshop_product_price like '%'||#{keyword}||'%' or 
-				giftshop_product_desc1 like '%'||#{keyword}||'%')
+				where (giftshop_product_name like
+				'%'||#{keyword}||'%' or
+				giftshop_product_price like
+				'%'||#{keyword}||'%' or
+				giftshop_product_desc1 like
+				'%'||#{keyword}||'%')
 			</when>
 
 			<!-- 전체 검색이 아닐 경우 -->
 			<otherwise>
-				where ${searchOption} like '%'||#{keyword}||'%'
+				where (${searchOption} like '%'||#{keyword}||'%')
 			</otherwise>
 		</choose>
 	</sql>
@@ -49,38 +64,89 @@
 	<!-- 상품 등록 -->
 	<insert id="gspWrite" parameterType="giftShopProductModel">
 		insert into giftshop_product
-		(giftshop_product_no, 
-		giftshop_product_name, 
-		giftshop_product_price, 
-		giftshop_product_file, 
+		(giftshop_product_no,
+		giftshop_product_name,
+		giftshop_product_category,
+		giftshop_product_price,
+		giftshop_product_file,
 		giftshop_product_restrictions,
 		giftshop_product_periodofuse,
-		giftshop_product_desc1, 
-		giftshop_product_desc2, 
-		giftshop_product_desc3, 
-		giftshop_product_date)
-		values 
+		giftshop_product_desc1,
+		giftshop_product_desc2,
+		giftshop_product_desc3,
+		giftshop_product_date,
+		giftshop_product_components,
+		giftshop_product_count)
+		values
 		(giftshop_product_no_seq.NEXTVAL,
 		#{giftshop_product_name},
+		#{giftshop_product_category},
 		#{giftshop_product_price},
 		#{giftshop_product_file},
 		#{giftshop_product_restrictions},
 		#{giftshop_product_periodofuse},
 		#{giftshop_product_desc1},
 		#{giftshop_product_desc2},
-		#{giftshop_product_desc3}, 
-		sysdate)
+		#{giftshop_product_desc3},
+		sysdate,
+		#{giftshop_product_components},
+		#{giftshop_product_count})
 	</insert>
 
 	<select id="gspListProduct" resultMap="giftShopProductModelRes">
 		<include refid="pagingHeader" />
 		select rownum, giftshop_product_no, giftshop_product_name,
-		giftshop_product_price, giftshop_product_file,
-		giftshop_product_restrictions, giftshop_product_periodofuse, giftshop_product_desc1,
-		giftshop_product_desc2, giftshop_product_desc3, giftshop_product_date
-		from giftshop_product
+		giftshop_product_category,
+		giftshop_product_price,
+		giftshop_product_file,
+		giftshop_product_restrictions,
+		giftshop_product_periodofuse, giftshop_product_desc1,
+		giftshop_product_desc2, giftshop_product_desc3, giftshop_product_date,
+		giftshop_product_components, giftshop_product_count
+		from
+		giftshop_product
 		<include refid="search" />
 		order by giftshop_product_no desc, giftshop_product_date desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- main 영화 관람권 목록 -->
+	<select id="gspList_1" resultMap="giftShopProductModelRes">
+		<include refid="pagingHeader" />
+		select rownum, giftshop_product_no, giftshop_product_name,
+		giftshop_product_category,
+		giftshop_product_price,
+		giftshop_product_file,
+		giftshop_product_restrictions,
+		giftshop_product_periodofuse, giftshop_product_desc1,
+		giftshop_product_desc2, giftshop_product_desc3, giftshop_product_date,
+		giftshop_product_components, giftshop_product_count
+		from
+		giftshop_product
+		<include refid="search" />
+		and giftshop_product_category = '영화 관람권'
+		order by giftshop_product_no
+		desc, giftshop_product_date desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- main 매점 상품권 목록 -->
+	<select id="gspList_2" resultMap="giftShopProductModelRes">
+		<include refid="pagingHeader" />
+		select rownum, giftshop_product_no, giftshop_product_name,
+		giftshop_product_category,
+		giftshop_product_price,
+		giftshop_product_file,
+		giftshop_product_restrictions,
+		giftshop_product_periodofuse, giftshop_product_desc1,
+		giftshop_product_desc2, giftshop_product_desc3, giftshop_product_date,
+		giftshop_product_components, giftshop_product_count
+		from
+		giftshop_product
+		<include refid="search" />
+		and giftshop_product_category = '매점 상품권'
+		order by giftshop_product_no
+		desc, giftshop_product_date desc
 		<include refid="pagingFooter"></include>
 	</select>
 
@@ -90,9 +156,75 @@
 	</select>
 
 	<select id="gspGetSEQ" resultType="int">
-		select giftshop_product_no_seq.NEXTVAL
+		select
+		giftshop_product_no_seq.NEXTVAL
 		from dual
 	</select>
 
+	<!-- 상품 상세 보기 -->
+	<select id="gspView" resultMap="giftShopProductModelRes">
+		<include refid="select-all" />
+		where giftshop_product_no = #{giftshop_product_no}
+	</select>
+
+	<!-- update -->
+	<!-- 상품 수정 -->
+	<insert id="gspUpdate" parameterType="giftShopProductModel">
+		update giftshop_product
+		set
+		giftshop_product_name = #{giftshop_product_name},
+		giftshop_product_category = #{giftshop_product_category},
+		giftshop_product_price = #{giftshop_product_price},
+		giftshop_product_file = #{giftshop_product_file},
+		giftshop_product_restrictions = #{giftshop_product_restrictions},
+		giftshop_product_periodofuse = #{giftshop_product_periodofuse},
+		giftshop_product_desc1 = #{giftshop_product_desc1},
+		giftshop_product_desc2 = #{giftshop_product_desc2},
+		giftshop_product_desc3 = #{giftshop_product_desc3},
+		giftshop_product_date = sysdate,
+		giftshop_product_components =
+		#{giftshop_product_components},
+		giftshop_product_count =
+		#{giftshop_product_count}
+		where giftshop_product_no =
+		#{giftshop_product_no}
+	</insert>
+
+	<!-- 상품 삭제 -->
+	<delete id="gspDelete">
+		delete from giftshop_product
+		where giftshop_product_no
+		= #{giftshop_product_no}
+	</delete>
+
+	<!-- 회원 상품 구매 -->
+	<insert id="mgsIt" parameterType="mainGiftShopPurchaseModel">
+		insert into giftshop_product
+		(giftpurchase_no,
+		giftshop_product_no,
+		giftpurchase_member_id,
+		giftpurchase_product_name,
+		giftpurchase_count,
+		giftpurchase_price)
+		values
+		(giftpurchase_no_seq.NEXTVAL,
+		#{giftshop_product_no},
+		#{giftpurchase_member_id},
+		#{giftpurchase_product_name},
+		#{giftpurchase_count},
+		#{giftpurchase_price})
+	</insert>
+
+	<!-- 회원이 구매한 상품 목록 -->
+<!-- 	<select id="mgsList" resultMap="giftShopProductModelRes">
+		select *
+		from
+		giftshop_product p, giftshop_purchase c
+		where
+		p.giftshop_product_no = c.giftpurchase_no
+		AND c.giftpurchase_member_id = #{giftpurchase_member_id}
+		order by
+		c.giftpurchase_no
+	</select> -->
 
 </mapper>

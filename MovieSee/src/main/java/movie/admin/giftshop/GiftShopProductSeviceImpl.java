@@ -18,6 +18,16 @@ public class GiftShopProductSeviceImpl implements GiftShopProductService {
 	}
 	
 	@Override
+	public List<GiftShopProductModel> GiftShopList_1(int start, int end, String searchOption, String keyword) {
+		return giftShopProductDAO.GiftShopList_1(start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public List<GiftShopProductModel> GiftShopList_2(int start, int end, String searchOption, String keyword) {
+		return giftShopProductDAO.GiftShopList_2(start, end, searchOption, keyword);
+	}
+	
+	@Override
 	public int count(String searchOption, String keyword) {
 		return giftShopProductDAO.count(searchOption, keyword);
 	}
@@ -41,4 +51,20 @@ public class GiftShopProductSeviceImpl implements GiftShopProductService {
 		return giftShopProductDAO.GiftShopProductWrite(giftShopProductModel);
 		
 	}
+	
+	@Override
+	public GiftShopProductModel GiftShopViewProduct(int giftshop_product_no) {
+		return giftShopProductDAO.GiftShopViewProduct(giftshop_product_no);
+	}
+	
+	@Override
+	public void GiftShopUpdateProduct(GiftShopProductModel giftShopProductModel) {
+		giftShopProductDAO.GiftShopUpdateProduct(giftShopProductModel);
+	}
+	
+	@Override
+	public void GiftShopDeleteProduct(int giftshop_product_no) {
+		giftShopProductDAO.GiftShopDeleteProduct(giftshop_product_no);
+	}
+	
 }

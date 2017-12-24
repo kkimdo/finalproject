@@ -83,6 +83,20 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/qna/QnaWrite.jsp" />
 	</definition>
 	
+	<!-- main giftshop -->
+	<definition name="giftShopList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/giftshop/GiftShopList.jsp" />
+	</definition>
+	<definition name="giftShopView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/giftshop/GiftShopView.jsp" />
+	</definition>
+	<!-- main giftshop 구매 목록 -->
+	<definition name="giftShopPurchaseList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/giftshop/GiftShopPurchaseList.jsp" />
+	</definition>
+	
+	
+	
 	<!-- main Member -->
 	<definition name="member" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/member/joinStep1.jsp"></put-attribute>
@@ -277,6 +291,12 @@
 	</definition>
 	<definition name="adminGiftShopListProduct" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/giftshop/AdminGiftShopListProduct.jsp" />
+	</definition>
+	<definition name="adminGiftShopViewProduct" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/giftshop/AdminGiftShopView.jsp" />
+	</definition>
+	<definition name="adminGiftShopUpdateProduct" extends="admin">
+		<put-attribute name="admin_body" value="/WEB-INF/views/admin/giftshop/AdminGiftShopUpdate.jsp" />
 	</definition>
 	
 	<definition name="MovieWrite" extends="admin">

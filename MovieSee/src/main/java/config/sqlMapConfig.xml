@@ -24,8 +24,10 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="qnaModel" type="movie.admin.qna.QnaModel" />
 		<typeAlias alias="qnaCommentModel" type="movie.admin.qna.QnaCommentModel" />
 		
-		<!-- giftshop product -->
+		<!-- admin giftshop -->
 		<typeAlias alias="giftShopProductModel" type="movie.admin.giftshop.GiftShopProductModel"/>
+		<!-- member giftshop -->
+		<typeAlias alias="mainGiftShopPurchaseModel" type="movie.giftshop.MainGiftShopPurchaseModel"/>
 		
 		<!-- movie --> 
 		<typeAlias alias="movieModel" type="movie.movie.MovieModel" />
