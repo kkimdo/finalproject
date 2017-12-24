@@ -14,6 +14,9 @@ public class GiftShopProductModel {
 	private String giftshop_product_desc2; //상품 취소/환불 내용
 	private String giftshop_product_desc3; //상품 기타 내용
 	private Date giftshop_product_date; //상품 등록 일
+	private String giftshop_product_category; //영화 관람권 아니면 매점 상품권
+	private String giftshop_product_components; //상품 구성품
+	private int giftshop_product_count; //상품 수량
 	
 	public int getGiftshop_product_no() {
 		return giftshop_product_no;
@@ -74,6 +77,24 @@ public class GiftShopProductModel {
 	}
 	public void setGiftshop_product_date(Date giftshop_product_date) {
 		this.giftshop_product_date = giftshop_product_date;
+	}
+	public String getGiftshop_product_category() {
+		return giftshop_product_category;
+	}
+	public void setGiftshop_product_category(String giftshop_product_category) {
+		this.giftshop_product_category = giftshop_product_category;
+	}
+	public String getGiftshop_product_components() {
+		return giftshop_product_components;
+	}
+	public void setGiftshop_product_components(String giftshop_product_components) {
+		this.giftshop_product_components = giftshop_product_components;
+	}
+	public int getGiftshop_product_count() {
+		return giftshop_product_count;
+	}
+	public void setGiftshop_product_count(int giftshop_product_count) {
+		this.giftshop_product_count = giftshop_product_count;
 	}
 	
 }

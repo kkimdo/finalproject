@@ -82,13 +82,13 @@
 .tab_st01 .tab_content .bus {
 	margin-bottom: 24px;
 	padding-left: 105px;
-	background: url('/LCHS/Image/Icon/bus.gif') no-repeat 0 0;
+	background: url('/movie/images/icon/bus.gif') no-repeat 0 0;
 	line-height: 28px
 }
 
 .tab_st01 .tab_content .subway {
 	padding: 0 0 20px 105px;
-	background: url('/LCHS/Image/Icon/subway.gif') no-repeat 0 0;
+	background: url('/movie/images/icon/subway.gif') no-repeat 0 0;
 	line-height: 28px
 }
 
@@ -121,7 +121,7 @@
 }
 
 .tab_st02 li a.on {
-	background: #231f20 url('/LCHS/Image/btn/btn_st02_on.gif') no-repeat 0 0;
+	background: #231f20 url('/movie/images/btn/btn_st02_on.gif') no-repeat 0 0;
 	color: #cdc197;
 	font-weight: bold;
 }
@@ -244,7 +244,7 @@
 	display: block;
 	height: 43px;
 	color: #231f20;
-	background: url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat left 50%;
+	background: url('/movie/images/Bg/bg_tab_line.gif') no-repeat left 50%;
 	text-align: center;
 }
 
@@ -262,14 +262,14 @@
 
 .tab_st04 li a.on span {
 	padding-left: 20px;
-	background: url('/LCHS/Image/Bullet/bullet02.gif') no-repeat 10px 50%;
+	background: url('/movie/images/Bullet/bullet02.gif') no-repeat 10px 50%;
 }
 
 /* tab_st05 */
 .tab_st05 {
 	width: 100%;
 	margin-bottom: 30px;
-	background: url('/LCHS/Image/Bg/bg_score_line.gif') repeat-x 0 100%
+	background: url('/movie/images/Bg/bg_score_line.gif') repeat-x 0 100%
 }
 
 .tab_st05:after {
@@ -336,7 +336,7 @@
 	border: 1px solid #e2dcce;
 	border-left: 0;
 	border-right: 0;
-	background: #f6f6e9 url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat left
+	background: #f6f6e9 url('/movie/images/Bg/bg_tab_line.gif') no-repeat left
 		center;
 	text-align: center;
 	vertical-align: middle;
@@ -344,7 +344,7 @@
 }
 
 .preview_table thead th:first-child {
-	background-image: none
+	background-images: none
 }
 
 .preview_table tbody td {
@@ -407,23 +407,23 @@
 
 .trafficATb tbody th .bus {
 	padding: 42px 0 0 0;
-	background: url('/LCHS/Image/Icon/icon_bus.png') no-repeat center top;
+	background: url('/movie/images/icon/icon_bus.png') no-repeat center top;
 }
 
 .trafficATb tbody th .subway {
 	padding: 42px 0 0 0;
-	background: url('/LCHS/Image/Icon/icon_subway.png') no-repeat center top;
+	background: url('/movie/images/icon/icon_subway.png') no-repeat center top;
 }
 
 .trafficATb tbody th .car {
 	padding: 34px 0 0 0;
-	background: url('/LCHS/Image/Icon/icon_car.png') no-repeat center top;
+	background: url('/movie/images/icon/icon_car.png') no-repeat center top;
 }
-/*.trafficATb tbody th .parking {padding:43px 0 0 0; background:url('/LCHS/Image/Icon/icon_pkLot.png') no-repeat center top;}*/
+/*.trafficATb tbody th .parking {padding:43px 0 0 0; background:url('/movie/images/icon/icon_pkLot.png') no-repeat center top;}*/
 	/*20170420 sunho 배경 png 변경*/
 .trafficATb tbody th .parking {
 	padding: 43px 0 0 0;
-	background: url('/LCHS/Image/Icon/icon_pkLotinfo.png') no-repeat center
+	background: url('/movie/images/icon/icon_pkLotinfo.png') no-repeat center
 		top;
 }
 
@@ -438,7 +438,7 @@
 .tbl_style01 th {
 	padding: 10px 0 10px 20px;
 	height: 30px;
-	background: url('/LCHS/Image/bg/bg_eline03.gif') no-repeat 100% 23px;
+	background: url('/movie/images/bg/bg_eline03.gif') no-repeat 100% 23px;
 	line-height: 40px;
 	vertical-align: top;
 	text-align: left;
@@ -660,11 +660,11 @@
 	display: block;
 	width: 27px;
 	height: 26px;
-	background: url('/LCHS/Image/Icon/checkbox_normal.gif') no-repeat 0 0
+	background: url('/movie/images/icon/checkbox_normal.gif') no-repeat 0 0
 }
 
 .chk_rec:checked+label:after {
-	background: url('/LCHS/Image/Icon/checkbox_checked.gif') no-repeat 0 0
+	background: url('/movie/images/icon/checkbox_checked.gif') no-repeat 0 0
 }
 
 /* 셀렉트 박스 */
@@ -688,7 +688,7 @@
 	display: block;
 	width: 90px;
 	padding: 13px 26px 12px 10px;
-	background: #fff url('/LCHS/Image/Bg/bg_select.gif') no-repeat 100% 50%;
+	background: #fff url('/movie/images/Bg/bg_select.gif') no-repeat 100% 50%;
 	border: 1px solid #b9b9b9;
 	color: #666;
 	cursor: pointer;
@@ -743,7 +743,7 @@
 
 .bg_gray .select_box .ui_fold_btn {
 	width: 210px;
-	background: #fbfbfb url('/LCHS/Image/Bg/bg_select.gif') no-repeat 100%
+	background: #fbfbfb url('/movie/images/Bg/bg_select.gif') no-repeat 100%
 		50%;
 	border: none
 }
@@ -920,12 +920,12 @@
 
 .btn_box.appdown .android {
 	padding-left: 18px;
-	background: url('/LCHS/Image/Icon/icon_android.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_android.png') no-repeat 0 0;
 }
 
 .btn_box.appdown .ios {
 	padding-left: 18px;
-	background: url('/LCHS/Image/Icon/icon_ios.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_ios.png') no-repeat 0 0;
 }
 
 /* paging */
@@ -989,7 +989,7 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: url('/LCHS/Image/Bg/bg_mask.png') repeat 0 0;
+	background: url('/movie/images/Bg/bg_mask.png') repeat 0 0;
 	z-index: 5;
 }
 
@@ -999,7 +999,7 @@
 	top: 50%;
 	min-width: 250px;
 	padding-top: 4px;
-	background: #fff url('/LCHS/Image/Bg/bg_popupT.gif') repeat-x left top;
+	background: #fff url('/movie/images/Bg/bg_popupT.gif') repeat-x left top;
 	font-size: 14px;
 	color: #231f20;
 	vertical-align: middle;
@@ -1067,7 +1067,7 @@
 	display: inline-block;
 	height: 23px;
 	padding-left: 28px;
-	background: url('/LCHS/Image/Bg/bg_ex_mark.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_ex_mark.png') no-repeat 0 0;
 	font-size: 18px;
 	color: #777;
 	line-height: 25px;
@@ -1092,7 +1092,7 @@
 
 .btn_view span {
 	padding-bottom: 6px;
-	background: url('/LCHS/Image/btn/btn_plus02.png') no-repeat 50% 100%
+	background: url('/movie/images/btn/btn_plus02.png') no-repeat 50% 100%
 }
 
 .btn_view:hover {
@@ -1297,7 +1297,7 @@
 
 .ad_wrap {
 	width: 100%;
-	background: url('/LCHS/Image/bg/bg_line_ad.gif') repeat 0 0;
+	background: url('/movie/images/bg/bg_line_ad.gif') repeat 0 0;
 }
 
 .ad_inner {
@@ -1311,7 +1311,7 @@
 }
 
 .bg_yellow {
-	background: #f6f6ea url('/LCHS/Image/bg/bg_line_ad.gif') repeat 0 0;
+	background: #f6f6ea url('/movie/images/bg/bg_line_ad.gif') repeat 0 0;
 }
 
 /* 배너존 */
@@ -1371,7 +1371,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_prev1_off.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_prev1_off.png') no-repeat left top;
 }
 
 .banner_box .btn_next {
@@ -1385,15 +1385,15 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_next1_off.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_next1_off.png') no-repeat left top;
 }
 
 .banner_box .btn_prev.on {
-	background: url('/LCHS/Image/Main/btn_prev1_on.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_prev1_on.png') no-repeat left top;
 }
 
 .banner_box .btn_next.on {
-	background: url('/LCHS/Image/Main/btn_next1_on.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_next1_on.png') no-repeat left top;
 }
 
 .banner_box .paging {
@@ -1416,7 +1416,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/bg_swipeDot.png') no-repeat left top;
+	background: url('/movie/images/Main/bg_swipeDot.png') no-repeat left top;
 }
 
 .banner_box .paging li.on a {
@@ -1528,11 +1528,11 @@
 	font-size: 0;
 	line-height: 0;
 	overflow: hidden;
-	background: url('/LCHS/Image/Btn/btn_slide_off.png') no-repeat 0 0
+	background: url('/movie/images/Btn/btn_slide_off.png') no-repeat 0 0
 }
 
 .slide_navi li.on a {
-	background-image: url('/LCHS/Image/Btn/btn_slide_on.png')
+	background-images: url('/movie/images/Btn/btn_slide_on.png')
 }
 
 .event_slide .btn_prev {
@@ -1665,7 +1665,7 @@
 	display: inline-block;
 	padding: 0 20px;
 	font-size: 14px;
-	background: url('/LCHS/Image/Main/bg_officeBar.gif') no-repeat left 1px;
+	background: url('/movie/images/Main/bg_officeBar.gif') no-repeat left 1px;
 }
 
 .main_key_visual .office .officeTab li:first-child {
@@ -1741,7 +1741,7 @@
 
 .main_key_visual .office .officeCont .officeRk li.on, .main_key_visual .office .officeCont .officeRk li:hover
 	{
-	background: url('/LCHS/Image/Main/bg_main.png') no-repeat;
+	background: url('/movie/images/Main/bg_main.png') no-repeat;
 }
 
 .main_key_visual .office .btn_Ticketing {
@@ -1795,7 +1795,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_play.png') no-repeat center center;
+	background: url('/movie/images/Main/btn_play.png') no-repeat center center;
 	z-index: 9999
 }
 
@@ -1809,7 +1809,7 @@
 	height: 246px;
 	font-size: 14px;
 	color: #fff;
-	background: url('/LCHS/Image/Main/bg_mask1.png') repeat-x left bottom;
+	background: url('/movie/images/Main/bg_mask1.png') repeat-x left bottom;
 }
 
 .main_key_visual .trailer ul li .trailerMov dt {
@@ -1834,7 +1834,7 @@
 	width: 80px;
 	height: 15px;
 	vertical-align: middle;
-	background: url('/LCHS/Image/Main/icon_star_off.png') no-repeat left top;
+	background: url('/movie/images/Main/icon_star_off.png') no-repeat left top;
 }
 
 .main_key_visual .trailer ul li .trailerMov .mainStar .icon_star>span {
@@ -1845,7 +1845,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/icon_star_on.png') no-repeat left top;
+	background: url('/movie/images/Main/icon_star_on.png') no-repeat left top;
 }
 
 .main_key_visual .trailer ul li .trailerMov .mainStar .score_txt {
@@ -1897,7 +1897,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_prev3.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_prev3.png') no-repeat left top;
 	z-index: 1;
 }
 
@@ -1912,7 +1912,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_next3.png') no-repeat left top;
+	background: url('/movie/images/Main/btn_next3.png') no-repeat left top;
 	z-index: 1;
 }
 
@@ -1957,7 +1957,7 @@
 	display: block;
 	width: 100%;
 	height: 48px;
-	background: url('/LCHS/Image/Bg/bg_list_num.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_list_num.png') no-repeat 0 0;
 	font-size: 25px;
 	color: #fff;
 	font-family: 'Georgia';
@@ -1991,7 +1991,7 @@
 	height: 100%;
 	padding-top: 80px;
 	box-sizing: border-box;
-	background: url('/LCHS/Image/MAin/bg_mainMask1.png') repeat left top;
+	background: url('/movie/images/MAin/bg_mainMask1.png') repeat left top;
 }
 
 .slidePoster .slide ul li.hover .layer_hover>a {
@@ -2030,7 +2030,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_prev2_off.png') no-repeat 0 0;
+	background: url('/movie/images/Main/btn_prev2_off.png') no-repeat 0 0;
 }
 
 .slidePoster .btnSt>.next {
@@ -2045,15 +2045,15 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Main/btn_next2_off.png') no-repeat 0 0;
+	background: url('/movie/images/Main/btn_next2_off.png') no-repeat 0 0;
 }
 
 .slidePoster .btnSt>.prev.on {
-	background: url('/LCHS/Image/Main/btn_prev2_on.png') no-repeat 0 0;
+	background: url('/movie/images/Main/btn_prev2_on.png') no-repeat 0 0;
 }
 
 .slidePoster .btnSt>.next.on {
-	background: url('/LCHS/Image/Main/btn_next2_on.png') no-repeat 0 0;
+	background: url('/movie/images/Main/btn_next2_on.png') no-repeat 0 0;
 }
 
 /* 메인_스페셜배너 */
@@ -2125,7 +2125,7 @@
 .eventBxMain {
 	padding: 40px 0;
 	border-top: 1px solid #e3e1d6;
-	background: url('/LCHS/Image/Main/bg_pattern.png') repeat left top;
+	background: url('/movie/images/Main/bg_pattern.png') repeat left top;
 }
 
 .eventBxMain>h2 {
@@ -2242,7 +2242,7 @@
 .myCinema .myInfoTit dt {
 	margin-right: 15px;
 	padding-right: 15px;
-	background: url('/LCHS/Image/Bg/bg_my_line.gif') no-repeat 100% 50%;
+	background: url('/movie/images/Bg/bg_my_line.gif') no-repeat 100% 50%;
 	color: #c5c5c5;
 	line-height: 20px;
 }
@@ -2265,7 +2265,7 @@
 .myCinema .myInfoTit .bnfView {
 	display: inline-block;
 	padding-right: 16px;
-	background: url('/LCHS/Image/Btn/btn_bnf_view_01.png') no-repeat 100%
+	background: url('/movie/images/Btn/btn_bnf_view_01.png') no-repeat 100%
 		50%;
 	font-size: 13px;
 	font-weight: bold;
@@ -2284,7 +2284,7 @@
 .myCinema .myInfo .prefer .tit {
 	float: left; /*margin-right:20px;*/
 	padding-right: 20px;
-	background: url('/LCHS/Image/Bg/bg_theater_line.gif') no-repeat 100% 9px;
+	background: url('/movie/images/Bg/bg_theater_line.gif') no-repeat 100% 9px;
 	font-size: 16px;
 	color: #231f20;
 	line-height: 32px;
@@ -2313,7 +2313,7 @@
 	display: inline-block;
 	width: 30px;
 	height: 30px;
-	background: url('/LCHS/Image/Btn/btn_prefer.gif') no-repeat 0 0;
+	background: url('/movie/images/Btn/btn_prefer.gif') no-repeat 0 0;
 	overflow: hidden;
 	text-indent: -9999em;
 }
@@ -2326,7 +2326,7 @@
 .myCinema .myInfo .prefer .preferSet a {
 	display: inline-block;
 	padding-right: 23px;
-	background: url('/LCHS/Image/Icon/icon_preferSet.gif') no-repeat 100% 0;
+	background: url('/movie/images/icon/icon_preferSet.gif') no-repeat 100% 0;
 	font-size: 13px;
 	color: #666 !important
 }
@@ -2372,7 +2372,7 @@
 	width: 16px;
 	height: 16px;
 	margin-left: 10px;
-	background: url('/LCHS/Image/Icon/icon_point_01.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_point_01.png') no-repeat 0 0;
 	vertical-align: middle;
 	text-indent: -9999em;
 }
@@ -2725,9 +2725,9 @@
 }
 
 /*
-.myCinema_list .btn_s_view {position:absolute; top:53px; right:30px; display:block; width:30px; height:30px; background:url('/LCHS/Image/Icon/payment_down.gif') no-repeat 50% 50%}
+.myCinema_list .btn_s_view {position:absolute; top:53px; right:30px; display:block; width:30px; height:30px; background:url('/movie/images/icon/payment_down.gif') no-repeat 50% 50%}
 .myCinema_list .btn_s_view span {font-size:0; line-height:0}
-.myCinema_list .btn_s_view.on {background:url('/LCHS/Image/Icon/payment_up.gif') no-repeat 50% 50%}
+.myCinema_list .btn_s_view.on {background:url('/movie/images/icon/payment_up.gif') no-repeat 50% 50%}
 */
 .myCinema_list .btn_s_view {
 	position: absolute;
@@ -2735,7 +2735,7 @@
 	right: 30px;
 	display: block;
 	padding-right: 22px;
-	background: url('/LCHS/Image/Icon/payment_down.gif') no-repeat 100% 50%;
+	background: url('/movie/images/icon/payment_down.gif') no-repeat 100% 50%;
 	color: #999;
 }
 
@@ -2745,7 +2745,7 @@
 }
 
 .myCinema_list .btn_s_view.on {
-	background: url('/LCHS/Image/Icon/payment_up.gif') no-repeat 100% 50%;
+	background: url('/movie/images/icon/payment_up.gif') no-repeat 100% 50%;
 	color: #231f20;
 }
 
@@ -2921,11 +2921,11 @@
 }
 
 .myCinema_bill .icon.minus {
-	background-image: url('/LCHS/Image/Icon/icon_discount3.png')
+	background-images: url('/movie/images/icon/icon_discount3.png')
 }
 
 .myCinema_bill .icon.equal {
-	background-image: url('/LCHS/Image/Icon/icon_equal3.png')
+	background-images: url('/movie/images/icon/icon_equal3.png')
 }
 
 .myCinema_answer .btn_box {
@@ -3063,7 +3063,7 @@
 
 .sendingDetailReservation li:nth-child(2), .sendingDetailCancel li:nth-child(2)
 	{
-	background: url(/LCHS/Image/Bg/bg_mycinma_line.gif) no-repeat 0% 50%;
+	background: url(/movie/images/Bg/bg_mycinma_line.gif) no-repeat 0% 50%;
 	padding: 0 0 0 12px;
 }
 
@@ -3093,7 +3093,7 @@
 
 .info_box .infoB_tit {
 	padding: 0 0 10px 25px;
-	background: url('/LCHS/Image/Icon/icon_warn02.gif') no-repeat left top;
+	background: url('/movie/images/icon/icon_warn02.gif') no-repeat left top;
 	font-size: 14px;
 	font-weight: bold;
 	color: #231f20
@@ -3118,12 +3118,12 @@
 
 .info_box ul li {
 	padding: 0 0 0 14px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 4px 12px
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 4px 12px
 }
 
 .info_box ul.dash li {
 	padding: 0 0 0 14px;
-	background: url('/LCHS/Image/Bullet/bg_dash.gif') no-repeat 4px 12px
+	background: url('/movie/images/Bullet/bg_dash.gif') no-repeat 4px 12px
 }
 
 /* 마이시네마_포인트등급 */
@@ -3138,7 +3138,7 @@
 
 .accrueBx .pur {
 	height: 107px;
-	background: #fff url('/LCHS/Image/Bg/bg_dpattern.gif') repeat 0 0;
+	background: #fff url('/movie/images/Bg/bg_dpattern.gif') repeat 0 0;
 	line-height: 106px;
 }
 
@@ -3163,7 +3163,7 @@
 	display: block;
 	height: 31px;
 	padding-top: 10px;
-	/* background:url('/LCHS/Image/Bg/bg_rating_arrow.png') no-repeat 100% 0;*/
+	/* background:url('/movie/images/Bg/bg_rating_arrow.png') no-repeat 100% 0;*/
 }
 
 .accrueBx .pointStep .arrow .bgPt {
@@ -3216,7 +3216,7 @@
 }
 
 .accrueBx .pointStep li.bar {
-	background: url('/LCHS/Image/Bg/bg_rating_bar.gif') no-repeat 50% 0;
+	background: url('/movie/images/Bg/bg_rating_bar.gif') no-repeat 50% 0;
 }
 
 .accrueBx .pointStep li>span {
@@ -3256,7 +3256,7 @@
 	font-size: 13px;
 	color: #666;
 	line-height: 16px;
-	background: url('/LCHS/Image/icon/icon_warns.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_warns.png') no-repeat 0 0;
 }
 
 .myCinemaCont .warn_list {
@@ -3275,7 +3275,7 @@
 
 .myCinemaCont .warn_list>li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet02.gif') no-repeat left 7px;
+	background: url('/movie/images/Bullet/bullet02.gif') no-repeat left 7px;
 }
 
 .myCinemaCont .warn_list>li.bgnone {
@@ -3326,14 +3326,14 @@
 	margin-top: 16px;
 	padding: 24px 0 0;
 	border: 1px solid #dad2b4;
-	background: url('/LCHS/Image/Bg/bg_voucherT.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_voucherT.gif') no-repeat 0 0;
 }
 
 .vDetail .bgBt {
 	display: block;
 	width: 556px;
 	height: 24px;
-	background: url('/LCHS/Image/Bg/bg_voucherB.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_voucherB.gif') no-repeat 0 0;
 }
 
 .coupon_list {
@@ -3365,7 +3365,7 @@
 
 /*마이시네마 관람권 목록*/
 .tbl_st03 .bg_none {
-	background-image: none;
+	background-images: none;
 }
 
 .myCinemaCont .tabCont .btn_del {
@@ -3441,26 +3441,26 @@
 
 .manage_step li.first {
 	border-left: 1px solid #e5e5e5;
-	background: url('/LCHS/Image/Icon/icon_m_step01.png') no-repeat 54px 50%;
+	background: url('/movie/images/icon/icon_m_step01.png') no-repeat 54px 50%;
 }
 
 .manage_step li.second {
-	background: url('/LCHS/Image/Icon/icon_m_step02.png') no-repeat 55px 50%;
+	background: url('/movie/images/icon/icon_m_step02.png') no-repeat 55px 50%;
 }
 
 .manage_step li.third {
-	background: url('/LCHS/Image/Icon/icon_m_step03.png') no-repeat 49px 50%;
+	background: url('/movie/images/icon/icon_m_step03.png') no-repeat 49px 50%;
 }
 
 .manage_step li.last {
-	background: url('/LCHS/Image/Icon/icon_m_step04.png') no-repeat 63px 50%;
+	background: url('/movie/images/icon/icon_m_step04.png') no-repeat 63px 50%;
 }
 
 .manage_step li a {
 	display: block;
 	color: #666;
 	font-weight: bold;
-	background: url('/LCHS/Image/Icon/icon_arrow_go.png') no-repeat 180px
+	background: url('/movie/images/icon/icon_arrow_go.png') no-repeat 180px
 		50%;
 }
 
@@ -3487,28 +3487,28 @@
 }
 
 .manage_step li.first.on {
-	background: url('/LCHS/Image/Icon/icon_m_step01_on.png') no-repeat 54px
+	background: url('/movie/images/icon/icon_m_step01_on.png') no-repeat 54px
 		50%;
 }
 
 .manage_step li.second.on {
-	background: url('/LCHS/Image/Icon/icon_m_step02_on.png') no-repeat 55px
+	background: url('/movie/images/icon/icon_m_step02_on.png') no-repeat 55px
 		50%;
 }
 
 .manage_step li.third.on {
-	background: url('/LCHS/Image/Icon/icon_m_step03_on.png') no-repeat 49px
+	background: url('/movie/images/icon/icon_m_step03_on.png') no-repeat 49px
 		50%;
 }
 
 .manage_step li.last.on {
-	background: url('/LCHS/Image/Icon/icon_m_step04_on.png') no-repeat 63px
+	background: url('/movie/images/icon/icon_m_step04_on.png') no-repeat 63px
 		50%;
 }
 
 .manege_list li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bg/bg_line04_01.gif') no-repeat 0 9px;
+	background: url('/movie/images/Bg/bg_line04_01.gif') no-repeat 0 9px;
 	color: #666;
 	font-size: 13px;
 	line-height: 22px;
@@ -3562,7 +3562,7 @@
 .box_desc_type1 dt {
 	padding: 0 0 8px 7px;
 	background-position: 0 9px;
-	background: url(/LCHS/Image/Bullet/bullet05.gif) no-repeat 0 7px;
+	background: url(/movie/images/Bullet/bullet05.gif) no-repeat 0 7px;
 }
 
 .box_desc_type1 dd {
@@ -3602,12 +3602,12 @@
 
 .myCinemaCont .tabCont.mstamp .stamp_box li.last {
 	width: 145px;
-	background-image: url('/LCHS/Image/Thum/img_stamp_off.png')
+	background-images: url('/movie/images/Thum/img_stamp_off.png')
 }
 
 .myCinemaCont .tabCont.mstamp .stamp_box li.last.on {
 	width: 145px;
-	background-image: url('/LCHS/Image/Thum/img_stamp_on.png')
+	background-images: url('/movie/images/Thum/img_stamp_on.png')
 }
 
 .myCinemaCont .tabCont.mstamp .stamp_box+.btn_cbox {
@@ -3626,7 +3626,7 @@
 
 .myCinemaCont .tabCont.mstamp .view_add li {
 	padding-left: 8px;
-	background: url('/LCHS/Image/Bullet/bullet04.gif') no-repeat 0 6px;
+	background: url('/movie/images/Bullet/bullet04.gif') no-repeat 0 6px;
 	font-size: 14px;
 	color: #777
 }
@@ -4047,12 +4047,12 @@
 
 .tabCont_review .score_result .btnr_box .btnr_modify {
 	margin-bottom: 10px;
-	background-image: none;
+	background-images: none;
 }
 
 .tabCont_review .score_result .btnr_box .btnr_del {
 	margin-left: 0;
-	background-image: none;
+	background-images: none;
 	background: #231f20;
 	color: #fff;
 	border: 1px solid #231f20
@@ -4328,7 +4328,7 @@
 	float: left;
 	width: 113px;
 	padding: 0 0 0 30px;
-	background: url('/LCHS/Image/bg/bg_eline03.gif') no-repeat 100% 50%;
+	background: url('/movie/images/bg/bg_eline03.gif') no-repeat 100% 50%;
 	font-size: 13px;
 	line-height: 40px;
 	word-break: break-all;
@@ -4339,7 +4339,7 @@
 	padding-left: 20px;
 	margin-left: 20px;
 	line-height: 40px;
-	background: url('/LCHS/Image/icon/icon_add_file.png') no-repeat 0 50%;
+	background: url('/movie/images/icon/icon_add_file.png') no-repeat 0 50%;
 }
 
 .survey_list {
@@ -4499,7 +4499,7 @@
 
 .list_txt li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet05.gif') no-repeat 0 7px;
+	background: url('/movie/images/Bullet/bullet05.gif') no-repeat 0 7px;
 	line-height: 20px;
 	font-size: 13px;
 	color: #777
@@ -4514,7 +4514,7 @@
 	display: block;
 	width: 30px;
 	height: 30px;
-	background: url('/LCHS/Image/Btn/btn_refresh.png') no-repeat center
+	background: url('/movie/images/Btn/btn_refresh.png') no-repeat center
 		center;
 }
 
@@ -5243,7 +5243,7 @@
 
 .dcPayment .btn_reset span {
 	padding-left: 18px;
-	background: url('/LCHS/Image/Icon/icon_seat_re.gif') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_seat_re.gif') no-repeat 0 0;
 	font-size: 13px
 }
 
@@ -5269,7 +5269,7 @@
 	height: 70px;
 	padding: 25px 30px;
 	display: block;
-	background: url('/LCHS/Image/Btn/btn_order_off.png') no-repeat 925px 50%;
+	background: url('/movie/images/Btn/btn_order_off.png') no-repeat 925px 50%;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -5282,7 +5282,7 @@
 
 .stepBox>dt.on a {
 	color: #cdc197;
-	background: url('/LCHS/Image/Btn/btn_order_on.png') no-repeat 925px 50%
+	background: url('/movie/images/Btn/btn_order_on.png') no-repeat 925px 50%
 }
 
 .stepBox>dt span {
@@ -5356,7 +5356,7 @@
 }
 
 .stepBox .stepKind li .active span {
-	background: url('/LCHS/Image/Bullet/bullet06.gif') no-repeat 8px 50%;
+	background: url('/movie/images/Bullet/bullet06.gif') no-repeat 8px 50%;
 }
 
 .stepBox .stepKind li .on {
@@ -5369,7 +5369,7 @@
 
 .stepBox .stepKind li .on span {
 	padding: 0 20px;
-	background: url('/LCHS/Image/Bullet/bullet07.gif') no-repeat 5px 50%;
+	background: url('/movie/images/Bullet/bullet07.gif') no-repeat 5px 50%;
 	letter-spacing: -1px;
 }
 
@@ -5382,7 +5382,7 @@
 
 .stepBox .list_dot li {
 	padding-left: 8px;
-	background: url('/LCHS/Image/bullet/bullet12.gif') no-repeat 0 10px;
+	background: url('/movie/images/bullet/bullet12.gif') no-repeat 0 10px;
 	color: #777;
 	font-size: 13px;
 }
@@ -5469,7 +5469,7 @@
 .activeStep .tbInputBx dd.stat .ava {
 	padding-right: 8px;
 	margin-right: 4px;
-	background: url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat 100% 1px
+	background: url('/movie/images/Bg/bg_tab_line.gif') no-repeat 100% 1px
 }
 
 .activeStep .tbInputBx dd.stat .ava strong {
@@ -5570,13 +5570,13 @@
 	padding: 20px 10px;
 	border: 0;
 	border-top: 1px solid #c0c0c0;
-	background: url('/LCHS/Image/Bg/bg_tab_line.gif') no-repeat 0 18px;
+	background: url('/movie/images/Bg/bg_tab_line.gif') no-repeat 0 18px;
 	font-weight: normal;
 	text-align: center;
 }
 
 .paymentTb1 thead th:first-child {
-	background-image: none;
+	background-images: none;
 }
 
 .paymentTb1 tbody td {
@@ -5704,7 +5704,7 @@
 .paymentTb2 tbody td .txt {
 	margin-left: 25px;
 	padding-left: 8px;
-	background: url('/LCHS/Image/Bullet/bullet_order.gif') no-repeat 0 6px;
+	background: url('/movie/images/Bullet/bullet_order.gif') no-repeat 0 6px;
 	font-size: 13px;
 	color: #777
 }
@@ -5758,7 +5758,7 @@
 	display: inline-block;
 	margin: 0 0 0 20px;
 	padding-left: 20px;
-	background: url('/LCHS/Image/bg/bg_order_line.gif') no-repeat 0 50%
+	background: url('/movie/images/bg/bg_order_line.gif') no-repeat 0 50%
 }
 
 .applyTxt strong {
@@ -6230,7 +6230,7 @@
 }
 
 .payMethod .cardKind .on a {
-	background: url('/LCHS/Image/Bullet/bullet02.gif') no-repeat 10px 50%;
+	background: url('/movie/images/Bullet/bullet02.gif') no-repeat 10px 50%;
 	color: #231f20;
 }
 
@@ -6306,7 +6306,7 @@
 
 .Lpay_box li {
 	padding-left: 8px;
-	background: url('/LCHS/Image/bullet/bullet12.gif') no-repeat 0 11px;
+	background: url('/movie/images/bullet/bullet12.gif') no-repeat 0 11px;
 	font-size: 13px;
 	color: #777;
 	line-height: 23px;
@@ -6327,7 +6327,7 @@
 
 /* 예매_주문결제 결제Box */
 .paymentBar {
-	background: #282e34 url('/LCHS/Image/Bg/bg_paymentBar_01.gif') repeat-y
+	background: #282e34 url('/movie/images/Bg/bg_paymentBar_01.gif') repeat-y
 		top center;
 	font-size: 14px;
 }
@@ -6433,18 +6433,18 @@
 	overflow: hidden;
 	width: 24px;
 	height: 24px;
-	background: url('/LCHS/Image/Icon/icon_discount2.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_discount2.png') no-repeat 0 0;
 	vertical-align: middle;
 	text-indent: -5000px;
 	z-index: 10
 }
 
 .icon.minus {
-	background-image: url('/LCHS/Image/Icon/icon_discount2.png')
+	background-images: url('/movie/images/icon/icon_discount2.png')
 }
 
 .icon.equal {
-	background-image: url('/LCHS/Image/Icon/icon_equal2.png')
+	background-images: url('/movie/images/icon/icon_equal2.png')
 }
 
 /* 예매_결제완료 1105 */
@@ -6509,7 +6509,7 @@
 
 .orderCont .receipt li.icn_guide a {
 	padding-left: 113px;
-	background: #cdc197 url('/LCHS/Image/icon/icon_ticket_guide.png')
+	background: #cdc197 url('/movie/images/icon/icon_ticket_guide.png')
 		no-repeat 84px 50%;
 	border: none
 }
@@ -6521,7 +6521,7 @@
 .orderCont .receipt li.icn_sms a span {
 	display: inline-block;
 	padding-left: 37px;
-	background: url('/LCHS/Image/icon/icon_sns02.png') no-repeat left 50%;
+	background: url('/movie/images/icon/icon_sns02.png') no-repeat left 50%;
 }
 
 .orderCont .receipt li.icn_kakao a {
@@ -6531,7 +6531,7 @@
 .orderCont .receipt li.icn_kakao a span {
 	display: inline-block;
 	padding-left: 25px;
-	background: url('/LCHS/Image/icon/icon_sp.png') no-repeat left 50%;
+	background: url('/movie/images/icon/icon_sp.png') no-repeat left 50%;
 }
 
 .orderCont .receipt li.icn_credit a {
@@ -6541,7 +6541,7 @@
 .orderCont .receipt li.icn_credit a span {
 	display: inline-block;
 	padding-left: 33px;
-	background: url('/LCHS/Image/icon/icon_credit02.png') no-repeat left 50%;
+	background: url('/movie/images/icon/icon_credit02.png') no-repeat left 50%;
 }
 
 .orderCont .receipt li.icn_credit {
@@ -6554,7 +6554,7 @@
 
 .orderCont .orderNote li {
 	padding-left: 11px;
-	background: url('/LCHS/Image/Bullet/bullet_order.gif') no-repeat 0 10px;
+	background: url('/movie/images/Bullet/bullet_order.gif') no-repeat 0 10px;
 	font-size: 12px;
 	color: #666;
 	line-height: 20px;
@@ -6617,7 +6617,7 @@
 
 .earned .paymentTb2 .btn_reset span {
 	padding-left: 39px;
-	background: url('/LCHS/Image/btn/btn_reset2.png') no-repeat 19px 0;
+	background: url('/movie/images/btn/btn_reset2.png') no-repeat 19px 0;
 	font-size: 16px
 }
 /*.earned .lpoint  .paymentTb2 tbody td .txt {display:inline-block; margin:15px 0 15px 24px}*/
@@ -6648,7 +6648,7 @@
 
 .earned .btn_reset span {
 	padding-left: 18px;
-	background: url('/LCHS/Image/Icon/icon_seat_re.gif') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_seat_re.gif') no-repeat 0 0;
 	font-size: 13px
 }
 
@@ -6669,11 +6669,11 @@
 }
 
 .orderCont .tableRet .paymentCont {
-	background: #282e34 url('/LCHS/Image/bg/bg_bar_tableRet_03.gif')
+	background: #282e34 url('/movie/images/bg/bg_bar_tableRet_03.gif')
 		repeat-y 0 50%;
 	/* background-attachment:fixed; background-position:50% 50%; background-repeat:repeat-y;*/
 }
-/*.orderCont .tableRet .paymentCont  {background:#282e34 url('/LCHS/Image/bg/bg_bar_tableRet_03.gif') repeat-y 0 50%; background-attachment:fixed; background-position:50% 50%; background-repeat:repeat-y;}*/
+/*.orderCont .tableRet .paymentCont  {background:#282e34 url('/movie/images/bg/bg_bar_tableRet_03.gif') repeat-y 0 50%; background-attachment:fixed; background-position:50% 50%; background-repeat:repeat-y;}*/
 .orderCont .tableRet .paymentCont td {
 	position: relative;
 	padding: 0;
@@ -6780,7 +6780,7 @@
 	height: 761px;
 	margin-top: 10px;
 	padding: 0 20px;
-	background: url('/LCHS/Image/Bg/bg_order.png') repeat 0 0;
+	background: url('/movie/images/Bg/bg_order.png') repeat 0 0;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box
@@ -6832,14 +6832,14 @@
 .slipTb td.money {
 	height: 30px;
 	border-left: none;
-	background: url('/LCHS/Image/Bg/bg_slip.gif') repeat-y 0 0;
+	background: url('/movie/images/Bg/bg_slip.gif') repeat-y 0 0;
 	font-weight: bold;
 	text-align: right;
 }
 
 .slipTb td.money.unit {
 	padding-bottom: 8px;
-	background-image: url('/LCHS/Image/Bg/bg_slip_unit.gif');
+	background-images: url('/movie/images/Bg/bg_slip_unit.gif');
 	vertical-align: bottom;
 	letter-spacing: 1px;
 }
@@ -7284,7 +7284,7 @@
 	width: 209px;
 	margin-right: 10px;
 	padding-right: 50px;
-	background: url('/LCHS/Image/Bg/bg_arrow03.png') no-repeat right 152px;
+	background: url('/movie/images/Bg/bg_arrow03.png') no-repeat right 152px;
 }
 
 .pop_ent .step_list li.last {
@@ -7324,7 +7324,7 @@
 	padding: 13px 20px;
 	border: 1px solid #dedede;
 	box-sizing: border-box;
-	background-image: none;
+	background-images: none;
 	background-color: #fff;
 }
 
@@ -7335,7 +7335,7 @@
 	line-height: 70px;
 	color: #fff;
 	font-size: 20px;
-	background: url('/LCHS/Image/Bg/bg_entrancePop1.png') no-repeat left top;
+	background: url('/movie/images/Bg/bg_entrancePop1.png') no-repeat left top;
 }
 
 .entrancePop .pop_body {
@@ -7421,7 +7421,7 @@
 .order_tList li {
 	display: inline-block;
 	padding: 0 10px;
-	background: url('/LCHS/Image/Bg/bg_line_order.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bg/bg_line_order.gif') no-repeat 0 50%;
 	color: #231f20;
 	font-size: 13px;
 	line-height: 20px;
@@ -7636,12 +7636,12 @@
 	font-size: 0;
 	line-height: 0;
 	overflow: hidden;
-	background: url('/LCHS/Image/Bg/bg_indicator_off.png') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_indicator_off.png') no-repeat 0 0
 }
 
 .indicator li.on a {
 	width: 11px;
-	background-image: url('/LCHS/Image/Bg/bg_indicator_on.png') !important
+	background-images: url('/movie/images/Bg/bg_indicator_on.png') !important
 }
 
 .item_list {
@@ -7661,7 +7661,7 @@
 .item_list li {
 	float: left;
 	padding: 0 15px 0 14px;
-	background: url('/LCHS/Image/Bg/bg_line_list.gif') no-repeat 0 50%
+	background: url('/movie/images/Bg/bg_line_list.gif') no-repeat 0 50%
 }
 
 .item_list li:first-child {
@@ -7740,7 +7740,7 @@
 	display: block;
 	width: 100%;
 	height: 49px;
-	background: url('/LCHS/Image/Bg/bg_w_mk.png') repeat-y left bottom;
+	background: url('/movie/images/Bg/bg_w_mk.png') repeat-y left bottom;
 	font-size: 28px;
 	color: #fff;
 	font-family: 'linlivertine';
@@ -7781,7 +7781,7 @@
 	width: 85px;
 	height: 24px;
 	margin-bottom: 3px;
-	background: url('/LCHS/Image/Bg/bg_mask_02.png') repeat 0 0;
+	background: url('/movie/images/Bg/bg_mask_02.png') repeat 0 0;
 	color: #fff;
 	line-height: 24px;
 	text-align: center;
@@ -7805,7 +7805,7 @@
 	width: 178px;
 	height: 262px;
 	padding: 73px 10px 0;
-	background: url('/LCHS/Image/Bg/bg_mask06.png') repeat;
+	background: url('/movie/images/Bg/bg_mask06.png') repeat;
 	color: #fff;
 	text-align: center;
 	font-size: 14px;
@@ -7835,7 +7835,7 @@
 	display: inline-block;
 	width: 85px;
 	height: 16px;
-	background: url('/LCHS/Image/Icon/icon_star2.png') no-repeat 0 -20px;
+	background: url('/movie/images/icon/icon_star2.png') no-repeat 0 -20px;
 	text-align: left;
 	font-size: 0
 }
@@ -7845,7 +7845,7 @@
 	display: inline-block;
 	width: 100%;
 	height: 16px;
-	background: url('/LCHS/Image/Icon/icon_star2.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_star2.png') no-repeat 0 0;
 	font-size: 0;
 	text-indent: -1000px
 }
@@ -7912,7 +7912,7 @@
 	float: right;
 	padding-left: 8px;
 	margin-left: 5px;
-	background: url('/LCHS/Image/Bg/bg_line10.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bg/bg_line10.gif') no-repeat 0 50%;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box
@@ -7981,7 +7981,7 @@
 	width: 228px;
 	height: 335px;
 	padding: 114px 20px 0;
-	background-image: url('/LCHS/Image/Bg/bg_mask06_2.png')
+	background-images: url('/movie/images/Bg/bg_mask06_2.png')
 }
 
 .movie_clist.curr_list .layer_hover [class^="btn_"] {
@@ -8020,7 +8020,7 @@
 	width: 33px;
 	height: 40px;
 	padding: 5px 0 10px;
-	background: url('/LCHS/Image/Bg/bg_red_icon.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_red_icon.png') no-repeat 0 0;
 	line-height: 14px;
 	font-size: 11px;
 	color: #fff;
@@ -8098,26 +8098,26 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url('/LCHS/Image/Btn/btn_info_prev.png') no-repeat 0 0;
+	background: url('/movie/images/Btn/btn_info_prev.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 }
 
 .main_info_slide .btn_prev.on {
-	background-image: url('/LCHS/Image/Btn/btn_info_prev_on.png')
+	background-images: url('/movie/images/Btn/btn_info_prev_on.png')
 }
 
 .main_info_slide .btn_next {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: url('/LCHS/Image/Btn/btn_info_next.png') no-repeat 0 0;
+	background: url('/movie/images/Btn/btn_info_next.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 }
 
 .main_info_slide .btn_next.on {
-	background-image: url('/LCHS/Image/Btn/btn_info_next_on.png')
+	background-images: url('/movie/images/Btn/btn_info_next_on.png')
 }
 
 .info_slide {
@@ -8523,19 +8523,19 @@
 }
 
 .prefer_score .g_area.age10 .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_age10.png')
+	background-images: url('/movie/images/Bg/bg_age10.png')
 }
 
 .prefer_score .g_area.age20 .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_age20.png')
+	background-images: url('/movie/images/Bg/bg_age20.png')
 }
 
 .prefer_score .g_area.age30 .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_age30.png')
+	background-images: url('/movie/images/Bg/bg_age30.png')
 }
 
 .prefer_score .g_area.age40 .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_age40.png')
+	background-images: url('/movie/images/Bg/bg_age40.png')
 }
 
 .genter_score ul {
@@ -8566,7 +8566,7 @@
 	width: 200px;
 	margin-left: 34px;
 	padding-right: 48px;
-	background: #fff url('/LCHS/Image/Bg/bg_line05.gif') no-repeat 0 100%
+	background: #fff url('/movie/images/Bg/bg_line05.gif') no-repeat 0 100%
 }
 
 .genter_score .g_area .g_score {
@@ -8587,11 +8587,11 @@
 }
 
 .genter_score .g_area .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_gender_01.png')
+	background-images: url('/movie/images/Bg/bg_gender_01.png')
 }
 
 .genter_score .g_area.gman .g_bar {
-	background-image: url('/LCHS/Image/Bg/bg_gender_02.png')
+	background-images: url('/movie/images/Bg/bg_gender_02.png')
 }
 
 /* 영화 상세 관객 및 출연진 부분 */
@@ -8616,7 +8616,7 @@
 	position: relative;
 	width: 918px;
 	padding-left: 90px;
-	background: url('/LCHS/Image/bg/bg_btn_slide_mpeople.gif') 0 50px
+	background: url('/movie/images/bg/bg_btn_slide_mpeople.gif') 0 50px
 		no-repeat;
 } /* 201703212 sunho width padding 추가 이미지 변경*/
 .slide_spot {
@@ -8662,7 +8662,7 @@
 	left: 0;
 	width: 100%;
 	height: 128px;
-	background: url('/LCHS/Image/Bg/bg_mask_event02.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_mask_event02.png') no-repeat 0 0;
 	z-index: 2
 }
 
@@ -8771,7 +8771,7 @@
 	vertical-align: middle;
 	width: 80px;
 	height: 15px;
-	background: url('/LCHS/Image/Icon/icon_score_star.png') no-repeat 0
+	background: url('/movie/images/icon/icon_score_star.png') no-repeat 0
 		-18px;
 	text-align: left;
 	font-size: 0
@@ -8782,7 +8782,7 @@
 	display: inline-block;
 	width: 100%;
 	height: 15px;
-	background: url('/LCHS/Image/Icon/icon_score_star.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_score_star.png') no-repeat 0 0;
 	font-size: 0;
 	text-indent: -1000px
 }
@@ -8947,18 +8947,18 @@
 
 .score_result .score_clicks .score_date {
 	padding-right: 14px;
-	background: url('/LCHS/Image/Bg/bg_line.gif') no-repeat 100% 50%
+	background: url('/movie/images/Bg/bg_line.gif') no-repeat 100% 50%
 }
 
 .btn_area {
 	margin-left: 10px;
 	padding-left: 16px;
-	background: url('/LCHS/Image/Icon/icon_fa_off.gif') no-repeat 0 50%;
+	background: url('/movie/images/icon/icon_fa_off.gif') no-repeat 0 50%;
 	color: #666
 }
 
 .btn_area.on {
-	background-image: url('/LCHS/Image/Icon/icon_fa_on.gif')
+	background-images: url('/movie/images/icon/icon_fa_on.gif')
 }
 
 .score_result .btnr_box {
@@ -8981,18 +8981,18 @@
 }
 
 .score_result .btnr_box .btnr_modify {
-	background: url('/LCHS/Image/icon/icon_modify.gif') no-repeat 0 0
+	background: url('/movie/images/icon/icon_modify.gif') no-repeat 0 0
 }
 
 .score_result .btnr_box .btnr_del {
 	margin-left: 3px;
-	background: url('/LCHS/Image/icon/icon_close.gif') no-repeat 0 0
+	background: url('/movie/images/icon/icon_close.gif') no-repeat 0 0
 }
 
 .score_id {
 	display: table-cell;
 	width: 133px;
-	background: url('/LCHS/Image/Bg/bg_line03.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_line03.gif') no-repeat 0 0;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -9015,7 +9015,7 @@
 	display: block;
 	margin: 0 0 20px;
 	padding-left: 25px;
-	background: url('/LCHS/Image/Icon/icon_warn02.gif') no-repeat;
+	background: url('/movie/images/icon/icon_warn02.gif') no-repeat;
 	font-size: 14px;
 	color: #231f20;
 	font-weight: bold;
@@ -9025,7 +9025,7 @@
 .warn_sbox .warn_list li {
 	margin-top: 14px;
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 0 9px;
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 0 9px;
 	line-height: 18px;
 	color: #666
 }
@@ -9077,12 +9077,12 @@
 .banner_wrap .indicator li a {
 	width: 14px;
 	height: 14px;
-	background: url('/LCHS/Image/Bg/bg_pn_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_pn_off.png') no-repeat 0 0;
 }
 
 .banner_wrap .indicator li.on a {
 	width: 14px;
-	background-image: url('/LCHS/Image/Bg/bg_pn_on.png') !important;
+	background-images: url('/movie/images/Bg/bg_pn_on.png') !important;
 }
 
 .banner_wrap .ctr_btn a {
@@ -9210,7 +9210,7 @@
 	left: 0;
 	top: 0;
 	width: 100%;
-	background: url('/LCHS/Image/Bg/bg_mask_3dep.png') repeat;
+	background: url('/movie/images/Bg/bg_mask_3dep.png') repeat;
 }
 
 .tab_mwrap .tab_st01 {
@@ -9323,7 +9323,7 @@
 .sub_addr em {
 	padding-left: 10px;
 	margin-left: 6px;
-	background: url('/LCHS/Image/Bg/bg_line12.png') no-repeat 0 3px;
+	background: url('/movie/images/Bg/bg_line12.png') no-repeat 0 3px;
 }
 
 .sub_addrTxt {
@@ -9450,7 +9450,7 @@
 
 .supInfo li {
 	padding: 8px 0 0 11px;
-	background: url('/LCHS/Image/bullet/bullet_supInfo.gif') no-repeat left
+	background: url('/movie/images/bullet/bullet_supInfo.gif') no-repeat left
 		13px;
 	font-size: 13px;
 	color: #666
@@ -9467,7 +9467,7 @@
 }
 
 .btn_view.btn_Btype span {
-	background: url('/LCHS/Image/btn/btn_plus03.png') no-repeat 50% 100%
+	background: url('/movie/images/btn/btn_plus03.png') no-repeat 50% 100%
 }
 
 /*영화/ 시네마몰 상세 / 예매 공통 하단 부분 타이틀 */
@@ -9517,7 +9517,7 @@
 	bottom: 0;
 	width: 100%;
 	height: 47px;
-	background: url('/LCHS/Image/bg/bg_mask_movie.png') repeat;
+	background: url('/movie/images/bg/bg_mask_movie.png') repeat;
 	font-size: 14px;
 	color: #fff;
 	font-weight: bold;
@@ -9612,7 +9612,7 @@
 .cinema_twrap .ticket_My dt {
 	padding-right: 19px;
 	padding-left: 0;
-	background: url('/LCHS/Image/Bg/bg_line11.gif') no-repeat 100% 50%;
+	background: url('/movie/images/Bg/bg_line11.gif') no-repeat 100% 50%;
 	font-size: 16px;
 	line-height: 30px;
 	font-weight: normal;
@@ -9654,7 +9654,7 @@
 .cinema_twrap .ticket_My dd .favorite_list li a em {
 	display: inline-block;
 	padding-left: 15px;
-	background: url('/LCHS/Image/Icon/icon_favorite.gif') no-repeat left
+	background: url('/movie/images/icon/icon_favorite.gif') no-repeat left
 		center;
 }
 
@@ -9662,7 +9662,7 @@
 	border: 1px solid #999
 }
 /*
-.cinema_twrap .ticket_My dd .btnCinema {width:30px; height:30px; min-width:auto; border-left:none; background:url('/LCHS/Image/Btn/btn_prefer.gif') no-repeat}
+.cinema_twrap .ticket_My dd .btnCinema {width:30px; height:30px; min-width:auto; border-left:none; background:url('/movie/images/Btn/btn_prefer.gif') no-repeat}
 .cinema_twrap .ticket_My dd .btnCinema > em {height:auto; padding-left:0; font-size:0; background:none;}
 */
 .cinema_twrap .ticket_My dd .btnCinema {
@@ -9795,11 +9795,11 @@
 	height: 40px;
 }
 
-/*.cinema_etc {position:relative; padding:4px 0 0 29px; background:url('/LCHS/Image/icon/icon_smart.png') no-repeat 0 4px; font-weight:bold; font-size:13px; color:#33373a; line-height:20px; }*/
+/*.cinema_etc {position:relative; padding:4px 0 0 29px; background:url('/movie/images/icon/icon_smart.png') no-repeat 0 4px; font-weight:bold; font-size:13px; color:#33373a; line-height:20px; }*/
 .cinema_etc {
 	position: relative;
 	padding: 4px 0 0 29px;
-	background: url('/LCHS/Image/icon/icon_smart.png') no-repeat 0 4px;
+	background: url('/movie/images/icon/icon_smart.png') no-repeat 0 4px;
 	font-weight: bold;
 	font-size: 13px;
 	color: #33373a;
@@ -9819,7 +9819,7 @@
 	top: 27px;
 	width: 231px;
 	font-weight: normal;
-	background: url('/LCHS/Image/bg/bg_cine_top.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_cine_top.png') no-repeat 0 0;
 	text-align: center;
 	font-size: 12px;
 	color: #666;
@@ -9828,7 +9828,7 @@
 
 .cinema_etc .layer_seat .seat_in {
 	padding: 0 21px 27px 19px;
-	background: url('/LCHS/Image/bg/bg_cine_bottom.png') no-repeat 0 100%;
+	background: url('/movie/images/bg/bg_cine_bottom.png') no-repeat 0 100%;
 }
 
 .cinema_etc .layer_seat .seat_in em {
@@ -10021,7 +10021,7 @@
 .product_slist li .date>span {
 	margin-right: 5px;
 	padding-right: 9px;
-	background: url('/LCHS/Image/Bg/bg_product_line.gif') no-repeat 100% 3px
+	background: url('/movie/images/Bg/bg_product_line.gif') no-repeat 100% 3px
 }
 
 .product_slist li .date>em {
@@ -10126,7 +10126,7 @@
 .product_list .product_txt .txt_etc span {
 	margin-right: 9px;
 	padding-right: 9px;
-	background: url(/LCHS/Image/Bg/bg_product_line.gif) no-repeat 100% 2px;
+	background: url(/movie/images/Bg/bg_product_line.gif) no-repeat 100% 2px;
 }
 
 /* 시네마몰 상세 */
@@ -10198,11 +10198,11 @@
 .slide_dBox .indicator li a {
 	width: 10px;
 	height: 10px;
-	background: url('/LCHS/Image/Bg/bg_d_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_d_off.png') no-repeat 0 0;
 }
 
 .slide_dBox .indicator li.on a {
-	background-image: url('/LCHS/Image/Bg/bg_d_on.png') !important;
+	background-images: url('/movie/images/Bg/bg_d_on.png') !important;
 }
 
 .slide_dBox .ctr_btn a {
@@ -10260,7 +10260,7 @@
 	position: relative;
 	float: left;
 	width: 161px;
-	background: url('/LCHS/Image/Bg/bg_line15.gif') no-repeat 100% 50%;
+	background: url('/movie/images/Bg/bg_line15.gif') no-repeat 100% 50%;
 	color: #231f20;
 	font-weight: bold;
 	clear: both;
@@ -10322,7 +10322,7 @@
 
 .tbl_detail .trafficMemo li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bg/bg_line14.gif') no-repeat 0 11px;
+	background: url('/movie/images/Bg/bg_line14.gif') no-repeat 0 11px;
 	color: #666;
 	font-size: 12px
 }
@@ -10410,7 +10410,7 @@
 	top: 15px;
 	width: 15px;
 	height: 15px;
-	background: url('/LCHS/Image/Bg/bg_smart.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_smart.gif') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 	z-index: 100
@@ -10423,7 +10423,7 @@
 .warn_Box .warn_tit {
 	margin-bottom: 10px;
 	padding-left: 25px;
-	background: url('/LCHS/Image/Bg/bg_warning.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_warning.png') no-repeat 0 0;
 	color: #666;
 	font-size: 13px;
 	line-height: 16px;
@@ -10431,7 +10431,7 @@
 
 .warn_Box .warn_list li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 0 9px;
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 0 9px;
 	font-size: 12px;
 	color: #777;
 	line-height: 18px;
@@ -10548,7 +10548,7 @@
 .txt_right span {
 	display: inline-block;
 	padding-left: 23px;
-	background: url('/LCHS/Image/bg/bg_detail_warn.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_detail_warn.png') no-repeat 0 0;
 	line-height: 16px;
 }
 
@@ -10776,7 +10776,7 @@
 .shop_list02 li .pro_tit {
 	float: left;
 	padding-left: 18px;
-	background: url('/LCHS/Image/bg/bg_d_line.gif') no-repeat 0 50%;
+	background: url('/movie/images/bg/bg_d_line.gif') no-repeat 0 50%;
 	line-height: 30px;
 	font-weight: normal;
 }
@@ -10803,7 +10803,7 @@
 	display: table-cell;
 	width: 105px;
 	padding-left: 30px;
-	background: url('/LCHS/Image/bg/bg_d_line02.gif') no-repeat 15px 50%;
+	background: url('/movie/images/bg/bg_d_line02.gif') no-repeat 15px 50%;
 	vertical-align: middle;
 }
 
@@ -10863,7 +10863,7 @@
 .m_receipt .receipt_cont .area em {
 	padding-left: 18px;
 	margin-left: 11px;
-	background: url('/LCHS/Image/bg/bg_arrow_detail.png') no-repeat 0 50%;
+	background: url('/movie/images/bg/bg_arrow_detail.png') no-repeat 0 50%;
 }
 
 .m_receipt .btnv_pick {
@@ -10917,7 +10917,7 @@
 	display: inline-block;
 	height: 27px;
 	padding: 0 0 0 9px;
-	background: url('/LCHS/Image/bg/bg_num_left.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_num_left.png') no-repeat 0 0;
 	font-size: 14px;
 	font-weight: bold;
 	color: #fff
@@ -10928,7 +10928,7 @@
 	height: 27px;
 	line-height: 27px;
 	padding: 0 9px 0 0;
-	background: url('/LCHS/Image/bg/bg_num_right.png') no-repeat 100% 0
+	background: url('/movie/images/bg/bg_num_right.png') no-repeat 100% 0
 }
 
 .shop_top .sView {
@@ -10941,20 +10941,20 @@
 	display: block;
 	width: 40px;
 	height: 20px;
-	background: #cdc197 url('/LCHS/Image/btn/btn_shop_open.png') no-repeat
+	background: #cdc197 url('/movie/images/btn/btn_shop_open.png') no-repeat
 		50% 50%;
 	font-size: 0;
 	line-height: 0;
 }
 
 .shop_top .sView .btn_sView.on {
-	background-image: url('/LCHS/Image/btn/btn_shop_close.png')
+	background-images: url('/movie/images/btn/btn_shop_close.png')
 }
 
 /* 장바구니 슬라이드 */
 .shop_box .shop_wrap {
 	display: none;
-	background: #282e34 url('/LCHS/Image/Bg/bg_shop_line.gif') repeat-y top
+	background: #282e34 url('/movie/images/Bg/bg_shop_line.gif') repeat-y top
 		center;
 	color: #fff
 }
@@ -10993,13 +10993,13 @@
 	display: inline-block;
 	width: 14px;
 	height: 24px;
-	background: url('/LCHS/Image/Btn/btn_shop_prev.png') no-repeat 0 0;
+	background: url('/movie/images/Btn/btn_shop_prev.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 }
 
 .slide_shop .btn_prev.on {
-	background-image: url('/LCHS/Image/Btn/btn_shop_prev_on.png');
+	background-images: url('/movie/images/Btn/btn_shop_prev_on.png');
 }
 
 .slide_shop .btn_next {
@@ -11010,13 +11010,13 @@
 	display: inline-block;
 	width: 14px;
 	height: 24px;
-	background: url('/LCHS/Image/Btn/btn_shop_next.png') no-repeat 0 0;
+	background: url('/movie/images/Btn/btn_shop_next.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0
 }
 
 .slide_shop .btn_next.on {
-	background-image: url('/LCHS/Image/Btn/btn_shop_next_on.png');
+	background-images: url('/movie/images/Btn/btn_shop_next_on.png');
 }
 
 .slide_hidden {
@@ -11179,7 +11179,7 @@
 }
 
 .pop_choice .pop_body {
-	background: url('/LCHS/Image/Bg/bg_layer_line02.png') no-repeat 105%
+	background: url('/movie/images/Bg/bg_layer_line02.png') no-repeat 105%
 		100%
 }
 
@@ -11408,7 +11408,7 @@
 .tab_st06 li {
 	float: left;
 	padding-bottom: 15px;
-	background: url('/LCHS/Image/Bg/bg_s_line.png') no-repeat 100% 0;
+	background: url('/movie/images/Bg/bg_s_line.png') no-repeat 100% 0;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -11529,7 +11529,7 @@
 	padding: 0;
 	color: #e7e1ad;
 }
-/*.spec_shalotte .btn_box .btnc_yellow span {display:inline-block; padding-right:12px; background:#231f20 url('/LCHS/Image/Bg/bg_cinebiz.png') no-repeat 100% 7px; }*/
+/*.spec_shalotte .btn_box .btnc_yellow span {display:inline-block; padding-right:12px; background:#231f20 url('/movie/images/Bg/bg_cinebiz.png') no-repeat 100% 7px; }*/
 .spec_shalotte .btn_box .btnc_yellow span {
 	display: inline-block;
 }
@@ -11581,7 +11581,7 @@
 .spec_cinebiz .btn_box .btnc_yellow span {
 	display: inline-block;
 	padding-right: 12px;
-	background: #231f20 url('/LCHS/Image/Bg/bg_cinebiz.png') no-repeat 100%
+	background: #231f20 url('/movie/images/Bg/bg_cinebiz.png') no-repeat 100%
 		7px;
 }
 
@@ -11745,11 +11745,11 @@
 }
 
 .cs_center .view_list li strong.prev {
-	background-image: url('/LCHS/Image/Bg/bg_prev_02.png');
+	background-images: url('/movie/images/Bg/bg_prev_02.png');
 }
 
 .cs_center .view_list li strong.next {
-	background-image: url('/LCHS/Image/Bg/bg_next_02.png');
+	background-images: url('/movie/images/Bg/bg_next_02.png');
 }
 
 .board_cont {
@@ -11806,7 +11806,7 @@
 	color: #231f20;
 	padding: 0 23px 0 0;
 	border: none;
-	background: url('/LCHS/Image/Icon/icn_btnaw1.png') no-repeat right 50%;
+	background: url('/movie/images/icon/icn_btnaw1.png') no-repeat right 50%;
 	font-size: 13px;
 	font-weight: bold;
 	line-height: 16px;
@@ -11859,7 +11859,7 @@
 	font-size: 14px;
 	padding: 0;
 	background: #fff;
-	background-image: none;
+	background-images: none;
 	border: 1px solid #999;
 	box-sizing: border-box;
 }
@@ -12198,7 +12198,7 @@
 }
 
 .faqTop5 li.on a {
-	background-image: url('/LCHS/Image/Bg/bg_arrow_faq_on.png');
+	background-images: url('/movie/images/Bg/bg_arrow_faq_on.png');
 }
 
 .faqTop5 li.on .answer_box {
@@ -12246,7 +12246,7 @@
 }
 
 .tbl_faq thead th:first-child {
-	background-image: none;
+	background-images: none;
 }
 
 /* .tbl_faq tbody td {
@@ -12277,7 +12277,7 @@
 	background: url('/movie/images/bg/bg_arrow_faq.png') no-repeat 720px 50%;
 } /*20170206 no-repeat 720px ; 에서 ; 제거 sunho*/
 .tbl_faq tbody .question.on a {
-	background-image: url('/LCHS/Image/Bg/bg_arrow_faq_on.png');
+	background-images: url('/movie/images/Bg/bg_arrow_faq_on.png');
 }
 
 .tbl_faq tbody .srchResult_none {
@@ -12330,7 +12330,7 @@
 	color: #666;
 	font-size: 13px;
 	line-height: 16px;
-	background: url('/LCHS/Image/Bg/bg_error4.png') no-repeat left 50%;
+	background: url('/movie/images/Bg/bg_error4.png') no-repeat left 50%;
 }
 
 /* 공지사항검색 */
@@ -12406,7 +12406,7 @@
 }
 
 .tabCont .csTxt {
-	background: url('/LCHS/Image/Bg/bg_write03.png') no-repeat 50% 70px
+	background: url('/movie/images/Bg/bg_write03.png') no-repeat 50% 70px
 }
 
 .tabCont .csTxt+.btn_box {
@@ -12450,7 +12450,7 @@
 }
 
 .theater_zone.bg_bullet .area_list li a.on {
-	background: #fff url('/LCHS/Image/bullet/bullet02.gif') no-repeat 10px
+	background: #fff url('/movie/images/bullet/bullet02.gif') no-repeat 10px
 		50%;
 }
 
@@ -12549,7 +12549,7 @@
 
 .list_cont .btn_views {
 	padding-right: 18px;
-	background: url('/LCHS/Image/Icon/icn_btnaw1.png') no-repeat 100% 50%;
+	background: url('/movie/images/icon/icn_btnaw1.png') no-repeat 100% 50%;
 }
 
 .intro_list .btn_reserve {
@@ -12762,7 +12762,7 @@
 .member_wrap .info_box .infoB_tit {
 	padding: 0 0 10px 25px;
 	margin: 0;
-	background: url('/LCHS/Image/Icon/icon_warn02.gif') no-repeat left top;
+	background: url('/movie/images/icon/icon_warn02.gif') no-repeat left top;
 	font-size: 14px;
 	font-weight: bold;
 	color: #231f20
@@ -12793,12 +12793,12 @@
 
 .member_wrap .info_box ul li {
 	padding: 0 0 0 14px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 4px 12px
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 4px 12px
 }
 
 .member_wrap .info_box ul.dash li {
 	padding: 0 0 0 14px;
-	background: url('/LCHS/Image/Bullet/bg_dash.gif') no-repeat 4px 12px
+	background: url('/movie/images/Bullet/bg_dash.gif') no-repeat 4px 12px
 }
 
 .mship_tit {
@@ -12835,7 +12835,7 @@
 
 .mem_list li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/bullet/bullet11.gif') no-repeat 0 50%;
+	background: url('/movie/images/bullet/bullet11.gif') no-repeat 0 50%;
 }
 
 .tbl_st06 {
@@ -12871,7 +12871,7 @@
 	width: 56px;
 	height: 19px;
 	margin-right: 10px;
-	background: url('/LCHS/Image/bg/bg_arrow.gif') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_arrow.gif') no-repeat 0 0;
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
@@ -12898,7 +12898,7 @@
 
 .tbl_list li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/bullet/bullet10.gif') no-repeat 0 8px;
+	background: url('/movie/images/bullet/bullet10.gif') no-repeat 0 8px;
 }
 
 .tbl_tit {
@@ -12954,7 +12954,7 @@
 .btn_coupon span {
 	display: inline-block;
 	padding-right: 25px;
-	background: url('/LCHS/Image/bg/bg_coupon_down.gif') no-repeat 100% 50%
+	background: url('/movie/images/bg/bg_coupon_down.gif') no-repeat 100% 50%
 }
 
 .btn_scoupon {
@@ -12978,7 +12978,7 @@
 .btn_scoupon span {
 	display: inline-block;
 	padding-right: 20px;
-	background: url('/LCHS/Image/bg/bg_coupon_down.gif') no-repeat 100% 50%
+	background: url('/movie/images/bg/bg_coupon_down.gif') no-repeat 100% 50%
 }
 
 .btn_guide {
@@ -13082,7 +13082,7 @@
 
 .club_dl dt {
 	padding: 0 0 0 8px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 0 10px;
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 0 10px;
 	color: #666;
 	font-weight: bold;
 	font-size: 14px;
@@ -13091,7 +13091,7 @@
 
 .club_dl dd {
 	padding: 0 0 0 20px;
-	background: url('/LCHS/Image/Bullet/bg_dash.gif') no-repeat 10px 10px;
+	background: url('/movie/images/Bullet/bg_dash.gif') no-repeat 10px 10px;
 	color: #666;
 	font-size: 14px;
 	line-height: 22px;
@@ -13100,7 +13100,7 @@
 .club_point {
 	margin-bottom: 20px;
 	padding: 30px 30px 20px 30px;
-	background: #f9f6ec url('/LCHS/Image/Thum/img_benefit.jpg') no-repeat
+	background: #f9f6ec url('/movie/images/Thum/img_benefit.jpg') no-repeat
 		left top;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -13121,7 +13121,7 @@
 }
 
 .club_sort.type02 li {
-	background: url('/LCHS/Image/bg/bg_arrow02.gif') no-repeat 253px 50%;
+	background: url('/movie/images/bg/bg_arrow02.gif') no-repeat 253px 50%;
 	width: 162px;
 }
 
@@ -13157,7 +13157,7 @@
 	float: left;
 	width: 251px;
 	margin-bottom: 50px;
-	background: url('/LCHS/Image/bg/bg_arrow02.gif') no-repeat 100% 46px;
+	background: url('/movie/images/bg/bg_arrow02.gif') no-repeat 100% 46px;
 	color: #666;
 	text-align: center
 }
@@ -13183,7 +13183,7 @@
 .club_point.point_type02 {
 	margin-top: 50px;
 	padding: 40px 30px 30px 30px;
-	background: #f9f6ec url('/LCHS/Image/Thum/img_Tbenefit.jpg') no-repeat
+	background: #f9f6ec url('/movie/images/Thum/img_Tbenefit.jpg') no-repeat
 		left top
 }
 
@@ -13230,7 +13230,7 @@
 .cinema_point span {
 	display: inline-block;
 	padding-left: 19px;
-	background: url('/LCHS/Image/Bg/bg_error4.png') no-repeat 0 4px;
+	background: url('/movie/images/Bg/bg_error4.png') no-repeat 0 4px;
 }
 
 .ace_coupon {
@@ -13317,7 +13317,7 @@
 	left: 40px;
 	width: 64px;
 	height: 64px;
-	background: url('/LCHS/Image/Bg/bg_vipBenefits_01.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipBenefits_01.png') no-repeat 0 0;
 }
 
 .lside_vipBenefits .list .item02:before {
@@ -13328,7 +13328,7 @@
 	left: 40px;
 	width: 64px;
 	height: 64px;
-	background: url('/LCHS/Image/Bg/bg_vipBenefits_05.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipBenefits_05.png') no-repeat 0 0;
 } /*20170227sunho top 26->65*/
 .lside_vipBenefits .list .item_info dt, .rside_vipBenefits .list .item_info dt
 	{
@@ -13351,7 +13351,7 @@
 	left: 30px;
 	width: 64px;
 	height: 64px;
-	background: url('/LCHS/Image/Bg/bg_vipBenefits_02.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipBenefits_02.png') no-repeat 0 0;
 }
 
 .rside_vipBenefits .list .item02:before {
@@ -13362,7 +13362,7 @@
 	left: 35px;
 	width: 64px;
 	height: 64px;
-	background: url('/LCHS/Image/Bg/bg_vipBenefits_03.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipBenefits_03.png') no-repeat 0 0;
 }
 
 .rside_vipBenefits .list .item03:before {
@@ -13373,7 +13373,7 @@
 	left: 35px;
 	width: 64px;
 	height: 64px;
-	background: url('/LCHS/Image/Bg/bg_vipBenefits_04.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipBenefits_04.png') no-repeat 0 0;
 }
 
 .lside_vipBenefits .list li:first-child {
@@ -13423,7 +13423,7 @@
 	left: 170px;
 	width: 15px;
 	height: 12px;
-	background: url('/LCHS/Image/Icon/icon_download.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_download.png') no-repeat 0 0;
 }
 
 .lside_vipBenefits .btn_blacks {
@@ -13456,7 +13456,7 @@
 	width: 11px;
 	height: 13px;
 	padding-right: 2px;
-	background: url('/LCHS/Image/Icon/icon_birthdaylogin.jpg') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_birthdaylogin.jpg') no-repeat 0 0;
 	vertical-align: -1px;
 }
 
@@ -13570,7 +13570,7 @@
 	display: block;
 	height: 31px;
 	padding-top: 10px;
-	background: url('/LCHS/Image/Bg/bg_rating_arrow.png') no-repeat 100% 0;
+	background: url('/movie/images/Bg/bg_rating_arrow.png') no-repeat 100% 0;
 }
 
 .member_wrap .accrueBx .pointStep .arrow .bgPt {
@@ -13611,7 +13611,7 @@
 }
 
 .member_wrap .accrueBx .pointStep li.bar {
-	background: url('/LCHS/Image/Bg/bg_rating_bar.gif') no-repeat 50% 0;
+	background: url('/movie/images/Bg/bg_rating_bar.gif') no-repeat 50% 0;
 }
 
 .member_wrap .accrueBx .pointStep li>span {
@@ -13624,7 +13624,7 @@
 
 .member_wrap .accrueBx .pointStep {
 	margin-bottom: 54px;
-	background: url('/LCHS/Image/Bg/bg_vip_bar.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vip_bar.gif') no-repeat 0 0;
 }
 
 .member_wrap .accrueBx .pointStep li {
@@ -13710,7 +13710,7 @@
 
 .tbl_st06.vip_coup .coup_txt li {
 	padding-left: 8px;
-	background: url('/LCHS/Image/Bullet/bullet10.gif') no-repeat 0 10px;
+	background: url('/movie/images/Bullet/bullet10.gif') no-repeat 0 10px;
 	text-align: left;
 }
 
@@ -13722,7 +13722,7 @@
 .cpBoxNew {
 	width: 978px;
 	min-height: 800px;
-	background: url('/LCHS/Image/Bg/bg_vipNew1.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipNew1.gif') no-repeat 0 0;
 }
 
 .cpBoxNew .vipCpTb {
@@ -13803,24 +13803,24 @@
 
 .cpBoxNew .vipBb.bg1 {
 	margin: 29px 0 29px 35px;
-	background: url('/LCHS/Image/Bg/bg_vipNew2.gif') no-repeat 5px 0;
+	background: url('/movie/images/Bg/bg_vipNew2.gif') no-repeat 5px 0;
 }
 
 .cpBoxNew .vipBb.bg2 {
 	margin: 15px 0 28px 35px;
-	background: url('/LCHS/Image/Bg/bg_vipNew3.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipNew3.gif') no-repeat 0 0;
 }
 
 .cpBoxNew .vipBb.bg3 {
 	margin: 35px 0 20px 35px;
 	padding-left: 105px;
-	background: url('/LCHS/Image/Bg/bg_vipNew4.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipNew4.gif') no-repeat 0 0;
 }
 
 .cpBoxNew .vipBb.bg4 {
 	margin: 30px 0 20px 35px;
 	padding-left: 105px;
-	background: url('/LCHS/Image/Bg/bg_vipNew3.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipNew3.gif') no-repeat 0 0;
 }
 
 .cpBoxNew .ace_coupon1 {
@@ -13871,7 +13871,7 @@
 .btn_coupon2 span {
 	display: inline-block;
 	padding-right: 25px;
-	background: url('/LCHS/Image/bg/bg_coupon_down2.gif') no-repeat 100% 50%
+	background: url('/movie/images/bg/bg_coupon_down2.gif') no-repeat 100% 50%
 }
 
 .btn_black {
@@ -13894,7 +13894,7 @@
 .vip_benefits2 {
 	overflow: hidden;
 	width: 980px;
-	background: url('/LCHS/Image/Bg/bg_vipNew6.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_vipNew6.gif') no-repeat 0 0;
 }
 
 .vip_benefits2 dl {
@@ -13934,12 +13934,12 @@
 }
 
 .vip_benefits2 dl dt .viptit_platinum {
-	background: url('/LCHS/Image/icon/icon_benefit01.png') no-repeat 50%
+	background: url('/movie/images/icon/icon_benefit01.png') no-repeat 50%
 		100%
 }
 
 .vip_benefits2 dl dt .viptit_gold {
-	background: url('/LCHS/Image/icon/icon_benefit02.png') no-repeat 50%
+	background: url('/movie/images/icon/icon_benefit02.png') no-repeat 50%
 		100%
 }
 
@@ -13947,7 +13947,7 @@
 	overflow: hidden;
 	width: 980px;
 	margin-top: 50px;
-	background: url('/LCHS/Image/Bg/bg_vipNew7.gif') no-repeat center center;
+	background: url('/movie/images/Bg/bg_vipNew7.gif') no-repeat center center;
 }
 
 .vip_benefitUl {
@@ -13977,22 +13977,22 @@
 
 .vip_benefitUl>li .icon_book {
 	min-height: 120px;
-	background: url('/LCHS/Image/bg/bg_vipNew8.gif') no-repeat 0 0
+	background: url('/movie/images/bg/bg_vipNew8.gif') no-repeat 0 0
 }
 
 .vip_benefitUl>li .icon_date {
 	margin-top: 25px;
-	background: url('/LCHS/Image/bg/bg_vipNew9.gif') no-repeat 0 0
+	background: url('/movie/images/bg/bg_vipNew9.gif') no-repeat 0 0
 }
 
 .vip_benefitUl>li .icon_movie {
 	margin-top: 25px;
-	background: url('/LCHS/Image/bg/bg_vipNew11.gif') no-repeat 0 0
+	background: url('/movie/images/bg/bg_vipNew11.gif') no-repeat 0 0
 }
 
 .vip_benefitUl>li .icon_vip {
 	min-height: 120px;
-	background: url('/LCHS/Image/bg/bg_vipNew10.gif') no-repeat 0 0
+	background: url('/movie/images/bg/bg_vipNew10.gif') no-repeat 0 0
 }
 
 .vip_benefitUl>li .btn_views {
@@ -14035,7 +14035,7 @@
 }
 
 .vipBenefits_wrap .heading3 {
-	background: url(/LCHS/Image/Bg/bg_heading.gif) repeat-x 0 center;
+	background: url(/movie/images/Bg/bg_heading.gif) repeat-x 0 center;
 	font-size: 23px;
 	line-height: 23px;
 	text-align: center;
@@ -14064,7 +14064,7 @@
 	position: absolute;
 	width: 16px;
 	height: 16px;
-	background-image: url(/LCHS/Image/Bg/rbx_edge.png);
+	background-images: url(/movie/images/Bg/rbx_edge.png);
 	background-repeat: no-repeat;
 }
 
@@ -14124,17 +14124,17 @@
 	float: left;
 }
 /* 20160803 ViP 수정
-.list_vipBenefits .item01 {width:382px; padding:30px 0 0 102px; height:124px; border-right:1px solid #f1eedf; border-bottom:1px solid #f1eedf; background:url(/LCHS/Image/Bg/bg_vipBenefits_01.gif) no-repeat 28px 50px;}
-.list_vipBenefits .item02 {width:377px; padding:30px 0 0 106px; height:124px; border-bottom:1px solid #f1eedf; background:url(/LCHS/Image/Bg/bg_vipBenefits_02.gif) no-repeat 39px 44px;}
-.list_vipBenefits .item03 {width:382px; padding:30px 0 0 102px; height:101px; border-right:1px solid #f1eedf; background:url(/LCHS/Image/Bg/bg_vipBenefits_03.gif) no-repeat 26px 44px;}
-.list_vipBenefits .item04 {width:377px; padding:30px 0 0 106px; height:101px; background:url(/LCHS/Image/Bg/bg_vipBenefits_04.gif) no-repeat 31px 40px;}*/
+.list_vipBenefits .item01 {width:382px; padding:30px 0 0 102px; height:124px; border-right:1px solid #f1eedf; border-bottom:1px solid #f1eedf; background:url(/movie/images/Bg/bg_vipBenefits_01.gif) no-repeat 28px 50px;}
+.list_vipBenefits .item02 {width:377px; padding:30px 0 0 106px; height:124px; border-bottom:1px solid #f1eedf; background:url(/movie/images/Bg/bg_vipBenefits_02.gif) no-repeat 39px 44px;}
+.list_vipBenefits .item03 {width:382px; padding:30px 0 0 102px; height:101px; border-right:1px solid #f1eedf; background:url(/movie/images/Bg/bg_vipBenefits_03.gif) no-repeat 26px 44px;}
+.list_vipBenefits .item04 {width:377px; padding:30px 0 0 106px; height:101px; background:url(/movie/images/Bg/bg_vipBenefits_04.gif) no-repeat 31px 40px;}*/
 .list_vipBenefits .item01 {
 	width: 382px;
 	padding: 30px 0 0 102px;
 	height: 150px;
 	border-right: 1px solid #f1eedf;
 	border-bottom: 1px solid #f1eedf;
-	background: url(/LCHS/Image/Bg/bg_vipBenefits_01.gif) no-repeat 28px
+	background: url(/movie/images/Bg/bg_vipBenefits_01.gif) no-repeat 28px
 		50px;
 }
 
@@ -14143,7 +14143,7 @@
 	padding: 30px 0 0 106px;
 	height: 150px;
 	border-bottom: 1px solid #f1eedf;
-	background: url(/LCHS/Image/Bg/bg_vipBenefits_02.gif) no-repeat 39px
+	background: url(/movie/images/Bg/bg_vipBenefits_02.gif) no-repeat 39px
 		44px;
 }
 
@@ -14152,7 +14152,7 @@
 	padding: 30px 0 0 102px;
 	height: 105px;
 	border-right: 1px solid #f1eedf;
-	background: url(/LCHS/Image/Bg/bg_vipBenefits_03.gif) no-repeat 26px
+	background: url(/movie/images/Bg/bg_vipBenefits_03.gif) no-repeat 26px
 		44px;
 }
 
@@ -14160,7 +14160,7 @@
 	width: 377px;
 	padding: 30px 0 0 106px;
 	height: 105px;
-	background: url(/LCHS/Image/Bg/bg_vipBenefits_04.gif) no-repeat 31px
+	background: url(/movie/images/Bg/bg_vipBenefits_04.gif) no-repeat 31px
 		40px;
 }
 
@@ -14169,7 +14169,7 @@
 }
 /* 20160803 ViP 수정
 .list_vipBenefits .item_info dt {display:block; margin-bottom:10px; font-size:15px;}
-.list_vipBenefits .item_info dd {padding:0 0 5px 8px; background:url(/LCHS/Image/Bg/bg_dash.gif) no-repeat 0 7px; font-size:14px;}
+.list_vipBenefits .item_info dd {padding:0 0 5px 8px; background:url(/movie/images/Bg/bg_dash.gif) no-repeat 0 7px; font-size:14px;}
 .list_vipBenefits .item_info .btn_details {display:inline-block; height:25px; padding:0 10px; background-color:#231f20; color:#cbc297; font-size:13px; line-height:24px; letter-spacing:-1px;}*/
 .list_vipBenefits .item_info dt {
 	display: block;
@@ -14185,7 +14185,7 @@
 
 .list_vipBenefits .item_info dd {
 	padding: 0 0 5px 8px;
-	background: url(/LCHS/Image/Bg/bg_dash.gif) no-repeat 0 7px;
+	background: url(/movie/images/Bg/bg_dash.gif) no-repeat 0 7px;
 	font-size: 16px;
 	line-height: 1.3;
 }
@@ -14259,15 +14259,15 @@
 }
 
 .list_selectVip .item01 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit01.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit01.png) no-repeat 50% 100%;
 }
 
 .list_selectVip .item02 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit02.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit02.png) no-repeat 50% 100%;
 }
 
 .list_selectVip .item03 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit04.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit04.png) no-repeat 50% 100%;
 }
 
 /* 오픈전히든 
@@ -14304,7 +14304,7 @@
 	display: inline-block;
 	min-height: 13px;
 	padding-left: 16px;
-	background: url('/LCHS/Image/btn/btn_loginTicket.png') no-repeat center
+	background: url('/movie/images/btn/btn_loginTicket.png') no-repeat center
 		left;
 }
 
@@ -14362,17 +14362,17 @@
 }
 
 .vip_benefits li .viptit_platinum {
-	background: url('/LCHS/Image/icon/icon_benefit01.png') no-repeat 50%
+	background: url('/movie/images/icon/icon_benefit01.png') no-repeat 50%
 		100%
 }
 
 .vip_benefits li .viptit_gold {
-	background: url('/LCHS/Image/icon/icon_benefit02.png') no-repeat 50%
+	background: url('/movie/images/icon/icon_benefit02.png') no-repeat 50%
 		100%
 }
 
 .vip_benefits li .viptit_ace {
-	background: url('/LCHS/Image/icon/icon_benefit03.png') no-repeat 50%
+	background: url('/movie/images/icon/icon_benefit03.png') no-repeat 50%
 		100%
 }
 
@@ -14413,19 +14413,19 @@
 }
 
 .vip_benefit_go li.icon_book {
-	background: url('/LCHS/Image/icon/icon_vip_book.png') no-repeat 11px 0
+	background: url('/movie/images/icon/icon_vip_book.png') no-repeat 11px 0
 }
 
 .vip_benefit_go li.icon_date {
-	background: url('/LCHS/Image/icon/icon_date.png') no-repeat 11px 0
+	background: url('/movie/images/icon/icon_date.png') no-repeat 11px 0
 }
 
 .vip_benefit_go li.icon_movie {
-	background: url('/LCHS/Image/icon/icon_movie.png') no-repeat 11px 0
+	background: url('/movie/images/icon/icon_movie.png') no-repeat 11px 0
 }
 
 .vip_benefit_go li.icon_vip {
-	background: url('/LCHS/Image/icon/icon_vip_event.png') no-repeat 11px 0
+	background: url('/movie/images/icon/icon_vip_event.png') no-repeat 11px 0
 }
 
 .titBox {
@@ -14484,7 +14484,7 @@
 
 .list_dot li {
 	padding: 0 0 0 10px;
-	background: url(/LCHS/Image/bullet/bullet10.gif) no-repeat 3px 8px;
+	background: url(/movie/images/bullet/bullet10.gif) no-repeat 3px 8px;
 	color: #666;
 	font-size: 12px;
 	line-height: 20px;
@@ -14522,11 +14522,11 @@
 	float: left;
 	min-width: 130px;
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet_order.gif') no-repeat left
+	background: url('/movie/images/Bullet/bullet_order.gif') no-repeat left
 		center;
 }
 /*
-.coupun_plist {padding:19px 0; margin-bottom:20px; background:#f9f6ec url('/LCHS/Image/bg/bg_dott.gif') no-repeat 176px 50%}
+.coupun_plist {padding:19px 0; margin-bottom:20px; background:#f9f6ec url('/movie/images/bg/bg_dott.gif') no-repeat 176px 50%}
 .coupun_plist:after {content:''; display:block; clear:both;}
 .coupun_plist li {float:left; position:relative; width:176px; padding-left:40px; color:#231f20; font-size:13px; line-height:22px; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box}
 .coupun_plist li span {display:block;}
@@ -14561,11 +14561,11 @@
 	border: 0;
 	padding: 18px 0;
 	vertical-align: middle;
-	background: #fbf9f2 url('/LCHS/Image/bg/bg_dott.gif') no-repeat left 50%;
+	background: #fbf9f2 url('/movie/images/bg/bg_dott.gif') no-repeat left 50%;
 }
 
 .cpvipTb table tbody tr td:first-child {
-	background-image: none;
+	background-images: none;
 	background-color: #fbf9f2;
 }
 
@@ -14605,7 +14605,7 @@
 
 .coupon_sList li {
 	padding-left: 8px;
-	background: url('/LCHS/Image/bg/bg_coupon.gif') no-repeat 0 9px;
+	background: url('/movie/images/bg/bg_coupon.gif') no-repeat 0 9px;
 	font-size: 12px;
 	color: #666;
 	line-height: 18px;
@@ -14640,7 +14640,7 @@
 	font-size: 15px;
 	line-height: 22px;
 }
-/* .barcode_box {padding:27px 31px 28px; background:#f9f6ec url('/LCHS/Image/bg/bg_line_mRegister.gif') repeat-x 0 100%;} */
+/* .barcode_box {padding:27px 31px 28px; background:#f9f6ec url('/movie/images/bg/bg_line_mRegister.gif') repeat-x 0 100%;} */
 .barcode_box {
 	margin-top: 30px;
 	padding: 27px 31px 34px;
@@ -14799,7 +14799,7 @@
 .error_box>em {
 	display: block;
 	padding: 140px 0 30px 0;
-	background: url('/LCHS/Image/Bg/bg_error.png') no-repeat top center;
+	background: url('/movie/images/Bg/bg_error.png') no-repeat top center;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -14845,7 +14845,7 @@
 .system_box>em {
 	display: block;
 	padding: 140px 0 30px 0;
-	background: url('/LCHS/Image/Bg/bg_error.png') no-repeat top center;
+	background: url('/movie/images/Bg/bg_error.png') no-repeat top center;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -15253,7 +15253,7 @@
 	float: right;
 	margin-bottom: 10px;
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet01.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bullet/bullet01.gif') no-repeat 0 50%;
 	font-size: 13px;
 	color: #777
 }
@@ -15301,7 +15301,7 @@
 .theater_header dd {
 	float: right;
 	padding-left: 7px;
-	background: url('/LCHS/Image/Bullet/bullet01.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bullet/bullet01.gif') no-repeat 0 50%;
 	font-size: 13px;
 	color: #777;
 }
@@ -15336,7 +15336,7 @@
 }
 /*
 .ticket_My dd .btnCinema {float:left; display:block; height:30px; line-height:30px; text-align:center; margin:8px 32px 0 0; padding:0 10px; border:1px solid #e5e5e5;}
-.ticket_My dd .btnCinema > em {display:inline-block; height:30px; color:#231f20; font-size:13px; background:url('/LCHS/Image/bg/bg_btnCinema.png') no-repeat left 50%; padding-left:16px;}
+.ticket_My dd .btnCinema > em {display:inline-block; height:30px; color:#231f20; font-size:13px; background:url('/movie/images/bg/bg_btnCinema.png') no-repeat left 50%; padding-left:16px;}
 */
 .ticket_My dd .btnCinema {
 	float: left;
@@ -15346,7 +15346,7 @@
 	height: 30px;
 	min-width: auto;
 	border-left: none;
-	background: url('/LCHS/Image/Btn/btn_prefer.gif') no-repeat
+	background: url('/movie/images/Btn/btn_prefer.gif') no-repeat
 }
 
 .ticket_My dd .btnCinema>em {
@@ -15374,7 +15374,7 @@
 	display: inline-block;
 	min-height: 13px;
 	padding-left: 16px;
-	background: url('/LCHS/Image/btn/btn_loginTicket.png') no-repeat center
+	background: url('/movie/images/btn/btn_loginTicket.png') no-repeat center
 		left;
 }
 
@@ -15438,7 +15438,7 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	padding-left: 15px;
-	background: url('/LCHS/Image/Icon/icon_favorite.gif') no-repeat left
+	background: url('/movie/images/icon/icon_favorite.gif') no-repeat left
 		11px;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -15463,7 +15463,7 @@
 	float: left;
 	font-size: 14px;
 	padding: 0 20px;
-	background: url('/LCHS/Image/Bg/bg_theater_line.gif') no-repeat left
+	background: url('/movie/images/Bg/bg_theater_line.gif') no-repeat left
 		center;
 }
 
@@ -15484,7 +15484,7 @@
 .theater_list li a.on span {
 	display: inline-block;
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet02.gif') no-repeat left center;
+	background: url('/movie/images/Bullet/bullet02.gif') no-repeat left center;
 }
 
 .tab_srcoll {
@@ -15525,7 +15525,7 @@
 .area_zone>a.on { /* 0308 width:107px;*/
 	width: 107px;
 	padding-left: 22px;
-	background: #231f20 url('/LCHS/Image/Bullet/bullet03.gif') no-repeat
+	background: #231f20 url('/movie/images/Bullet/bullet03.gif') no-repeat
 		10px center;
 	color: #fff !important;
 	letter-spacing: -1px;
@@ -15584,7 +15584,7 @@
 	border: 1px solid #999;
 	color: #231f20;
 	font-weight: bold;
-	background: #fff url('/LCHS/Image/bg/bg_ckth.png') no-repeat 10px 50%;
+	background: #fff url('/movie/images/bg/bg_ckth.png') no-repeat 10px 50%;
 }
 
 .area_list li a.disabled {
@@ -15596,7 +15596,7 @@
 } /* 1105 추가 */
 .area_list li a.disabled.on {
 	color: #d1d1d1;
-	background: #fafafa url('/LCHS/Image/bg/bg_ckth.png') no-repeat 10px 50%;
+	background: #fafafa url('/movie/images/bg/bg_ckth.png') no-repeat 10px 50%;
 	border: 1px solid #999;
 	cursor: default;
 }
@@ -15613,7 +15613,7 @@
 	display: inline-block;
 	font-size: 14px;
 	padding-left: 2px;
-	background: url('/LCHS/Image/bg/bg_tkMTab.gif') no-repeat left center;
+	background: url('/movie/images/bg/bg_tkMTab.gif') no-repeat left center;
 }
 
 .tkMTab li:first-child {
@@ -15738,7 +15738,7 @@
 }
 
 .movie_list li a.on {
-	background: url('/LCHS/Image/bg/bg_ckth.png') no-repeat 10px center;
+	background: url('/movie/images/bg/bg_ckth.png') no-repeat 10px center;
 	border: 1px solid #999;
 }
 
@@ -15749,35 +15749,35 @@
 }
 
 .movie_list .disabled [class^=grade_].grade_18 {
-	background: url('/LCHS/Image/Bg/bg_grade_18_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_18_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_15 {
-	background: url('/LCHS/Image/Bg/bg_grade_15_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_15_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_12 {
-	background: url('/LCHS/Image/Bg/bg_grade_12_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_12_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_all {
-	background: url('/LCHS/Image/Bg/bg_grade_all_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_all_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_all2 {
-	background: url('/LCHS/Image/Bg/bg_grade_all2_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_all2_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_19 {
-	background: url('/LCHS/Image/Bg/bg_grade_19_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_19_off.png') no-repeat 0 0;
 }
 
 .movie_list .disabled [class^=grade_].grade_mi {
-	background: url('/LCHS/Image/Bg/bg_grade_mi_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_mi_off.png') no-repeat 0 0;
 }
 
 .movie_list li a.disabled.on {
-	background: #fff url('/LCHS/Image/bg/bg_ckth.png') no-repeat 10px center;
+	background: #fff url('/movie/images/bg/bg_ckth.png') no-repeat 10px center;
 	border: 1px solid #999
 }
 
@@ -15803,35 +15803,35 @@
 }
 
 .grade_18 {
-	background: url('/LCHS/Image/Bg/bg_grade_18.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_18.png') no-repeat 0 0;
 }
 
 .grade_15 {
-	background: url('/LCHS/Image/Bg/bg_grade_15.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_15.png') no-repeat 0 0;
 }
 
 .grade_12 {
-	background: url('/LCHS/Image/Bg/bg_grade_12.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_12.png') no-repeat 0 0;
 }
 
 .grade_all {
-	background: url('/LCHS/Image/Bg/bg_grade_all.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_all.png') no-repeat 0 0;
 }
 
 .grade_all2 {
-	background: url('/LCHS/Image/Bg/bg_grade_all2.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_all2.png') no-repeat 0 0;
 }
 
 .grade_19 {
-	background: url('/LCHS/Image/Bg/bg_grade_19.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_19.png') no-repeat 0 0;
 }
 
 .grade_mi {
-	background: url('/LCHS/Image/Bg/bg_grade_mi.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_grade_mi.png') no-repeat 0 0;
 }
 
 .grade_film {
-	background: url('/LCHS/Image/Bg/bg_film_festival.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_film_festival.png') no-repeat 0 0;
 }
 
 .event_banner .event_list li {
@@ -15911,7 +15911,7 @@
 .none_data .icon_warn {
 	display: inline-block;
 	padding-left: 40px;
-	background: url('/LCHS/Image/Icon/icon_warn.gif') no-repeat 0 50%
+	background: url('/movie/images/icon/icon_warn.gif') no-repeat 0 50%
 }
 
 /* 예매 - 상영시간표 */
@@ -15932,7 +15932,7 @@
 	line-height: 80px;
 	color: #231f20;
 	font-size: 18px;
-	background: url('/LCHS/Image/bg/bg_error3.png') no-repeat left center;
+	background: url('/movie/images/bg/bg_error3.png') no-repeat left center;
 }
 
 .selectMv .time_q {
@@ -15946,12 +15946,12 @@
 
 .selectMv .time_q .time_Lk {
 	padding: 0 17px 0 5px;
-	background: url('/LCHS/Image/Btn/btn_times.gif') no-repeat right center;
+	background: url('/movie/images/Btn/btn_times.gif') no-repeat right center;
 	font-weight: bold;
 }
 
 .selectMv .time_q .time_Lk.off {
-	background: url('/LCHS/Image/Btn/btn_times.gif') no-repeat right center;
+	background: url('/movie/images/Btn/btn_times.gif') no-repeat right center;
 	color: #b5ae96;
 }
 
@@ -16078,7 +16078,7 @@
 .time_stop .time_tab li:first-child {
 	padding-right: 10px;
 	margin-right: 10px;
-	background: url('/LCHS/Image/bg/bg_line07.gif') no-repeat 100% 50%;
+	background: url('/movie/images/bg/bg_line07.gif') no-repeat 100% 50%;
 }
 
 .time_stop .time_tab li a {
@@ -16283,13 +16283,13 @@
 	top: 122px;
 	width: 20px;
 	height: 37px;
-	background: url('/LCHS/Image/btn/btn_m_prev_on.png') no-repeat 0 0;
+	background: url('/movie/images/btn/btn_m_prev_on.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 }
 
 .mslide_boxs .btn_prev:hover, .mslide_boxs .btn_prev.on {
-	background-image: url('/LCHS/Image/btn/btn_m_prev_on.png')
+	background-images: url('/movie/images/btn/btn_m_prev_on.png')
 }
 
 .mslide_boxs .btn_next {
@@ -16298,13 +16298,13 @@
 	top: 122px;
 	width: 20px;
 	height: 37px;
-	background: url('/LCHS/Image/btn/btn_m_next_on.png') no-repeat 0 0;
+	background: url('/movie/images/btn/btn_m_next_on.png') no-repeat 0 0;
 	font-size: 0;
 	line-height: 0;
 }
 
 .mslide_boxs .btn_next:hover, .mslide_boxs .btn_next.on {
-	background-image: url('/LCHS/Image/btn/btn_m_next_on.png')
+	background-images: url('/movie/images/btn/btn_m_next_on.png')
 }
 
 .m_List {
@@ -16411,12 +16411,12 @@
 .mslide_boxs .indicator li a {
 	width: 10px;
 	height: 10px;
-	background: url('/LCHS/Image/Bg/bg_indicator_off2.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_indicator_off2.png') no-repeat 0 0;
 }
 
 .mslide_boxs .indicator li.on a {
 	width: 10px;
-	background-image: url('/LCHS/Image/Bg/bg_indicator_on2.png') !important
+	background-images: url('/movie/images/Bg/bg_indicator_on2.png') !important
 }
 
 .tab_st09 {
@@ -16592,7 +16592,7 @@
 	padding: 0 7px 0 8px;
 	margin: 0;
 	color: #666;
-	background: url('/LCHS/Image/bg/bg_line08.gif') no-repeat left 1px;
+	background: url('/movie/images/bg/bg_line08.gif') no-repeat left 1px;
 }
 
 .time_line dd .cineD1 li:first-child {
@@ -16615,7 +16615,7 @@
 .time_line dd .theater_time li .cineD2 em {
 	display: inline-block;
 	padding: 0 6px;
-	background: url('/LCHS/Image/bg/bg_line08.gif') no-repeat left 4px;
+	background: url('/movie/images/bg/bg_line08.gif') no-repeat left 4px;
 }
 /*.time_line dd .theater_time li .cineD2 em:first-child {background:none !important; padding-left:0;}*/
 .time_line dd .theater_time li .cineD2 em:first-child {
@@ -16660,7 +16660,7 @@
 }
 
 .time_line dd .theater_time li.on a .cineD2 em {
-	background: url('/LCHS/Image/bg/bg_line08_on.gif') no-repeat left 4px;
+	background: url('/movie/images/bg/bg_line08_on.gif') no-repeat left 4px;
 }
 
 .time_line dd .theater_time li.on .clock {
@@ -16695,7 +16695,7 @@
 }
 
 .time_line dd .theater_time li a:hover .cineD2 em {
-	background: url('/LCHS/Image/bg/bg_line08_on.gif') no-repeat left 4px;
+	background: url('/movie/images/bg/bg_line08_on.gif') no-repeat left 4px;
 }
 
 .time_line dd .theater_time li a:hover .clock {
@@ -16792,7 +16792,7 @@
 }
 
 .time_line dd .theater_time li.soldout a:hover .cineD2 em {
-	background: #fff url('/LCHS/Image/bg/bg_line08.gif') no-repeat left 4px
+	background: #fff url('/movie/images/bg/bg_line08.gif') no-repeat left 4px
 		!important;
 }
 
@@ -16903,7 +16903,7 @@
 	display: inline-block;
 	line-height: 23px;
 	padding-left: 27px;
-	background: url('/LCHS/Image/Icon/icon_nodata.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_nodata.png') no-repeat 0 0;
 	font-size: 18px;
 	color: #777
 }
@@ -16924,7 +16924,7 @@
 	display: inline-block;
 	line-height: 23px;
 	padding-left: 27px;
-	background: url('/LCHS/Image/Icon/icon_nodata.png') no-repeat 0 0;
+	background: url('/movie/images/icon/icon_nodata.png') no-repeat 0 0;
 	font-size: 18px;
 	color: #777
 }
@@ -17067,7 +17067,7 @@
 	filter: alpha(opacity = 100);
 	opacity: 1.0;
 	-moz-opacity: 1.0;
-	background: url('/LCHS/Image/bg/bg_cal_check.png') no-repeat center
+	background: url('/movie/images/bg/bg_cal_check.png') no-repeat center
 		center !important;
 	color: #fff;
 }
@@ -17082,7 +17082,7 @@
 	filter: alpha(opacity = 100);
 	opacity: 1.0;
 	-moz-opacity: 1.0;
-	background: url('/LCHS/Image/bg/bg_cal_check.png') no-repeat center
+	background: url('/movie/images/bg/bg_cal_check.png') no-repeat center
 		center;
 	color: #fff;
 }
@@ -17107,13 +17107,13 @@
 
 .calendar .month-picker-nav.next {
 	right: 0;
-	background: url('/LCHS/Image/btn/btn_m_next_on.png') no-repeat center
+	background: url('/movie/images/btn/btn_m_next_on.png') no-repeat center
 		center;
 }
 
 .calendar .month-picker-nav.prev {
 	left: 0;
-	background: url('/LCHS/Image/btn/btn_m_prev_on.png') no-repeat center
+	background: url('/movie/images/btn/btn_m_prev_on.png') no-repeat center
 		center;
 }
 
@@ -17405,13 +17405,13 @@
 .sear_right li.s_price a {
 	padding-left: 25px;
 	margin-left: 19px;
-	background: #fff url('/LCHS/Image/Icon/icon_seat_w.gif') no-repeat 10px
+	background: #fff url('/movie/images/icon/icon_seat_w.gif') no-repeat 10px
 		50%;
 }
 
 .sear_right li.reset a {
 	padding-left: 31px;
-	background: #fff url('/LCHS/Image/Icon/icon_seat_re.gif') no-repeat 10px
+	background: #fff url('/movie/images/icon/icon_seat_re.gif') no-repeat 10px
 		50%
 }
 
@@ -17505,7 +17505,7 @@
 	width: 223px;
 	min-height: 100px;
 	padding: 29px 0 0 0;
-	background: url('/LCHS/Image/bg/bg_seat_top.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_seat_top.png') no-repeat 0 0;
 	font-size: 12px;
 	color: #666;
 	z-index: 100;
@@ -17513,7 +17513,7 @@
 
 .layer_seat .seat_in {
 	padding: 0 24px 29px 21px;
-	background: url('/LCHS/Image/bg/bg_seat_bottom.png') no-repeat 0 100%;
+	background: url('/movie/images/bg/bg_seat_bottom.png') no-repeat 0 100%;
 	line-height: 18px;
 }
 
@@ -17546,13 +17546,13 @@
 	left: 0;
 	top: 19px;
 	width: 208px;
-	background: url('/LCHS/Image/bg/bg_seat_top02.png') no-repeat 0 0;
+	background: url('/movie/images/bg/bg_seat_top02.png') no-repeat 0 0;
 	text-align: center;
 }
 
 .seat_setup .layer_seat .seat_in {
 	padding: 0 24px 22px 22px;
-	background: url('/LCHS/Image/bg/bg_seat_bottom02.png') no-repeat 0 100%;
+	background: url('/movie/images/bg/bg_seat_bottom02.png') no-repeat 0 100%;
 }
 
 .seat_setup>em {
@@ -17580,27 +17580,27 @@
 
 .seat_setting li.per1 {
 	width: 62px;
-	background: url('/LCHS/Image/Icon/img_seat01.gif') no-repeat 22px 3px
+	background: url('/movie/images/icon/img_seat01.gif') no-repeat 22px 3px
 }
 
 .seat_setting li.per2 {
 	width: 70px;
-	background: url('/LCHS/Image/Icon/img_seat02.gif') no-repeat 22px 3px
+	background: url('/movie/images/icon/img_seat02.gif') no-repeat 22px 3px
 }
 
 .seat_setting li.per3 {
 	width: 94px;
-	background: url('/LCHS/Image/Icon/img_seat03.gif') no-repeat 22px 3px
+	background: url('/movie/images/icon/img_seat03.gif') no-repeat 22px 3px
 }
 
 .seat_setting li.per4 {
 	width: 108px;
-	background: url('/LCHS/Image/Icon/img_seat04.gif') no-repeat 22px 3px
+	background: url('/movie/images/icon/img_seat04.gif') no-repeat 22px 3px
 }
 
 .seat_setting li.per5 {
 	width: 120px;
-	background: url('/LCHS/Image/Icon//img_seat05.gif') no-repeat 22px 3px
+	background: url('/movie/images/icon//img_seat05.gif') no-repeat 22px 3px
 }
 
 .seat_setting li.per1.on, .seat_setting li.per2.on, .seat_setting li.per3.on,
@@ -17646,7 +17646,7 @@
 	width: 2px;
 	height: 13px;
 	padding-left: 8px;
-	background: url('/LCHS/Image/Bullet/bullet_seat_dot.gif') no-repeat 0
+	background: url('/movie/images/Bullet/bullet_seat_dot.gif') no-repeat 0
 		7px
 }
 
@@ -17654,7 +17654,7 @@
 	padding: 20px 0 20px 27px;
 	border-top: 1px solid #ccc;
 	line-height: 16px;
-	background: url('/LCHS/image/icon/icon_seat_d.gif') no-repeat 0 20px;
+	background: url('/movie/images/icon/icon_seat_d.gif') no-repeat 0 20px;
 	font-size: 13px;
 	color: #6f6247
 }
@@ -17701,7 +17701,7 @@
 	display: block;
 	margin-bottom: 15px;
 	line-height: 25px;
-	background: url('/LCHS/Image/Bg/bg_screen.gif') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_screen.gif') no-repeat 0 0;
 	font-size: 20px;
 	color: #231f20;
 	text-align: center;
@@ -17728,7 +17728,7 @@
 	width: 100%;
 	height: 100%;
 	z-index: 100;
-	background: url('/LCHS/Image/bg/bg_mask05.png') repeat 0 0;
+	background: url('/movie/images/bg/bg_mask05.png') repeat 0 0;
 }
 
 .floor_tit {
@@ -17771,11 +17771,11 @@
 	width: 11px;
 	height: 11px;
 	margin-left: 9px;
-	background: url('/LCHS/Image/Bg/bg_floor.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_floor.png') no-repeat 0 0;
 }
 
 .floor_tit.btn_sView.on:after {
-	background-image: url('/LCHS/Image/Bg/bg_floor_on.png')
+	background-images: url('/movie/images/Bg/bg_floor_on.png')
 }
 
 .seat_Barea {
@@ -17793,44 +17793,44 @@
 	display: block;
 	width: 6px;
 	height: 32px;
-	background: url('/LCHS/Image/Bg/bg_window_left.png') no-repeat;
+	background: url('/movie/images/Bg/bg_window_left.png') no-repeat;
 	font-size: 0;
 	line-height: 0;
 }
 
 .w_left {
-	background-image: url('/LCHS/Image/Bg/bg_window_left.png')
+	background-images: url('/movie/images/Bg/bg_window_left.png')
 }
 
 .w_center {
 	width: 32px;
 	height: 6px;
-	background-image: url('/LCHS/Image/Bg/bg_window_top.png');
+	background-images: url('/movie/images/Bg/bg_window_top.png');
 	background-position: 50% 0
 }
 
 .w_bLeft {
-	background-image: url('/LCHS/Image/Bg/bg_window_left.png')
+	background-images: url('/movie/images/Bg/bg_window_left.png')
 }
 
 .w_right {
-	background-image: url('/LCHS/Image/Bg/bg_window_right.png')
+	background-images: url('/movie/images/Bg/bg_window_right.png')
 }
 
 .w_bRight {
-	background-image: url('/LCHS/Image/Bg/bg_window_right.png')
+	background-images: url('/movie/images/Bg/bg_window_right.png')
 }
 
 .w_bottom {
 	width: 32px;
 	height: 6px;
-	background-image: url('/LCHS/Image/Bg/bg_window_bottom.png')
+	background-images: url('/movie/images/Bg/bg_window_bottom.png')
 }
 
 .w_bBottom {
 	width: 32px;
 	height: 6px;
-	background-image: url('/LCHS/Image/Bg/bg_window_bottom.png')
+	background-images: url('/movie/images/Bg/bg_window_bottom.png')
 }
 
 /* 공통 좌석 */
@@ -17865,12 +17865,12 @@
 }
 
 .seat_area .on {
-	background: url('/LCHS/Image/Bg/bg_seat01.gif') no-repeat 0 0 !important;
+	background: url('/movie/images/Bg/bg_seat01.gif') no-repeat 0 0 !important;
 	border: 0 !important;
 }
 
 .seat_area .over {
-	background: url('/LCHS/Image/Bg/bg_seat01.gif') no-repeat 0 0 !important;
+	background: url('/movie/images/Bg/bg_seat01.gif') no-repeat 0 0 !important;
 	border: 0 !important;
 }
 
@@ -17901,7 +17901,7 @@
 }
 
 .seat_area .disabled {
-	background: url('/LCHS/Image/Bg/bg_disabled.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0;
@@ -17909,60 +17909,60 @@
 }
 
 .seat_area .no_select {
-	background: url('/LCHS/Image/Bg/bg_disabled.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0;
 }
 
 .seat_area .foot_seat {
-	background: url('/LCHS/Image/Bg/bg_foot_seat.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_foot_seat.gif') no-repeat 50% 50%;
 	border: none;
 	background-size: cover;
 	line-height: 24px;
 }
 
 .seat_area .noseat {
-	background: url('/LCHS/Image/Bg/bg_disabled.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0
 }
 
 .seat_area .super_vibe {
-	background: url('/LCHS/Image/Bg/bg_super_vibe.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_super_vibe.gif') no-repeat 50% 50%;
 	border: none;
 }
 
 .seat_area .cine_couple {
-	background: url('/LCHS/Image/Bg/bg_cine_couple.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_cine_couple.gif') no-repeat 50% 50%;
 	border: none;
 }
 
 .seat_area .cine_family {
-	background: url('/LCHS/Image/Bg/bg_cine_family.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_cine_family.gif') no-repeat 50% 50%;
 	border: none;
 }
 
 .seat_area .handicapped {
-	background: url('/LCHS/Image/Bg/bg_handicapped.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_handicapped.gif') no-repeat 50% 50%;
 	border: none;
 }
 
 .seat_area .special_fee {
-	background: url('/LCHS/Image/Bg/bg_special_fee.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_special_fee.gif') no-repeat 50% 50%;
 	border: none;
 }
 /* .seat_area .completed {background:#d0d0d0 !important; color:#b7b7b7 !important; font-size:11px} */
 .seat_area .completed {
-	background: url('/LCHS/Image/Bg/bg_seat03.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_seat03.gif') no-repeat 50% 50%;
 	border: none;
 	color: #b7b7b7 !important;
 	font-size: 11px
 }
 
 .seat_area .on.no_select {
-	background: url('/LCHS/Image/Bg/bg_seat01.gif') no-repeat 0 0 !important;
+	background: url('/movie/images/Bg/bg_seat01.gif') no-repeat 0 0 !important;
 	border: 0 !important;
 	font-size: 11px;
 	line-height: 23px;
@@ -18061,13 +18061,13 @@
 }
 
 .seat_mArea .on {
-	background: url('/LCHS/Image/Bg/bg_seat01_ver2.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_seat01_ver2.gif') no-repeat 0 0
 		!important;
 	border: 0 !important;
 }
 
 .seat_mArea .over {
-	background: url('/LCHS/Image/Bg/bg_seat01_ver2.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_seat01_ver2.gif') no-repeat 0 0
 		!important;
 	border: 0 !important;
 }
@@ -18099,7 +18099,7 @@
 }
 
 .seat_mArea .disabled {
-	background: url('/LCHS/Image/Bg/bg_disabled2.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled2.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0;
@@ -18107,7 +18107,7 @@
 }
 
 .seat_mArea .no_select {
-	background: url('/LCHS/Image/Bg/bg_disabled2.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled2.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0;
@@ -18115,13 +18115,13 @@
 }
 
 .seat_mArea .foot_seat {
-	background: url('/LCHS/Image/Bg/bg_foot_seat_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_foot_seat_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 
 .seat_mArea .noseat {
-	background: url('/LCHS/Image/Bg/bg_disabled_ver2.gif') no-repeat 50% 50%
+	background: url('/movie/images/Bg/bg_disabled_ver2.gif') no-repeat 50% 50%
 		!important;
 	border: 0 !important;
 	font-size: 0;
@@ -18129,25 +18129,25 @@
 }
 
 .seat_mArea .super_vibe {
-	background: url('/LCHS/Image/Bg/bg_super_vibe_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_super_vibe_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 
 .seat_mArea .cine_couple {
-	background: url('/LCHS/Image/Bg/bg_cine_couple_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_cine_couple_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 
 .seat_mArea .cine_family {
-	background: url('/LCHS/Image/Bg/bg_cine_family_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_cine_family_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 
 .seat_mArea .on.no_select {
-	background: url('/LCHS/Image/Bg/bg_seat01_ver2.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_seat01_ver2.gif') no-repeat 0 0
 		!important;
 	border: 0 !important;
 	font-size: 10px;
@@ -18155,19 +18155,19 @@
 }
 
 .seat_mArea .handicapped {
-	background: url('/LCHS/Image/Bg/bg_handicapped_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_handicapped_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 
 .seat_mArea .special_fee {
-	background: url('/LCHS/Image/Bg/bg_special_fee_ver2.gif') no-repeat 50%
+	background: url('/movie/images/Bg/bg_special_fee_ver2.gif') no-repeat 50%
 		50%;
 	border: none;
 }
 /* .seat_mArea .completed {background:#d0d0d0 !important; color:#b7b7b7 !important; font-size:11px; line-height:15px} */
 .seat_mArea .completed {
-	background: url('/LCHS/Image/Bg/bg_seat03_ver2.gif') no-repeat 50% 50%;
+	background: url('/movie/images/Bg/bg_seat03_ver2.gif') no-repeat 50% 50%;
 	color: #b7b7b7 !important;
 }
 
@@ -18223,7 +18223,7 @@
 
 .seat_txt li {
 	padding-left: 7px;
-	background: url('/LCHS/Image/Bullet/bullet01.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bullet/bullet01.gif') no-repeat 0 50%;
 	font-size: 12px;
 	color: #666;
 	line-height: 18px;
@@ -18249,27 +18249,27 @@
 
 .seat_info .s1 {
 	padding-left: 39px;
-	background: url('/LCHS/Image/Bg/bg_door.png') no-repeat 0 5px
+	background: url('/movie/images/Bg/bg_door.png') no-repeat 0 5px
 }
 
 .seat_info .s2 {
-	background: url('/LCHS/Image/Bg/bg_s_info01.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_s_info01.gif') no-repeat 0 0
 }
 
 .seat_info .s3 {
-	background: url('/LCHS/Image/Bg/bg_s_info02.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_s_info02.gif') no-repeat 0 0
 }
 
 .seat_info .s4 {
-	background: url('/LCHS/Image/Bg/bg_s_info03.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_s_info03.gif') no-repeat 0 0
 }
 
 .seat_info .s5 {
-	background: url('/LCHS/Image/Bg/bg_s_info04.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_s_info04.gif') no-repeat 0 0
 }
 
 .seat_info .s6 {
-	background: url('/LCHS/Image/Bg/bg_s_info05.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_s_info05.gif') no-repeat 0 0
 }
 
 .info_wrap {
@@ -18310,12 +18310,12 @@
 	width: 173px;
 	min-height: 92px;
 	padding: 0 0 17px;
-	background: url('/LCHS/Image/bg/bg_seat_top03.png') no-repeat 0 100%;
+	background: url('/movie/images/bg/bg_seat_top03.png') no-repeat 0 100%;
 }
 
 .info_list li .layer_seat .seat_in {
 	padding: 20px 24px 17px 21px;
-	background: url('/LCHS/Image/bg/bg_seat_bottom03.png') no-repeat 100% 0;
+	background: url('/movie/images/bg/bg_seat_bottom03.png') no-repeat 100% 0;
 }
 
 .info_list li:first-child {
@@ -18323,31 +18323,31 @@
 }
 
 .info_list li.m01 {
-	background: url('/LCHS/Image/Bg/bg_m01.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m01.gif') no-repeat 0 0
 }
 
 .info_list li.m02 {
-	background: url('/LCHS/Image/Bg/bg_m02.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m02.gif') no-repeat 0 0
 }
 
 .info_list li.m03 {
-	background: url('/LCHS/Image/Bg/bg_m03.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m03.gif') no-repeat 0 0
 }
 
 .info_list li.m04 {
-	background: url('/LCHS/Image/Bg/bg_m04.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m04.gif') no-repeat 0 0
 }
 
 .info_list li.m05 {
-	background: url('/LCHS/Image/Bg/bg_m05.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m05.gif') no-repeat 0 0
 }
 
 .info_list li.m06 {
-	background: url('/LCHS/Image/Bg/bg_m06.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m06.gif') no-repeat 0 0
 }
 
 .info_list li.m07 {
-	background: url('/LCHS/Image/Bg/bg_m07.gif') no-repeat 0 0
+	background: url('/movie/images/Bg/bg_m07.gif') no-repeat 0 0
 }
 
 .info_list li a {
@@ -18388,9 +18388,9 @@
 	line-height: 20px;
 	font-size: 13px;
 	color: #666;
-	background: url('/LCHS/Image/Icon/icon_smart.png') no-repeat left center;
+	background: url('/movie/images/icon/icon_smart.png') no-repeat left center;
 }
-/*.icn_smt2  {padding:0 0 0 25px; margin-bottom:10px; height:20px; line-height:20px; font-size:13px; color:#666; background:url('/LCHS/Image/Icon/icon_smart.png') no-repeat left center;}*/
+/*.icn_smt2  {padding:0 0 0 25px; margin-bottom:10px; height:20px; line-height:20px; font-size:13px; color:#666; background:url('/movie/images/icon/icon_smart.png') no-repeat left center;}*/
 .carousel_box {
 	position: relative;
 }
@@ -18422,7 +18422,7 @@
 	width: 27px;
 	height: 53px;
 	font-size: 0;
-	background: url('/LCHS/Image/Btn/btn_combo_product_ago.gif') no-repeat 0
+	background: url('/movie/images/Btn/btn_combo_product_ago.gif') no-repeat 0
 		0
 }
 
@@ -18433,7 +18433,7 @@
 	width: 27px;
 	height: 53px;
 	font-size: 0;
-	background: url('/LCHS/Image/Btn/btn_combo_product_next.gif') no-repeat
+	background: url('/movie/images/Btn/btn_combo_product_next.gif') no-repeat
 		0 0
 }
 
@@ -18461,12 +18461,12 @@
 
 .carousel .indicator li a {
 	width: 12px;
-	background: url('/LCHS/Image/Bg/bg_seat_off.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_seat_off.png') no-repeat 0 0;
 }
 
 .carousel .indicator li.on a {
 	width: 12px;
-	background-image: url('/LCHS/Image/Bg/bg_seat_on.png') !important;
+	background-images: url('/movie/images/Bg/bg_seat_on.png') !important;
 }
 
 .carousel_box .product_slist {
@@ -18506,7 +18506,7 @@
 	line-height: 0;
 	font-size: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Icon/icon_smart.png') no-repeat center
+	background: url('/movie/images/icon/icon_smart.png') no-repeat center
 		center;
 }
 
@@ -18552,7 +18552,7 @@
 	position: absolute;
 	left: 0;
 	top: 311px;
-	background: url('/LCHS/Image/bg/bg_seat_arrow.png') no-repeat 50% 100%;
+	background: url('/movie/images/bg/bg_seat_arrow.png') no-repeat 50% 100%;
 	z-index: 1;
 	width: 100%;
 	height: 12px
@@ -18695,7 +18695,7 @@
 .P_etxt {
 	margin-top: 20px;
 	padding-left: 24px;
-	background: url('/LCHS/Image/Bg/bg_warning.png') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_warning.png') no-repeat 0 0;
 	color: #666;
 	font-size: 12px;
 	line-height: 16px;
@@ -18829,23 +18829,23 @@
 .btn_inner .btn_prev {
 	float: left;
 	padding-left: 29px;
-	background: url('/LCHS/Image/Btn/btn_total_prev02.png') no-repeat 0 50%
+	background: url('/movie/images/Btn/btn_total_prev02.png') no-repeat 0 50%
 }
 
 .btn_inner .btn_prev.on, .btn_inner .btn_prev:hover {
-	background-image: url('/LCHS/Image/Btn/btn_total_prev02_on.png');
+	background-images: url('/movie/images/Btn/btn_total_prev02_on.png');
 	color: #000
 }
 
 .btn_inner .btn_next {
 	float: right;
 	padding-right: 29px;
-	background: url('/LCHS/Image/Btn/btn_total_next02.png') no-repeat 100%
+	background: url('/movie/images/Btn/btn_total_next02.png') no-repeat 100%
 		50%
 }
 
 .btn_inner .btn_next.on, .btn_inner .btn_next:hover {
-	background-image: url('/LCHS/Image/Btn/btn_total_next02_on.png');
+	background-images: url('/movie/images/Btn/btn_total_next02_on.png');
 	color: #000
 }
 
@@ -19144,7 +19144,7 @@
 .pop_favor .setup_list li .tit {
 	display: inline-block;
 	padding-left: 15px;
-	background: url('/LCHS/Image/Icon/icon_favorite.gif') no-repeat left
+	background: url('/movie/images/icon/icon_favorite.gif') no-repeat left
 		center;
 }
 
@@ -19252,7 +19252,7 @@
 	text-align: center;
 	font-size: 14px;
 	color: #e5e1b0 !important;
-	background: #231f20 url('/LCHS/Image/Icon/icon_login.png') no-repeat 50%
+	background: #231f20 url('/movie/images/icon/icon_login.png') no-repeat 50%
 		19px
 }
 
@@ -19265,7 +19265,7 @@
 	display: inline-block;
 	margin-right: 12px;
 	padding-left: 17px;
-	background: url('/LCHS/Image/Bg/bg_line16.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bg/bg_line16.gif') no-repeat 0 50%;
 	color: #888;
 }
 
@@ -19281,7 +19281,7 @@
 
 .login_find>span>a {
 	display: inline-block;
-	background: url('/LCHS/Image/Icon/ico_page_blank.gif') no-repeat right
+	background: url('/movie/images/icon/ico_page_blank.gif') no-repeat right
 		center;
 	padding-right: 20px;
 }
@@ -19344,7 +19344,7 @@
 
 .etc_list li {
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet.gif') no-repeat 0 7px;
+	background: url('/movie/images/Bullet/bullet.gif') no-repeat 0 7px;
 	color: #666;
 	line-height: 18px;
 }
@@ -19544,7 +19544,7 @@
 .txt_ar {
 	float: right;
 	padding-left: 10px;
-	background: url('/LCHS/Image/Bullet/bullet01.gif') no-repeat 0 5px;
+	background: url('/movie/images/Bullet/bullet01.gif') no-repeat 0 5px;
 	font-size: 12px;
 	color: #777;
 }
@@ -19575,7 +19575,7 @@
 }
 
 .social_sel .btn_naver {
-	background: #18c718 url('/LCHS/Image/icon/icon_naver2.gif') no-repeat 0
+	background: #18c718 url('/movie/images/icon/icon_naver2.gif') no-repeat 0
 		0;
 	border: 1px solid #0fa600;
 	box-sizing: border-box;
@@ -19590,7 +19590,7 @@
 
 .social_sel .btn_facebook {
 	margin-left: 6px;
-	background: #3f69b2 url('/LCHS/Image/icon/icon_facebook2.gif') no-repeat
+	background: #3f69b2 url('/movie/images/icon/icon_facebook2.gif') no-repeat
 		0 0;
 	border: 1px solid #345a9b;
 	box-sizing: border-box;
@@ -20069,7 +20069,7 @@
 	vertical-align: top;
 	margin: 0 15px;
 	padding-left: 15px;
-	background: url('/LCHS/Image/Icon/icon_favorite.gif') no-repeat left
+	background: url('/movie/images/icon/icon_favorite.gif') no-repeat left
 		center;
 }
 
@@ -20077,13 +20077,13 @@
 	display: inline-block;
 	width: 29px;
 	height: 28px;
-	background: url('/LCHS/Image/btn/btn_s_minus03.gif') no-repeat 0 0;
+	background: url('/movie/images/btn/btn_s_minus03.gif') no-repeat 0 0;
 	font-size: 0;
 	vertical-align: top;
 }
 
 .btn_moive.on span {
-	background-image: url('/LCHS/Image/btn/btn_s_plus03.gif')
+	background-images: url('/movie/images/btn/btn_s_plus03.gif')
 }
 
 .btn_fee {
@@ -20112,7 +20112,7 @@
 .m_inner_new  .sub_addr2 em {
 	padding-left: 10px;
 	margin-left: 10px;
-	background: url('/LCHS/Image/Bg/bg_line12.png') no-repeat 0 3px;
+	background: url('/movie/images/Bg/bg_line12.png') no-repeat 0 3px;
 }
 
 /* mycinema 5th ....*/
@@ -20144,7 +20144,7 @@
 	float: left;
 	padding-left: 10px;
 	margin-right: 10px;
-	background: url('/LCHS/Image/Bg/bg_mycinma_line.gif') no-repeat 0 50%;
+	background: url('/movie/images/Bg/bg_mycinma_line.gif') no-repeat 0 50%;
 }
 
 .mycont_list .mycont_slist li:first-child {
@@ -20232,7 +20232,7 @@
 	width: 750px;
 	height: 460px;
 	margin: -230px 0 0 -375px;
-	background: url('/LCHS/Image/Bg/bg_sistem.png') no-repeat left top;
+	background: url('/movie/images/Bg/bg_sistem.png') no-repeat left top;
 	text-align: center;
 }
 
@@ -20249,7 +20249,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/LCHS/Image/Thum/txt_lotte2.png') no-repeat center top;
+	background: url('/movie/images/Thum/txt_lotte2.png') no-repeat center top;
 }
 
 .systemBody_in .txt_psys1 {
@@ -20299,7 +20299,7 @@
 	width: 750px;
 	height: 460px;
 	margin: 0 auto;
-	background: url('/LCHS/Image/Bg/bg_popLayerM.png') no-repeat left top;
+	background: url('/movie/images/Bg/bg_popLayerM.png') no-repeat left top;
 }
 
 .popLayerM .popLayerM_bt {
@@ -20308,7 +20308,7 @@
 	padding: 0 10px;
 	height: 32px;
 	line-height: 32px;
-	background: url('/LCHS/Image/Bg/bg_mask_50.png') repeat left top;
+	background: url('/movie/images/Bg/bg_mask_50.png') repeat left top;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -20382,22 +20382,22 @@
 }
 
 .popLayerM .popLayerM_in .btnLkM li span a.icon_01 em {
-	background: url('/LCHS/Image/Icon/icon_btnLkM1.png') no-repeat left
+	background: url('/movie/images/icon/icon_btnLkM1.png') no-repeat left
 		center;
 }
 
 .popLayerM .popLayerM_in .btnLkM li span a.icon_02 em {
-	background: url('/LCHS/Image/Icon/icon_btnLkM2.png') no-repeat left
+	background: url('/movie/images/icon/icon_btnLkM2.png') no-repeat left
 		center;
 }
 
 .popLayerM .popLayerM_in .btnLkM li span a.icon_03 em {
-	background: url('/LCHS/Image/Icon/icon_btnLkM3.png') no-repeat left
+	background: url('/movie/images/icon/icon_btnLkM3.png') no-repeat left
 		center;
 }
 
 .popLayerM .popLayerM_in .btnLkM li span a.icon_04 em {
-	background: url('/LCHS/Image/Icon/icon_btnLkM4.png') no-repeat left
+	background: url('/movie/images/icon/icon_btnLkM4.png') no-repeat left
 		center;
 }
 
@@ -20655,17 +20655,17 @@ scale
 
 .wrap_birthday .wrap_evt_desc .btn_slideview01 .btn_slide {
 	background:
-		url('http://caching.lottecinema.co.kr/Images/Event/Birthday17th/LCHS/Image/Event/birthday17th_view_slide01_btn.gif');
+		url('http://caching.lottecinema.co.kr/images/Event/Birthday17th/movie/images/Event/birthday17th_view_slide01_btn.gif');
 }
 
 .wrap_birthday .wrap_evt_desc .btn_slideview02 .btn_slide {
 	background:
-		url('http://caching.lottecinema.co.kr/Images/Event/Birthday17th/LCHS/Image/Event/birthday17th_view_slide02_btn.gif');
+		url('http://caching.lottecinema.co.kr/images/Event/Birthday17th/movie/images/Event/birthday17th_view_slide02_btn.gif');
 }
 
 .wrap_birthday .wrap_evt_desc .btn_slideview03 .btn_slide {
 	background:
-		url('http://caching.lottecinema.co.kr/Images/Event/Birthday17th/LCHS/Image/Event/birthday17th_view_slide03_btn.gif');
+		url('http://caching.lottecinema.co.kr/images/Event/Birthday17th/movie/images/Event/birthday17th_view_slide03_btn.gif');
 }
 
 .wrap_birthday .wrap_evt_desc .btn_slideview01 .btn_slide.active,
@@ -20933,15 +20933,15 @@ scale
 }
 
 .wrap_birthday2017 .wrap_evt_desc .btn_slideview01 .btn_slide {
-	background: url('/LCHS/Image/Event/birthday17th_view_slide01_btn.gif');
+	background: url('/movie/images/Event/birthday17th_view_slide01_btn.gif');
 }
 
 .wrap_birthday2017 .wrap_evt_desc .btn_slideview02 .btn_slide {
-	background: url('/LCHS/Image/Event/birthday17th_view_slide02_btn.gif');
+	background: url('/movie/images/Event/birthday17th_view_slide02_btn.gif');
 }
 
 .wrap_birthday2017 .wrap_evt_desc .btn_slideview03 .btn_slide {
-	background: url('/LCHS/Image/Event/birthday17th_view_slide03_btn.gif');
+	background: url('/movie/images/Event/birthday17th_view_slide03_btn.gif');
 }
 
 .wrap_birthday2017 .wrap_evt_desc .btn_slideview01 .btn_slide.active,
@@ -20970,7 +20970,7 @@ img.disblock {
 
 .upgradevip .pur {
 	height: 107px;
-	background: #fff url('/LCHS/Image/Bg/bg_dpattern.gif') repeat 0 0;
+	background: #fff url('/movie/images/Bg/bg_dpattern.gif') repeat 0 0;
 	line-height: 106px;
 }
 
@@ -20982,7 +20982,7 @@ img.disblock {
 }
 /*20170607 - 승급그래프 수정*/
 /*.upgradevip .pointStep {position:relative; height:15px; margin:41px 0 54px; background:#d8ceab;}
-.upgradevip .pointStep:before {display: block;content: '';position: absolute; top:-31px; left:335px;width:585px;height: 30px;background: url('/LCHS/Image/Bg/bg_viprating_grade.jpg') no-repeat 0 0;}*/
+.upgradevip .pointStep:before {display: block;content: '';position: absolute; top:-31px; left:335px;width:585px;height: 30px;background: url('/movie/images/Bg/bg_viprating_grade.jpg') no-repeat 0 0;}*/
 .upgradevip .pointStep {
 	position: relative;
 	height: 15px;
@@ -20998,7 +20998,7 @@ img.disblock {
 	left: 0px;
 	width: 650px;
 	height: 30px;
-	background: url('/LCHS/Image/Bg/bg_viprating_grade.jpg') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_viprating_grade.jpg') no-repeat 0 0;
 }
 
 .upgradevip .pointStep .arrow {
@@ -21082,11 +21082,11 @@ img.disblock {
 }
 
 .upgradevip .pointStep li.bar1 {
-	background: url('/LCHS/Image/Bg/bg_viprating_bar1.jpg') no-repeat 50% 0;
+	background: url('/movie/images/Bg/bg_viprating_bar1.jpg') no-repeat 50% 0;
 }
 
 .upgradevip .pointStep li.bar2 {
-	background: url('/LCHS/Image/Bg/bg_viprating_bar2.jpg') no-repeat 50% 0;
+	background: url('/movie/images/Bg/bg_viprating_bar2.jpg') no-repeat 50% 0;
 }
 
 .upgradevip .pointStep li>span {
@@ -21165,7 +21165,7 @@ img.disblock {
 .cpBoxNew2017 {
 	width: 980px;
 	min-height: 755px;
-	background: url('/LCHS/Image/Bg/bg_cpBoxNew2017.jpg') no-repeat 0 0;
+	background: url('/movie/images/Bg/bg_cpBoxNew2017.jpg') no-repeat 0 0;
 }
 
 .cpBoxNew2017 .vipCpTb {
@@ -21450,15 +21450,15 @@ img.disblock {
 }
 
 .cpBoxNew2017 .list_selectVipicon .item01 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit01.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit01.png) no-repeat 50% 100%;
 }
 
 .cpBoxNew2017 .list_selectVipicon .item02 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit02.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit02.png) no-repeat 50% 100%;
 }
 
 .cpBoxNew2017 .list_selectVipicon .item03 .vip_type strong {
-	background: url(/LCHS/Image/icon/icon_benefit04.png) no-repeat 50% 100%;
+	background: url(/movie/images/icon/icon_benefit04.png) no-repeat 50% 100%;
 }
 
 .mView_desc {
@@ -21466,7 +21466,7 @@ img.disblock {
 	color: #666;
 	line-height: 30px;
 	padding: 0 0 0 14px;
-	background: url(/LCHS/Image/Bullet/bullet.gif) no-repeat 4px 13px;
+	background: url(/movie/images/Bullet/bullet.gif) no-repeat 4px 13px;
 	text-align: left;
 }
 
