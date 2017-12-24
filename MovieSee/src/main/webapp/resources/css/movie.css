@@ -1223,6 +1223,27 @@
 	background-image: url('/LCHS/Image/Btn/btn_slide_on.png')
 }
 
+/* tbl_faq */
+.tbl_faq {width:100%; border:0; border-top:1px solid #c0c0c0; font-size:13px;}
+.tbl_faq thead th {border:0;padding:15px 0;border-bottom:1px solid #c0c0c0;background:url('/movie/images/bg/bg_tab_line.gif') no-repeat left center;font-weight:bold;}
+.tbl_faq thead th:first-child {background-image:none;}
+.tbl_faq tbody td {padding:20px; border-bottom:1px solid #dedede; font-size:14px;}
+.tbl_faq tbody td:first-child {font-weight:bold;}
+.tbl_faq tbody td .q {padding:0 12px 0 0; font-family:'linlivertine'; font-style:italic; font-weight:bold; font-size:18px;}
+.tbl_faq tbody .answer td {padding:0; font-weight:normal;}
+.tbl_faq tbody .question a {display:block;  background:url('/LCHS/Image/Bg/bg_arrow_faq.png') no-repeat 720px 50%;}/*20170206 no-repeat 720px ; 에서 ; 제거 sunho*/
+.tbl_faq tbody .question.on a {background-image:url('/LCHS/Image/Bg/bg_arrow_faq_on.png');}
+.tbl_faq tbody .srchResult_none {font-weight:normal;}
+
+.cs_center .shPeriod .tit {float:left; font-size:14px; line-height:30px;}
+.cs_center .shPeriod .goods {float:left; padding:0 0 22px; margin:0; border:0}
+.cs_center .shPeriod .goods input[type="text"] {width:622px; background:#fff; border:1px solid #e5e5e5}
+.cs_center .shPeriod .goods .btn_goodsSrch {width:50px; height:30px; border:0; background:#34373c; color:#fefeff;}
+
+.sh_view {clear:both; margin:0 0 0 114px; padding-top:20px; border-top:1px solid #dedede;}
+.sh_view:after {content:''; display:block; clear:both;}
+.sh_view .txt {float:left;padding:0 50px 0 25px;color:#666;font-size:13px;line-height:16px;/* background:url('/LCHS/Image/Bg/bg_error4.png') no-repeat left 50%; */}
+
 .event_slide .btn_prev {
 	position: absolute;
 	top: 45px;

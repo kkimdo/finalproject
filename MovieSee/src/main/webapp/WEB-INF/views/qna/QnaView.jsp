@@ -104,16 +104,17 @@
 				<li style=""><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
 
 			</ul>
-			<div class="board_view mt40">
-				<table summary="나의 문의내역">
-					<caption class="blind"></caption>
+			<div class="tabCont">
+			<fieldset>
+				<legend>문의내역</legend>
+				<div class="titYtxt">
+					<h3 class="mem_tit">문의내역</h3>
+				</div>
+				<table class="tbl_style01">
 					<colgroup>
-						<col width="200px">
-						<col width="285px">
-						<col width="200px">
-						<col>
+						<col style="width: 13%">
+						<col style="width: *">
 					</colgroup>
-					<h3>문의 내역</h3>
 					<tbody>
 						<tr>
 							<th scope="row" id="th_questionDetail_title">번호</th>
@@ -121,59 +122,84 @@
 								class="c_purple">${qnaModel.qna_no}</strong></td>
 						</tr>
 						<tr>
-							<th scope="row">문의 종류</th>
-							<td>${qnaModel.qna_question_kinds }</td>
+							<th scope="row"><label for="kinds"> 문의 종류 </label></th>
+							<td id="kinds">${qnaModel.qna_question_kinds}</td>
 						</tr>
 						<tr>
-							<th scope="row">문의 분류</th>
-							<td>${qnaModel.qna_category }</td>
+							<th scope="row"><label for="category"> 문의 분류 </label></th>
+							<td id="category">${qnaModel.qna_category}</td>
 						</tr>
 						<tr>
-							<th scope="row">해당 지역</th>
-							<td>${qnaModel.qna_area }</td>
+							<th scope="row"><label for="area"> 지역 </label></th>
+							<td id="area">${qnaModel.qna_area}</td>
 						</tr>
 						<tr>
-							<th scope="row">제목</th>
-							<td>${qnaModel.qna_subject }</td>
+							<th scope="row"><label for="subject"> 제목 </label></th>
+							<td id="subject">${qnaModel.qna_subject}</td>
 						</tr>
 						<tr>
-							<th scope="row">내용</th>
-							<td>
-								<p>${qnaModel.qna_content}</p>
+							<th scope="row"><label for="content"> 내용 </label></th>
+							<td id="content">${qnaModel.qna_content}</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="uploadfile"> 첨부파일 </label></th>
+							<td id="uploadfile">
+								<c:if test="${qnaModel.qna_orgfile ne null }">
+									<img border="0" hspace="0" alt="${qnaModel.qna_content}" src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_savfile}">
+								</c:if>
+								<c:if test="${qnaModel.qna_orgfile eq null }">
+								첨부 파일이 없습니다.
+								</c:if>
 							</td>
-
-						</tr>
-						<tr>
-							<th scope="row">첨부파일</th>
-							<td><c:if test="${qnaModel.qna_orgfile ne null }">
-									<img border="0" hspace="0" alt="${qnaModel.qna_content}"
-										src="<%= cp %>/resources/uploads/qna/${qnaModel.qna_orgfile}">
-								</c:if></td>
 						</tr>
 						<tr>
 							<th scope="row">등록일</th>
 							<td><fmt:formatDate value="${qnaModel.qna_date}"
-									pattern="yyyy.MM.dd" /></td>
+									pattern="yyyy.MM.dd" />
+							</td>
 						</tr>
-
 					</tbody>
-
 				</table>
-			</div>
+			</fieldset>
+		</div>
+		
+		<c:if test="${QnaCommentList.size() eq 0}">
+			<table class="tbl_style01">
+					<colgroup>
+						<col style="width: 13%">
+						<col style="width: *">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th class="co">답변</th>
+							<td class="co">답변 내용이 없습니다.</td>
+						</tr>
+					</tbody>
+				</table>
+		</c:if>
 
 			<c:forEach var="qna_comment" items="${QnaCommentList}">
 
-				<div class="reply_cts">
-					<p>${qna_comment.qna_comment_content}</p>
-				</div>
+				<table class="tbl_style01">
+					<colgroup>
+						<col style="width: 13%">
+						<col style="width: *">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th class="coco">답변내용</th>
+							<td class="co" id="qna_comment_content">${qna_comment.qna_comment_content}</td>
+						</tr>
+					</tbody>
+			</table>
 
 			</c:forEach>
 
-			<div>
-				<a href="<%= cp %>/qna/qnaList.see?curPage=${curPage}"
-					class="img_btn mypage board_list pull-left" onclick="btnList();">목록</a>
+			<div class="btn_type_033">
+					<span class="btn btnC_03 btnP_04 mr10"> 
+						<input type="button" onclick="btnList();" value="목록" />
+					</span>
 			</div>
-		</div>
 	</div>
 </body>
 </html>

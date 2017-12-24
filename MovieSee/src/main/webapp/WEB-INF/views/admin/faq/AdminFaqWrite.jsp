@@ -51,17 +51,16 @@
 							<th scope="row">카테고리</th>
 							<td><span class="ipt_radio mr40"> <input type="radio"
 									id="faq_category1" name="faq_category" value="영화관 이용"
-									checked="checked"> <label for="faq_category1">영화관
-										이용</label>
+									checked="checked"> <label for="faq_category1">영화관 이용</label>
 							</span> <span class="ipt_radio mr40"> <input type="radio"
-									id="faq_category2" name="faq_category" value="할인혜택"> <label
-									for="faq_category2">할인혜택</label>
+									id="faq_category2" name="faq_category" value="할인 혜택　"> <label
+									for="faq_category2">할인 혜택　</label>
 							</span> <span class="ipt_radio mr40"> <input type="radio"
-									id="faq_category3" name="faq_category" value="회원"> <label
-									for="faq_category3">회원</label>
+									id="faq_category3" name="faq_category" value="회원 정보　"> <label
+									for="faq_category3">회원 정보　</label>
 							</span> <span class="ipt_radio mr40"> <input type="radio"
-									id="faq_category4" name="faq_category" value="관람권"> <label
-									for="faq_category4">관람권</label>
+									id="faq_category4" name="faq_category" value="관람권 이용"> <label
+									for="faq_category4">관람권 이용</label>
 							</span></td>
 						</tr>
 						<tr>

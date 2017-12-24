@@ -103,6 +103,14 @@
 							<td id="category">${qnaModel.qna_category}</td>
 						</tr>
 						<tr>
+							<th scope="row"><label for="subject"> 제목 </label></th>
+							<td id="subject">${qnaModel.qna_subject}</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="content"> 내용 </label></th>
+							<td id="content">${qnaModel.qna_content}</td>
+						</tr>
+						<tr>
 							<th scope="row"><label for="uploadfile"> 첨부파일 </label></th>
 							<td id="uploadfile">
 								<c:if test="${qnaModel.qna_orgfile ne null }">
