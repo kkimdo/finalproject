@@ -2582,7 +2582,7 @@
 
 /* tbl_faq */
 .tbl_faq {width:100%; border:0; border-top:1px solid #c0c0c0; font-size:13px;}
-.tbl_faq thead th {border:0;padding:15px 0;border-bottom:1px solid #c0c0c0; background:url('/movie/images/bg/bg_tab_line.gif') no-repeat left center; font-weight:bold;}
+.tbl_faq thead th {border:0;padding:15px 0;border-bottom:1px solid #c0c0c0;background:url('/movie/images/bg/bg_tab_line.gif') no-repeat left center;font-weight:bold;}
 .tbl_faq thead th:first-child {background-image:none;}
 .tbl_faq tbody td {padding:20px; border-bottom:1px solid #dedede; font-size:14px;}
 .tbl_faq tbody td:first-child {font-weight:bold;}

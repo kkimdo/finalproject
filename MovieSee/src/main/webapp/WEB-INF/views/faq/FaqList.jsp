@@ -79,7 +79,7 @@
 										<!-- 0223 텍스트 수정 -->
 										<a href="<%=cp%>/qna/qnaWrite.see" class="btnv1_inquery"
 											onclick="javascript:customerCenterMenu(2);">1:1문의 바로가기</a> <a
-											href="javascript:void(0);" class="btnv1_use"
+											href="<%=cp%>/qna/qnaMemberList.see" class="btnv1_use"
 											onclick="javascript:goLotteMyCinema(5, 0);">나의 문의 내역 바로가기</a>
 									</div>
 									<div class="srchResult_none" id="divSearchNone"
@@ -114,7 +114,7 @@
 															<span class="s">▲</span><a href="#a1" class=a1>${faqList.faq_subject}</a>
 														</span>
 														<span class="a">
-															<span title="답변" class="A">A</span>&nbsp;&nbsp;${faqList.faq_content}
+															<span title="답변" class="A">A</span>${faqList.faq_content}
 														</span>
 													</span>
 												</div>

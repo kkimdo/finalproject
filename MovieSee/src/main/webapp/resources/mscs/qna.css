@@ -236,3 +236,18 @@ input, select, textarea {
 	
 }
 
+.btn_type_033 button, input[type="button"]{
+    background: #9b9c9c;
+    border: 1px solid #919191;
+    color: #fff;
+    border-radius: 5px;
+    height: 29px;
+    line-height: 27px;
+    padding: 0 10px;
+    text-shadow: none;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 500px;
+    text-align: center;
+}
+
