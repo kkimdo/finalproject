@@ -12,57 +12,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	/* function btnWrite(){
-	 var frm = document.form1;
-	
-	 if (frm.giftshop_product_name.value == "") {
-	 alert("상품명을 입력해주세요");
-	 frm.giftshop_product_name.foucs();
-	 return false;
-	
-	 } else if (frm.giftshop_product_price.value == "") {
-	 alert("상품 가격을 입력해주세요");
-	 frm.giftshop_product_price.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_restrictions.value == "") {
-	 alert("상품 구매제한을 입력해주세요");
-	 frm.giftshop_product_restrictions.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_periodofuse.value == "") {
-	 alert("상품 사용 기간을 입력해주세요");
-	 frm.giftshop_product_periodofuse.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc1.value == "") {
-	 alert("상품 사용 방법을 입력해주세요");
-	 frm.giftshop_product_desc1.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc2.value == "") {
-	 alert("상품 취소/환불 내용을 입력해주세요");
-	 frm.giftshop_product_desc2.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc3.value == "") {
-	 alert("상품 기타 내용을 입력해주세요");
-	 frm.giftshop_product_desc3.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_url.value == "") {
-	 alert("상품 이미지를 입력해주세요");
-	 frm.giftshop_product_url.focus();
-	 return false;
-	
-	 } else {
-	
-	 alert("상품이 정상적으로 등록 되었습니다.");
-	 frm.submit();
-	 }
-	
-	 return true;
-	 }  */
 
 	/* $(function() {
 		$("#start_date").datepicker({
@@ -147,21 +96,24 @@
 			</ul>
 		</div>
 		<div class="admin_ct">
-			<form:form commandName="giftShopProductModel"
-				action="giftShopWrite.see" method="post"
+			<form:form commandName="giftShopProductModel" action="giftShopUpdate.see" method="post"
 				enctype="multipart/form-data" name="form1">
+				<input type="hidden" name="giftshop_product_no"
+					value="${giftShopProductModel.giftshop_product_no}" />
+				<input type="hidden" name="giftshop_product_file"
+					value="${giftShopProductModel.giftshop_product_file}" />
 				<div class="tabCont">
 					<div>
 						<fieldset>
-							<legend>기프트샵상품입력</legend>
+							<legend>기프트샵상품수정</legend>
 							<div class="titYtxt mt50">
-								<h3 class="mem_tit">기프트샵 상품 등록</h3>
+								<h3 class="mem_tit">상품 수정</h3>
 								<span><strong title="필수항목">*</strong> 표시 항목은 필수 입력 항목입니다.</span>
 							</div>
 
 							<table class="tbl_style01">
 
-								<caption>기프트샵 상품 작성란</caption>
+								<caption>기프트샵 상품 수정란</caption>
 								<colgroup>
 									<col style="width: 13%">
 									<col style="width: *">
@@ -189,7 +141,7 @@
 										</label></th>
 										<td><form:input name="giftshop_product_name" type="text"
 												maxlength="40" id="product" class="ipt_txt03"
-												path="giftshop_product_name" /> <font color="red"> <form:errors
+												path="giftshop_product_name" value="${giftShopProductModel.giftshop_product_name}"/> <font color="red"> <form:errors
 													path="giftshop_product_name" /></font></td>
 									</tr>
 									<tr>
@@ -198,7 +150,7 @@
 										</label></th>
 										<td><input name="giftshop_product_price" type="text"
 											maxlength="40" id="price" class="ipt_txt03" onkeydown="return showKeyCode(event)"
-												 onkeyup='removeChar(event)' style='ime-mode:disabled;'
+												 onkeyup='removeChar(event)' style='ime-mode:disabled;' value="${giftShopProductModel.giftshop_product_price}"
 											/>
 										</td>
 									</tr>
@@ -228,7 +180,7 @@
 										</label></th>
 										<td><form:input name="giftshop_product_restrictions"
 												type="text" maxlength="40" id="restrictions"
-												class="ipt_txt03" path="giftshop_product_restrictions" /> <font
+												class="ipt_txt03" path="giftshop_product_restrictions" value="${giftShopProductModel.giftshop_product_restrictions}" /> <font
 											color="red"> <form:errors
 													path="giftshop_product_restrictions" /></font></td>
 									</tr>
@@ -238,7 +190,7 @@
 										</label></th>
 										<td><form:input name="giftshop_product_periodofuse"
 												type="text" maxlength="40" id="periodofuse"
-												class="ipt_txt03" path="giftshop_product_periodofuse" /> <font
+												class="ipt_txt03" path="giftshop_product_periodofuse" value="${giftShopProductModel.giftshop_product_periodofuse}"/> <font
 											color="red"> <form:errors
 													path="giftshop_product_periodofuse" /></font></td>
 									</tr>
@@ -309,6 +261,7 @@
 										<td>
 											<div>
 												<input type="file" name="product_file" id="fileUpload2" />
+												${giftShopProductModel.giftshop_product_file}
 											</div> <span class="txt_left"> </span>
 										</td>
 									</tr>
@@ -319,7 +272,7 @@
 							<a href="javascript:history.back()"
 								class="btn btnC_03 btnP_04 mr10"> <span>취소</span>
 							</a> <span class="btn btnC_04 btnP_04"> <input type="submit"
-								value="등록" />
+								value="수정" />
 							</span>
 						</div>
 					</div>

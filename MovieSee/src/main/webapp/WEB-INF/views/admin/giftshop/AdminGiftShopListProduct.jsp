@@ -26,6 +26,23 @@
 	 // 페이지 주소 변경(이동)
 	location.href="<%=cp%>/admin/giftShopWrite.see";
 	}
+	
+	$(function(){
+		var giftshop_btn = $(".giftshop_delete");
+		
+		giftshop_btn.each(function(){
+			var btn = $(this).children('.btn');
+			
+			btn.on('click',function(){
+				var check = confirm("해당 상품을 삭제하시겠습니까?");	
+				if(check){
+					return true;
+				}else{
+					return false;
+				}
+			})
+		})
+	})
 </script>
 
 </head>
@@ -49,41 +66,43 @@
 			<div class="tbl_type_02">
 				<table>
 					<colgroup>
+						<col style="width: 8%;" />
 						<col style="width: 5%;" />
-						<col style="width: 10%;" />
-						<col style="width: 10%;" />
-						<col style="width: 10%;" />
-						<col style="width: 5%;" />
+						<col style="width: 11%;" />
+						<col style="width: 6%;" />
+						<col style="width: 6%;" />
+						<col style="width: 8%;" />
 					</colgroup>
 					<thead>
 						<tr>
+							<th scope="col">상품 종류</th>
 							<th scope="col">상품 번호</th>
 							<th scope="col">상품 이름</th>
-							<th scope="col">상품 이미지</th>
-							<th scope="col">판매 가격</th>
+							<th scope="col">상품 판매 가격</th>
 							<th scope="col">등록일</th>
+							<th scope="col">삭제유무</th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<c:forEach var="giftShopListProduct" items="${map.giftShopListProduct}">
+							<c:url var="productViewURL" value="giftShopView.see">
+								<c:param name="giftshop_product_no" value="${giftShopListProduct.giftshop_product_no }" />
+							</c:url>
 							<tr>
+								<td>${giftShopListProduct.giftshop_product_category}</td>
 								<td>${giftShopListProduct.giftshop_product_no}</td>
-							</tr>
-							<tr>
-								<td>${giftShopListProduct.giftshop_product_name}</td>
-							</tr>
+								<td><a href="${productViewURL}">${giftShopListProduct.giftshop_product_name}</a></td>
 								<td>
-									이미지
+									 <fmt:formatNumber value="${giftShopListProduct.giftshop_product_price}" pattern="###,###,###"/>원
 								</td>
-							<tr>
 								<td>
-									판매 가격
+								<fmt:formatDate value="${giftShopListProduct.giftshop_product_date}" pattern="yyyy-MM-dd"/>
 								</td>
-							</tr>
-							<tr>
-								<td>
-									${giftShopListProduct.giftshop_product_date}
+								<td class="giftshop_delete">
+									<a href="<%=cp%>/admin/giftShopDelete.see?giftshop_product_no=${giftShopListProduct.giftshop_product_no}"class="btn btnC_04 btnP_03">
+									<span>삭제</span>
+								</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -115,9 +134,9 @@
 						</span>
 					</div>
 				</form>
-				<c:if test="${fn:length(map.noticeList) le 0}">
+				<c:if test="${fn:length(map.giftShopListProduct) le 0}">
 					<br />
-					<center>등록된 게시물이 없습니다</center>
+					<center>등록된 상품이 없습니다</center>
 					<br />
 				</c:if>
 				<div class="paging">

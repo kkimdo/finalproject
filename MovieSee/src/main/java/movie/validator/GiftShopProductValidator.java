@@ -35,5 +35,8 @@ public class GiftShopProductValidator implements Validator{
 		if(giftShopProductModel.getGiftshop_product_desc3() == null || giftShopProductModel.getGiftshop_product_desc3().trim().isEmpty()) {
 			errors.rejectValue("giftshop_product_desc3", "giftshop_product_desc3");
 		}
+		if(giftShopProductModel.getGiftshop_product_components() == null || giftShopProductModel.getGiftshop_product_components().trim().isEmpty()) {
+			errors.rejectValue("giftshop_product_components", "giftshop_product_components");
+		}
 	}
 }

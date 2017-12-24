@@ -51,7 +51,6 @@ public class GiftShopProductController {
 		giftShopProductModel.setGiftshop_product_no(giftSeqNum);
 		
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("product_file");
-		System.out.println("asdasd" + multipartFile);
 
 		String file_full_name = "";
 		// 첨부파일(상품사진)이 있으면
@@ -106,7 +105,6 @@ public class GiftShopProductController {
 
 		List<GiftShopProductModel> giftShopListProduct = giftShopProductService.GiftShopListProduct(start, end, searchOption, keyword);
 
-		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("giftShopListProduct", giftShopListProduct);
 		map.put("count", count);
@@ -121,7 +119,103 @@ public class GiftShopProductController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/giftShopView.see", method = RequestMethod.GET)
+	public ModelAndView GiftShopViewProduct(@RequestParam int giftshop_product_no) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("giftShopProductModel", giftShopProductService.GiftShopViewProduct(giftshop_product_no));
+		mav.setViewName("adminGiftShopViewProduct");
+
+		return mav;
+	}
 	
+	// 상품 수정 폼
+		@RequestMapping(value = "/giftShopUpdate.see", method = RequestMethod.GET)
+		public ModelAndView GiftShopUpdateForm(@ModelAttribute("giftShopProductModel") GiftShopProductModel giftShopProductModel) throws Exception {
+
+			ModelAndView mav = new ModelAndView();
+
+			giftShopProductModel = giftShopProductService.GiftShopViewProduct(giftShopProductModel.getGiftshop_product_no());
+			
+			String desc1 = giftShopProductModel.getGiftshop_product_desc1().replaceAll("<br/>", "\r\n");
+			String desc2 = giftShopProductModel.getGiftshop_product_desc1().replaceAll("<br/>", "\r\n");
+			String desc3 = giftShopProductModel.getGiftshop_product_desc1().replaceAll("<br/>", "\r\n");
+			
+			giftShopProductModel.setGiftshop_product_desc1(desc1);
+			giftShopProductModel.setGiftshop_product_desc2(desc2);
+			giftShopProductModel.setGiftshop_product_desc3(desc3);
+			
+			mav.addObject("giftShopProductModel", giftShopProductModel);
+			mav.setViewName("adminGiftShopUpdateProduct");
+
+			return mav;
+
+		}
+		
+		// 상품 수정
+		@RequestMapping(value = "/giftShopUpdate.see", method = RequestMethod.POST)
+		public ModelAndView GiftShopUpdate(@ModelAttribute("giftShopProductModel") GiftShopProductModel giftShopProductModel,
+				MultipartHttpServletRequest multipartHttpServletRequest, BindingResult result) throws Exception {
+
+			ModelAndView mav = new ModelAndView(); 
+
+			new GiftShopProductValidator().validate(giftShopProductModel, result);
+
+			if (result.hasErrors()) {
+				mav.setViewName("adminGiftShopUpdateProduct");
+				return mav;
+			}
+			
+			int giftSeqNum = giftShopProductService.GiftProductGetSEQ();
+
+			MultipartFile multipartFile = multipartHttpServletRequest.getFile("product_file");
+
+			if (!multipartFile.isEmpty()) {
+
+				String content_name = multipartFile.getOriginalFilename();
+				String content_ext = content_name.substring(content_name.lastIndexOf('.') + 1);
+
+				if (content_ext != null && !content_ext.equals("")) {
+
+					File deleteFile = new File(uploadPath + giftShopProductModel.getGiftshop_product_file());
+					deleteFile.delete();
+
+					String content_full_name = "giftImage_" + giftSeqNum + "." + content_ext;
+					File file = new File(uploadPath + content_full_name);
+
+					if (!file.exists()) {
+						file.mkdirs();
+					}
+
+					try {
+						multipartFile.transferTo(file);
+					} catch (Exception e) {
+					}
+
+					giftShopProductModel.setGiftshop_product_file(content_full_name);
+				}
+
+			} else {
+				giftShopProductModel.setGiftshop_product_file(giftShopProductModel.getGiftshop_product_file());
+			}
+
+			giftShopProductService.GiftShopUpdateProduct(giftShopProductModel);
+			
+			mav.setViewName("redirect:/admin/giftShopList.see");
+
+			return mav;
+
+		}
+
+		// 게시글 삭제
+		@RequestMapping(value = "/giftShopDelete.see")
+		public String GiftShopDeleteProduct(@RequestParam int giftshop_product_no) throws Exception {
+			
+			giftShopProductService.GiftShopDeleteProduct(giftshop_product_no);
+			
+			return "redirect:/admin/giftShopList.see";
+		}
 	
 	
 }
