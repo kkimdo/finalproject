@@ -42,6 +42,13 @@ public class QnaServiceImpl implements QnaService {
 		return qnaDAO.count(searchOption, keyword);
 	}
 
+	// 게시글 레코드 갯수
+	@Override
+	public int countList(int qna_no) throws Exception {
+		return qnaDAO.countList(qna_no);
+	}
+
+	
 	// 게시글 상세보기
 	@Override
 	public QnaModel QnaView(int qna_no) throws Exception {
@@ -61,6 +68,12 @@ public class QnaServiceImpl implements QnaService {
 		return qnaDAO.CommentList(qna_no);
 	}
 
+	// 게시글 레코드 갯수
+	@Override
+	public int countReply(int qna_no, String searchOption, String keyword) throws Exception {
+		return qnaDAO.countReply(qna_no, searchOption, keyword);
+		}
+	
 	// 댓글 작성
 	@Override
 	public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {

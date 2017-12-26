@@ -69,9 +69,9 @@
 								<div class="shPeriod" id="searchArea">
 									<span class="tit">검색</span>
 									<div class="goods">
-										<input type="text" placeholder="검색어를 입력하세요" title="검색어 입력"
+										<input name="keyword" type="text" value="${map.keyword}" placeholder="검색어를 입력하세요" title="검색어 입력"
 											id="searchKeyword" onkeydown="keyDownSearchForm(event);">
-										<input type="button" value="검색" class="btn_goodsSrch"
+										<input type="submit" value="검색" class="btn_goodsSrch"
 											id="btnSearch">
 									</div>
 									<div class="sh_view">
@@ -82,11 +82,12 @@
 											href="<%=cp%>/qna/qnaMemberList.see" class="btnv1_use"
 											onclick="javascript:goLotteMyCinema(5, 0);">나의 문의 내역 바로가기</a>
 									</div>
-									<div class="srchResult_none" id="divSearchNone"
+									<div class="srchResult_none" id="divSearchNone" 
 										style="display: none;">
 										<span class="txt">검색 결과가 없습니다. 다른 조건으로 검색해 주세요.</span>
 									</div>
 								</div>
+							
 								<table class="tbl_faq" style="table-layout: fixed">
 									<caption>faq 목록</caption>
 									<colgroup>
@@ -102,7 +103,11 @@
 									</thead>
 
 								</table>
-
+								<c:if test="${fn:length(map.faqList) le 0}">
+								<br />
+								<center>검색 결과가 없습니다. 다른 조건으로 검색해 주세요.</center>
+								<br />
+								</c:if>
 
 								<c:forEach var="faqList" items="${map.faqList}">
 											<div class="faq">
@@ -120,8 +125,8 @@
 												</div>
 											</div>
 									<!-- **상세보기 페이지로 이동시 게시글 목록페이지에 있는 검색조건, 키워드, 현재페이지 값을 유지하기 위해 -->
-									<td class="txtl"><a
-										href="<%=cp%>/faq/faqView.see?faq_no=${faqList.faq_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${noticeList.faq_subject}</a></td>
+								<%-- 	<td class="txtl"><a
+										href="<%=cp%>/faq/faqView.see?faq_no=${faqList.faq_no}&curPage=${map.c_Paging.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${faqList.faq_subject}</a></td> --%>
 								</c:forEach>
 
 

@@ -32,10 +32,12 @@ public class QnaDAOImpl implements QnaDAO {
 
 		// 검색 옵션,키워드 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
+		
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 
 		// between #{start} and #{end} 에 입력될 값을 맵에 저장
+
 		map.put("start", start);
 		map.put("end", end);
 
@@ -45,16 +47,23 @@ public class QnaDAOImpl implements QnaDAO {
 	@Override
 	public int count(String searchOption, String keyword) throws Exception {
 
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		// 검색 옵션, 키워드 맵에 저장
+
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 
 		return sqlSessionTemplate.selectOne("qna.count", map);
 	}
 
-	// faq_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
+	@Override
+	public int countList(int qna_no) throws Exception {
+
+		return sqlSessionTemplate.selectOne("qna.countList", qna_no);
+	}
+	
+	// qna_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
 	@Override
 	public QnaModel QnaView(int qna_no) throws Exception {
 		return sqlSessionTemplate.selectOne("qna.qnaView", qna_no);
@@ -72,6 +81,17 @@ public class QnaDAOImpl implements QnaDAO {
 		return sqlSessionTemplate.selectList("qna.qnaCommentList", qna_no);
 	}
 
+	@Override
+	public int countReply(int qna_no, String searchOption, String keyword) throws Exception {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		// 검색 옵션, 키워드 맵에 저장
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("qna_no", qna_no);
+		return sqlSessionTemplate.selectOne("qna.countReply", map);
+	}
 	// 댓글 작성
 	@Override
 	public void CommentInsert(QnaCommentModel qnaCommentModel) throws Exception {

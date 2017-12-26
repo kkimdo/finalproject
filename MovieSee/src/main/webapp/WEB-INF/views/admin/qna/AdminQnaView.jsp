@@ -23,13 +23,25 @@
 	function btnList(){
     	location.href="<%=cp%>/admin/qnaList.see";
     	}  
+    
+	// 삭제 버튼 클릭 
 	function btnDelete() {
+		// 댓글이 존재하는 게시물의 삭제처리 방지
+		var countReply = "${countReply}";
+		// 댓글의 수가 0보다 크면 팝업, 함수 종료
+		if(countReply > 0) {
+		alert("댓글이 있는 게시물은 삭제할 수 없습니다.")
+		return;
+			    }
+			
+	    // 댓글의 수가 0이면 삭제처리
 		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
 			location.href ="<%=cp%>/admin/qnaDelete.see?qna_no=${qnaModel.qna_no}";
-		} else { //취소
+		} else { 
 			return;
 		}
 	}
+
 	
 	function qnaCommentDelete(url) {
 		if (confirm("정말 삭제하시겠습니까?") == true) { //확인
@@ -37,6 +49,7 @@
 		} else { //취소
 			return;
 		}
+		
 	}
 </script>
 
@@ -158,9 +171,9 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th class="co">답변작성</th>
-							<td class="co" id="qna_comment_content"><textarea name="qna_comment_content"></textarea></td>
-							<td class="co"> 
+							<th class="co3">답변작성</th>
+							<td class="co2" id="qna_comment_content"><textarea name="qna_comment_content"></textarea></td>
+							<td class="co4"> 
 								<input class="dodos" type="submit" value="답변입력" />
 							</td>
 						</tr>
@@ -177,8 +190,8 @@
 					<tbody>
 						<tr>
 							<th class="coco">답변내용</th>
-							<td class="co" id="qna_comment_content">${qna_comment.qna_comment_content}</td>
-							<td class="co">
+							<td class="co5" id="qna_comment_content">${qna_comment.qna_comment_content}</td>
+							<td class="co6">
 							<input class="dodo" type="button" onclick="qnaCommentDelete('<%=cp%>/admin/qnaCommentDelete.see?qna_comment_no=${qna_comment.qna_comment_no}&qna_no=${qnaModel.qna_no}')" value="댓글삭제" />
 							</td>
 						</tr>
@@ -191,7 +204,7 @@
 						<input type="button" onclick="btnList();" value="목록" />
 					</span>
 					<span class="btn btnC_04 btnP_04" style="padding-left: 10px;">
-						<input type="button" onclick="btnDelete();" value="삭제" />
+						<input id="btnDelete" type="button" onclick="btnDelete();" value="삭제" />
 					</span>
 		</div>
 	</div>
