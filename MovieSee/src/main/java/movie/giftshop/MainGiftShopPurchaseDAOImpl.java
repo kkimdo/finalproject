@@ -77,13 +77,41 @@ public class MainGiftShopPurchaseDAOImpl implements MainGiftShopPurchaseDAO {
 
 		map.put("count", count);
 		map.put("giftshop_product_no", giftshop_product_no);
-		
+
 		sqlSessionTemplate.update("giftshop.mgsPlus", map);
 	}
-	
+
 	@Override
 	public MainGiftShopPurchaseModel GiftShopPerchaseView(int giftpurchase_no) {
 		return sqlSessionTemplate.selectOne("giftshop.mgsView", giftpurchase_no);
+	}
+
+	@Override
+	public List<MainGiftShopPurchaseModel> GiftShopPurchaseCancleList(String userId, int start, int end,
+			String searchOption, String keyword) throws Exception {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("giftpurchase_member_id", userId);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+
+		map.put("start", start);
+		map.put("end", end);
+
+		return sqlSessionTemplate.selectList("giftshop.mgsMemberCancleList", map);
+	}
+
+	@Override
+	public int GiftShopPurchaseMemberCancleCount(String userId, String searchOption, String keyword) throws Exception {
+		
+		Map<String, String> map = new HashMap<String, String>();
+
+		map.put("giftpurchase_member_id", userId);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+
+		return sqlSessionTemplate.selectOne("giftshop.mgsMemberCancleCount", map);
 	}
 
 }

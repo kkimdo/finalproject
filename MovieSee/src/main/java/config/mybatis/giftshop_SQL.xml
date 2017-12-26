@@ -29,6 +29,7 @@
 		<result property="giftpurchase_price" column="giftpurchase_price" />
 		<result property="giftpurchase_date" column="giftpurchase_date" />
 		<result property="giftpurchase_delshow" column="giftpurchase_delshow" />
+		<result property="giftpurchase_product_image" column="giftpurchase_product_image" />
 	</resultMap>
 
 	<sql id="select-all">
@@ -226,7 +227,8 @@
 		giftpurchase_count,
 		giftpurchase_price,
 		giftpurchase_date,
-		giftpurchase_delshow)
+		giftpurchase_delshow,
+		giftpurchase_product_image)
 		values
 		(giftpurchase_no_seq.NEXTVAL,
 		#{giftshop_product_no},
@@ -235,14 +237,15 @@
 		#{giftpurchase_count},
 		#{giftpurchase_price},
 		sysdate,
-		'y')
+		'y',
+		#{giftpurchase_product_image})
 	</insert>
 
 	<!-- 회원이 구매한 상품 목록 -->
 	<select id="mgsMemberList" resultMap="mainGiftShopPurchaseModelRes">
 		<include refid="pagingHeader" />
 		select rownum, giftpurchase_no, giftshop_product_no, giftpurchase_member_id, giftpurchase_product_name, giftpurchase_count,
-		giftpurchase_price, giftpurchase_date, giftpurchase_delshow
+		giftpurchase_price, giftpurchase_date, giftpurchase_delshow, giftpurchase_product_image
 		from giftshop_purchase
 		<include refid="search_member" /> 
 		and giftpurchase_member_id = #{giftpurchase_member_id}
@@ -269,15 +272,16 @@
 		select count(*) from giftshop_purchase
 		<include refid="search_member" />
 		and giftpurchase_member_id = #{giftpurchase_member_id}
+		and giftpurchase_delshow = 'y'
 	</select>
 	
-	<!-- 구매를 취소 하였을 때, 삭제 처리하지 않고, 삭제의 유무 상태만 변경  why? 취소 내역 list를 띄우기 위해. -->
+	<!-- 회원이 구매를 취소 하였을 때, 삭제 처리하지 않고, 삭제의 유무 상태만 변경  why? 취소 내역 list를 띄우기 위해. -->
 	<update id="mgsMemberDel">
    	 	update giftshop_purchase set giftpurchase_delshow = 'n' 
    	 	where giftpurchase_no = #{giftpurchase_no}
 	</update>
 	
-	<!-- 구매를 취소 하였을 때, 취소 상품 개수만큼 상품 테이블의 개수에 더하기 -->
+	<!-- 회원이 구매를 취소 하였을 때, 취소 상품 개수만큼 상품 테이블의 개수에 더하기 -->
 	<update id="mgsPlus">
    		update giftshop_product
    		set
@@ -285,8 +289,30 @@
    		where giftshop_product_no = #{giftshop_product_no}
 	</update>
 
+	<!-- 회원이 구매한 상품 상세보기 -->
 	<select id="mgsView" resultMap="mainGiftShopPurchaseModelRes">
 		select * from giftshop_purchase
 		where giftpurchase_no = #{giftpurchase_no}
 	</select>
+	
+	<!-- 회원이 구매한 상품 목록 -->
+	<select id="mgsMemberCancleList" resultMap="mainGiftShopPurchaseModelRes">
+		<include refid="pagingHeader" />
+		select rownum, giftpurchase_no, giftshop_product_no, giftpurchase_member_id, giftpurchase_product_name, giftpurchase_count,
+		giftpurchase_price, giftpurchase_date, giftpurchase_delshow, giftpurchase_product_image
+		from giftshop_purchase
+		<include refid="search_member" /> 
+		and giftpurchase_member_id = #{giftpurchase_member_id}
+		order by giftpurchase_no desc, giftpurchase_date desc	
+		<include refid="pagingFooter" />
+	</select>
+	
+	<!-- 회원이  취소한 게시글 레코드 갯수 -->
+	<select id="mgsMemberCancleCount" resultType="int">
+		select count(*) from giftshop_purchase
+		<include refid="search_member" />
+		and giftpurchase_member_id = #{giftpurchase_member_id}
+		and giftpurchase_delshow = 'n'
+	</select>
+	
 </mapper>

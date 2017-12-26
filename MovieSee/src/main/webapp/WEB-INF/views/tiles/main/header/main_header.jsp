@@ -31,17 +31,19 @@
 
 		<div class="luncher">
 			<ul>
-				<c:if test="${session_member_name == null }">
+				<c:if test="${session_member_id == null }">
 					<li><a id="lbtnLogin" title="로그인"
 						href="<%=cp%>/member/login.see">로그인</a></li>
 					<li><a href="" title="회원가입">회원가입</a></li>
 					<li><a href="<%=cp%>/faq/faqList.see" title="고객센터">고객센터</a></li>
 				</c:if>
 
-				<c:if test="${session_member_name != null }">
+				<c:if test="${session_member_id != null }">
 					<li><strong>${session_member_name}&nbsp;님 환영합니다.</strong></li>
+					<c:if test="${session_member_grade eq 0 }">
 					<li><a href="<%=cp%>/mypage/mypage.see">마이시네마</a></li>
-					<c:if test="${session_member_name == 'admin' }">
+					</c:if>
+					<c:if test="${session_member_id == 'admin' }">
 						<li><a href="<%=cp%>/admin/movieList.see">관리자페이지</a></li>
 					</c:if>
 					<li><a href="<%=cp%>/member/logout.see" title="로그아웃">로그아웃</a></li>

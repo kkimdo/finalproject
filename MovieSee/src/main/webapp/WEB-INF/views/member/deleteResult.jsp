@@ -6,7 +6,7 @@
 		var chk = ${deleteCheck}
 		if(chk == 1){
 			alert('정상적으로 탈퇴처리가 되었습니다.');
-			window.location.href = '/project/main.mt';
+			window.location.href = '/movie/main.see';
 		}
 		if(chk == -1){
 			alert('비밀번호가 틀렸습니다');

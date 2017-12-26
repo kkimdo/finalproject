@@ -173,6 +173,7 @@
 							<input type="hidden" name="giftpurchase_member_id" value="${session_member_id}" />
 							<input type="hidden" name="giftshop_product_no" value="${giftShopProductModel.giftshop_product_no}" />
 							<input type="hidden" name="giftpurchase_product_name" value="${giftShopProductModel.giftshop_product_name}" />
+							<input type="hidden" name="giftpurchase_product_image" value="${giftShopProductModel.giftshop_product_file}" />
 							<div class="product_right">
 								<h2 class="datail_title itemName" id="itemName">${giftShopProductModel.giftshop_product_category}</h2>
 								<dl class="p_box">
@@ -185,7 +186,6 @@
 										</span> 원</em>
 									</dd>
 								</dl>
-
 								<div class="product_scroll">
 									<div class="pro_case2">
 										<strong class="pro_tit">수량</strong> <input type="hidden"
@@ -210,14 +210,14 @@
 						</form>
 							<div class="btn_box">
 							<input type="submit" value="바로 구매" class="btnc_confirm fr"/>
-						</div>
-						<div class="btn_box">
+							</div>
+							<div class="btn_box">
 							<a href="javascript:void(0)" class="btnc_list"
 								onclick="btnList();">상품 리스트</a>
-						</div>
+							</div>
+						
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -227,7 +227,6 @@
 				<ul class="product_slist" id="recommendationList">
 				</ul>
 			</div> -->
-	</div>
 	</div>
 
 </body>
