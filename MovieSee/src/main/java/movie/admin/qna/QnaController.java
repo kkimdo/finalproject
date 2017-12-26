@@ -38,8 +38,9 @@ public class QnaController {
 	private org.springframework.web.servlet.View downloadView;
 
 	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-	//private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-	
+	// private static final String uploadPath =
+	// "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+
 	// 글 목록
 	@RequestMapping(value = "/qnaList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
@@ -49,6 +50,7 @@ public class QnaController {
 
 		// 레코드의 갯수 계산
 		int count = qnaService.count(searchOption, keyword);
+		
 
 		// 페이지 나누기 관련 처리
 		commonPaging c_Paging = new commonPaging(count, curPage);
@@ -56,9 +58,12 @@ public class QnaController {
 		int end = c_Paging.getPageEnd();
 
 		List<QnaModel> qnaList = qnaService.QnaListAll(start, end, searchOption, keyword);
+		qnaList = qnaService.QnaListAll(start, end, searchOption, keyword);
 
 		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
+
+		
 		map.put("qnaList", qnaList);
 		map.put("count", count);
 		map.put("searchOption", searchOption);
@@ -115,17 +120,17 @@ public class QnaController {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
+
 				System.out.println("실제 파일 명 : " + orgfile_full_name);
-				qnaModel.setQna_savfile(orgfile_full_name); //savfile은 orgfile_full_name에 저장
-				qnaModel.setQna_orgfile(orgfile_name);		//orgfile은 orgfile_name에 저장
+				qnaModel.setQna_savfile(orgfile_full_name); // savfile은 orgfile_full_name에 저장
+				qnaModel.setQna_orgfile(orgfile_name); // orgfile은 orgfile_name에 저장
 			}
 
 		} else {
-			
+
 			qnaModel.setQna_savfile(orgfile_full_name);
 			qnaModel.setQna_orgfile(orgfile_name);
-			
+
 		}
 
 		ModelAndView mav = new ModelAndView();
@@ -139,7 +144,15 @@ public class QnaController {
 
 	// 글 상세보기
 	@RequestMapping(value = "/qnaView.see", method = RequestMethod.GET)
-	public ModelAndView QnaView(@RequestParam int qna_no, HttpSession session) throws Exception {
+	public ModelAndView QnaView(@RequestParam int qna_no, @RequestParam(defaultValue = "1") int curPag,
+			@RequestParam(defaultValue = "qna_subject") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, HttpSession session) throws Exception {
+
+		// 댓글 갯수 계산
+		int countReply = qnaService.countReply(qna_no, searchOption, keyword);
+
+		// 페이지 나누기 관련 처리
+		commonPaging c_Paging = new commonPaging(countReply, curPag);
 
 		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
@@ -148,6 +161,11 @@ public class QnaController {
 		QnaCommentList = qnaService.CommentList(qna_no);
 
 		// 뷰에 전달할 데이터
+		mav.addObject("qna_no", qna_no);
+		mav.addObject("countReply", countReply);
+		mav.addObject("searchOption", searchOption);
+		mav.addObject("keyword", keyword);
+		mav.addObject("c_Paging", c_Paging);
 		mav.addObject("qnaModel", qnaService.QnaView(qna_no));
 		mav.addObject("QnaCommentList", QnaCommentList);
 		// 뷰의 이름
@@ -212,7 +230,7 @@ public class QnaController {
 
 		String downloadName = request.getParameter("qna_orgfile");
 		System.out.println(downloadName);
-		
+
 		File file = new File(uploadPath, downloadName);
 
 		return new ModelAndView("fileDownloadView", "fileDownload", file);

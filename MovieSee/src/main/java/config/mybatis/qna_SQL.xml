@@ -40,15 +40,19 @@
 	<sql id="pagingFooter">
 		)a ) where rn between #{start} and #{end}
 	</sql>
-	
+
 	<!-- 검색 조건 -->
 	<sql id="search">
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
-				where (qna_name like '%'||#{keyword}||'%' or qna_id like '%'||#{keyword}||'%' or qna_subject like
-				'%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%' or qna_question_kinds like '%'||#{keyword}||'%'
-				or qna_category like '%'||#{keyword}||'%' or qna_area like '%'||#{keyword}||'%'
+				where (qna_name like '%'||#{keyword}||'%' or qna_id
+				like '%'||#{keyword}||'%' or qna_subject like
+				'%'||#{keyword}||'%' or
+				qna_content like '%'||#{keyword}||'%' or qna_question_kinds like
+				'%'||#{keyword}||'%'
+				or qna_category like '%'||#{keyword}||'%' or
+				qna_area like '%'||#{keyword}||'%'
 				)
 			</when>
 
@@ -58,14 +62,17 @@
 			</otherwise>
 		</choose>
 	</sql>
-	
+
 	<!-- 회원 문의 내역 검색 조건 -->
 	<sql id="search2">
 		<choose>
 			<!-- 검색 옵션이 전체 검색일 경우 -->
 			<when test="searchOption == 'all'">
-				(qna_subject like '%'||#{keyword}||'%' or qna_content like '%'||#{keyword}||'%' or qna_question_kinds like '%'||#{keyword}||'%'
-				or qna_category like '%'||#{keyword}||'%' or qna_area like '%'||#{keyword}||'%'
+				(qna_subject like '%'||#{keyword}||'%' or qna_content
+				like '%'||#{keyword}||'%' or qna_question_kinds like
+				'%'||#{keyword}||'%'
+				or qna_category like '%'||#{keyword}||'%' or
+				qna_area like '%'||#{keyword}||'%'
 				)
 			</when>
 			<!-- 전체 검색이 아닐 경우 -->
@@ -91,7 +98,12 @@
 		select count(*) from qna
 		<include refid="search" />
 	</select>
-
+	
+	<!-- 게시글 댓글 갯수 번호로 받아오는거 -->
+	<select id="countList" resultType="int">
+		SELECT COUNT(*) FROM qna WHERE qna_no = #{qna_no}
+	</select>
+	
 	<!-- 댓글 목록 -->
 	<select id="qnaCommentList" resultMap="qnaCommentModelRes">
 		select * from qna_comment
@@ -99,21 +111,31 @@
 		order by qna_comment_no desc
 	</select>
 
+	<!-- 댓글 갯수(for 페이징처리)-->
+	<select id="countReply" resultType="int">
+		SELECT COUNT(*) FROM qna_comment WHERE qna_no = #{qna_no}
+	</select>
+
+
 	<!-- 글 작성 -->
 	<insert id="qnaWrite" parameterType="qnaModel">
 		insert into qna(qna_no,
 		qna_id, qna_name, qna_phone, qna_email, qna_question_kinds,
-		qna_category, qna_area, qna_subject, qna_content, qna_orgfile, qna_savfile, qna_date)
+		qna_category, qna_area, qna_subject, qna_content, qna_orgfile,
+		qna_savfile, qna_date)
 		values (qna_no_seq.NEXTVAL, #{qna_id},
 		#{qna_name}, #{qna_phone}, #{qna_email}, #{qna_question_kinds},
-		#{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content}, #{qna_orgfile}, #{qna_savfile}, sysdate)
+		#{qna_category}, #{qna_area}, #{qna_subject}, #{qna_content},
+		#{qna_orgfile}, #{qna_savfile}, sysdate)
 
 	</insert>
 
 	<!-- 댓글 입력 -->
 	<insert id="qnaCommentWrite">
-		INSERT INTO qna_comment (qna_comment_no, qna_no, qna_comment_content)
-		VALUES (qna_comment_no_seq.NEXTVAL, #{qna_no}, #{qna_comment_content})
+		INSERT INTO qna_comment (qna_comment_no, qna_no,
+		qna_comment_content)
+		VALUES (qna_comment_no_seq.NEXTVAL, #{qna_no},
+		#{qna_comment_content})
 	</insert>
 
 	<!-- 글 상세보기 -->
@@ -121,11 +143,12 @@
 		<include refid="select-all" />
 		where qna_no = #{qna_no}
 	</select>
-	
+
 	<!-- 해당 게시글 번호 -->
 	<select id="qnaGetSEQ" resultType="int">
 		select qna_no_seq.NEXTVAL
-		from dual
+		from
+		dual
 	</select>
 
 	<!-- 글 삭제 -->
@@ -136,33 +159,35 @@
 
 	<!-- 댓글 삭제 -->
 	<update id="qnaCommentDelete">
-		delete from qna_comment 
+		delete from qna_comment
 		where qna_comment_no = #{qna_comment_no}
 	</update>
 
 	<!-- 댓글 수정 -->
-	 <select id="qnaCommentUpdate">
-        UPDATE qna_comment 
-        SET qna_comment_content = #{qna_comment_content}
-        WHERE qna_comment_no = #{qna_comment_no}
-     </select> 
-	
+	<select id="qnaCommentUpdate">
+		UPDATE qna_comment
+		SET qna_comment_content = #{qna_comment_content}
+		WHERE qna_comment_no = #{qna_comment_no}
+	</select>
+
 	<!-- 회원 문의 내역 목록 -->
 	<select id="qnaMemberList" resultMap="qnaModelRes">
 		<include refid="pagingHeader" />
 		select rownum, qna_id, qna_no, qna_name, qna_phone, qna_email,
 		qna_question_kinds, qna_category, qna_area, qna_subject, qna_content,
 		qna_orgfile, qna_savfile, qna_date from qna
-		where <include refid="search2" /> 
+		where
+		<include refid="search2" />
 		and qna_id = #{qna_id}
 		order by qna_no desc, qna_date desc
 		<include refid="pagingFooter"></include>
 	</select>
-	
+
 	<!-- 회원 문의 게시글 레코드 갯수 -->
 	<select id="qnaMemberCount" resultType="int">
 		select count(*) from qna
-		where <include refid="search2" />
+		where
+		<include refid="search2" />
 		and qna_id = #{qna_id}
 	</select>
 
