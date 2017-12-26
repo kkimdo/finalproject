@@ -83,11 +83,8 @@ public class MainGiftShopController {
 		ModelAndView mav = new ModelAndView();
 
 		String userId = (String) session.getAttribute("session_member_id");
-		int sum = Integer.parseInt(request.getParameter("sum")); // 구매한 상품 수량 *
-																	// 상품 가격 =
-																	// 합계
-		int count = Integer.parseInt(request.getParameter("amount")); // 구매한 상품
-																		// 수량
+		int sum = Integer.parseInt(request.getParameter("sum")); // 구매한 상품 수량 * 상품 가격 = 합계
+		int count = Integer.parseInt(request.getParameter("amount")); // 구매한 상품 수량
 		int giftshop_product_no = Integer.parseInt(request.getParameter("giftshop_product_no"));
 		//System.out.println("상품 번호 " + giftshop_product_no);
 
@@ -186,6 +183,43 @@ public class MainGiftShopController {
 		mainGiftShopPurchaseService.GiftShopProductPlus(count, giftshop_product_no);
 
 		return "redirect:/gift/purchaseMemberList.see";
+	}
+	
+	//구매 취소 목록
+	@RequestMapping("/purchaseMemberCancleList.see")
+	public ModelAndView PurchaseCancleList(@RequestParam(defaultValue = "giftpurchase_product_name") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage, HttpSession session) throws Exception {
+
+		String userId = (String) session.getAttribute("session_member_id"); 
+
+		ModelAndView mav = new ModelAndView();
+		
+		// 로그인이 안되 있을 경우, 로그인 창으로 이동
+		if (userId == null) {
+			mav.setViewName("/giftshop/GiftShopPurchaseLoginConfirm");
+			return mav;
+		}
+
+		// 취소 개수
+		int mgsMemberCancleCount = mainGiftShopPurchaseService.GiftShopPurchaseMemberCancleCount(userId, searchOption, keyword);
+
+		commonPaging c_Paging = new commonPaging(mgsMemberCancleCount, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
+
+		List<MainGiftShopPurchaseModel> purchaseCancleList = mainGiftShopPurchaseService.GiftShopPurchaseCancleList(userId, start, end, searchOption, keyword);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("purchaseCancleList", purchaseCancleList);
+		map.put("mgsMemberCancleCount", mgsMemberCancleCount);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
+
+		mav.addObject("map", map);
+		mav.setViewName("giftShopPurchaseCancleList");
+
+		return mav;
 	}
 	
 }

@@ -89,9 +89,11 @@ table td{
 	cursor: pointer;
 	width: 100px;
 } */
-input[type=text], input[type=password]{
-	width: 200px;
+input[type=text], input[type=password], input[type=email]{
+	width: 300px;
 	border:none;
+	height:40px;
+	background-color:  #e6e6e6;
 }
 
 .button{
@@ -136,7 +138,7 @@ input[type=text], input[type=password]{
 								<td>
 									<form:input type="text" class="txt w200" path="member_id" required="true" placeholder="아이디를 입력해주세요."/>
 									<strong class="pt_red ibk"><form:errors path="member_id" /></strong>
-									<strong class="pt_red ibk"><form:errors element="member_id" /></strong>
+									<strong class="pt_red ibk"><form:errors element="invalid" /></strong>
 								</td>
 							</tr>
 							<tr>
@@ -144,6 +146,7 @@ input[type=text], input[type=password]{
 								<td>
 									<form:input type="password" class="txt w200" path="member_password1" required="true" placeholder="비밀번호를 입력해주세요."/>
 									<strong class="pt_red ibk"><form:errors path="member_password1" /></strong>
+									<%-- <strong class="pt_red ibk"><form:errors element="member_password1" /></strong> --%>
 								</td>
 							</tr>
 							<tr>
@@ -151,6 +154,7 @@ input[type=text], input[type=password]{
 								<td>
 									<form:input type="password" class="txt w200" path="member_password2" required="true" placeholder="비밀번호를를 입력해주세요."/>
 									<strong class="pt_red ibk"><form:errors path="member_password2" /></strong>
+									<%-- <strong class="pt_red ibk"><form:errors element="member_password2" /></strong> --%>
 								</td>
 							</tr>
 							<tr>
@@ -178,7 +182,7 @@ input[type=text], input[type=password]{
 							<tr>
 								<th scope="row">이메일</th>
 								<td>
-									<form:input type="text" class="txt w200" path="member_email" required="true" placeholder="이메일을 입력해주세요."/>
+									<form:input type="email" class="txt w200" path="member_email" required="true" placeholder="  이메일을 입력해주세요."/>
 									<strong class="pt_red ibk"><form:errors path="member_email" /></strong>
 								</td>
 							</tr>

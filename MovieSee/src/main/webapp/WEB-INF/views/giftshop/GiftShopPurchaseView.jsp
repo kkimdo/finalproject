@@ -19,6 +19,12 @@
 	function btnList(){
     	location.href="<%=cp%>/gift/purchaseMemberList.see?curPage=${curPage}";
 	}
+	
+	function btnCancle(){
+		 var form = document.getElementById("cancleForm");
+		 alert("취소하시겠습니까?");
+	     form.submit();
+	}
 </script>
 
 </head>
@@ -84,7 +90,7 @@
 				<li class="active"><a
 					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
 
-				<li class="pointRat" style=""><a href="<%=cp%>/mypage/vip.see">VIP</a>
+				<li class="pointRat" style=""><a href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
 					<!--170915 cok 문구 교체 멤버십 ->VIP 기준 -->
 					<ul class="tabDep2">
 						<li class="on"><a href="javascript:void(0)">VIP 승급 금액 안내</a></li>
@@ -99,6 +105,11 @@
 				<li style=""><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
 
 			</ul>
+		<form id="cancleForm" action="purchaseCancle.see" method="post">
+			<input type="hidden" name="giftpurchase_count" value="${mainGiftShopPurchaseModel.giftpurchase_count}" />
+			<input type="hidden" name="giftpurchase_no" value="${mainGiftShopPurchaseModel.giftpurchase_no}" />
+			<input type="hidden" name="giftshop_product_no" value="${mainGiftShopPurchaseModel.giftshop_product_no}" />
+			
 			<div class="tabCont">
 				<fieldset>
 					<legend>기프트샵 구매 내역</legend>
@@ -111,6 +122,7 @@
 							<col style="width: *">
 						</colgroup>
 						<tbody>
+						
 							<tr>
 								<th scope="row"><label for="product_no"> 상품 번호 </label></th>
 								<td id="product_no">${mainGiftShopPurchaseModel.giftshop_product_no}</td>
@@ -122,11 +134,11 @@
 							<tr>
 								<th scope="row"><label for="giftImage"> 상품 이미지 </label></th>
 								<td id="giftImage">
-									<c:if test="${mainGiftShopPurchaseModel.qna_orgfile ne null }">
+									<c:if test="${mainGiftShopPurchaseModel.giftpurchase_product_image ne null }">
 										<img border="0" hspace="0" alt="${qnaModel.qna_content}"
-											src="<%= cp %>/resources/uploads/giftshop/${mainGiftShopPurchaseModel.qna_savfile}">
+											src="<%= cp %>/resources/uploads/giftshop/${mainGiftShopPurchaseModel.giftpurchase_product_image}">
 									</c:if> 
-									<c:if test="${mainGiftShopPurchaseModel.qna_orgfile eq null }">
+									<c:if test="${mainGiftShopPurchaseModel.giftpurchase_product_image eq null }">
 								상품 이미지가 없습니다.
 								</c:if></td>
 							</tr>
@@ -147,10 +159,13 @@
 					</table>
 				</fieldset>
 			</div>
-
+			</form>
 			<div class="btn_type_033">
-				<span class="btn btnC_03 btnP_04 mr10"> <input type="button"
-					onclick="btnList();" value="목록" />
+				<span class="btn btnC_03 btnP_04 mr10"> 
+					<input type="button" onclick="btnList();" value="목록" />
+				</span>
+				<span class="btn btnC_03 btnP_04 mr10"> 
+					<input type="button" onclick="btnCancle();" value="취소" />
 				</span>
 			</div>
 		</div>

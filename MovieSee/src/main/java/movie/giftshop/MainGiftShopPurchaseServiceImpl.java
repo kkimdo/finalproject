@@ -54,4 +54,15 @@ public class MainGiftShopPurchaseServiceImpl implements MainGiftShopPurchaseServ
 	public MainGiftShopPurchaseModel GiftShopPerchaseView(int giftpurchase_no) {
 		return mainGiftShopPurchaseDAO.GiftShopPerchaseView(giftpurchase_no);
 	}
+	
+	@Override
+	public List<MainGiftShopPurchaseModel> GiftShopPurchaseCancleList(String userId, int start, int end,
+			String searchOption, String keyword) throws Exception {
+		return mainGiftShopPurchaseDAO.GiftShopPurchaseList(userId, start, end, searchOption, keyword);
+	}
+	
+	@Override
+	public int GiftShopPurchaseMemberCancleCount(String userId, String searchOption, String keyword) throws Exception {
+		return mainGiftShopPurchaseDAO.GiftShopPurchaseMemberCancleCount(userId, searchOption, keyword);
+	}
 }

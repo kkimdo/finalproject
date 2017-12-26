@@ -12,6 +12,7 @@ public class MainGiftShopPurchaseModel {
 	private int giftpurchase_price; // 구매한 총 가격
 	private Date giftpurchase_date; // 구매한 날짜
 	private String giftpurchase_delshow; // 구매 취소 유무를 y, n 표시
+	private String giftpurchase_product_image; // 구매한 상품 이미지
 
 	public int getGiftpurchase_no() {
 		return giftpurchase_no;
@@ -77,4 +78,11 @@ public class MainGiftShopPurchaseModel {
 		this.giftpurchase_delshow = giftpurchase_delshow;
 	}
 	
+	public String getGiftpurchase_product_image() {
+		return giftpurchase_product_image;
+	}
+	
+	public void setGiftpurchase_product_image(String giftpurchase_product_image) {
+		this.giftpurchase_product_image = giftpurchase_product_image;
+	}
 }

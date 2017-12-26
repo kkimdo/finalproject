@@ -14,6 +14,60 @@
 		<result property="member_regdate" column="member_regdate" />
 		<result property="member_grade" column="member_grade" />
 	</resultMap>
+	
+	<sql id="select-all">
+		select * from member
+	</sql>
+	
+	<!-- 페이징 sql -->
+	<sql id="pagingHeader">
+		select * from (select rownum as rn, a.* from (
+	</sql>
+	<sql id="pagingFooter">
+		)a ) where rn between #{start} and #{end}
+	</sql>
+	<!-- 검색 조건 -->
+	
+	<sql id="search">
+		<choose>
+			<!-- 검색 옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				where (member_no like '%'||#{keyword}||'%' or
+				member_name like '%'||#{keyword}||'%' or member_id like
+				'%'||#{keyword}||'%')
+			</when>
+
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				where ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
+	<!-- 게시글 목록 조회 및 검색 조회 까지 -->
+	<select id="memberListAll" resultMap="memberRes">
+		<include refid="pagingHeader" />
+		select rownum, member_no, member_id, member_name, member_addr,
+		member_email, member_phone, member_regdate, member_grade from member
+		<include refid="search" />
+		order by member_no desc
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<!-- 게시글 레코드 갯수 -->
+	<select id="count" resultType="int">
+		select count(*) from member
+		<!-- where 절을 include 태그로 삽입 -->
+		<include refid="search" />
+	</select>
+
+	<!-- 게시글 상세보기 -->
+	<!-- parameterType 은 notice_no의 값을 어디서 가져오는지 즉, noticeModel 클래스에서 가져온다는 
+		뜻 -->
+	<select id="memberView" resultMap="memberRes">
+		<include refid="select-all" />
+		where member_no = #{member_no}
+	</select>
 
 	<!-- 정보입력 -->
 	<insert id="insertMember" parameterType="memberModel">
@@ -34,6 +88,53 @@
 		* from MEMBER
 		where member_id = #{member_id} and member_password1 =
 		#{member_password1}
+	</select>	
+	
+	<!-- Admin Member update -->
+	<update id="updateMember" parameterType="memberModel">
+		update member
+		set
+		member_id= #{member_id}, member_password1 =
+		#{member_password1}, member_password2 = #{member_password2}, member_name = #{member_name},
+		member_addr = #{member_addr}, member_phone = #{member_phone}, member_email = #{member_email},
+		member_grade = #{member_grade}
+		where member_no = #{member_no}
+	</update>
+	
+		<!-- Admin Member update -->
+	<update id="updatePWMember" parameterType="memberModel">
+		update member
+		set
+		member_password1 =
+		#{member_password1}, member_password2 = #{member_password2}
+		where member_no = #{member_no}
+	</update>
+	
+	<!-- Admin Member Delete -->
+	<delete id="deleteMember" parameterType="memberModel">
+		delete from member
+		where member_no = #{member_no}
+	</delete>
+	
+	<!-- 아이디찾기 -->
+	<select id="memberFindId" parameterType="memberModel" resultMap="memberRes">
+		select
+		member_id from member
+		where member_name = #{member_name} and member_email =
+		#{member_email}
+	</select>	
+	
+	
+	<!-- 암호찾기 -->
+		<select id="memberFindPw" parameterType="memberModel" resultMap="memberRes">
+		select
+		member_password1 from member
+		where member_name = #{member_name} and member_email =
+		#{member_email} and member_id = #{member_id}
+	</select>	
+	
+	<select id="getMember" resultMap="memberRes">
+		select
+		* from member where member_id = #{member_id}
 	</select>
-
 </mapper>

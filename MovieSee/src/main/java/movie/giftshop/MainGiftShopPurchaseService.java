@@ -29,4 +29,9 @@ public interface MainGiftShopPurchaseService {
 	// 회원이 구매한 상품 상세보기
 	public MainGiftShopPurchaseModel GiftShopPerchaseView(int giftpurchase_no);
 	
+	// 회원이 취소한 목록 = 'n'
+	public List<MainGiftShopPurchaseModel> GiftShopPurchaseCancleList(String userId, int start, int end, String searchOption, String keyword) throws Exception;
+
+	// 회원이 구매한 게시글 레코드 개수
+	public int GiftShopPurchaseMemberCancleCount(String userId, String searchOption, String keyword) throws Exception;
 }

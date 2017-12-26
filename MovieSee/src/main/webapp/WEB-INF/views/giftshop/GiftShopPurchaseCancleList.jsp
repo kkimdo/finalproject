@@ -21,7 +21,7 @@
 
 	//**원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
 	function list(page){
-   	location.href="<%=cp%>/gift/purchaseMemberList.see?curPage=" + page
+   	location.href="<%=cp%>/gift/purchaseMemberCancleList.see?curPage=" + page
 				+ "&searchOption=${map.searchOption}"
 				+ "&keyword=${map.keyword}";
 		}
@@ -87,10 +87,10 @@
                         </ul> 
                    --></li>
 
-				<li class="active"><a
+				<li><a
 					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
 
-				<li class="pointRat" style=""><a href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
+				<li class="active" style=""><a href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
 					<ul class="tabDep2">
 						<li class="on"><a href="javascript:void(0)">VIP 승급 금액 안내</a></li>
 					</ul></li>
@@ -108,7 +108,7 @@
 			<div class="tabCont my_manage" id="divTabContent">
 				<div class="tabCont">
 					<form name="form1" method="post"
-						action="<%=cp%>/gift/purchaseMemberList.see">
+						action="<%=cp%>/gift/purchaseMemberCancleList.see">
 						<div class="custCategory">
 							<select class="select_box" name="searchOption">
 								<!-- 검색조건을 검색처리 후 결과 화면에 보여주기 위해  c:out 출력태그 사용, 삼항연산자 -->
@@ -123,7 +123,7 @@
 
 							</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
 								class="ipt_txt mt0"> <input type="submit" value="검색"
-								class="boardBt"> <span> <!-- 레코드의 갯수를 출력 --> <strong>${map.mgsMemberCount}</strong>개를 구매하였습니다.
+								class="boardBt"> <span> <!-- 레코드의 갯수를 출력 --> <strong>${map.mgsMemberCancleCount}</strong>개를 취소하였습니다.
 							</span>
 						</div>
 					</form>
@@ -151,18 +151,15 @@
 							</thead>
 
 							<tbody>
-								<c:forEach var="purchaseList" items="${map.purchaseList}">
-									<c:if test="${purchaseList.giftpurchase_delshow == 'y'}">
-										<c:url var="viewMemberURL" value="purchaseMemberView.see">
-											<c:param name="giftpurchase_no" value="${purchaseList.giftpurchase_no }" />
-										</c:url>
+								<c:forEach var="purchaseCancleList" items="${map.purchaseCancleList}">
+									<c:if test="${purchaseCancleList.giftpurchase_delshow == 'n'}">
 										<tr class="notice">
-											<td>${purchaseList.giftpurchase_no}</td>
-											<td>${purchaseList.giftshop_product_no }</td>
-											<td><a href="${viewMemberURL}">${purchaseList.giftpurchase_product_name }</a></td>
-											<td>${purchaseList.giftpurchase_count }</td>
-											<td>${purchaseList.giftpurchase_price }</td>
-											<td><fmt:formatDate value="${purchaseList.giftpurchase_date}" pattern="yyyy.MM.dd" /></td>
+											<td>${purchaseCancleList.giftpurchase_no}</td>
+											<td>${purchaseCancleList.giftshop_product_no }</td>
+											<td>${purchaseCancleList.giftpurchase_product_name }</td>
+											<td>${purchaseCancleList.giftpurchase_count }</td>
+											<td>${purchaseCancleList.giftpurchase_price }</td>
+											<td><fmt:formatDate value="${purchaseCancleList.giftpurchase_date}" pattern="yyyy.MM.dd" /></td>
 										</tr>
 									</c:if>
 								</c:forEach>
