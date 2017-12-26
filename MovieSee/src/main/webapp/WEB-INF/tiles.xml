@@ -94,6 +94,9 @@
 	<definition name="giftShopPurchaseList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/giftshop/GiftShopPurchaseList.jsp" />
 	</definition>
+	<definition name="giftShopPurchaseView" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/giftshop/GiftShopPurchaseView.jsp" />
+	</definition>
 	
 	
 	

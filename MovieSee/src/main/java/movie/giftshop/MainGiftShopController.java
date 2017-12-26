@@ -23,16 +23,15 @@ import movie.common.paging.commonPaging;
 @Controller
 @RequestMapping("/gift")
 public class MainGiftShopController {
-	
+
 	Logger log = Logger.getLogger(this.getClass());
 
 	@Inject
 	GiftShopProductService giftShopProductService;
-	
+
 	@Inject
 	MainGiftShopPurchaseService mainGiftShopPurchaseService;
 
-	
 	@RequestMapping(value = "/giftShopList.see")
 	public ModelAndView GiftShopListProduct(@RequestParam(defaultValue = "giftshop_product_name") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
@@ -44,10 +43,11 @@ public class MainGiftShopController {
 		int start = c_Paging.getPageBegin();
 		int end = c_Paging.getPageEnd();
 
-		List<GiftShopProductModel> giftShopList_1 = giftShopProductService.GiftShopList_1(start, end, searchOption, keyword);
-		List<GiftShopProductModel> giftShopList_2 = giftShopProductService.GiftShopList_2(start, end, searchOption, keyword);
+		List<GiftShopProductModel> giftShopList_1 = giftShopProductService.GiftShopList_1(start, end, searchOption,
+				keyword);
+		List<GiftShopProductModel> giftShopList_2 = giftShopProductService.GiftShopList_2(start, end, searchOption,
+				keyword);
 
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("giftShopList_1", giftShopList_1);
 		map.put("giftShopList_2", giftShopList_2);
@@ -57,12 +57,12 @@ public class MainGiftShopController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("map", map); 
-		mav.setViewName("giftShopList"); 
+		mav.addObject("map", map);
+		mav.setViewName("giftShopList");
 
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/giftShopView.see", method = RequestMethod.GET)
 	public ModelAndView GiftShopViewProduct(@RequestParam int giftshop_product_no) throws Exception {
 
@@ -73,43 +73,119 @@ public class MainGiftShopController {
 
 		return mav;
 	}
-	
-	//구매
+
+	// 구매
 	@RequestMapping("/purchaseIt.see")
-    public ModelAndView PurchaseIt(@ModelAttribute("mainGiftShopPurchaseModel") MainGiftShopPurchaseModel mainGiftShopPurchaseModel, 
-    		HttpServletRequest request, HttpSession session){
-		
+	public ModelAndView PurchaseIt(
+			@ModelAttribute("mainGiftShopPurchaseModel") MainGiftShopPurchaseModel mainGiftShopPurchaseModel,
+			HttpServletRequest request, HttpSession session) {
+
+		ModelAndView mav = new ModelAndView();
+
 		String userId = (String) session.getAttribute("session_member_id");
-		String sum = request.getParameter("sum");
-		int count = Integer.parseInt(request.getParameter("amount"));
+		int sum = Integer.parseInt(request.getParameter("sum")); // 구매한 상품 수량 *
+																	// 상품 가격 =
+																	// 합계
+		int count = Integer.parseInt(request.getParameter("amount")); // 구매한 상품
+																		// 수량
+		int giftshop_product_no = Integer.parseInt(request.getParameter("giftshop_product_no"));
+		//System.out.println("상품 번호 " + giftshop_product_no);
+
+		// 구매할 상품 총 개수
+		int totalNum = mainGiftShopPurchaseService.GiftShopProductCount(giftshop_product_no);
+		//System.out.println("상품 총 개수 " + totalNum);
+
+		// 구매하는 상품이 총 상품수보다 작거나 같으면
+		if (totalNum >= count) {
+
+			mainGiftShopPurchaseModel.setGiftpurchase_member_id(userId);
+			mainGiftShopPurchaseModel.setGiftpurchase_count(count);
+			mainGiftShopPurchaseModel.setGiftpurchase_price(sum);
+
+			mainGiftShopPurchaseService.GiftShopPurchaseIt(mainGiftShopPurchaseModel); // 구매
+			mainGiftShopPurchaseService.GiftShopProductSub(count, giftshop_product_no); // 구매한
+
+			// 구매하는 상품이 총 상품 수보다 크면
+		} else if (totalNum < count) {
+
+			mav.setViewName("/giftshop/GiftShopPurchaseCheck");
+			return mav;
+
+			// 상품 수 없으면
+		} else if (totalNum == 0 && totalNum < 0) {
+
+			mav.setViewName("/giftshop/GiftShopPurchaseNull");
+			return mav;
+		}
+
+		mav.setViewName("redirect:/gift/purchaseMemberList.see");
+		return mav;
+	}
+	
+	//구매 상품 상세보기
+	@RequestMapping(value = "/purchaseMemberView.see", method = RequestMethod.GET)
+	public ModelAndView PurchaseView(@RequestParam int giftpurchase_no) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("mainGiftShopPurchaseModel", mainGiftShopPurchaseService.GiftShopPerchaseView(giftpurchase_no));
+		mav.setViewName("giftShopPurchaseView");
+
+		return mav;
+	}
+
+	@RequestMapping("/purchaseMemberList.see")
+	public ModelAndView PurchaseList(@RequestParam(defaultValue = "giftpurchase_product_name") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage, HttpSession session) throws Exception {
+
+		String userId = (String) session.getAttribute("session_member_id"); 
+
+		ModelAndView mav = new ModelAndView();
 		
-		mainGiftShopPurchaseModel.setGiftpurchase_member_id(userId);
-		mainGiftShopPurchaseModel.setGiftpurchase_count(count);
-		mainGiftShopPurchaseModel.setGiftpurchase_price(sum);
+		// 로그인이 안되 있을 경우, 로그인 창으로 이동
+		if (userId == null) {
+			mav.setViewName("/giftshop/GiftShopPurchaseLoginConfirm");
+			return mav;
+		}
 
-        mainGiftShopPurchaseService.GiftShopPurchaseIt(mainGiftShopPurchaseModel);
-        
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect:/gift/purchaseList.see");
-        return mav;
-    }
-	
-	@RequestMapping("/purchaseList.see")
-    public ModelAndView list(HttpSession session, ModelAndView mav){
-        
-		String userId = (String) session.getAttribute("session_member_id"); // session에 저장된 userId
-        
-        List<MainGiftShopPurchaseModel> purchaseList = mainGiftShopPurchaseService.GiftShopPurchaseList(userId); // 구매 정보 
+		int mgsMemberCount = mainGiftShopPurchaseService.GiftShopPurchaseMemberCount(userId, searchOption, keyword);
 
-        mav.addObject("purchaseList", purchaseList);
+		commonPaging c_Paging = new commonPaging(mgsMemberCount, curPage);
+		int start = c_Paging.getPageBegin();
+		int end = c_Paging.getPageEnd();
+
+		List<MainGiftShopPurchaseModel> purchaseList = mainGiftShopPurchaseService.GiftShopPurchaseList(userId, start, end, searchOption, keyword);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("purchaseList", purchaseList);
+		map.put("mgsMemberCount", mgsMemberCount);
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		map.put("c_Paging", c_Paging);
+
+		mav.addObject("map", map);
 		mav.setViewName("giftShopPurchaseList");
-        
-        return mav;
-    }
+
+		return mav;
+	}
 	
-	@RequestMapping("/purchaseIt_test.see")
-	public String purchaseIt_test(){
-		return "giftShopList";
+	//구매 취소
+	@RequestMapping(value = "/purchaseCancle.see")
+	public String PurchaseCancle(HttpServletRequest request) {
+		
+		int count = Integer.parseInt(request.getParameter("giftpurchase_count"));
+		System.out.println("취소하는 상품 개수 : " + count );
+		
+		int giftpurchase_no = Integer.parseInt(request.getParameter("giftpurchase_no"));
+		System.out.println("취소하는 구매 번호 : " + giftpurchase_no);
+		
+		int giftshop_product_no = Integer.parseInt(request.getParameter("giftshop_product_no"));
+		System.out.println("취소하는 상품 번호 : " + giftshop_product_no);
+		
+		mainGiftShopPurchaseService.GiftShopPurchaseCancle(giftpurchase_no);
+		mainGiftShopPurchaseService.GiftShopProductPlus(count, giftshop_product_no);
+
+		return "redirect:/gift/purchaseMemberList.see";
 	}
 	
 }
