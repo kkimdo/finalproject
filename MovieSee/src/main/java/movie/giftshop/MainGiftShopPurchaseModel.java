@@ -1,5 +1,7 @@
 package movie.giftshop;
 
+import java.util.Date;
+
 public class MainGiftShopPurchaseModel {
 
 	private int giftpurchase_no; // 구매 번호
@@ -7,7 +9,9 @@ public class MainGiftShopPurchaseModel {
 	private String giftpurchase_member_id; // 구매한 사용자 ID
 	private String giftpurchase_product_name; // 구매한 상품 이름
 	private int giftpurchase_count; // 구매한 수량
-	private String giftpurchase_price; // 구매한 총 가격
+	private int giftpurchase_price; // 구매한 총 가격
+	private Date giftpurchase_date; // 구매한 날짜
+	private String giftpurchase_delshow; // 구매 취소 유무를 y, n 표시
 
 	public int getGiftpurchase_no() {
 		return giftpurchase_no;
@@ -49,12 +53,28 @@ public class MainGiftShopPurchaseModel {
 		this.giftpurchase_count = giftpurchase_count;
 	}
 
-	public String getGiftpurchase_price() {
+	public int getGiftpurchase_price() {
 		return giftpurchase_price;
 	}
 
-	public void setGiftpurchase_price(String giftpurchase_price) {
+	public void setGiftpurchase_price(int giftpurchase_price) {
 		this.giftpurchase_price = giftpurchase_price;
 	}
 
+	public Date getGiftpurchase_date() {
+		return giftpurchase_date;
+	}
+	
+	public void setGiftpurchase_date(Date giftpurchase_date) {
+		this.giftpurchase_date = giftpurchase_date;
+	}
+	
+	public String getGiftpurchase_delshow() {
+		return giftpurchase_delshow;
+	}
+	
+	public void setGiftpurchase_delshow(String giftpurchase_delshow) {
+		this.giftpurchase_delshow = giftpurchase_delshow;
+	}
+	
 }

@@ -47,7 +47,7 @@
 			<li><a href="<%=cp%>/event/eventListMain.see" title="이벤트">이벤트</a>
 				<div class="depth"></div></li>
 
-			<li><a href="<%=cp%>/giftshop/giftShopList.see" title="기프트샵">기프트샵</a>
+			<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 				<div class="depth"></div></li>
 		</ul>
 	</div>
@@ -85,8 +85,7 @@
                         </ul> 
                    --></li>
 
-				<li class=""><a href="<%=cp%>/mypage/reserveCancel.see">나의
-						취소내역</a></li>
+				<li class=""><a href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
 
 				<li class="pointRat" style=""><a href="<%=cp%>/mypage/vip.see">VIP</a>
 					<!--170915 cok 문구 교체 멤버십 ->VIP 기준 -->
