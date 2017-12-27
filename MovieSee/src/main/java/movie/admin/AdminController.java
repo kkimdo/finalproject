@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import movie.common.paging.movieListPaging; 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
@@ -43,7 +44,16 @@ public class AdminController {
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
+	//AmovieList paging
+    private int currentPage = 1;
+	private int totalCount;
+	private int blockCount = 8;
+	private int blockpaging = 5;
+	private String pagingHtml;
+	private movieListPaging paging;
+	
 	private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/";
+	//private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/";
 
 	// 상영작 리스트
 	@RequestMapping(value="/movieList.see", method = RequestMethod.GET)
@@ -52,7 +62,27 @@ public class AdminController {
 		
 		List<MovieModel> movielist = movieService.movieList();
 		
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+ 			currentPage = 1;
+ 		}else{
+ 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+ 		}
+		
+		totalCount = movielist.size();
+		
+		paging = new movieListPaging(currentPage, totalCount, blockCount, blockpaging, "movieList");
+		pagingHtml = paging.getPagingHtml().toString();
+		
+		int lastCount = totalCount;
+		
+		if (paging.getEndCount() < totalCount) {
+			lastCount = paging.getEndCount() + 1;
+		}
+		
 		mv.addObject("movielist", movielist);
+		mv.addObject("currentPage", currentPage);
+		mv.addObject("pagingHtml", pagingHtml);
+		mv.addObject("totalCount", totalCount);
 		
 		mv.setViewName("admin");
 		return mv;
@@ -88,6 +118,9 @@ public class AdminController {
 	@RequestMapping(value = "/movieWrite.see", method = RequestMethod.POST)
 	public ModelAndView movieWrite2(@ModelAttribute("movieModel") MovieModel movieModel, BindingResult result, HttpServletRequest request, MultipartHttpServletRequest multipartHttpServletRequest) throws IOException{
 
+		String movie_story = movieModel.getMovie_story().replaceAll("\r\n", "<br />");
+		movieModel.setMovie_story(movie_story);
+		
 		ModelAndView mv = new ModelAndView();
 		
 		try {
@@ -221,7 +254,10 @@ public class AdminController {
 		int movie_no = Integer.parseInt(request.getParameter("movie_no"));
 
 		MovieModel movieModel = movieService.movieView(movie_no);
-			
+		
+		String movie_story = movieModel.getMovie_story().replaceAll("\r\n", "<br />");
+		movieModel.setMovie_story(movie_story);
+		
 		mv.addObject("movieModel",movieModel);
 		mv.setViewName("AdminMovieUpdate");
 		return mv;
@@ -464,11 +500,14 @@ public class AdminController {
 			String timetable_end_time = request.getParameter("end_time");
 			int timetable_adult_amt = Integer.parseInt(request.getParameter("adult_amt"));
 			int timetable_child_amt = Integer.parseInt(request.getParameter("child_amt"));
+			int timetable_total_seat = Integer.parseInt(request.getParameter("total_seat"));
 			
+			AdminMovieModel adminMovieModel = adminService.searchname(timetable_movie_no);
 			// 번호 이름 가져오기
-			
+			String timetable_movie_name = adminMovieModel.getMovie_name();
 			//timetable Model
 			timetablemodel.setTimetable_movie_no(timetable_movie_no);
+			timetablemodel.setTimetable_movie_name(timetable_movie_name);
 			timetablemodel.setTimetable_start_date(timetable_start_date);
 			timetablemodel.setTimetable_end_date(timetable_end_date);
 			timetablemodel.setTimetable_show_date(timetable_show_date);
@@ -476,6 +515,8 @@ public class AdminController {
 			timetablemodel.setTimetable_end_time(timetable_end_time);
 			timetablemodel.setTimetable_adult_amt(timetable_adult_amt);
 			timetablemodel.setTimetable_child_amt(timetable_child_amt);
+			timetablemodel.setTimetable_total_seat(timetable_total_seat);
+			timetablemodel.setTimetable_reserved_seat(timetable_total_seat);
 			
 			adminService.timeDetailInsert(timetablemodel);
 			

@@ -7,7 +7,7 @@
 <div class="util_menu">
 	<div class="inner">
 		<ul>	
-				<c:if test="${session_member_name == 'admin' }">
+				<c:if test="${session_member_grade eq 1 }">
 					<li><strong>${session_member_name}&nbsp;님 환영합니다.</strong></li>
 				</c:if>
 				<li><a href="<%= cp %>/main.see">메인 페이지</a></li>

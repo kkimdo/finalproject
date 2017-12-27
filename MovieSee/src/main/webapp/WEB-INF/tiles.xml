@@ -128,7 +128,7 @@
 	</definition>
 	
 	<!-- main 로그인 -->
-		<definition name="login" extends="main">
+	<definition name="login" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/member/loginForm.jsp"></put-attribute>
 	</definition>
 	
@@ -140,17 +140,17 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/common/memberClause.jsp" />
 	</definition>
 	
-	<!-- main 상영시간표 메인 @@-->
+	<!-- main 상영시간표 메인 -->
 	<definition name="reserveMain" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/reserve/ReserveMain.jsp" />
 	</definition>
 	
-	<!-- main 상영시간표 페이지  @@-->
+	<!-- main 상영시간표 페이지 -->
 	<definition name="reserveList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/reserve/ReserveList.jsp" />
 	</definition>
    
-	<!-- main Movie 부분  @@-->
+	<!-- main Movie 부분 -->
 	<definition name="movieTicketing" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing.jsp" />
 	</definition>
@@ -160,14 +160,15 @@
 	<definition name="movieTicketing2" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/reserve/MovieTicketing2.jsp" />
 	</definition>
+	
    
-		<!-- main 예매 진행부분  @@-->
+		<!-- main 예매 진행부분 -->
 	<!-- main 영화 상세보기-->
 	<definition name="MovieView" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/MovieView.jsp" />
 	</definition>
    
-	<!-- main 영화 탭  @@-->
+	<!-- main 영화 탭 -->
 	<!-- main 박스오피스  -->
 	<definition name="aMovieList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/AmovieList.jsp" />
@@ -176,24 +177,24 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/AAmovieList.jsp" />
 	</definition>
 	
-	<!-- main 아르떼  @@-->
+	<!-- main 아르떼 -->
 	<definition name="bMovieList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/BmovieList.jsp" />
 	</definition>
-   	<!-- main G시네마  @@-->
+   	<!-- main G시네마 -->
 	<definition name="cMovieList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/CmovieList.jsp" />
 		</definition>
-	<!-- main 중국영화상영관/영화제  @@-->
+	<!-- main 중국영화상영관/영화제 -->
 	<definition name="dMovieList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/DmovieList.jsp" />
 	</definition>
-	<!-- main 오페라  @@-->
+	<!-- main 오페라 -->
 	<definition name="eMovieList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/EmovieList.jsp" />
 	</definition>
 	
-	<!-- main 영화관 상세보기  @@-->
+	<!-- main 영화관 상세보기 -->
 	<definition name="aMovieTheater" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/AmovieTheater.jsp" />
 	</definition>
@@ -202,7 +203,7 @@
 		<put-attribute name="main_body" value="/WEB-INF/views/movie/BmovieTheater.jsp" />
     </definition>
    
-   <!-- main mypage @@--> 
+   <!-- main mypage --> 
    <definition name="reserveList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/mypage/ReserveList.jsp"></put-attribute>
 	</definition>
@@ -340,7 +341,7 @@
 	
     <definition name="TimeTableList" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/time/timeTableList.jsp" />
-    </definition>  
+    </definition>   
     
      <!-- admin adminMemberList -->
     <definition name="AdminMemberList" extends="admin">

@@ -6,11 +6,22 @@
 	String cp = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>MovieSee</title>
+<script src="<%=cp%>/resources/js/design-1.0.min.js?ver=20171221"></script>
+<style>
+.main_key_visual .office .officeCont .officeRk li {
+	overflow: hidden;
+	height: 45px;
+	padding: 11px 10px 0;
+	box-sizing: border-box;
+}
+</style>
 
 </head>
 <body>
@@ -51,22 +62,19 @@
 					<li></li>
 				</ul></li>
 
-			<li><a
-				href="<%=cp%>/event/eventListMain.see"
-				title="이벤트">이벤트</a>
-				<div class="depth">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div></li>
-
-			<li><a
-				href="<%=cp%>/gift/giftShopList.see"
-				title="기프트샵">기프트샵</a></li>
+			<li><a href="<%=cp%>/event/eventListMain.see"
+					title="이벤트">이벤트</a>
+					<div class="depth">
+						<ul>
+							<li><a href="<%=cp%>/event/eventList_1.see" title="영화">영화</a></li>
+							<li><a href="<%=cp%>/event/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
+							<li><a href="<%=cp%>/event/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
+							<li><a href="<%=cp%>/event/eventList_4.see" title="제휴할인">제휴할인</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
+				</li>
 
 		</ul>
 	</div>
@@ -74,65 +82,103 @@
 
 		<div class="mKeyVi">
 			<div class="main_key_visual">
-				<div class="event"></div>
-				<div class="office">
+				<div class="event" style="right: 1020px;">
+				<ul>
+                    <li style="right: 0px;"><a href="javascript:void(0);" onclick="goEventDetail('201170016917001','117')">
+                    <img src="http://caching.lottecinema.co.kr//Media/WebAdmin/51b6cb04964f45d3aaa5a3076891dc11.jpg" alt="디즈니매니아라면 역대급 경품을 GET하라!"></a>
+                    </li>
+                    </ul>
+				</div>
+				
+				<div class="office" style="left: 0px;">
 					<div class="office">
 						<div class="officeTop">
 							<h2>
-								<img src="/LCHS/Image/Main/h2_boxoffice.png" alt="BOX OFFICE">
+								<img src="<%= cp %>images/h2_boxoffice.png" alt="BOX OFFICE">
 							</h2>
 							<ul class="officeTab">
 								<li class="on"><a href="javascript:void(0);"
 									onclick="setMainRankList(this,'1')">예매순</a></li>
-								<li><a href="javascript:void(0);"
+								<li class=""><a href="javascript:void(0);"
 									onclick="setMainRankList(this,'3')">평점순</a></li>
 							</ul>
 						</div>
 						<div class="officeCont">
-							<ol class="officeRk">
-								<div class="blind">
-									<h3>예매순</h3>
-								</div>
-								<li class=""><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('11981')" class="tit"><em>1.</em> <span
-										class="grade_15">15</span><span class="mvTit">꾼</span></a> <span
-									class="memRk">예매율<em>15.4%</em></span></li>
-								<li class="active"><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('12205')" class="tit"><em>2.</em> <span
-										class="grade_12">12</span><span class="mvTit">은혼</span></a> <span
-									class="memRk">예매율<em>13.6%</em></span></li>
-								<li><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('12047')" class="tit"><em>3.</em> <span
-										class="grade_all">전체</span><span class="mvTit">뽀로로 극장판
-											공룡...</span></a> <span class="memRk">예매율<em>11.0%</em></span></li>
-								<li><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('12129')" class="tit"><em>4.</em> <span
-										class="grade_15">15</span><span class="mvTit">기억의 밤</span></a> <span
-									class="memRk">예매율<em>8.4%</em></span></li>
-								<li><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('12163')" class="tit"><em>5.</em> <span
-										class="grade_12">12</span><span class="mvTit">오리엔트 특급
-											살인</span></a> <span class="memRk">예매율<em>6.5%</em></span></li>
-								<li class=""><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)" onclick="goToTiketing('1414')"
-									class="tit"><em>6.</em> <span class="grade_15">15</span><span
-										class="mvTit">이프 온리</span></a> <span class="memRk">예매율<em>6.4%</em></span></li>
-								<li class=""><a href="javascript:void(0)"
-									onmouseover="currentMovie(this)"
-									onclick="goToTiketing('10893')" class="tit"><em>7.</em> <span
-										class="grade_12">12</span><span class="mvTit">라라랜드</span></a> <span
-									class="memRk">예매율<em>4.6%</em></span></li>
-							</ol>
+						
+							<c:forEach var="movieRate" items="${movieRate}"
+								varStatus="stat" begin="1" end="9">
+								<c:url var="viewURL" value="/movieView.see">
+									<c:param name="movie_no" value="${movieRate.movie_no }" />
+								</c:url>
+
+								<c:set value="${movieRate.movie_age}" var="movie_age" />
+								<c:set value="12" var="12" />
+								<c:set value="15" var="15" />
+								<c:set value="0" var="0" />
+								<ol class="officeRk">
+									<div class="blind">
+										<h3>예매순</h3>
+									</div>
+									<li class=""><a href="${viewURL}"
+										onmouseover="currentMovie(this)"
+										onclick="goToTiketing('11981')" class="tit"> <em>
+												${stat.count}. </em> <span> 
+												<c:choose>
+													<c:when test="${movie_age eq '12' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/12.png">
+													</c:when>
+													<c:when test="${movie_age eq '15' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/15.png">
+													</c:when>
+													<c:otherwise>
+														<img src="<%=cp%>/resources/upload/movie/btn/all.png">
+													</c:otherwise>
+												</c:choose>
+										</span> <span class="mvTit">
+												&nbsp;&nbsp;${movieRate.movie_name} </span>
+									</a> <span class="memRk">예매율<em>${movieRate.movie_rate} %</em></span></li>
+								</ol>
+							</c:forEach>
+							
+							<%-- <c:forEach var="movieScore" items="${movieScore}"
+								varStatus="stat" begin="1" end="9">
+								<c:url var="viewURL" value="/movieView.see">
+									<c:param name="movie_no" value="${movieScore.movie_no }" />
+								</c:url>
+
+								<c:set value="${movieScore.movie_age}" var="movie_age" />
+								<c:set value="12" var="12" />
+								<c:set value="15" var="15" />
+								<c:set value="0" var="0" />
+								<ol class="officeRk">
+									<div class="blind">
+										<h3>평점순</h3>
+									</div>
+									<li class=""><a href="${viewURL}"
+										onmouseover="currentMovie(this)"
+										onclick="goToTiketing('11981')" class="tit"> <em>
+												${stat.count}. </em> <span> <c:choose>
+													<c:when test="${movie_age eq '12' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/12.png">
+													</c:when>
+													<c:when test="${movie_age eq '15' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/15.png">
+													</c:when>
+													<c:otherwise>
+														<img src="<%=cp%>/resources/upload/movie/btn/all.png">
+													</c:otherwise>
+												</c:choose>
+										</span> <span class="mvTit">
+												&nbsp;&nbsp;${movieScore.movie_name} </span>
+									</a> <span class="memRk">관람평점<em>${movieScore.movie_score}</em></span></li>
+								</ol>
+							</c:forEach> --%>
 						</div>
-						<a href="<%=cp%>/movieTicketing.see" class="btn_Ticketing">예매하기</a>
+						<a href="<%=cp%>/reserve/movieTicketing.see" class="btn_Ticketing">예매하기</a>
 					</div>
+
 				</div>
-				<div class="trailer">
+				<div class="trailer" style="left: 335px;">
 					<ul>
 						<li style="left: 0px;">
 
@@ -309,6 +355,8 @@
 						</li>
 					</ul>
 				</div>
+				<a href="javascript:void(0);" class="prev">prev</a>
+				<a href="javascript:void(0);" class="next">next</a>
 			</div>
 		</div>
 
@@ -316,7 +364,47 @@
 		<div class="slidePoster">
 			<div class="slide">
 				<ul style="left: 0px;">
-					<c:forEach var="list" items="${list}" varStatus="stat">
+					<c:forEach var="list" items="${list}" varStatus="stat" begin="1" end="5">
+						<c:url var="viewURL" value="/movieView.see">
+							<c:param name="movie_no" value="${list.movie_no }" />
+						</c:url>
+						<c:url var="reserveURL" value="/movieTicketing.see">
+							<c:param name="movie_no" value="${list.movie_no}" />
+						</c:url>
+						<li class=""><a href="javascript:void(0)";> <img
+								src="<%= cp %>/resources/upload/movie/main_movie/${list.movie_poster}">
+						</a>
+							<div class="layer_hover">
+								<a href="${reserveURL}" onclick="goToTiketing()"
+									class="btn_reserve">예매하기</a> <a href="${viewURL}"
+									class="btn_View">상세보기</a>
+
+							</div></li>
+					</c:forEach>
+				</ul>
+				
+				<ul style="left: 980px;">
+					<c:forEach var="list" items="${list}" varStatus="stat" begin="6" end="10">
+						<c:url var="viewURL" value="/movieView.see">
+							<c:param name="movie_no" value="${list.movie_no }" />
+						</c:url>
+						<c:url var="reserveURL" value="/movieTicketing.see">
+							<c:param name="movie_no" value="${list.movie_no}" />
+						</c:url>
+						<li class=""><a href="javascript:void(0)";> <img
+								src="<%= cp %>/resources/upload/movie/main_movie/${list.movie_poster}">
+						</a>
+							<div class="layer_hover">
+								<a href="${reserveURL}" onclick="goToTiketing()"
+									class="btn_reserve">예매하기</a> <a href="${viewURL}"
+									class="btn_View">상세보기</a>
+
+							</div></li>
+					</c:forEach>
+				</ul>
+				
+				<ul style="left: 1960px;">
+					<c:forEach var="list" items="${list}" varStatus="stat" begin="11" end="15">
 						<c:url var="viewURL" value="/movieView.see">
 							<c:param name="movie_no" value="${list.movie_no }" />
 						</c:url>
@@ -354,8 +442,8 @@
 </c:forEach>
 </ul> --%>
 			<div class="btnSt">
-				<a href="#n" class="prev" style="display: none;">이전</a> <a href="#n"
-					class="next on">다음</a>
+				<a href="#n" class="prev" style="">이전</a> 
+				<a href="#n" class="next on">다음</a>
 			</div>
 		</div>
 
@@ -492,6 +580,41 @@
 				nextEl : '.swiper-button-next',
 				prevEl : '.swiper-button-prev',
 			},
+		});
+		
+		$(function() {
+		    var idx = idx2 = 0;
+		    var slide_width = $(".slide").width();
+		    var slide_count = $(".slide li").size();
+		    $("#slider li:first").css("display", "block");
+		    if(slide_count > 1)
+		        $(".btn").css("display", "inline");
+		 
+		    $(".prev").click(function() {
+		        if(slide_count > 1) {
+		            idx2 = (idx - 1) % slide_count;
+		            if(idx2 < 0)
+		                idx2 = slide_count - 1;
+		            $(".slide ul").css("left", "+="+980+"px");
+		            $("#slider li:eq("+idx+")").animate({ left: "+="+slide_width+"px" }, time, function() {
+		                $(this).css("display", "none").css("left", "-"+slide_width+"px");
+		            });
+		            $("#slider li:eq("+idx2+")").css("display", "block").animate({ left: "+="+slide_width+"px" }, time);
+		            idx = idx2;
+		        }
+		    });
+		 
+		    $(".next.on").click(function() {
+		        if(slide_count > 1) {
+		            idx2 = (idx + 1) % slide_count;
+		            $(".slide ul").css("left", "-="+980+"px");
+		            $("#slider li:eq("+idx+")").animate({ left: "-="+980+"px" }, time, function() {
+		                $(this).css("display", "none").css("left", slide_width+"px");
+		            });
+		            $("#slider li:eq("+idx2+")").css("display", "block").animate({ left: "-="+slide_width+"px" }, time);
+		            idx = idx2;
+		        }
+		    });
 		});
 	</script>
 </body>

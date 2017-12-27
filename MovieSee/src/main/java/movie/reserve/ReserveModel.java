@@ -1,15 +1,13 @@
 package movie.reserve;
 
-import java.util.Date;
-
 public class ReserveModel {
 	int reserve_no;
 	String reserve_member_id;
 	String reserve_movie_name;
 	int reserve_timetable_no;
-	Date reserve_start_date;
-	Date reserve_end_date;
-	Date reserve_show_date;
+	String reserve_start_date;
+	String reserve_end_date;
+	String reserve_show_date;
 	String reserve_start_time;
 	String reserve_end_time;
 	int reserve_adult_amt;
@@ -41,22 +39,22 @@ public class ReserveModel {
 	public void setReserve_timetable_no(int reserve_timetable_no) {
 		this.reserve_timetable_no = reserve_timetable_no;
 	}
-	public Date getReserve_start_date() {
+	public String getReserve_start_date() {
 		return reserve_start_date;
 	}
-	public void setReserve_start_date(Date reserve_start_date) {
+	public void setReserve_start_date(String reserve_start_date) {
 		this.reserve_start_date = reserve_start_date;
 	}
-	public Date getReserve_end_date() {
+	public String getReserve_end_date() {
 		return reserve_end_date;
 	}
-	public void setReserve_end_date(Date reserve_end_date) {
+	public void setReserve_end_date(String reserve_end_date) {
 		this.reserve_end_date = reserve_end_date;
 	}
-	public Date getReserve_show_date() {
+	public String getReserve_show_date() {
 		return reserve_show_date;
 	}
-	public void setReserve_show_date(Date reserve_show_date) {
+	public void setReserve_show_date(String reserve_show_date) {
 		this.reserve_show_date = reserve_show_date;
 	}
 	public String getReserve_start_time() {

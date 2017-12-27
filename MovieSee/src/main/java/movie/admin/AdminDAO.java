@@ -26,4 +26,6 @@ public interface AdminDAO {
 	
 	public boolean bannerUpdate(MovieBannerModel movieBannerModel); 
 	
+	public AdminMovieModel searchname(int timetable_movie_no);
+	
 }
