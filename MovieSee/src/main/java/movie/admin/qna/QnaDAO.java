@@ -16,9 +16,6 @@ public interface QnaDAO {
 	// 게시글 레코드 갯수
 	public int count(String searchOption, String keyword) throws Exception;
 
-	// 게시글 댓글 번호로 받아오기
-	public int countList(int qna_no) throws Exception;
-
 	// 글 상세보기
 	public QnaModel QnaView(int qna_no) throws Exception;
 

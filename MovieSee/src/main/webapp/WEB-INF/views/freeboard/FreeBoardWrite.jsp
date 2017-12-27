@@ -102,7 +102,7 @@
 						</table>
 					</fieldset>
 
-					<div class="btn_box btn_cbox">
+					<div class="btn_box btn_cbox2">
 						<span> <input type="submit" value="확인">
 						</span> <span onclick="history.go(-1);"> <input type="button"
 							value="취소" />

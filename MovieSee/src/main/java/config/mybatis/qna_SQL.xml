@@ -99,11 +99,6 @@
 		<include refid="search" />
 	</select>
 	
-	<!-- 게시글 댓글 갯수 번호로 받아오는거 -->
-	<select id="countList" resultType="int">
-		SELECT COUNT(*) FROM qna WHERE qna_no = #{qna_no}
-	</select>
-	
 	<!-- 댓글 목록 -->
 	<select id="qnaCommentList" resultMap="qnaCommentModelRes">
 		select * from qna_comment

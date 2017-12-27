@@ -34,12 +34,13 @@ public class MainQnaController {
 
 	@Inject
 	private QnaService qnaService;
-	
+
 	@Inject
 	private MovieService movieService;
 
-	//private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-    private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	// private static final String uploadPath = "C:/Users/user/Desktop/Geunjae
+	// Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 
 	// 글 목록
 	@RequestMapping(value = "/qnaMemberList.see")
@@ -83,13 +84,13 @@ public class MainQnaController {
 
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.GET)
 	public ModelAndView QnaMemberWriteForm() {
-		
+
 		ModelAndView mav = new ModelAndView();
-		
+
 		MovieBannerModel bannerselect = movieService.banner_select();
 		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("qnaWrite");
-		
+
 		return mav;
 	}
 
@@ -156,21 +157,44 @@ public class MainQnaController {
 
 	// 글 상세보기
 	@RequestMapping(value = "/qnaMemberView.see", method = RequestMethod.GET)
-	public ModelAndView QnaMemberView(@RequestParam int qna_no) throws Exception {
+	public ModelAndView QnaMemberView(@RequestParam int qna_no, @RequestParam(defaultValue = "1") int curPag,
+			@RequestParam(defaultValue = "qna_subject") String searchOption,
+			@RequestParam(defaultValue = "") String keyword, HttpSession session) throws Exception {
 
+		// 댓글 갯수 계산
+		int countReply = qnaService.countReply(qna_no, searchOption, keyword);
+
+		// 페이지 나누기 관련 처리
+		commonPaging c_Paging = new commonPaging(countReply, curPag);
+
+		ModelAndView mav = new ModelAndView();
 		List<QnaCommentModel> QnaCommentList = qnaService.CommentList(qna_no);
 		QnaCommentList = qnaService.CommentList(qna_no);
-		
-		ModelAndView mav = new ModelAndView();
+
 		// 뷰에 전달할 데이터
+		mav.addObject("qna_no", qna_no);
+		mav.addObject("countReply", countReply);
+		mav.addObject("searchOption", searchOption);
+		mav.addObject("keyword", keyword);
+		mav.addObject("c_Paging", c_Paging);
 		mav.addObject("qnaModel", qnaService.QnaView(qna_no));
 		mav.addObject("QnaCommentList", QnaCommentList);
 		// 뷰의 이름
-		
+
 		MovieBannerModel bannerselect = movieService.banner_select();
 		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("qnaView");
 
 		return mav;
 	}
+
+	// 게시글 삭제
+	@RequestMapping(value = "/qnaDelete.see")
+	public String QnaDelete(@RequestParam int qna_no) throws Exception {
+
+		qnaService.QnaDelete(qna_no);
+
+		return "redirect:/qna/qnaMemberList.see";
+	}
+
 }

@@ -24,10 +24,10 @@
 	function btnList(){
     	location.href="<%=cp%>/qna/qnaMemberList.see?curPage=${curPage}";
 	}
-	
+	// 답변이 없을 때 문의내역 취소 가능
 	 function btnCancle() {
 		if (confirm("문의 내역을 취소하시겠습니까?") == true) { //확인
-	         location.href ="<%=cp%>/admin/qnaDelete.see?qna_no=${qnaModel.qna_no}";
+	         location.href ="<%=cp%>/qna/qnaDelete.see?qna_no=${qnaModel.qna_no}";
 	      } else { 
 	         return;
 	      }

@@ -58,8 +58,8 @@
 
 								</select> 
 									<input name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt mt0"> 
-									<input type="submit" value="검색" class="boardBt">
-										<input type="button" value="글쓰기" onclick="btnWrite();" class="boardBt" /> 
+									<input type="submit" value="검색" class="boardBt1">
+									<input type="button" value="글쓰기" onclick="btnWrite();" class="boardBt2" /> 
 									<span> <!-- 레코드의 갯수를 출력 -->
 									<strong>${map.count}</strong>개의 게시물이 있습니다.
 									</span>

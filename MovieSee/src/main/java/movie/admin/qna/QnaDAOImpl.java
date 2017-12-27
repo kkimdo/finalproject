@@ -57,11 +57,6 @@ public class QnaDAOImpl implements QnaDAO {
 		return sqlSessionTemplate.selectOne("qna.count", map);
 	}
 
-	@Override
-	public int countList(int qna_no) throws Exception {
-
-		return sqlSessionTemplate.selectOne("qna.countList", qna_no);
-	}
 	
 	// qna_no을 이용하여 데이터를 검색하여 리턴하는 메소드(게시글 상세보기)
 	@Override
