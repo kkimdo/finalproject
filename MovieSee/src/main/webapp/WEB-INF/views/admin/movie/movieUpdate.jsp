@@ -6,15 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="admin_grp">
    <div class="admin_list">
-      <ul>
-         <li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-         <li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-         <li><a href="<%=cp%>/admin/bannerList.see">매거진</a></li>
-         <li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
-         <li><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
-         <li><a href="<%=cp %>/admin/adminQnaList.mt">Q&amp;A</a></li>
-         <li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
-      </ul>
+      <div class="admin_list">
+			<ul>
+				<li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">배너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
+			</ul>
+		</div>
    </div>
    <div class="admin_ct">
       <h3 class="sub_tit">상영작 등록</h3>

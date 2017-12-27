@@ -14,12 +14,6 @@
 		$('#show_date').datepicker({
 			dateFormat : "yymmdd"
 		});
-		$('#start_date').datepicker({
-			dateFormat : "yymmdd"
-		});
-		$('#end_date').datepicker({
-			dateFormat : "yymmdd"
-		});
 	})
 
 	$(function() {
@@ -38,6 +32,29 @@
 			})
 		})
 	})
+	
+	$(function() {
+		$("#start_date").datepicker({
+			dateFormat : "yymmdd",
+			showButtonPanel : true,
+			onClose : function(selectedDate) {
+				// 시작일(fromDate) datepicker가 닫힐때
+				// 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+				$("#end_date").datepicker("option", "minDate", selectedDate);
+			}
+		});
+
+		$("#end_date").datepicker({
+			dateFormat : "yymmdd",
+			showButtonPanel : true,
+			onClose : function(selectedDate) {
+				// 종료일(end_date) datepicker가 닫힐때
+				// 시작일(start_date)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
+				$("#start_date").datepicker("option", "maxDate", selectedDate);
+			}
+		});
+
+	});
 </script>
 <html>
 <head>
@@ -49,12 +66,13 @@
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
 				<li class="on"><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
-				<li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
-				<li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
-				<li><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
-				<li><a href="<%=cp%>/admin/adminQnaList.mt">Q&amp;A</a></li>
-				<li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">배너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
 			</ul>
 		</div>
 		<div class="admin_ct">

@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.notice.NoticeModel;
 import movie.admin.notice.NoticeService;
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 
 @Controller
 @RequestMapping("/notice")
@@ -27,6 +29,9 @@ public class MainNoticeController {
 
 	@Inject
 	private NoticeService noticeService;
+	
+	@Inject
+	private MovieService movieService;
 
 	private NoticeModel noticePrev = new NoticeModel();
 	private int preNum = 0;
@@ -65,6 +70,9 @@ public class MainNoticeController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("noticeList");
 
@@ -99,6 +107,9 @@ public class MainNoticeController {
 		mav.addObject("preNum", preNum);
 		mav.addObject("nextNum", nextNum);
 		// 뷰의 이름
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("noticeView");
 
 		return mav;

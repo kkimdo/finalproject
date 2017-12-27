@@ -40,10 +40,16 @@ public class MypageController {
 
 		String session_member_id = (String) session.getAttribute("session_member_id");
 		
+		if (session.getAttribute("session_member_id") == null) {
+	         mv.setViewName("reserve/loginConfirm");
+
+	         return mv;
+	      }
 		
 		List<ReserveModel> reserveList= mypageService.reserveList(session_member_id);
 		MovieBannerModel bannerselect = movieService.banner_select(); // 하단 배너
 
+		mav.addObject("bannerselect", bannerselect);
 		mv.addObject("reserveList", reserveList);
 		mv.setViewName("reserveList");
 		return mv;

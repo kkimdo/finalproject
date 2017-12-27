@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.giftshop.GiftShopProductModel;
 import movie.admin.giftshop.GiftShopProductService;
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 
 @Controller
 @RequestMapping("/gift")
@@ -31,6 +33,9 @@ public class MainGiftShopController {
 
 	@Inject
 	MainGiftShopPurchaseService mainGiftShopPurchaseService;
+	
+	@Inject
+	private MovieService movieService;
 
 	@RequestMapping(value = "/giftShopList.see")
 	public ModelAndView GiftShopListProduct(@RequestParam(defaultValue = "giftshop_product_name") String searchOption,
@@ -58,6 +63,8 @@ public class MainGiftShopController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("giftShopList");
 
 		return mav;
@@ -69,6 +76,8 @@ public class MainGiftShopController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("giftShopProductModel", giftShopProductService.GiftShopViewProduct(giftshop_product_no));
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("giftShopView");
 
 		return mav;
@@ -115,6 +124,8 @@ public class MainGiftShopController {
 			return mav;
 		}
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("redirect:/gift/purchaseMemberList.see");
 		return mav;
 	}
@@ -126,6 +137,8 @@ public class MainGiftShopController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("mainGiftShopPurchaseModel", mainGiftShopPurchaseService.GiftShopPerchaseView(giftpurchase_no));
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("giftShopPurchaseView");
 
 		return mav;
@@ -159,7 +172,9 @@ public class MainGiftShopController {
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 		map.put("c_Paging", c_Paging);
-
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("giftShopPurchaseList");
 
@@ -171,13 +186,13 @@ public class MainGiftShopController {
 	public String PurchaseCancle(HttpServletRequest request) {
 		
 		int count = Integer.parseInt(request.getParameter("giftpurchase_count"));
-		System.out.println("취소하는 상품 개수 : " + count );
+		//System.out.println("취소하는 상품 개수 : " + count );
 		
 		int giftpurchase_no = Integer.parseInt(request.getParameter("giftpurchase_no"));
-		System.out.println("취소하는 구매 번호 : " + giftpurchase_no);
+		//System.out.println("취소하는 구매 번호 : " + giftpurchase_no);
 		
 		int giftshop_product_no = Integer.parseInt(request.getParameter("giftshop_product_no"));
-		System.out.println("취소하는 상품 번호 : " + giftshop_product_no);
+		//System.out.println("취소하는 상품 번호 : " + giftshop_product_no);
 		
 		mainGiftShopPurchaseService.GiftShopPurchaseCancle(giftpurchase_no);
 		mainGiftShopPurchaseService.GiftShopProductPlus(count, giftshop_product_no);
@@ -216,6 +231,8 @@ public class MainGiftShopController {
 		map.put("keyword", keyword);
 		map.put("c_Paging", c_Paging);
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("giftShopPurchaseCancleList");
 

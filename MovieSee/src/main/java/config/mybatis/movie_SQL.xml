@@ -227,7 +227,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		movie_private=#{movie_private,jdbcType=VARCHAR},
 		movie_family=#{movie_family,jdbcType=VARCHAR},
 		movie_couple=#{movie_couple,jdbcType=VARCHAR},
-		movie_biz=#{movie_biz,jdbcType=VARCHAR},
+		movie_biz=#{movie_biz,jdbcType=VARCHAR}
 		where MOVIE_NO = #{movie_no,jdbcType=VARCHAR}
 	</update>
 
@@ -267,10 +267,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 코멘트 평점 -->
 	<update id="updateMovieScore" parameterType="int">
-		update movie m1
-		set movie_score = (select avg(movie_point) from View_COMMENT m2 where
-		m1.movie_no = m2.movie_no)
-	</update>
+      update movie m1
+      set movie_score = (select round(avg(movie_point) * 2,1) from View_COMMENT m2 where
+      m1.movie_no = m2.movie_no)
+    </update>
 
 	<!-- 코멘트 수 뽑아오기 -->
      <select id="cmtcount" parameterType="int" resultType="int">

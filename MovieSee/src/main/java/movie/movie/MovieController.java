@@ -359,7 +359,8 @@ public class MovieController {
 
 		ModelAndView mv = new ModelAndView();
 		MovieIntroModel movieintroselect = movieService.movieintro_Select();
-
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mv.addObject("bannerselect", bannerselect);
 		mv.addObject("movieintroselect", movieintroselect);
 		mv.setViewName("aMovieTheater");
 		return mv;
@@ -370,7 +371,9 @@ public class MovieController {
 
 		ModelAndView mv = new ModelAndView();
 		MovieIntroModel movieintroselect = movieService.movieintro_Select();
-
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mv.addObject("bannerselect", bannerselect);
+		
 		mv.addObject("movieintroselect", movieintroselect);
 		mv.setViewName("bMovieTheater");
 		return mv;

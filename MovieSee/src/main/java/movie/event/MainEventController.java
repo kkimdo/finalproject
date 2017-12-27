@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.event.EventModel;
 import movie.admin.event.EventService;
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 
 @Controller
 @RequestMapping("/event")
@@ -28,6 +30,9 @@ public class MainEventController {
 
 	@Inject
 	private EventService eventService;
+	
+	@Inject
+	private MovieService movieService;
 
 	@ModelAttribute
 	public EventModel formBack() {
@@ -69,7 +74,9 @@ public class MainEventController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
-
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventListMain");
 
@@ -100,6 +107,8 @@ public class MainEventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventEndList");
 
@@ -130,7 +139,9 @@ public class MainEventController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
-
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventList_1");
 
@@ -162,6 +173,8 @@ public class MainEventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventList_2");
 
@@ -193,6 +206,8 @@ public class MainEventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventList_3");
 
@@ -224,6 +239,8 @@ public class MainEventController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("eventList_4");
 
@@ -241,6 +258,9 @@ public class MainEventController {
 		eventService.EventHitUpdate(event_no, session);
 
 		ModelAndView mav = new ModelAndView();
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("eventModel", eventModel);
 		mav.setViewName("eventView");
 

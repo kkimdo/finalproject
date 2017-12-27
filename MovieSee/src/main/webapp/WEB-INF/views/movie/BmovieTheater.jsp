@@ -88,19 +88,12 @@
 </div>
 
 <li class="active"><a href="/movie/bMovieTheater.see">서울</a></li>
-<li><a href="">경기/인천</a></li>
-<li><a href="">충청/대전</a></li>
-<li><a href="">전라/광주</a></li>
-<li><a href="">경북/대구</a></li>
-<li><a href="">경남/부산/울산</a></li>
-<li><a href="">강원</a></li>
-<li><a href="">제주</a></li>
 </ul>
 </div>
 </li>
 
 <li>
-<a href="http://event.lottecinema.co.kr/LCHS/Contents/Event/event-summary-list.aspx" title="이벤트">이벤트</a>
+<a href="<%=cp %>/event/eventListMain.see" title="이벤트">이벤트</a>
 <div class="depth">
 <ul>
 <li></li>
@@ -113,7 +106,7 @@
 </li>
 
 <li>
-<a href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema-Mall/gift-shop.aspx" title="기프트샵">기프트샵</a>
+<a href="<%=cp %>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 </li>
 
 </ul>
