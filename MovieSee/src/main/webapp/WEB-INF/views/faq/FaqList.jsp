@@ -67,11 +67,11 @@
 
 							<div class="tabCont faqTabCont">
 								<div class="shPeriod" id="searchArea">
-									<span class="tit">검색</span>
+									<span class="tit2">검색</span>
 									<div class="goods">
 										<input name="keyword" type="text" value="${map.keyword}" placeholder="검색어를 입력하세요" title="검색어 입력"
 											id="searchKeyword" onkeydown="keyDownSearchForm(event);">
-										<input type="submit" value="검색" class="btn_goodsSrch"
+										<input type="submit" value="검색" class="btn_goodsSrch2"
 											id="btnSearch">
 									</div>
 									<div class="sh_view">

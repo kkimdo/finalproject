@@ -190,13 +190,13 @@
 .btn_rbox .btn_left {position:absolute; left:0; top:0;}
 
 
-.btn_box [class^=btnc_] {display:inline-block; min-width:140px; height:40px; padding:0px 10px; border:1px solid #231f20; background:#231f20; font-size:16px; font-weight:bold; color:#e5e1b0; line-height:40px; text-align:center; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; }
+.btn_box [class^=btnc_] {display:inline-block;min-width:140px;height:40px;padding:0px 10px;border:1px solid #231f20;background:#231f20;font-size:16px;border-radius: 5px;font-weight:bold;color:#e5e1b0;line-height:40px;text-align:center;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
 .btn_box .btnc_default {border:1px solid #999; background:#fff; color:#231f20;}
 .btn_box .btnc_default.disabled {border-color:#cecece !important; background-color:#f7f7f7 !important; color:#9f9e9e !important; cursor:default;}
 .btn_box .btnc_confirm {color:#cdc197;}
 .btn_box a.btnc_list {margin-right:0; border:1px solid #999; background:#fff; font-size:15px; color:#231f20;}
 
-.btn_box .btnc_check {min-width:100px; color:#cdc197;}
+.btn_box .btnc_check {min-width:100px;color:#cdc197;}
 .btn_box .btnc_cancel {min-width:100px; border:1px solid #999; background:#fff; color:#231f20;}
 
 .btn_box .btnc_black {min-width:173px; color:#cdc197;}
@@ -541,12 +541,12 @@
 .myCinemaCont .btn_cbox {padding-bottom:0;}
 .myCinemaCont .tab_st03 {margin-bottom:0;}
 .myCinemaCont .tab_st03 > li:first-child {margin-left:0;}
-.myCinemaCont .tab_st03 > li > a {width:139px;} 
+.myCinemaCont .tab_st03 > li > a {width:195px;} 
 .myCinemaCont .tab_st03 > li.myContact > a {width:140px;} 
 
 .myCinemaCont .tabCont {padding:80px 0 0; color:#231f20;}
 .shPeriod {padding:20px 30px; background:#f5f5f5;}
-.shPeriod .tit {display:inline-block; width:111px; font-weight:bold; color:#231f20;}
+.shPeriod .tit {display:inline-block;width:111px;font-weight:bold;color:#231f20;}
 .shPeriod select {width:74px; height:30px; padding:5px 0 5px 20px; font-size:13px; color:#231f20; line-height:30px;}
 .shPeriod select#sYear,
 .shPeriod select#eYear {width:92px;}
@@ -2593,10 +2593,10 @@
 .tbl_faq tbody .question.on a {background-image:url('/LCHS/Image/Bg/bg_arrow_faq_on.png');}
 .tbl_faq tbody .srchResult_none {font-weight:normal;}
 
-.cs_center .shPeriod .tit {float:left; font-size:14px; line-height:30px;}
+.cs_center .shPeriod .tit {float:left;font-size:14px;line-height:30px;}
 .cs_center .shPeriod .goods {float:left; padding:0 0 22px; margin:0; border:0}
 .cs_center .shPeriod .goods input[type="text"] {width:622px; background:#fff; border:1px solid #e5e5e5}
-.cs_center .shPeriod .goods .btn_goodsSrch {width:50px; height:30px; border:0; background:#34373c; color:#fefeff;}
+.cs_center .shPeriod .goods .btn_goodsSrch {width:50px;height:30px;border:0;background:#34373c;color:#fefeff;}
 
 .sh_view {clear:both; margin:0 0 0 114px; padding-top:20px; border-top:1px solid #dedede;}
 .sh_view:after {content:''; display:block; clear:both;}
@@ -2605,12 +2605,13 @@
 /* 공지사항검색 */
 .custCategory {padding:0 0 15px 0;}
 .custCategory:after {content: ""; display: block; clear: both; visibility:hidden;}
-.custCategory select {float:left; width:124px; height:28px;}
-.custCategory .select_box {float:left; margin-right:5px;}
+.custCategory select {float:left;width:124px;height: 32px;}
+.custCategory .select_box {float:left;margin-right:5px;}
 .custCategory .select_box .ui_fold_btn {width:124px; padding:6px 26px 6px 12px; box-sizing:border-box;}
 .custCategory .select_box .ui_fold_list {width:122px;}
 .custCategory .ipt_txt {float:left; height:28px; border-right:0; margin-top:0;}
-.custCategory .boardBt {float:left; min-width:50px; text-align:center; height:28px; border:0; background:#231f20; color:#fff; font-size:12px; font-weight:bold;}
+.custCategory .boardBt1 {margin: 0 5px;float:left;min-width:50px;text-align:center;height:32px;border:0;background:#231f20;color:#fff;font-size:14px;}
+.custCategory .boardBt2{margin: 0 3px;float:left;min-width:50px;text-align:center;height:32px;border: 0;background:#231f20;color:#fff;font-size:14px;}
 .custCategory > span {float:right; padding-top:8px; color:#231f20;}
 .custCategory > span strong {font-size:18px; font-family:'linlivertine';}
 

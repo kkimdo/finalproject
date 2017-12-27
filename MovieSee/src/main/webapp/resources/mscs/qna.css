@@ -287,14 +287,15 @@ input, select, textarea {
     line-height: 27px;
     padding: 0 10px;
     text-shadow: none;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
+    
 }
 
 .btn_type_035 .momo , input[type="button"]{
 	height: 29px;
 	line-height: 27px;
 	padding: 0 10px;
-	font-size: 15px;
+	font-size: 14px;
 	text-align: center;
 }
