@@ -13,6 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=20171222" />
 <title>FAQ</title>
 
 <script type="text/javascript">
