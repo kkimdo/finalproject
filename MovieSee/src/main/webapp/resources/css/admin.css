@@ -95,11 +95,11 @@
 .movie_list.main{margin-top:40px;}
 .movie_list ul:after{display:block;content:"";clear:both;}
 .movie_list ul li{float:left;width:19.2%;min-height:400px;margin:0 1% 2% 0;}
-.movie_list ul li a{display:block;position:relative;top:0;left:0;}
-.movie_list ul li a:hover .detail,
+/* .movie_list ul li a{display:block;position:relative;top:0;left:0;} */
+/* .movie_list ul li a:hover .detail,
 .movie_list ul li a:focus .detail{display:block;}
 .movie_list ul li a .detail{display:none;position:absolute;top:50%;left:50%;width:130px;height:40px;line-height:38px;background:rgba(0, 0, 0, .5);color:#fff;border:1px solid #efebdb;text-align:center;margin:-20px 0 0 -65px;}
-.movie_list ul li a img{width:100%;}
+.movie_list ul li a img{width:100%;} */
 .movie_list ul li:nth-child(5n){margin-right:0;}
 .movie_list ul li .btn:hover input,
 .movie_list ul li .btn:focus input{background:#2a2e33;border:1px solid #2a2e33;color:#fff;}

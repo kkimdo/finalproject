@@ -2,9 +2,15 @@ package movie.movie;
 
 import java.util.List;
 
+import movie.reserve.ReserveTimeTableModel;
+
 public interface MovieDAO {
 
 	List<MovieModel> movieList();
+	
+	List<MovieModel> movieScore();
+	
+	public List<MovieModel> movieRate();
 
 	MovieBannerModel banner_select(); 
 	

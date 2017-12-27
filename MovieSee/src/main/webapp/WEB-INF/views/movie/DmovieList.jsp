@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <% String cp = request.getContextPath(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,6 +10,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>중국영화상영관/영화제</title>
+<style>
+.paging strong {
+    color: #fff;
+    background: #009bd7;
+    border: 1px solid #009bd7;
+}
+.paging a, .paging strong {
+    display: inline-block;
+    width: 36px;
+    height: 32px;
+    line-height: 28px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    margin-left: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
+    box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
+</style>
 </head>
 <body>
 <div class="gnb">
@@ -79,6 +101,12 @@
 <ul class="curr_list movie_clist">
 
 <c:forEach var="moviechinamovieList" items="${moviechinamovieList}" varStatus="stat">
+
+<c:set value="${moviechinamovieList.movie_age}" var="movie_age" />
+<c:set value="12" var="12" />
+<c:set value="15" var="15" />
+<c:set value="0" var="0" />
+
 <c:url var="viewURL" value="/movieView.see">
 	<c:param name="movie_no" value="${moviechinamovieList.movie_no }"/>
 </c:url>
@@ -101,17 +129,37 @@
 </div>
 <dl class="list_text">
 	<dt>
-		<a href='javascript:GoToMovie("12154");'><span class="grade_all">전체</span>${moviechinamovieList.movie_name}</a>
+		<a href='javascript:GoToMovie("12154");'>
+      	<span>
+      		<c:choose>
+      			<c:when test="${movie_age eq '12' }">
+      				<img src="<%= cp %>/resources/upload/movie/btn/12.png">
+      			</c:when>
+      			<c:when test="${movie_age eq '15' }">
+      				<img src="<%= cp %>/resources/upload/movie/btn/15.png">
+      			</c:when>
+      			<c:otherwise>
+      				<img src="<%= cp %>/resources/upload/movie/btn/all.png">
+      			</c:otherwise>
+			</c:choose>      	
+      	</span>&nbsp;&nbsp;${moviechinamovieList.movie_name}</a>
 	</dt>
 	<dd>
-		<span class="rate">예매율 0.0%</span>
-		<span class="list_score">관람평점 0.0</span>
+		<span class="rate">예매율  ${moviechinamovieList.movie_rate} %</span>
+      <span class="list_score">&nbsp;|&nbsp;&nbsp;관람평점 ${moviechinamovieList.movie_score} 점</span>
 	</dd>
 </dl>
 </li>
 </c:forEach>
+<c:if test="${fn:length(moviechinamovieList) le 0}">
+	<div class="srchResult_none"  id="searchResultNone">
+                        <span class="txt">상영 중인 영화가 없습니다.</span>
+                    </div> 
+</c:if>
 </ul>
-
+<div class="paging">
+		${pagingHtml}
+		</div>
 <div class="info_box">
 <h4 class="infoB_tit">유의사항</h4>
 <p><strong><font color="#ff0000">[중국영화상영관]</font> 롯데시네마 월드타워 12관&nbsp;<font color="#ff0000">GRAND OPEN!</font></strong></p>

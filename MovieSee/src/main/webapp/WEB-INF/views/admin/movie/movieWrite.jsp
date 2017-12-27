@@ -37,17 +37,16 @@ function validateForm() {
 <body>
 <div class="admin_grp">
    <div class="admin_list">
-     	<ul>
-			<li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-			<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-			<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
-			<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
-			<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
-			<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
-			<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
-			<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
-		</ul>
+      <ul>
+         <li class="on"><a href="<%=cp%>/admin/movieList.mt">상영작</a></li>
+         <li><a href="<%=cp%>/admin/timeTableList.mt">시간표관리</a></li>
+         <li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+         <li><a href="<%=cp%>/admin/adminMagazineList.mt">매거진</a></li>
+         <li><a href="<%=cp%>/admin/adminEventList.mt">이벤트</a></li>
+         <li><a href="<%=cp%>/admin/adminNoticeList.mt">공지사항</a></li>
+         <li><a href="<%=cp %>/admin/adminQnaList.mt">Q&amp;A</a></li>
+         <li><a href="<%=cp%>/admin/memberList.mt">회원정보</a></li>
+      </ul>
    </div>
    <div class="admin_ct">
       <h3 class="sub_tit">상영작 등록</h3>
@@ -163,8 +162,14 @@ function validateForm() {
                   <tr>
                      <th scope="row">연령제한</th>
                      <td>
-                        <form:input type="text" class="txt w200" path="movie_age" />
-                        <font color="red"><form:errors path="movie_age"/></font>
+                       <%--  <form:input type="text" class="txt w200" path="movie_age" />
+                        <font color="red"><form:errors path="movie_age"/></font> --%>
+                         <select id="age_type" class="txt w200" name="movie_age">
+                              <option value="12">12세</option>
+                              <option value="15">15세</option>
+                              <!-- <option value="19">19세</option> -->
+                              <option value="0">전체</option>
+                        </select> 
                      </td>
                   </tr>
                   <tr>
@@ -195,6 +200,55 @@ function validateForm() {
                               <option value="chinamovie">Chinamovie</option>
                               <option value="opera">Opera</option>
                         </select> 
+                     </td>
+                  </tr>
+                  <tr>
+                     <th scope="row">스페셜 상영관</th>
+                     <td>
+                     <p style=color:red> &nbsp;&nbsp; on / off 를 설정해주세요.</p>
+                     <br/>
+                       <select id="type" class="txt w200" name="movie_superG">
+                       		  <option value="null">SUPER_G</option>	
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select>
+                         <select id="type" class="txt w200" name="movie_super">
+                              <option value="null">SUPER</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select>
+                        <select id="type" class="txt w200" name="movie_4D">
+                              <option value="null">4D</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select> 
+                        <select id="type" class="txt w200" name="movie_superS">
+                              <option value="null">SUPER_S</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select> 
+                        <br/>
+                        <br/>
+                        <select id="type" class="txt w200" name="movie_private">
+                              <option value="null">PRIVATE</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select> 
+                        <select id="type" class="txt w200" name="movie_family">
+                              <option value="null">FAMILY</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select> 
+                        <select id="type" class="txt w200" name="movie_couple">
+                              <option value="null">COUPLE</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select> 
+                        <select id="type" class="txt w200" name="movie_biz">
+                              <option value="null">BIZ</option>
+                              <option value="off">off</option>
+                              <option value="on">on</option>
+                        </select>  
                      </td>
                   </tr>
                </tbody>

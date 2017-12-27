@@ -37,9 +37,8 @@ public class QnaController {
 	@Resource(name = "downloadView")
 	private org.springframework.web.servlet.View downloadView;
 
-	private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
-	// private static final String uploadPath =
-	// "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	//private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
+	private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
 
 	// 글 목록
 	@RequestMapping(value = "/qnaList.see")

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
+import movie.admin.AdminMovieModel;
 import movie.reserve.ReserveTimeTableModel;
 import movie.movie.MovieBannerModel;
 import movie.movie.MovieModel;
@@ -25,6 +26,11 @@ public class AdminService implements AdminDAO{
 	// movie테이블에서 영화이름,번호 리스트 뽑아오기
 	public List<AdminMovieModel> selectmovie_name() {
 		return sqlSessionTemplate.selectList("admin.selectMovie_name");
+	}
+	
+	// 번호로 이름 가져오기
+	public AdminMovieModel searchname(int timetable_movie_no) {
+		return sqlSessionTemplate.selectOne("admin.searchname", timetable_movie_no);
 	}
 	
 	public boolean movieWrite(MovieModel movieModel) {

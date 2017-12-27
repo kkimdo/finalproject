@@ -57,7 +57,6 @@
 
 
 		<div class="logo">
-			<!-- 2016.05.03 장착법 -->
 			<h1>
 				<a href="/movie/main.see"> <img
 					src="http://caching.lottecinema.co.kr//Media/WebAdmin/23339c901d7942cc826af0dd27360b90.gif"

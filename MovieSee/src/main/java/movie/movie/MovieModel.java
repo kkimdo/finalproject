@@ -33,6 +33,66 @@ public class MovieModel {
 	private String movie_intro;
 	private String movie_score;
 	
+	private String movie_superG;
+	private String movie_super;
+	private String movie_4D;
+	private String movie_superS;
+	private String movie_private;
+	private String movie_family;
+	private String movie_couple;
+	private String movie_biz;
+	private String movie_rate;
+	
+	
+	
+	public String getMovie_superG() {
+		return movie_superG;
+	}
+	public void setMovie_superG(String movie_superG) {
+		this.movie_superG = movie_superG;
+	}
+	public String getMovie_super() {
+		return movie_super;
+	}
+	public void setMovie_super(String movie_super) {
+		this.movie_super = movie_super;
+	}
+	public String getMovie_4D() {
+		return movie_4D;
+	}
+	public void setMovie_4D(String movie_4d) {
+		movie_4D = movie_4d;
+	}
+	public String getMovie_superS() {
+		return movie_superS;
+	}
+	public void setMovie_superS(String movie_superS) {
+		this.movie_superS = movie_superS;
+	}
+	public String getMovie_private() {
+		return movie_private;
+	}
+	public void setMovie_private(String movie_private) {
+		this.movie_private = movie_private;
+	}
+	public String getMovie_family() {
+		return movie_family;
+	}
+	public void setMovie_family(String movie_family) {
+		this.movie_family = movie_family;
+	}
+	public String getMovie_couple() {
+		return movie_couple;
+	}
+	public void setMovie_couple(String movie_couple) {
+		this.movie_couple = movie_couple;
+	}
+	public String getMovie_biz() {
+		return movie_biz;
+	}
+	public void setMovie_biz(String movie_biz) {
+		this.movie_biz = movie_biz;
+	}
 	public int getMovie_no() {
 		return movie_no;
 	}
@@ -182,5 +242,11 @@ public class MovieModel {
 	}
 	public void setMovie_score(String movie_score) {
 		this.movie_score = movie_score;
+	}
+	public String getMovie_rate() {
+		return movie_rate;
+	}
+	public void setMovie_rate(String movie_rate) {
+		this.movie_rate = movie_rate;
 	}
 }

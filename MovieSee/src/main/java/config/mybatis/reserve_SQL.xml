@@ -5,14 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="reserve">
 
-<!-- 	<resultMap id="timetablemodelRes" type="TimeTableModel">
-		<result property="timetable_movie_no" column="timetable_movie_no" />
-		<result property="timetable_movie_name" column="timetable_movie_name" />
-		<result property="timetable_show_date" column="timetable_show_date" />
-		<result property="timetable_start_time" column="timetable_start_time" />
-	</resultMap>  -->
-	
-		<resultMap id="movieRes" type="MovieModel">
+	<!-- <resultMap id="timetablemodelRes" type="TimeTableModel"> <result property="timetable_movie_no" 
+		column="timetable_movie_no" /> <result property="timetable_movie_name" column="timetable_movie_name" 
+		/> <result property="timetable_show_date" column="timetable_show_date" /> 
+		<result property="timetable_start_time" column="timetable_start_time" /> 
+		</resultMap> -->
+
+	<resultMap id="movieRes" type="MovieModel">
 		<result property="movie_no" column="movie_no" />
 		<result property="movie_name" column="movie_name" />
 		<result property="movie_director" column="movie_director" />
@@ -38,109 +37,157 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="movie_type" column="movie_type" />
 		<result property="movie_intro" column="movie_intro" />
 	</resultMap>
-	
+
 	<!-- 시간표 등록 -->
-	<resultMap  id="reserveTimeTableModelRes" type="ReserveTimeTableModel" >
-		<result property="timetable_no" column="timetable_time_no"/>
+	<resultMap id="reserveTimeTableModelRes" type="ReserveTimeTableModel">
+		<result property="timetable_no" column="timetable_time_no" />
 		<result property="timetable_movie_no" column="timetable_movie_no" />
 		<result property="timetable_movie_name" column="timetable_movie_name" />
 		<result property="timetable_start_date" column="timetable_start_date" />
-		<result property="timetable_end_date" column="timetable_end_date"/>
+		<result property="timetable_end_date" column="timetable_end_date" />
 		<result property="timetable_show_date" column="timetable_show_date" />
-		<result property="timetable_reserved_seat" column="timetable_reserved_seat"/>
-		<result property="timetable_total_seat" column="timetable_total_seat"/>
-		<result property="timetable_start_time" column="timetable_start_time"/>
+		<result property="timetable_reserved_seat" column="timetable_reserved_seat" />
+		<result property="timetable_total_seat" column="timetable_total_seat" />
+		<result property="timetable_start_time" column="timetable_start_time" />
 		<result property="timetable_end_time" column="timetable_end_time" />
 		<result property="timetable_adult_amt" column="timetable_adult_amt" />
 		<result property="timetable_child_amt" column="timetable_child_amt" />
 		<result property="timetable_adult_cnt" column="timetable_adult_cnt" />
-		<result property="timetable_child_cnt" column="timetable_child_cnt" /> 
-	</resultMap> 
-	
-	<!-- 영화 예매  -->
-	<resultMap  id="reserveModelRes" type="ReserveModel" >
-		<result property="reserve_no" column="reserve_no"/>
+		<result property="timetable_child_cnt" column="timetable_child_cnt" />
+	</resultMap>
+
+	<!-- 영화 예매 -->
+	<resultMap id="reserveModelRes" type="ReserveModel">
+		<result property="reserve_no" column="reserve_no" />
 		<result property="reserve_member_id" column="reserve_member_id" />
 		<result property="reserve_movie_name" column="reserve_movie_name" />
 		<result property="reserve_timetable_no" column="reserve_timetable_no" />
-		<result property="reserve_start_date" column="reserve_start_date"/>
+		<result property="reserve_start_date" column="reserve_start_date" />
 		<result property="reserve_end_date" column="reserve_end_date" />
-		<result property="reserve_show_date" column="reserve_show_date"/>
-		<result property="reserve_start_time" column="reserve_start_time"/>
-		<result property="reserve_end_time" column="reserve_end_time"/>
+		<result property="reserve_show_date" column="reserve_show_date" />
+		<result property="reserve_start_time" column="reserve_start_time" />
+		<result property="reserve_end_time" column="reserve_end_time" />
 		<result property="reserve_adult_amt" column="reserve_adult_amt" />
 		<result property="reserve_child_amt" column="reserve_child_amt" />
 		<result property="reserve_adult_cnt" column="reserve_adult_cnt" />
 		<result property="reserve_child_cnt" column="reserve_child_cnt" />
-	</resultMap> 
-	
+	</resultMap>
+
 	<!-- 이름 번호 불러오기 -->
 	<select id="selectMovie_name" resultMap="movieRes">
-		select movie_name , movie_no from MOVIE 
+		select movie_name ,
+		movie_no from MOVIE
 		order by movie_no DESC
 	</select>
-	
+
 	<select id="selectMovie_no" resultMap="movieRes">
 		select * from movie
-		where movie_no = #{movie_no}
+		where
+		movie_no = #{movie_no}
 	</select>
+
+	<!-- 번호로 reserve 가져오기 -->
+	<select id="selectReserve_no" resultMap="reserveModelRes">
+		select * from reserve
+		where
+		reserve_no = #{reserve_no}
+	</select>
+
 	<!-- 시간표 검색 -->
- 	<select id="timesearch" resultMap="reserveTimeTableModelRes">
-		select * from timetable where 
-		timetable_movie_no = #{timetable_movie_no} and
-		<!-- timetable_show_date = #{timetable_show_date} and -->  
+	<select id="timesearch" resultMap="reserveTimeTableModelRes">
+		select * from timetable where
+		timetable_movie_no =
+		#{timetable_movie_no} and
+		<!-- timetable_show_date = #{timetable_show_date} and -->
 		timetable_start_time = #{timetable_start_time}
-	</select> 
-	
+	</select>
+
 	<!-- 시간표 조회 -->
 	<select id="timetableSelect" resultMap="reserveTimeTableModelRes">
-		select * from timetable order by timetable_no DESC
+		select * from timetable
+		order by timetable_no DESC
 	</select>
 	<!-- 시간표로 timetable 가져옴 -->
 	<select id="timetable_no" resultMap="reserveTimeTableModelRes">
 		select * from timetable
 		where timetable_no = #{timetable_no}
 	</select>
-	
-	<!--  상세보기 -->
-	<select id="selectOne-timetable" parameterType="ReserveTimeTableModel" resultMap="reserveTimeTableModelRes">
+
+	<!-- 상세보기 -->
+	<select id="selectOne-timetable" parameterType="ReserveTimeTableModel"
+		resultMap="reserveTimeTableModelRes">
 		select * from timetable where timetable_no = #{timetable_no}
 	</select>
-	
+
 	<!-- 예매 -->
-	
+
 	<select id="insertReserve" resultMap="reserveModelRes">
 		insert into reserve
-			(
-			reserve_no,
-			reserve_member_id,
-			reserve_movie_name,
-			reserve_timetable_no,
- 			reserve_start_date;
-			reserve_end_date;
-			reserve_show_date;
-			reserve_start_time,
-			reserve_end_time,
-			reserve_adult_amt,
-			reserve_child_amt,
-			reserve_adult_cnt,
-			reserve_child_cnt
-			)
+		(
+		reserve_no,
+		reserve_member_id,
+		reserve_movie_name,
+		reserve_timetable_no,
+		reserve_start_date,
+		reserve_end_date,
+		reserve_show_date,
+		reserve_start_time,
+		reserve_end_time,
+		reserve_adult_amt,
+		reserve_child_amt,
+		reserve_adult_cnt,
+		reserve_child_cnt
+		)
 		values
-			(
-			reserve_seq.nextval,
-			#{reserve_member_id},
-			#{reserve_movie_name},
-			#{reserve_timetable_no},
- 			#{reserve_start_date},
-			#{reserve_end_date},
-			#{reserve_show_date},
-			#{reserve_start_time},
-			#{reserve_end_time},
-			#{reserve_adult_amt},
-			#{reserve_child_amt},
-			#{reserve_adult_cnt},
-			#{reserve_child_cnt}
-			)
+		(
+		reserve_seq.nextval,
+		#{reserve_member_id},
+		#{reserve_movie_name},
+		#{reserve_timetable_no},
+		#{reserve_start_date},
+		#{reserve_end_date},
+		#{reserve_show_date},
+		#{reserve_start_time},
+		#{reserve_end_time},
+		#{reserve_adult_amt},
+		#{reserve_child_amt},
+		#{reserve_adult_cnt},
+		#{reserve_child_cnt}
+		)
 	</select>
+
+	<!-- 예매 취소 -->
+
+	<delete id="deleteReserve" parameterType="ReserveModel">
+		delete from reserve
+		where
+		reserve_no = #{reserve_no}
+	</delete>
+
+	<!-- 예매 내역 -->
+	<select id="reserveList" resultMap="reserveModelRes">
+		select * from reserve
+		where
+		reserve_member_id = #{session_member_id}
+	</select>
+
+	<!-- 수량 증감 -->
+	<update id="amountDown" parameterType="ReserveTimeTableModel">
+		UPDATE timetable
+		SET
+		timetable_reserved_seat = #{timetable_reserved_seat}
+
+		WHERE
+		timetable_no
+		= #{timetable_no}
+	</update>
+
+	<!-- 코멘트 평점 -->
+	<update id="updatemovierate" parameterType="int">
+		update movie
+		a
+		set movie_rate = (select
+		round(100 - avg(timetable_reserved_seat)/avg(timetable_total_seat) * 100,2) from timetable b where a.movie_no = b.timetable_movie_no)
+	</update>
+
 </mapper>

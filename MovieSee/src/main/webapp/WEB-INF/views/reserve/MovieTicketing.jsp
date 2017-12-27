@@ -31,9 +31,9 @@
 <li class="active">
 <a href="<%= cp %>/reserve/movieTicketing.see" title="예매하기">예매하기</a></li>
 <li>
-<a href="http://www.lottecinema.co.kr/LCHS/Contents/ticketing/movie-schedule.aspx" title="상영시간표">상영시간표</a></li>
+<a href="" title="상영시간표">상영시간표</a></li>
 <li>
-<a href="javascript:ShowPopupDiscountView();" title="할인가이드">할인가이드</a></li>
+<a href="" title="할인가이드">할인가이드</a></li>
 </ul>
 </div>
 </li>
@@ -120,33 +120,23 @@
 			<table>
 				<caption>시간표 목록</caption>
 				<colgroup>
-					<col style="width:5%" />
-					<col style="width:8%" />
+					<col style="width:18%" />
 					<col style="width:16%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
 					<col style="width:7%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
-					<col style="width:8%" />
+					<col style="width:13%" />
 				</colgroup>
 				<thead>
 					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">영화번호</th>
 						<th scope="col">영화명</th>
-						<th scope="col">개봉일</th>
-						<th scope="col">종료일</th>
 						<th scope="col">상영일</th>
 						<th scope="col">시작시간</th>
 						<th scope="col">종료시간</th>
 						<th scope="col">대인금액</th>
 						<th scope="col">소인금액</th>
-						<th scope="col">삭제유무</th>
+						<th scope="col">남은 좌석수</th>
 					</tr>
 				</thead>
 				<c:if test="${not empty timetablelist}">
@@ -154,16 +144,13 @@
 				<tbody>
 					<c:forEach var="timetableSelect" items="${timetablelist}">
 					<tr>
-						<td>${timetableSelect.timetable_no}</td>
-						<td>${timetableSelect.timetable_movie_no}</td>
 						<td>${timetableSelect.timetable_movie_name}</td>
-						<td><fmt:formatDate value="${timetableSelect.timetable_start_date}" pattern="yyyyMMdd" /></td>
-						<td><fmt:formatDate value="${timetableSelect.timetable_end_date}" pattern="yyyyMMdd" /></td>
-						<td><fmt:formatDate value="${timetableSelect.timetable_show_date}" pattern="yyyyMMdd" /></td>
+						<td><fmt:formatDate value="${timetableSelect.timetable_show_date}" pattern="yyyymmdd" /></td>
 						<td>${timetableSelect.timetable_start_time}</td>
 						<td>${timetableSelect.timetable_end_time}</td>
 						<td>${timetableSelect.timetable_adult_amt}</td>
 						<td>${timetableSelect.timetable_child_amt}</td>
+						<td>${timetableSelect.timetable_reserved_seat} / ${timetableSelect.timetable_total_seat}</td>
  						<c:url var="viewURL" value="/reserve/movieTicketing1.see">
  							<c:param name="timetable_no" value="${timetableSelect.timetable_no}"/>
  							<c:param name="timetable_movie_no" value="${timetableSelect.timetable_movie_no}"/>
@@ -171,11 +158,31 @@
  							<c:param name="timetable_show_date" value="${timetableSelect.timetable_show_date}"/>
  							<c:param name="timetable_start_time" value="${timetableSelect.timetable_start_time}"/> --%>
  						</c:url>
+ 						
+ 					<c:choose>
+ 						<c:when test="${timetableSelect.timetable_reserved_seat == 0}">
+ 						<td class="" >
+							<a href="" class="btn btnC_01 btnP_03">
+								<span>매진</span>
+							</a>
+						</td>
+						</c:when>
+						<c:when test="${timetableSelect.timetable_reserved_seat < 5 }">
  						<td class="">
+							<a href="${viewURL}" class="btn btnC_01 btnP_03">
+								<span>임박</span>
+							</a>
+						</td>
+						</c:when>
+						
+						<c:otherwise>
+						<td class="">
 							<a href="${viewURL}" class="btn btnC_04 btnP_03">
 								<span>예매</span>
 							</a>
 						</td>
+						</c:otherwise>
+					</c:choose>
 					</tr>
 					</c:forEach>
 					</c:if> 

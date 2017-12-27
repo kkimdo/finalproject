@@ -1897,7 +1897,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/movie/images/Main/btn_prev3.png') no-repeat left top;
+	background: url('/movie/images/btn_prev3.png') no-repeat left top;
 	z-index: 1;
 }
 
@@ -1912,7 +1912,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-indent: -7000000em;
-	background: url('/movie/images/Main/btn_next3.png') no-repeat left top;
+	background: url('/movie/images/btn_next3.png') no-repeat left top;
 	z-index: 1;
 }
 
@@ -7981,7 +7981,7 @@
 	width: 228px;
 	height: 335px;
 	padding: 114px 20px 0;
-	background-images: url('/movie/images/Bg/bg_mask06_2.png')
+	background-image: url('/movie/images/bg_mask06_2.png')
 }
 
 .movie_clist.curr_list .layer_hover [class^="btn_"] {

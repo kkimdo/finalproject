@@ -28,9 +28,13 @@ public class MainController {
 		
 		
 		ModelAndView mv = new ModelAndView();
+		List<MovieModel> movieScore = movieService.movieScore();
+		List<MovieModel> movieRate = movieService.movieRate(); 
 		List<MovieModel> movieList = movieService.movieList();
 		MovieBannerModel bannerselect = movieService.banner_select();
 		
+		mv.addObject("movieRate", movieRate);
+		mv.addObject("movieScore", movieScore);
 		mv.addObject("list", movieList);
 		mv.addObject("bannerselect", bannerselect);
 		

@@ -39,7 +39,25 @@ var onComment = function(){
     display: inline !important;
     float: left !important;
 }
-
+.paging strong {
+    color: #fff;
+    background: #009bd7;
+    border: 1px solid #009bd7;
+}
+.paging a, .paging strong {
+    display: inline-block;
+    width: 36px;
+    height: 32px;
+    line-height: 28px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    margin-left: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
+    box-shadow: 1px 1px 1px 0px rgba(235,235,235,1);
     
 </style>
 </head>
@@ -121,6 +139,7 @@ var onComment = function(){
 <div id="container" class="sub">
 <%-- <c:forEach var="movieModel" items="${movieModel}" varStatus="stat"> --%>
       <!-- content -->
+      
          <div id="content">
             <div class="w3-content" style="max-width: 900px">
                <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}" style="width: 100%">
@@ -151,8 +170,7 @@ var onComment = function(){
                         onclick="currentDiv(5)">
                   </div>
                </div>
-            </div>
-            
+            </div>>            
 
             <!-- wide_info_area -->
             <div class="wide_info_area">
@@ -165,7 +183,24 @@ var onComment = function(){
 </span>
 
                <!-- 정보 시작부분 -->
-               <div class="wide_inner">
+				<c:set value="${movieModel.movie_age}" var="movie_age" />
+				<c:set value="12" var="12" />
+				<c:set value="15" var="15" />
+				<c:set value="0" var="0" />
+				
+				<!-- 스페셜 상영관 -->
+				<c:set value="${movieModel.movie_superG}" var="movie_superG" />
+				<c:set value="${movieModel.movie_super}" var="movie_super" />
+				<c:set value="${movieModel.movie_4D}" var="movie_4D" />
+				<c:set value="${movieModel.movie_superS}" var="movie_superS" />
+				<c:set value="${movieModel.movie_private}" var="movie_private" />
+				<c:set value="${movieModel.movie_family}" var="movie_family" />
+				<c:set value="${movieModel.movie_couple}" var="movie_couple" />
+				<c:set value="${movieModel.movie_biz}" var="movie_biz" />
+				<c:set value="on" var="on" />
+				<c:set value="off" var="off" />
+				
+				<div class="wide_inner">
                   <div class="wide_top">
 
                      <div class="thumb">
@@ -178,24 +213,13 @@ var onComment = function(){
                         <!-- style="display: inline-block;" -->
                      </div>
                      <div class="info_main">
-                        <ul class="sns_list">
-                           <li><span> <script type="text/javascript"
-                                    src="http://share.naver.net/js/naver_sharebutton.js"></script>
-                                 <script type="text/javascript">
-                                    new ShareNaver.makeButton({
-                                       "type" : "c",
-                                       "title" : "MovieSee[공유하기]"
-                                    });
-                                 </script>
-                           </span></li>
-                        </ul>
                         <div class="info_data">
                            <h2 class="info_tit">${movieModel.movie_name}</h2>
                         </div>
                         <ul class="ranking_list">
                            <li><strong class="rate_tit Lang-LBL0000">예매율</strong> 
                            <span class="rate_txt">
-                           <em class="num">4</em>위, 7.5%</span>
+                           <em class="num">4</em>위,  ${movieModel.movie_rate}%</span>
                            </li>
                               
       <%-- <c:if test="${fn:length(commentlist) ge 0}">
@@ -207,14 +231,25 @@ var onComment = function(){
                            <span class="">
                            <span class="starinner" style="width: 0%;"></span>
                            </span>
-                           <span class="num">${movieModel.movie_score}</span>
-                           <!-- <span class="rate_txt">(누적관객 수 859,630명)</span> -->
+                           <span class="num">${movieModel.movie_score} 점</span>
                            </li>
                      <%-- </c:forEach> --%>
                         </ul>
                         <dl class="info_spec" id="dSpec0">
                            <dt>등급</dt>
-                           <dd id="dVClass">${movieModel.movie_age}</dd>
+                           <dd id="dVClass">
+									 <c:choose>
+										<c:when test="${movie_age eq '12' }">
+											<p>12세 관람가</p>
+										</c:when>
+										<c:when test="${movie_age eq '15' }">
+											<p>15세 관람가</p>
+										</c:when>
+										<c:otherwise>
+											<p>전체 관람가</p>
+										</c:otherwise>
+									</c:choose> 
+								</dd>
                            <dt>개봉일</dt>
                            <dd id="dReleaseDate"><fmt:formatDate value="${movieModel.movie_date }" pattern="yyyy.MM.dd"></fmt:formatDate></dd>
                            
@@ -224,37 +259,132 @@ var onComment = function(){
                         <dl class="info_spec" id="dSpec1">
                            <dt>타입</dt>
                            <dd>${movieModel.movie_type}</dd>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <dt>공유하기</dt>
+                           <dd>
+                           &nbsp;&nbsp;
+                           <script type="text/javascript"
+                                    src="http://share.naver.net/js/naver_sharebutton.js"></script>
+                                 <script type="text/javascript">
+                                    new ShareNaver.makeButton({
+                                       "type" : "c",
+                                       "title" : "MovieSee[공유하기]"
+                                    });
+                                 </script>
+							</dd>
                         </dl>
+                        
                         <ul class="sns_list">
-
+						<li> 
+  						</li>                         
                         </ul>
                         <strong class="info_stit Lang-LBL0000">스페셜관 상영정보</strong>
                         <ul class="info_slist" id="ulSpecial">
 
-                           <li><img
-                              src="<%= cp %>/resources/upload/movie/thum/img_sinfo_01_off.jpg"
-                              alt="Super PLEX G"></li>
-                           <li><img
-                              src="<%= cp %>/resources/upload/movie/thum/img_sinfo_02_off.jpg"
-                              alt="Super PLEX"></li>
-                           <li><img
-                              src="<%= cp %>/resources/upload/movie/thum/img_sinfo_03_off.jpg"
-                              alt="Super 4D"></li>
-                           <li><img
-                              src="<%= cp %>/resources/upload/movie/thum/img_sinfo_13_off.jpg"
-                              alt="Super S"></li>
-                           <li><a href="#" onclick="goToSpecial('300')"><img
-                                 src="<%= cp %>/resources/upload/movie/thum/img_sinfo_06_off.jpg"
-                                 alt="CHARLOTTE"></a></li>
-                           <li><img
-                              src="<%= cp %>/resources/upload/movie/thum/img_sinfo_08_off.jpg"
-                              alt="cine Family"></li>
-                           <li><a href="#" onclick="goToSpecial('200')"><img
-                                 src="<%= cp %>/resources/upload/movie/thum/img_sinfo_09_off.jpg"
-                                 alt="cine Couple"></a></li>
-                           <li><a href="#" onclick="goToSpecial('950')"><img
-                                 src="<%= cp %>/resources/upload/movie/thum/img_sinfo_10_off.jpg"
-                                 alt="cineBiz"></a></li>
+                           <li>
+                           			<c:choose>
+										<c:when test="${movie_superG eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superG_on.jpg">
+										</c:when>
+										<c:when test="${movie_superG eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superG_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superG_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+							</li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_super eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super_on.jpg">
+										</c:when>
+										<c:when test="${movie_super eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+							</li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_4D eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super4D_on.jpg">
+										</c:when>
+										<c:when test="${movie_4D eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super4D_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/super4D_off.jpg">
+										</c:otherwise> 
+									</c:choose>   
+                           </li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_superS eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superS_on.jpg">
+										</c:when>
+										<c:when test="${movie_superS eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superS_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/superS_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+                           </li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_private eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/private_on.jpg">
+										</c:when>
+										<c:when test="${movie_private eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/private_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/private_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+							</li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_couple eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/couple_on.jpg">
+										</c:when>
+										<c:when test="${movie_couple eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/couple_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/couple_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+                           </li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_family eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/family_on.jpg">
+										</c:when>
+										<c:when test="${movie_family eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/family_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/family_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+                           </li>
+                           <li>
+                           <c:choose>
+										<c:when test="${movie_biz eq 'on' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/biz_on.jpg">
+										</c:when>
+										<c:when test="${movie_biz eq 'off' }">
+											<img src="<%= cp %>/resources/upload/movie/movie_type/biz_off.jpg">
+										</c:when>
+										 <c:otherwise>
+											<img src="<%= cp %>/resources/upload/movie/movie_type/biz_off.jpg">
+										</c:otherwise> 
+									</c:choose>
+                           </li>
                         </ul>
                      </div>
                   </div>
@@ -293,8 +423,10 @@ var onComment = function(){
                         <ul id="ulCasting">
                            <li style="left: 0px;">
                               <div class="pic">
-                                 <span class="mask"></span> <img
-                                    src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}">
+                              	 <c:if test="${fn:length(movie_director_picture) le 0}">
+                                 	<img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if>
+                                 <span class="mask"></span> <img src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}">
                               </div>
                               <p class="name">${movieModel.movie_director}</p>
                               <p class="role">감독</p>
@@ -302,8 +434,10 @@ var onComment = function(){
 
                            <li style="left: 168px;">
                               <div class="pic">
-                                 <span class="mask"></span> <img
-                                    src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture}">
+                                 <c:if test="${fn:length(movie_actor_picture) le 0}">
+                                 	<img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if>
+                                 <span class="mask"></span> <img src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture}">
                               </div>
                               <p class="name">${movieModel.movie_actor}</p>
                               <p class="role">배우</p>
@@ -311,6 +445,9 @@ var onComment = function(){
 
                            <li style="left: 336px;">
                               <div class="pic">
+                              	 <c:if test="${fn:length(movie_actor_picture1) le 0}">
+                                 	<img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if>
                                  <span class="mask"></span> <img
                                     src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture1}">
                               </div>
@@ -320,6 +457,9 @@ var onComment = function(){
 
                            <li style="left: 504px;">
                               <div class="pic">
+                              	 <c:if test="${fn:length(movie_actor_picture2) le 0}">
+                                 	<img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if>
                                  <span class="mask"></span> <img
                                     src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture2}">
                               </div>
@@ -355,9 +495,13 @@ var onComment = function(){
        <!-- 코멘트 달기 -->
 <div class="inner">
       <!-- reply_grp -->
+      				<%-- <p class="reply_num">
+					댓글 수: <strong>${cmtcount}</strong>
+					</p>  --%>
+					
       <form class="commentForm" method="post">
       <input type="hidden" name="view_no" value="${movieModel.movie_no}"/>
-      
+      				
    
       
             <div class="reply_grp">
@@ -373,22 +517,22 @@ var onComment = function(){
                         
       <ul>
       <li>&nbsp;&nbsp; <input type="radio" name="movie_point" value="1" height="1" checked="" class="radio">
-      <img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0">
+      <img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0">
        </li>
        
             <li><input type="radio" name="movie_point" value="2" height="1" class="radio">
-      <img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0">
+      <img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0">
         </li>
        
             <li><input type="radio" name="movie_point" value="3" height="1" class="radio">
-      <img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0">
+      <img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0">
             </li>
       
            <li><input type="radio" name="movie_point" value="4" height="1" class="radio">
-      <img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_on1.gif" border="0"><img src="/pet/resources/images/goods/star_off1.gif" border="0">
+      <img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off1.gif" border="0">
              </li>
             <li><input type="radio" name="movie_point" value="5" height="1"  class="radio">
-      <img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on1.gif" border="0">
+      <img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on1.gif" border="0">
              </li></ul>         
                          </div>
                      
@@ -407,7 +551,7 @@ var onComment = function(){
       <c:if test="${fn:length(commentlist) ge 0}">
          <p class="reply_num"> </p>
       </c:if> 
-   <c:forEach var="commentlist" items="${commentlist}" varStatus="stat">
+   <c:forEach var="commentlist" items="${commentlist}" varStatus="stat" >
 
    
          
@@ -417,19 +561,19 @@ var onComment = function(){
                <div class="tit"><strong>${commentlist.cmter}</strong>님  
                <div class="so">
      <c:if test='${commentlist.movie_point == 1}'>
-      &nbsp;<img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0" /><img src="/pet/resources/images/goods/star_off2.gif" border="0" /><img src="/pet/resources/images/goods/star_off2.gif" border="0" /><img src="/pet/resources/images/goods/star_off2.gif" border="0" /><img src="/pet/resources/images/goods/star_off2.gif" border="0" />
+      &nbsp;<img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0" /><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0" /><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0" /><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0" /><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0" />
       </c:if>
       <c:if test='${commentlist.movie_point == 2}'>
-     &nbsp; <img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0">
+     &nbsp; <img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0">
       </c:if>
       <c:if test='${commentlist.movie_point == 3}'>
-     &nbsp; <img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0">
+     &nbsp; <img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0">
       </c:if>
       <c:if test='${commentlist.movie_point == 4}'>
-     &nbsp; <img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="/pet/resources/images/goods/star_off2.gif" border="0">
+     &nbsp; <img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_off2.gif" border="0">
       </c:if>
       <c:if test='${commentlist.movie_point == 5}'>
-       &nbsp; <img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/main_bg/star_on2.gif" border="0">
+       &nbsp; <img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0"><img src="<%= cp %>/resources/upload/movie/movie_type/star_on2.gif" border="0">
       </c:if>
       <fmt:formatDate value="${commentlist.cmt_date}" pattern="yy.MM.dd"></fmt:formatDate></div>
     
@@ -449,6 +593,11 @@ var onComment = function(){
       </c:forEach>   
       
       </div><!-- // reply_grp -->
+      
+       <div class="paging">
+			${pagingHtml2 }
+		</div>
+		
       </form>
       </div>
    </div>
