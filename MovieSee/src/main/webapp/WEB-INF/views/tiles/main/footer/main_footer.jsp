@@ -65,7 +65,7 @@
 					<li>개인정보 보호책임자 상무 오희성</li>
 				</ul>
 			</div>
-			<p class="copy">COPYRIGHT© LOTTE CINEMA ALL RIGHT RESERVED.</p>
+			<p class="copy">COPYRIGHT© MOVIE SEE ALL RIGHT RESERVED.</p>
 		</div>
 
 		<div class="footer_Awrap">

@@ -44,7 +44,7 @@
                             <dl class="tabdl_login" id="jq-tabdl_login">
                                 <!-- 회원 -->
                                 <dt class="tab_login active">
-                                    <a href="" title="회원">회원</a>
+                                    <a href="/movie/member/login.see" title="회원">회원</a>
                                 </dt>
                                 <dd class="tab_login_con active">
                                     <div class="clear_fix">
@@ -72,7 +72,7 @@
                                             <!-- 20170112 - 신규 광고 스크립트 -->
                                             <!-- 20170726 - 광고 복원 -->
                                             <!-- 20170904 - 스테이징,운영테스트 동기화 -->
-                                            <!-- <script type="text/javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script> -->
+                                            <script type="text/javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script>
                                             <!--<script language="javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script>-->
                                             <!--<img src="http://www.lottecinema.co.kr/LCHS/Image/Thum/img_thum_ad.png" alt="L.POINT 외식, 문화, 쇼핑, 엔터테인먼트 등 롯데의 다양한 라이프스타일 브랜드를 L.POINT로 즐기세요." />-->
                                         </div>
@@ -84,12 +84,11 @@
                                 <dt class="tab_login com">
                                     <a href="/movie/member/memberFindId.see" title="아이디찾기">아이디찾기</a>
                                 </dt>
-
-
+                             
                                 <dt class="tab_login">
                                     <a href="/movie/member/memberFindPw.see" title="비밀번호찾기">비밀번호찾기</a>
                                 </dt>
-                            
+                          
 
                             </dl> 
                         </section>

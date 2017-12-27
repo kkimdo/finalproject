@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/swiper.min.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/banner.css?ver=20171221" />
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
 
 <script src="<%= cp %>/resources/js/swiper.min.js?ver=20171221"></script>
 <script src="http://code.jquery.com/jquery-1.7.min.js"></script>

@@ -15,19 +15,6 @@
 <body>
 
 	<div class="header">
-		<!-- 왼쪽상단 링크 -->
-		<div class="laypop_evtFB">
-			<a href="https://www.facebook.com/LotteCinema.kr" target="_blank"
-				title="무비씨 페이스북 새창열림">무비씨 페이스북</a>
-			<div class="laypop_FB" style="display: none;">최신 개봉작 속보, 시사회 초청
-				이벤트!</div>
-		</div>
-
-		<!-- 왼쪽상단 링크 -->
-		<div class="laypop_evtAPP sms-send-download-url2">
-			<a class="app" href="javascript:;" title="무비씨 APP 설치안내">무비씨
-				APP</a>
-		</div>
 
 		<div class="luncher">
 			<ul>

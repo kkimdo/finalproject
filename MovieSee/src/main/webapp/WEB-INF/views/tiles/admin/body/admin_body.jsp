@@ -65,8 +65,8 @@
 						</div>
 						<div class="layer_hover">
 							<a href="${ModifyURL}" class="btn_modify">수정하기</a> <a
-								href="${reserveURL}" onclick="goToTiketing()"
-								class="btn_reserve">예매하기</a> <a href="${viewURL}"
+								href="${deleteURL}" onclick="goToTiketing()"
+								class="btn_reserve">삭제하기</a> <a href="${viewURL}"
 								class="btn_View">상세보기</a>
 						</div> <c:set value="${movielist.movie_age}" var="movie_age" /> <c:set
 							value="12" var="12" /> <c:set value="15" var="15" /> <c:set
@@ -88,7 +88,13 @@
 										</c:choose>
 								</span>${movielist.movie_name}</a>
 							</dt>
-						</dl></li>
+							<dd>
+									<span class="rate">예매율 ${movielist.movie_rate}
+									%</span> <span class="list_score">&nbsp;|&nbsp;&nbsp;관람평점
+									${movielist.movie_score} 점</span>
+							</dd>
+ 						</dl>
+ 					</li> 
 				</c:forEach>
 			</ul>
 

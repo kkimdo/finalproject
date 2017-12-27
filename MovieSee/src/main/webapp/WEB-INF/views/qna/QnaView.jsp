@@ -70,7 +70,6 @@
 				<em><span class="userName" id="spnUserName">${session_member_name}</span>님
 					환영합니다!</em>
 				<dl>
-					<dt>회원 등급</dt>
 					<dd class="rating Lang-LBL0000">
 						<span id="spnMemberGrade"></span>
 					</dd>
@@ -87,31 +86,20 @@
 		<div class="myCinemaCont">
 			<!-- 마이시네마 탭 메뉴 -->
 			<ul class="tab_st03" id="ulTab">
-				<li class=""><a href="<%=cp%>/mypage/reserveList.see"
-					class="Lang-LBL3001">예매/구매내역</a> <!-- 
-                        <ul class="tabDep2">
-                            <li class="on"><a href="javascript:void(0)" class="Lang-LBL3016">예매/구매내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3000">선물내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3002" id="aCancle">취소내역</a></li>
-                        </ul> 
-                   --></li>
-
-				<li class=""><a href="<%=cp%>/mypage/reserveCancel.see">나의
-						취소내역</a></li>
-
-				<li class="pointRat" style=""><a href="<%=cp%>/mypage/vip.see">VIP</a>
-					<!--170915 cok 문구 교체 멤버십 ->VIP 기준 -->
-					<ul class="tabDep2">
-						<li class="on"><a href="javascript:void(0)">VIP 승급 금액 안내</a></li>
-						<!--20170111 sunho 문구 교체 VIP승급포인트 안내 -> VIP승급 금액 안내 -->
-					</ul></li>
-
-				<li class="mvHistory" style=""><a
-					href="<%=cp%>/mypage/movieHistory.see">무비 히스토리</a></li>
-
-				<li class="active" style=""><a
-					href="<%=cp%>/qna/qnaMemberList.see">나의 문의 내역</a></li>
 				<li style=""><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
+				
+				<li style="" class="active"><a href="<%=cp%>/qna/qnaMemberList.see">나의 문의
+						내역</a></li>
+
+				<li class=""><a href="<%=cp%>/mypage/reserveList.see"
+					class="Lang-LBL3001">예매/구매내역</a></li>
+
+				<li><a
+					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
+
+				<li class="pointRat" style=""><a
+					href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
+				</li>
 
 			</ul>
 			<div class="tabCont">

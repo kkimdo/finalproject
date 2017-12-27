@@ -43,7 +43,6 @@
 				<em><span class="userName" id="spnUserName">${session_member_name}</span>님
 					환영합니다!</em>
 				<dl>
-					<dt>회원 등급</dt>
 					<dd class="rating Lang-LBL0000">
 						<span id="spnMemberGrade"></span>
 					</dd>
@@ -60,30 +59,19 @@
 		<div class="myCinemaCont">
 			<!-- 마이시네마 탭 메뉴 -->
 			<ul class="tab_st03" id="ulTab">
+				<li style="" class="active"><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
+				
+				<li style=""><a href="<%=cp%>/qna/qnaMemberList.see">나의 문의
+						내역</a></li>
+
 				<li class=""><a href="<%=cp%>/mypage/reserveList.see"
-					class="Lang-LBL3001">예매/구매내역</a> <!--                         <ul class="tabDep2">
-                            <li class="on"><a href="javascript:void(0)" class="Lang-LBL3016">예매/구매내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3000">선물내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3002" id="aCancle">취소내역</a></li>
-                        </ul> --></li>
+					class="Lang-LBL3001">예매/구매내역</a></li>
 
-				<li class=""><a href="<%=cp%>/mypage/reserveCancel.see">나의
-						취소내역</a></li>
+				<li><a
+					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
 
-				<li class="pointRat" style=""><a href="<%=cp%>/mypage/vip.see">VIP</a>
-					<!--170915 cok 문구 교체 멤버십 ->VIP 기준 -->
-					<ul class="tabDep2">
-						<li class="on"><a href="javascript:void(0)">VIP 승급 금액 안내</a></li>
-						<!--20170111 sunho 문구 교체 VIP승급포인트 안내 -> VIP승급 금액 안내 -->
-					</ul></li>
-
-				<li class="mvHistory" style=""><a
-					href="<%=cp%>/mypage/movieHistory.see">무비 히스토리</a></li>
-
-				<li class="myContact" style=""><a
-					href="<%=cp%>/qna/qnaMemberList.see">나의 문의 내역</a></li>
-				<li class="active" style=""><a href="<%=cp%>/mypage/mypage.see">나의
-						정보관리</a>
+				<li class="pointRat" style=""><a
+					href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
 				</li>
 
 			</ul>
@@ -96,27 +84,19 @@
 -				->
 				<!-- my_manage 클래스 추가 -->
 				<ol class="manage_step">
-					<li class="on first"><a href="javascript:void(0);"
-						id="aInformationChange">회원정보변경</a></li>
-					<li class="second"><a href="javascript:void(0);"
-						id="aPasswordChange">비밀번호변경</a></li>
-					<li class="third"><a href="javascript:void(0);"
-						id="aAuthChange">회원인증방식변경</a></li>
-					<li class="last"><a href="javascript:void(0);"
-						id="aMemberDelete">회원탈퇴</a></li>
+						<li class="on first"><a href="/movie/member/memberView.see?member_no=${session_member_no}" id="aInformationChange">회원정보변경</a></li>
+						<li class="second"><a href="/movie/member/memberPWView.see?member_no=${session_member_no}" id="aPasswordChange">비밀번호변경</a></li>
+						<li class="third"><a href="<%=cp%>/faq/faqList.see" id="aAuthChange">고객센터</a></li>
+						<li class="last"><a href="/movie/member/memberDelete.see" id="aMemberDelete">회원탈퇴</a></li>
 				</ol>
 				<ul class="manege_list">
 					<li>롯데시네마는 L.POINT 제휴 사이트입니다. 비밀번호/회원정보는 롯데멤버스㈜에서 관리되고 있으며,
 						회원가입 시 등록하신 개인정보는 롯데멤버스㈜에서 변경하실 수 있습니다.</li>
 					<li>롯데시네마 회원탈퇴를 원하시면 회원탈퇴 버튼을 클릭해주세요. 회원을 탈퇴하시면 등록되어 있던
 						쿠폰/할인권/관람권/L.POINT카드 등 개인정보가 삭제되어 재가입 시 다시 입력하셔야 합니다.</li>
-					<li>회원님의 광고 수신동의 일자를 확인하실 수 있습니다.<a
-						href="javascript:openADAgreePopup();" title="새창"
-						class="btn_sWhite">광고 수신동의 일자 확인하기</a></li>
+					<li>회원님의 광고 수신동의 일자를 확인하실 수 있습니다.</li>
 					<!--<li>롯데시네마의 이메일 주소 변경, 수신관리 설정을 원하시면 이메일설정 버튼을 클릭하세요. <a href="https://member.lpoint.com/door/user/editUser.jsp?sid=CINEMA&amp;opentyp=p&amp;returnurl=http://www.lottecinema.co.kr/LHS/AT/Auth/Logout.aspx" target="_balnk" title="새창" class="btnEmail">이메일설정</a></li>-->
-					<li class="gap">L.POINT 적립 및 사용 현황을 확인하세요.<a
-						href="https://www.lpoint.com/app/mypage/LHMA200100.do"
-						target="_balnk" title="새창" class="btn_sWhite">L.POINT 적립/사용 열람</a></li>
+					<li class="gap">L.POINT 적립 및 사용 현황을 확인하세요.</li>
 					<!-- 추가 20171025 -->
 				</ul>
 				<!--

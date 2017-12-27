@@ -130,8 +130,25 @@ public class ReserveController {
 		
 		int Timetable_reserved_seat = reserveTimeTableModel.getTimetable_reserved_seat();
 		
-		if (Timetable_reserved_seat >= adult_cnt1 + child_cnt1) {
+		if (adult_cnt1 + child_cnt1 == 0) {
 
+			movieModel = reserveService.selectMovie_no(timetable_movie_no);
+			reserveTimeTableModel = reserveService.timetable_no(timetable_no);
+
+			mv.addObject("movieModel", movieModel); // 영화 thumnail 가져오기
+			mv.addObject("reserveTimeTableModel", reserveTimeTableModel); // 영화 예매 숫자 및 타임테이블전체
+			mv.setViewName("/reserve/ReserveNull");
+			
+		} else if (Timetable_reserved_seat < adult_cnt1 + child_cnt1) {
+
+			movieModel = reserveService.selectMovie_no(timetable_movie_no);
+			reserveTimeTableModel = reserveService.timetable_no(timetable_no);
+
+			mv.addObject("movieModel", movieModel); // 영화 thumnail 가져오기
+			mv.addObject("reserveTimeTableModel", reserveTimeTableModel); // 영화 예매 숫자 및 타임테이블전체
+			mv.setViewName("/reserve/ReserveCheck");
+			
+		} else if (Timetable_reserved_seat >= adult_cnt1 + child_cnt1) {
 			movieModel = reserveService.selectMovie_no(timetable_movie_no);
 			reserveTimeTableModel = reserveService.timetable_no(timetable_no);
 			/* memberModel = memberService.getMemeber(id); */
@@ -143,25 +160,7 @@ public class ReserveController {
 			mv.addObject("reserveTimeTableModel", reserveTimeTableModel); // 영화 예매 숫자 및 타임테이블전체
 			mv.addObject("bannerselect", bannerselect); // 하단 배너
 			mv.setViewName("movieTicketing2");
-			return mv;
 			
-		/*} else if (Timetable_reserved_seat < adult_cnt1 + child_cnt1) {
-
-			movieModel = reserveService.selectMovie_no(timetable_movie_no);
-			reserveTimeTableModel = reserveService.timetable_no(timetable_no);
-
-			mv.addObject("movieModel", movieModel); // 영화 thumnail 가져오기
-			mv.addObject("reserveTimeTableModel", reserveTimeTableModel); // 영화 예매 숫자 및 타임테이블전체
-			mv.setViewName("/reserve/ReserveCheck");
-			return mv;*/
-		} else if (adult_cnt1 + child_cnt1 == 0) {
-			movieModel = reserveService.selectMovie_no(timetable_movie_no);
-			reserveTimeTableModel = reserveService.timetable_no(timetable_no);
-
-			mv.addObject("movieModel", movieModel); // 영화 thumnail 가져오기
-			mv.addObject("reserveTimeTableModel", reserveTimeTableModel); // 영화 예매 숫자 및 타임테이블전체
-			mv.setViewName("/reserve/ReserveNull");
-			return mv;
 		}
 		return mv;
 	}
