@@ -496,39 +496,26 @@
 			<!-- [D] 접근성 관련 : 스크립트로 탭키이동시 foucs in, focus out  제어 필요 -->
 			<ul>
 				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/ticketing/ticketing.aspx"
+					href="<%=cp%>/reserve/movieTicketing.see"
 					title="빠른예매"><span><img
 							src="http://caching.lottecinema.co.kr//Media/WebAdmin/a021109040b34b989bf01bacf6263973.jpg"
 							alt="빠른예매"></span></a></li>
 				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/ticketing/discount-guide.aspx"
-					title="할인안내"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/804a2bc19b1444e5924d82088dfc5134.jpg"
-							alt="할인안내"></span></a></li>
-				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/My-Cinema/My-Cinema.aspx#00"
+					href="<%=cp%>/mypage/reserveList.see"
 					title="예매내역"><span><img
 							src="http://caching.lottecinema.co.kr//Media/WebAdmin/1ec48d357ba44dbeaa0ef261d93e4003.jpg"
 							alt="예매내역"></span></a></li>
 				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/Membership/vip-member-vip-benefit.aspx"
-					title="멤버십"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/aa6b80b43c4e4398a636db1d13122895.jpg"
-							alt="멤버십"></span></a></li>
-				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/Customer-Service-Center/FAQ/faq-list.aspx"
+					href="<%=cp%>/faq/faqList.see"
 					title="고객센터"><span><img
 							src="http://caching.lottecinema.co.kr//Media/WebAdmin/47141787f65643938247e12b5f5c9d75.jpg"
 							alt="고객센터"></span></a></li>
 				<li><a
-					href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema/charlotte-special-cinema.aspx"
+					href="<%=cp%>/movie/aMovieTheater.see"
 					title="스페셜관"><span><img
 							src="http://caching.lottecinema.co.kr//Media/WebAdmin/1066bda3e3c1448f81cdbb07aeea257b.jpg"
 							alt="스페셜관"></span></a></li>
 			</ul>
-			<a href="javascript:void(0);" class="btn_top" title="TOP"
-				style="display: block;"><span>TOP </span><img
-				src="/LCHS/Image/icon/icon_quick_new07.png" alt="위로 이동"></a>
 		</div>
 		<!--//  quick menu -->
 	</div>

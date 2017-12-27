@@ -18,16 +18,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 import movie.validator.FreeBoardValidator;
 
 @Controller
 @RequestMapping("/free")
 public class FreeBoardController {
 
-	private final Logger log = Logger.getLogger(this.getClass());
+	Logger log = Logger.getLogger(this.getClass());
 
 	@Inject
 	private FreeBoardService freeBoardService;
+	
+	@Inject
+	private MovieService movieService;
 
 	// 유효성 검사시 FreeBoardModel 객체로 리턴 해줘야함.
 	@ModelAttribute
@@ -36,8 +41,14 @@ public class FreeBoardController {
 	}
 
 	@RequestMapping(value = "/freeBoardWrite.see", method = RequestMethod.GET)
-	public String FreeBoardWriteForm() {
-		return "freeBoardWrite";
+	public ModelAndView FreeBoardWriteForm() {
+		
+		ModelAndView mav = new ModelAndView();
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
+		mav.setViewName("freeBoardWrite");
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "/freeBoardWrite.see", method = RequestMethod.POST)
@@ -55,6 +66,8 @@ public class FreeBoardController {
 
 		freeBoardModel.setFreeboard_re_step(0);
 		freeBoardService.FreeBoardWrite(freeBoardModel);
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 
 		mav.setViewName("redirect:/free/freeBoardList.see");
 
@@ -85,6 +98,8 @@ public class FreeBoardController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map);
 		mav.setViewName("freeBoardList");
 
@@ -107,6 +122,8 @@ public class FreeBoardController {
 			mav.addObject("ref", 1);
 		}
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("freeBoardModel", freeBoardModel);
 		mav.setViewName("freeBoardView");
 		return mav;
@@ -146,6 +163,8 @@ public class FreeBoardController {
 
 		}
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("deleteCheck", deleteCheck);
 		mav.setViewName("freeboard/FreeBoardDeleteResult");
 		return mav;
@@ -159,6 +178,8 @@ public class FreeBoardController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("freeboard_no", freeboard_no);
 		mav.setViewName("freeboard/FreeBoardCheck");
 		return mav;
@@ -176,6 +197,8 @@ public class FreeBoardController {
 
 		freeboardModel.setFreeboard_re_step(1);
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("freeboardModel", freeboardModel);
 		mav.setViewName("freeBoardReply");
 
@@ -195,6 +218,8 @@ public class FreeBoardController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("redirect:/free/freeBoardList.see");
 
 		return mav;
@@ -213,6 +238,8 @@ public class FreeBoardController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("freeBoardModel", freeBoardModel);
 		mav.setViewName("freeBoardUpdate");
 		return mav;
@@ -226,6 +253,8 @@ public class FreeBoardController {
 
 		freeBoardService.FreeBoardUpdate(freeBoardModel);
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("redirect:/free/freeBoardList.see");
 
 		return mav;
@@ -254,6 +283,8 @@ public class FreeBoardController {
 			updateCheck = -1;
 		}
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("freeBoardModel", freeBoardModel);
 		mav.addObject("updateCheck", updateCheck);
 
@@ -277,6 +308,9 @@ public class FreeBoardController {
 		} else {
 			freeBoardService.FreeRefAdminDelete(freeboard_no);
 		}
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("redirect:/free/freeBoardList.see");
 		return mav;
 

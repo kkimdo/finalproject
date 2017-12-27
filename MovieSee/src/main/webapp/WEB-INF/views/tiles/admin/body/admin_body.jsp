@@ -30,16 +30,18 @@
 </style>
 <div class="admin_grp">
 	<div class="admin_list">
-		<ul>
-			<li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
-			<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-			<li><a href="<%=cp%>/admin/adminMagazineList.see">매거진</a></li>
-			<li><a href="<%=cp%>/admin/adminEventList.see">이벤트</a></li>
-			<li><a href="<%=cp%>/admin/adminNoticeList.see">공지사항</a></li>
-			<li><a href="<%=cp%>/admin/adminQnaList.see">Q&amp;A</a></li>
-			<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
-		</ul>
-	</div>
+			<ul>
+				<li class="on"><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
+				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">배너관리</a></li>
+				<li><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
+				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
+				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
+				<li><a href="<%=cp%>/admin/faqList.see">FAQ</a></li>
+				<li><a href="<%=cp%>/admin/qnaList.see">Q&amp;A</a></li>
+				<li><a href="<%=cp%>/admin/memberList.see">회원정보</a></li>
+			</ul>
+		</div>
 	<div class="admin_ct">
 
 		<div class="movie_hover">

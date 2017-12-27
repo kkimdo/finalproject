@@ -1,10 +1,7 @@
 package movie.member;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 import movie.validator.MemberValidator;
 
 @Controller
@@ -26,13 +24,22 @@ public class MemberController {
 
 	@Resource(name = "memberService")
 	private MemberService memberService;
+	
+	@Inject
+	private MovieService movieService;
 
 	ModelAndView mav = new ModelAndView();
 
 	// LoginPage
 	@RequestMapping(value = "login.see", method = RequestMethod.GET)
-	public String loginForm() {
-		return "login";
+	public ModelAndView loginForm() {
+		
+		ModelAndView mav = new ModelAndView();
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
+		mav.setViewName("login");
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "login.see", method = RequestMethod.POST)
@@ -40,6 +47,8 @@ public class MemberController {
 
 		MemberModel result = memberService.memberLogin(member);
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		
 		if (result != null) {
 			System.out.println("Login Done.");
 
@@ -56,10 +65,11 @@ public class MemberController {
 			System.out.println("세션 넘버" + (int) session.getAttribute("session_member_no"));
 			System.out.println("세션 넘버" + session.getAttribute("session_member_password1"));
 
+			
 			// Admin 로그인 관리자 페이지 바로 가기
 			if (result.getMember_grade() == 1) {
 
-				mav.setViewName("redirect:/admin/noticeList.see");
+				mav.setViewName("redirect:/admin/movieList.see");
 				return mav;
 
 			}
@@ -70,6 +80,7 @@ public class MemberController {
 			}
 		}
 
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("member/loginError");
 		return mav;
 	}
@@ -95,6 +106,9 @@ public class MemberController {
 	// 약관
 	@RequestMapping("/member.see")
 	public ModelAndView memberStep1() {
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("member");
 		return mav;
 	}
@@ -102,6 +116,9 @@ public class MemberController {
 	// 정보입력
 	@RequestMapping("/memberinfo.see")
 	public ModelAndView memberStep2() {
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("memberInfo");
 		return mav;
 	}
@@ -137,6 +154,8 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("member", memberService.memberView(member_no));
 		// 뷰의 이름
 		mav.setViewName("memberView");
@@ -176,6 +195,8 @@ public class MemberController {
 
 		mav.addObject("member", memberService.memberView(member_no));
 		// 뷰의 이름
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("memberPWView");
 
 		return mav;
@@ -230,6 +251,9 @@ public class MemberController {
 	// 회원 탈퇴 폼
 	@RequestMapping("memberWith.see")
 	public ModelAndView memberWidth() {
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("memberwith");
 		return mav;
 	}
@@ -273,6 +297,9 @@ public class MemberController {
 
 	@RequestMapping("/memberIdFind.see")
 	public ModelAndView memberFindForm() {
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("idFind");
 		return mav;
 	}
@@ -290,6 +317,7 @@ public class MemberController {
 
 		if (member == null) {
 			memberFindChk = 0;
+			
 			mav.addObject("memberFindChk", memberFindChk);
 			mav.setViewName("member/idFindError");
 			return mav;
@@ -316,6 +344,8 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("memberFindId");
 
 		return mav;
@@ -350,6 +380,8 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("memberFindPw");
 
 		return mav;

@@ -23,6 +23,8 @@ import movie.admin.qna.QnaCommentModel;
 import movie.admin.qna.QnaModel;
 import movie.admin.qna.QnaService;
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 
 @Controller
 @RequestMapping("/qna")
@@ -32,6 +34,9 @@ public class MainQnaController {
 
 	@Inject
 	private QnaService qnaService;
+	
+	@Inject
+	private MovieService movieService;
 
 	//private static final String uploadPath = "C:/Users/user/Desktop/Geunjae Final/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
     private static final String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/qna/";
@@ -68,6 +73,8 @@ public class MainQnaController {
 		map.put("keyword", keyword);
 		map.put("c_Paging", c_Paging);
 
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
 		mav.setViewName("qnaList");
 
@@ -75,8 +82,15 @@ public class MainQnaController {
 	}
 
 	@RequestMapping(value = "/qnaWrite.see", method = RequestMethod.GET)
-	public String QnaMemberWriteForm() {
-		return "qnaWrite";
+	public ModelAndView QnaMemberWriteForm() {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
+		mav.setViewName("qnaWrite");
+		
+		return mav;
 	}
 
 	// 게시글 작성 처리
@@ -152,6 +166,9 @@ public class MainQnaController {
 		mav.addObject("qnaModel", qnaService.QnaView(qna_no));
 		mav.addObject("QnaCommentList", QnaCommentList);
 		// 뷰의 이름
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("qnaView");
 
 		return mav;

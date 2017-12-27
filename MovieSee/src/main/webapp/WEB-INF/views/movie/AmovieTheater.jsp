@@ -81,19 +81,12 @@
 </div>
 
 <li><a href="<%=cp %>/bMovieTheater.see">서울</a></li>
-<li><a href="">경기/인천</a></li>
-<li><a href="">충청/대전</a></li>
-<li><a href="">전라/광주</a></li>
-<li><a href="">경북/대구</a></li>
-<li><a href="">경남/부산/울산</a></li>
-<li><a href="">강원</a></li>
-<li><a href="">제주</a></li>
 </ul>
 </div>
 </li>
 
 <li>
-<a href="http://event.lottecinema.co.kr/LCHS/Contents/Event/event-summary-list.aspx" title="이벤트">이벤트</a>
+<a href="<%=cp %>/event/eventListMain.see" title="이벤트">이벤트</a>
 <div class="depth">
 <ul>
 <li></li>
@@ -106,7 +99,7 @@
 </li>
 
 <li>
-<a href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema-Mall/gift-shop.aspx" title="기프트샵">기프트샵</a>
+<a href="<%=cp %>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 </li>
 
 </ul>
@@ -116,55 +109,6 @@
 			<div class="special_box" id="keyVisual"><img src="http://caching.lottecinema.co.kr//Media/WebAdmin/eacaf47c32e647eda0ca9d2ac8a7e9b4.jpg" alt="샤롯데,당신을 위한 하나의 프리미엄 상영관"></div>
 			<!--// special_box -->
 
-			<!-- tab_sWrap 0118 마크업 위치 변경 -->
-<div class="tab_sWrap">
-	<ul class="tab_st06" id="ulCinemaList">
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=1016">월드타워</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=1004">건대입구</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=1001">에비뉴엘(명동)</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=1009" class="">김포공항</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=3004">안산</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=3006" class="">인천</a>
-		</li>	
-					
-		<li>		
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=3018">평촌(범계역)</a>
-		</li>	
-					
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=6001">광주(백화점)</a> 	
-		</li>	
-					
-		<li>		
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=5005">동성로</a>
-		</li>	
-		
-		<li>
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=2009">광복</a> 
-		</li>	
-					
-		<li>		
-			<a href="/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=2&amp;detailDivisionCode=0300&amp;cinemaID=2006">센텀시티</a> 
-		</li>
-	</ul>
-</div>
-			<!-- // tab_sWrap -->
 
 			<div class="tab_stWrap" id="tabSuper4D" style="display:none;">
 				<ul class="tab_st10">

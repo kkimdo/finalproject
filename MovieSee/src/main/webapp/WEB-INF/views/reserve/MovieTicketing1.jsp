@@ -20,10 +20,6 @@
 <ul>
 <li class="active">
 <a href="<%= cp %>/reserve/movieTicketing.see" title="예매하기">예매하기</a></li>
-<li>
-<a href="http://www.lottecinema.co.kr/LCHS/Contents/ticketing/movie-schedule.aspx" title="상영시간표">상영시간표</a></li>
-<li>
-<a href="javascript:ShowPopupDiscountView();" title="할인가이드">할인가이드</a></li>
 </ul>
 </div>
 </li>
@@ -36,11 +32,12 @@
 </li>
 
 <li>
-<a href="" title="이벤트">이벤트</a>
+<a href="<%=cp %>/event/eventListMain.see" title="이벤트">이벤트</a>
 </li>
 
 <li>
-<a href="" title="기프트샵">기프트샵</a></li>
+<a href="<%=cp %>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
+</li>
 </ul>
 </div>
 

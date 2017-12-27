@@ -34,7 +34,7 @@
 				<c:if test="${session_member_id == null }">
 					<li><a id="lbtnLogin" title="로그인"
 						href="<%=cp%>/member/login.see">로그인</a></li>
-					<li><a href="" title="회원가입">회원가입</a></li>
+					<li><a href="<%=cp%>/member/member.see" title="회원가입">회원가입</a></li>
 					<li><a href="<%=cp%>/faq/faqList.see" title="고객센터">고객센터</a></li>
 				</c:if>
 

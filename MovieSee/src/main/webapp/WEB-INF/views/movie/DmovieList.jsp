@@ -59,11 +59,19 @@
 		</li>
 
 		<li>
-			<a href="http://event.lottecinema.co.kr/LCHS/Contents/Event/event-summary-list.aspx" title="이벤트">이벤트</a>
+			<a href="<%=cp%>/event/eventListMain.see" title="이벤트">이벤트</a>
+			<div class="depth">
+						<ul>
+							<li><a href="<%=cp%>/event/eventList_1.see" title="영화">영화</a></li>
+							<li><a href="<%=cp%>/event/eventList_2.see" title="시사회/무대인사">시사회/무대인사</a></li>
+							<li><a href="<%=cp%>/event/eventList_3.see" title="롯시NOW">롯시NOW</a></li>
+							<li><a href="<%=cp%>/event/eventList_4.see" title="제휴할인">제휴할인</a></li>
+						</ul>
+					</div>
 		</li>
 
 		<li>
-			<a href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema-Mall/gift-shop.aspx" title="기프트샵">기프트샵</a>
+			<a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 		</li>
 	</ul>
 </div>

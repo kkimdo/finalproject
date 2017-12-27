@@ -72,7 +72,7 @@
                                             <!-- 20170112 - 신규 광고 스크립트 -->
                                             <!-- 20170726 - 광고 복원 -->
                                             <!-- 20170904 - 스테이징,운영테스트 동기화 -->
-                                            <script type="text/javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script>
+                                            <!-- <script type="text/javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script> -->
                                             <!--<script language="javascript" src="https://nvapi.feeldmc.com/ad/p/in/v1_0/imp?slotid=stw_lottelotte_9"></script>-->
                                             <!--<img src="http://www.lottecinema.co.kr/LCHS/Image/Thum/img_thum_ad.png" alt="L.POINT 외식, 문화, 쇼핑, 엔터테인먼트 등 롯데의 다양한 라이프스타일 브랜드를 L.POINT로 즐기세요." />-->
                                         </div>

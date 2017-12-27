@@ -67,9 +67,6 @@
 	<definition name="faqList" extends="main">
 		<put-attribute name="main_body" value="/WEB-INF/views/faq/FaqList.jsp" />
 	</definition>
-	<definition name="faqView" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/faq/FaqView.jsp" />
-	</definition>
 	
 	<!-- main qna (1:1문의) @@-->
 		<!-- 여기의 List는 회원 자신만 보는 list -->
@@ -287,9 +284,6 @@
 	</definition>
 	<definition name="adminQnaView" extends="admin">
 		<put-attribute name="admin_body" value="/WEB-INF/views/admin/qna/AdminQnaView.jsp" />
-	</definition>
-	<definition name="adminQnaWrite" extends="admin">
-		<put-attribute name="admin_body" value="/WEB-INF/views/admin/qna/AdminQnaWrite.jsp" />
 	</definition>
 	
 	<!-- admin notice -->

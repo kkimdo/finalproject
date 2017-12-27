@@ -52,7 +52,7 @@
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
 				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">배너관리</a></li>
 				<li class="on"><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
 				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
 				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
@@ -72,12 +72,14 @@
 						<col style="width: 6%;" />
 						<col style="width: 6%;" />
 						<col style="width: 8%;" />
+						<col style="width: 6%;" />
 					</colgroup>
 					<thead>
 						<tr>
 							<th scope="col">상품 종류</th>
 							<th scope="col">상품 번호</th>
 							<th scope="col">상품 이름</th>
+							<th scope="col">상품 수량</th>
 							<th scope="col">상품 판매 가격</th>
 							<th scope="col">등록일</th>
 							<th scope="col">삭제유무</th>
@@ -93,6 +95,7 @@
 								<td>${giftShopListProduct.giftshop_product_category}</td>
 								<td>${giftShopListProduct.giftshop_product_no}</td>
 								<td><a href="${productViewURL}">${giftShopListProduct.giftshop_product_name}</a></td>
+								<td>${giftShopListProduct.giftshop_product_count}개</td>
 								<td>
 									 <fmt:formatNumber value="${giftShopListProduct.giftshop_product_price}" pattern="###,###,###"/>원
 								</td>

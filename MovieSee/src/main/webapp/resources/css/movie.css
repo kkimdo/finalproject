@@ -4017,8 +4017,8 @@
 .total_slide.total_list ul > li:first-child .total_data dd {width:200px !important;}
 .total_slide.total_list ul > li .total_data dd {width:227px !important;}
 
-.total_wrap .total_slide ul > li {width:350px;}
-.total_wrap .total_slide ul > li:first-child {width:308px}
+.total_wrap .total_slide ul > li {width:300px;}
+.total_wrap .total_slide ul > li:first-child {width:350px}
 
 
 /*예매 0805 회원가입 레이어 팝업 및 공통 center */

@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import movie.admin.faq.FaqModel;
 import movie.admin.faq.FaqService;
 import movie.common.paging.commonPaging;
+import movie.movie.MovieBannerModel;
+import movie.movie.MovieService;
 
 @Controller
 @RequestMapping("/faq")
@@ -27,6 +29,9 @@ public class MainFaqController {
 	@Inject
 	private FaqService faqService;
 
+	@Inject
+	private MovieService movieService;
+	
 	// 글 목록
 	@RequestMapping(value = "/faqList.see")
 	// @RequestParam(defaultValue="") ==> 기본값 할당 : 현재페이지를 1로 초기화
@@ -53,6 +58,9 @@ public class MainFaqController {
 		map.put("c_Paging", c_Paging);
 
 		ModelAndView mav = new ModelAndView();
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
 		mav.setViewName("faqList"); // 뷰를 tiles의 이름이 faqList로 이동
 
@@ -68,6 +76,9 @@ public class MainFaqController {
 		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		// 뷰에 전달할 데이터
+		
+		MovieBannerModel bannerselect = movieService.banner_select();
+		mav.addObject("bannerselect", bannerselect);
 		mav.addObject("faqModel", faqService.FaqView(faq_no));
 		// 뷰의 이름
 		mav.setViewName("faqView");

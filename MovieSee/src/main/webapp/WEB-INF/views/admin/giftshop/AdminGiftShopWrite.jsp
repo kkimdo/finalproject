@@ -12,80 +12,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	/* function btnWrite(){
-	 var frm = document.form1;
-	
-	 if (frm.giftshop_product_name.value == "") {
-	 alert("상품명을 입력해주세요");
-	 frm.giftshop_product_name.foucs();
-	 return false;
-	
-	 } else if (frm.giftshop_product_price.value == "") {
-	 alert("상품 가격을 입력해주세요");
-	 frm.giftshop_product_price.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_restrictions.value == "") {
-	 alert("상품 구매제한을 입력해주세요");
-	 frm.giftshop_product_restrictions.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_periodofuse.value == "") {
-	 alert("상품 사용 기간을 입력해주세요");
-	 frm.giftshop_product_periodofuse.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc1.value == "") {
-	 alert("상품 사용 방법을 입력해주세요");
-	 frm.giftshop_product_desc1.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc2.value == "") {
-	 alert("상품 취소/환불 내용을 입력해주세요");
-	 frm.giftshop_product_desc2.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_desc3.value == "") {
-	 alert("상품 기타 내용을 입력해주세요");
-	 frm.giftshop_product_desc3.focus();
-	 return false;
-	
-	 } else if (frm.giftshop_product_url.value == "") {
-	 alert("상품 이미지를 입력해주세요");
-	 frm.giftshop_product_url.focus();
-	 return false;
-	
-	 } else {
-	
-	 alert("상품이 정상적으로 등록 되었습니다.");
-	 frm.submit();
-	 }
-	
-	 return true;
-	 }  */
-
-	/* $(function() {
-		$("#start_date").datepicker({
-			dateFormat : "yy.mm.dd",
-			showButtonPanel : true,
-			onClose : function(selectedDate) {
-				// 시작일(fromDate) datepicker가 닫힐때
-				// 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-				$("#end_date").datepicker("option", "minDate", selectedDate);
-			}
-		});
-
-		$("#end_date").datepicker({
-			dateFormat : "yy.mm.dd",
-			showButtonPanel : true,
-			onClose : function(selectedDate) {
-				// 종료일(end_date) datepicker가 닫힐때
-				// 시작일(start_date)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
-				$("#start_date").datepicker("option", "maxDate", selectedDate);
-			}
-		});
-
-	}); */
 
 	$(function() {
 		$('#content').keyup(function(e) {
@@ -137,7 +63,7 @@
 			<ul>
 				<li><a href="<%=cp%>/admin/movieList.see">상영작</a></li>
 				<li><a href="<%=cp%>/admin/timeTableList.see">시간표관리</a></li>
-				<li><a href="<%=cp%>/admin/bannerList.see">베너관리</a></li>
+				<li><a href="<%=cp%>/admin/bannerList.see">배너관리</a></li>
 				<li class="on"><a href="<%=cp%>/admin/giftShopList.see">기프트샵</a></li>
 				<li><a href="<%=cp%>/admin/eventListMain.see">이벤트</a></li>
 				<li><a href="<%=cp%>/admin/noticeList.see">공지사항</a></li>
