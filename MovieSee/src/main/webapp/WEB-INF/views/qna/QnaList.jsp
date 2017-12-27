@@ -118,7 +118,7 @@
 
 							</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
 								class="ipt_txt mt0"> <input type="submit" value="검색"
-								class="boardBt"> <span> 
+								class="boardBt1"> <span> 
 								<!-- 레코드의 갯수를 출력 --> 
 								<strong>${map.qnaMemberCount}</strong>개의 문의한 게시물이 있습니다.
 							</span>
