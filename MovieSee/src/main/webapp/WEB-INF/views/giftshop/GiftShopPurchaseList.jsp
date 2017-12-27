@@ -107,7 +107,7 @@
 
 							</select> <input name="keyword" value="${map.keyword}" title="검색어 입력"
 								class="ipt_txt mt0"> <input type="submit" value="검색"
-								class="boardBt"> <span> <!-- 레코드의 갯수를 출력 --> <strong>${map.mgsMemberCount}</strong>개를
+								class="boardBt1"> <span> <!-- 레코드의 갯수를 출력 --> <strong>${map.mgsMemberCount}</strong>개를
 								구매하였습니다.
 							</span>
 						</div>
