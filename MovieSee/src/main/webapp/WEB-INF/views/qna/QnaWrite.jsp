@@ -175,7 +175,7 @@
 								</tr>
 								<tr>
 									<th scope="row"><label for="phone"> 연락처 </label></th>
-									<td>${session_member_phone}<input type="hidden"
+									<td>${session_member_phone}<input type="text"
 										name="qna_phone" value="${session_member_phone}" />
 									</td>
 								</tr>
@@ -183,7 +183,7 @@
 									<th scope="row"><label for="email"> 이메일 </label></th>
 									<td>
 										<div class="ipt_left_txt">
-											${session_member_email} <input type="hidden" name="qna_email"
+											${session_member_email} <input type="text" name="qna_email"
 												value="${session_member_email}" />
 										</div>
 									</td>

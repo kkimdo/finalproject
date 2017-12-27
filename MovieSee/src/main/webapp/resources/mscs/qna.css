@@ -190,9 +190,9 @@ input, select, textarea {
 	vertical-align: middle;
 }
 
-/* .tbl_style01 .co {
+.tbl_style01 .co {
 	border-top: 1px solid #ffffff;
-} */
+} 
 
 .tbl_style01 .coco {
 	border-top: 1px solid #ffffff;
@@ -243,7 +243,6 @@ input, select, textarea {
     border-radius: 5px;
     height: 29px;
     line-height: 27px;
-    padding: 0 10px;
     text-shadow: none;
     font-size: 14px;
     margin-top: 20px;
@@ -273,4 +272,29 @@ input, select, textarea {
 .tbl_style01 .co6 {
 	border-top: 1px solid #ffffff;
 	
+}
+
+.btn_type_034{
+	margin-top: 20px;
+    text-align: center;
+    font-size: 0;
+    padding-left: 10px;
+
+}
+
+.btn_type_034 .btn btnC_03 btnP_04 mr10,input[type="button"]{
+    height: 29px;
+    line-height: 27px;
+    padding: 0 10px;
+    text-shadow: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.btn_type_035 .momo , input[type="button"]{
+	height: 29px;
+	line-height: 27px;
+	padding: 0 10px;
+	font-size: 15px;
+	text-align: center;
 }

@@ -103,9 +103,9 @@
 /* tbl_style01 */
 .tbl_style01 {width:100%; border-top:1px solid #c0c0c0; text-align:left; font-size:13px;}
 .tbl_style01 th {padding:10px 0 10px 20px; height:30px; background:url('/LCHS/Image/bg/bg_eline03.gif') no-repeat 100% 23px; line-height:40px; vertical-align:top; text-align:left; color:#231f20; font-weight:bold; }
-.tbl_style01 td {padding:10px 0 10px 20px; height:30px; color:#777; font-size:13px; vertical-align:middle; }
+.tbl_style01 td {padding:10px 0 10px 20px;height;height:30px;nt-size:13pxvertical-align:middle;}
 .tbl_style01 th,
-.tbl_style01 td {border-bottom:1px solid #dedede; word-break:break-all}
+.tbl_style01 td {border-bottom:1px solid #dedede;word-break:break-all;}
 .tbl_style01 td .txtId {font-weight:bold; color:#231f20; font-size:13px;}
 .tbl_style01 td .bdtxt {font-weight:bold; color:#231f20; font-size:13px;}
 .tbl_style01 td .ipt_txt {padding-top:10px; font-size:12px}

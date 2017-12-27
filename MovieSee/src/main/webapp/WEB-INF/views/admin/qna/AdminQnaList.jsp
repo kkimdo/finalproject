@@ -19,16 +19,8 @@
 	function list(page){
    	location.href="<%=cp%>/admin/qnaList.see?curPage="+page+"&searchOption=${map.searchOption}"+"&keyword=${map.keyword}";
 	}
-	// 삭제 버튼 클릭 
-	$("#btnDelete").click(function(){
-	    // 댓글이 존재하는 게시물의 삭제처리 방지
-	    var countList = "${countList}";
-	    // 댓글의 수가 0보다 크면 팝업, 함수 종료
-	    if(countList > 0) {
-	        alert("댓글이 있는 게시물은 삭제할 수 없습니다.")
-	        return;
-	}
 	
+	/* 
 	$(function(){
 		var qna_btn = $(".qna_delete");
 		
@@ -44,7 +36,7 @@
 				}
 			})
 		})
-	}); 
+	});  */
 
 </script>
 
@@ -97,7 +89,6 @@
 							<th scope="col">작성자</th>
 							<th scope="col">아이디</th>
 							<th scope="col">등록일</th>
-							<th scope="col">삭제유무</th>
 						</tr>
 					</thead>
 
@@ -115,15 +106,11 @@
 								<td>${qnaList.qna_id}</td>
 								<td>${qnaList.qna_name}</td>
 								<td><fmt:formatDate value="${qnaList.qna_date}" pattern="yyyy-MM-dd" /></td>
-								<td class="qna_delete">
-									<a href="<%=cp%>/admin/qnaDelete.see?qna_no=${qnaList.qna_no}"class="btn btnC_04 btnP_03" onclick="btnDelete();" id="btnDelete">
-									<span>삭제</span>
-								</a>
-								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				<fieldset>
 				<form name="form1" method="post"
 					action="<%=cp%>/admin/qnaList.see">
 					<div class="search_form">
