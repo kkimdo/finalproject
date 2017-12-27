@@ -18,6 +18,7 @@ public class QnaModel {
 	private String qna_orgfile; //실제 파일 이름
 	private String qna_savfile; //중복되지않게 하는 파일이름  
 	private Date qna_date; //글 등록일
+
 	
 	public int getQna_no() {
 		return qna_no;

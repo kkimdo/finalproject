@@ -14,7 +14,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css"
-	href="<%=cp%>/resources/mscs/qna.css?ver=201712060002" />
+	href="<%=cp%>/resources/mscs/qna.css?ver=20171206000222" />
 <link rel="stylesheet" type="text/css"
 	href="<%=cp%>/resources/mscs/theme.css?ver=201712060002" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,6 +24,16 @@
 	function btnList(){
     	location.href="<%=cp%>/qna/qnaMemberList.see?curPage=${curPage}";
 	}
+	
+	 function btnCancle() {
+		if (confirm("문의 내역을 취소하시겠습니까?") == true) { //확인
+	         location.href ="<%=cp%>/admin/qnaDelete.see?qna_no=${qnaModel.qna_no}";
+	      } else { 
+	         return;
+	      }
+	   }
+
+
 </script>
 
 </head>
@@ -195,11 +205,17 @@
 
 			</c:forEach>
 
-			<div class="btn_type_033">
+			<div class="btn_type_034">
 					<span class="btn btnC_03 btnP_04 mr10"> 
 						<input type="button" onclick="btnList();" value="목록" />
 					</span>
+			<c:if test="${QnaCommentList.size() eq 0}">
+					<span class="btn btnC_04 btnP_04">
+               		   <input id="btnCancle" type="button" onclick="btnCancle();" value="문의내역 취소" />
+               		</span>
+			</c:if>
 			</div>
 	</div>
+</div>
 </body>
 </html>

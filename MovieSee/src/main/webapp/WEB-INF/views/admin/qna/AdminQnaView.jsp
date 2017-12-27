@@ -23,7 +23,7 @@
 	function btnList(){
     	location.href="<%=cp%>/admin/qnaList.see";
     	}  
-    
+  <%--   
 	// 삭제 버튼 클릭 
 	function btnDelete() {
 		// 댓글이 존재하는 게시물의 삭제처리 방지
@@ -40,7 +40,7 @@
 		} else { 
 			return;
 		}
-	}
+	} --%>
 
 	
 	function qnaCommentDelete(url) {
@@ -199,13 +199,11 @@
 			</table>
 		</c:forEach>
 		
-		<div class="btn_type_03">
-					<span class="btn btnC_03 btnP_04 mr10"> 
-						<input type="button" onclick="btnList();" value="목록" />
+		<div class="btn_type_035">
+					<span class="momo"> 
+						<input class="mo" type="button" onclick="btnList();" value="목록" />
 					</span>
-					<span class="btn btnC_04 btnP_04" style="padding-left: 10px;">
-						<input id="btnDelete" type="button" onclick="btnDelete();" value="삭제" />
-					</span>
+				
 		</div>
 	</div>
 </body>
