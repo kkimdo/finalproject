@@ -109,12 +109,6 @@
 								</c:forEach>
 							</ul>
 
-							<!-- 더보기 -->
-							<div id="btn_view">
-								<a href="#none" id="eventLoad" class="btn_view"> <span>더보기</span>
-								</a>
-							</div>
-							<!--  -->
 						</div>
 					</div>
 				</div>
