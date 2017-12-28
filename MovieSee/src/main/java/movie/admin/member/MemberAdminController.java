@@ -92,7 +92,7 @@ public class MemberAdminController {
 	
 	//회원 탈퇴 폼
 	@RequestMapping(value = "/memberDelete.see")
-	public String NoticeDelete(@RequestParam int member_no) throws Exception {
+	public String memberDelete(@RequestParam int member_no) throws Exception {
 
 		memberService.memberDelete(member_no);
 
@@ -101,7 +101,7 @@ public class MemberAdminController {
 	
 	//Admin memberView
 	@RequestMapping(value = "/memberView.see", method = RequestMethod.GET)
-	public ModelAndView NoticeView(@RequestParam int member_no, HttpSession session) throws Exception {
+	public ModelAndView memberView(@RequestParam int member_no, HttpSession session) throws Exception {
 
 		// 모델(데이터) + 뷰(화면) 을 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
@@ -116,7 +116,7 @@ public class MemberAdminController {
 
 	// 게시글 수정 폼에서 입력한 내용들은 @ModelAttribute NoticeModel noticeModel 로 전달 됨.
 	@RequestMapping(value = "/memberUpdate.see", method = RequestMethod.POST)
-	public ModelAndView NoticeUpdate(@ModelAttribute("memberModel") MemberModel member,
+	public ModelAndView memberUpdate(@ModelAttribute("memberModel") MemberModel member,
 			BindingResult result) throws Exception {
 
 		ModelAndView mav = new ModelAndView();

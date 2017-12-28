@@ -716,6 +716,12 @@
 														class="btn btnC_05 reply_btn">삭제</span>
 													</a>
 												</c:if>
+												<c:if test="${session_member_id == 'admin'}"> 
+               										<a href="commentDelete.see?comment_no=${commentlist.comment_no}&movie_no=${movieModel.movie_no}" class="btn btnC_01 btnP_02">
+                 										 <span class="btn btnC_05 reply_btn">삭제</span>
+              										</a>
+               									</c:if>  
+												
 											</div>
 
 											<div class="reply_cts">
