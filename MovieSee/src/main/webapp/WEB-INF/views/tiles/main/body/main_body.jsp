@@ -218,7 +218,8 @@
                      </c:forEach>  
                   </div> 
                   
-                  <a href="<%=cp%>/reserve/movieTicketing.see" class="btn_Ticketing">예매하기</a>
+                	<a href="<%=cp%>/reserve/movieTicketing.see" 
+                           class="btn_reserve">예매하기</a> 
                </div>
 
             </div>
@@ -419,7 +420,7 @@
                         src="<%= cp %>/resources/upload/movie/main_movie/${list.movie_poster}">
                   </a>
                      <div class="layer_hover">
-                        <a href="${reserveURL}" onclick="goToTiketing()"
+                        <a href="<%=cp%>/reserve/movieTicketing.see" onclick="goToTiketing()"
                            class="btn_reserve">예매하기</a> <a href="${viewURL}"
                            class="btn_View">상세보기</a>
 
@@ -459,7 +460,7 @@
                         src="<%= cp %>/resources/upload/movie/main_movie/${list.movie_poster}">
                   </a>
                      <div class="layer_hover">
-                        <a href="${reserveURL}" onclick="goToTiketing()"
+                        <a href="<%=cp%>/reserve/movieTicketing.see" onclick="goToTiketing()"
                            class="btn_reserve">예매하기</a> <a href="${viewURL}"
                            class="btn_View">상세보기</a>
 

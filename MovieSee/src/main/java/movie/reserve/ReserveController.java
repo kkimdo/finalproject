@@ -182,7 +182,9 @@ public class ReserveController {
 		int reserve_child_amt = Integer.parseInt(request.getParameter("reserve_child_amt"));
 		int reserve_adult_cnt = Integer.parseInt(request.getParameter("reserve_adult_cnt"));
 		int reserve_child_cnt = Integer.parseInt(request.getParameter("reserve_child_cnt"));
-
+		String reserve_movie_poster = request.getParameter("reserve_movie_poster");
+		String reserve_movie_age = request.getParameter("reserve_movie_age");
+		
 		ReserveModel reserveModel = new ReserveModel();
 
 		/* reserveModel.setReserve_no(reserve_no); */
@@ -198,6 +200,8 @@ public class ReserveController {
 		reserveModel.setReserve_child_amt(reserve_child_amt);
 		reserveModel.setReserve_adult_cnt(reserve_adult_cnt);
 		reserveModel.setReserve_child_cnt(reserve_child_cnt);
+		reserveModel.setReserve_movie_poster(reserve_movie_poster);
+		reserveModel.setReserve_movie_age(reserve_movie_age);
 
 		ReserveTimeTableModel reserveTimeTableModel = reserveService.timetable_no(reserve_timetable_no);
 

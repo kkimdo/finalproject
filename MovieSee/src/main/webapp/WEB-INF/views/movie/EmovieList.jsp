@@ -141,7 +141,7 @@
 
 	<!-- hover시 이미지 -->
 <div class="layer_hover">
-<a href="${reserveURL}" onclick="goToTiketing()" class="btn_reserve">예매하기</a>
+<a href="<%=cp%>/reserve/movieTicketing.see" onclick="goToTiketing()" class="btn_reserve">예매하기</a>
 <a href="${viewURL}" class="btn_View">상세보기</a>
 </div>
 <dl class="list_text">

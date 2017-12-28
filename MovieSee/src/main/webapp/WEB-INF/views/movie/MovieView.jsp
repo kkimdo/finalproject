@@ -203,7 +203,7 @@
 								src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_poster}"></span>
 
 
-							<a href="javascript:void(0);" class="btn_reserve Lang-LBL0000">예매하기</a>
+							<a href="<%=cp%>/reserve/movieTicketing.see" class="btn_reserve Lang-LBL0000">예매하기</a>
 							<!-- style="display: inline-block;" -->
 						</div>
 						<div class="info_main">
@@ -421,18 +421,16 @@
 						<div class="slide_spot">
 							<ul id="ulCasting">
 								<li style="left: 0px;">
-									<div class="pic">
-										<span class="mask"></span>
-										<%-- <c:if test="${fn:length(movie_director_picture) le 0}">
+                              <div class="pic">
+                                 <span class="mask"></span> 
+                                  <%-- <c:if test="${fn:length(movie_director_picture) le 0}">
                                     <img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
                                  </c:if> --%>
-										<img
-											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}"
-											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
-									</div>
-									<p class="name">${movieModel.movie_director}</p>
-									<p class="role">감독</p>
-								</li>
+                                 <img src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}"  onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
+                              </div>
+                              <p class="name">${movieModel.movie_director}</p>
+                              <p class="role">감독</p>
+                           </li>
 
 								<li style="left: 168px;">
 									<div class="pic">
@@ -473,13 +471,12 @@
 								</li>
 
 								<li style="left: 672px;">
-									<div class="pic">
-										<span class="mask"></span> <img
-											src="<%=cp%>/resources/upload/movie/main_movie/img_non_actor.jpg">
-									</div>
-									<p class="name">${movieModel.movie_company}</p>
-									<p class="role">제작사</p>
-								</li>
+                              <div class="pic">
+                                 <span class="mask"></span> <img src="<%= cp %>/resources/upload/movie/movie_type/img_non_actor.jpg">
+                              </div>
+                              <p class="name">${movieModel.movie_company}</p>
+                              <p class="role">제작사</p>
+                           </li>
 							</ul>
 						</div>
 
