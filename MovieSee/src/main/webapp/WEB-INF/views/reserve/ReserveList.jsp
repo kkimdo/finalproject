@@ -15,8 +15,7 @@
 	<div class="gnb">
 		<ul>
 			<li><a href="<%=cp%>/reserve/movieTicketing.see" title="예매">예매</a>
-				<div class="depth"></div>
-			</li>
+				<div class="depth"></div></li>
 
 			<li class=""><a href="<%=cp%>/aMovieList.see" title="영화">영화</a>
 				<div class="depth"></div></li>
@@ -56,90 +55,101 @@
 			<!-- 마이시네마 탭 메뉴 -->
 			<ul class="tab_st03" id="ulTab">
 				<li style=""><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
-				
+
 				<li style=""><a href="<%=cp%>/qna/qnaMemberList.see">나의 문의
 						내역</a></li>
 
 				<li class="active"><a href="<%=cp%>/mypage/reserveList.see"
 					class="Lang-LBL3001">예매/구매내역</a></li>
 
-				<li><a
-					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
+				<li><a href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매
+						내역</a></li>
 
 				<li class="pointRat" style=""><a
-					href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
-				</li>
+					href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a></li>
 
 			</ul>
 			<!-- //마이시네마 탭 메뉴 -->
 			<!-- 탭 내용 -->
 			<c:choose>
-			<c:when test="${reserveList != null }" >
-			<c:forEach var="reserveList" items="${reserveList}" varStatus="stat">
-			<div class="tabCont" id="divTabContent">
-				<div class="category">
-					<fieldset>
-						<legend class="Lang-LBL0000">연도별 선택 검색</legend>
-						<select title="연도별 선택" class="select_box" id="sltMyMovieYear"><option
-								value="2007">전체</option>
-							<option value="2017">2017</option>
-							<option value="2016">2016</option>
-							<option value="2015">2015</option></select>
-					</fieldset>
-				</div>
-				
-					<!-- my_mView -->
-					<div class="my_mView">
-						<p class="mView_txt">
-							<strong class="name Lang-LBL0000">${reserveList.reserve_member_id}</strong>
-							회원님께서 관람하신 영화 리스트입니다.
-						</p>
-					</div>
-					<!--// my_mView -->
-					<ol class="mView_list" id="olMyMovieList">
-						<li><div class="mView_tcont">
-								<span class="img"><img
-									src="<%= cp %>/resources/upload/movie/main_movie/${reserveList.reserve_movie_poster}"
-									alt="${reserveList.reserve_movie_poster}"></span>
-								<dl class="mView_scont">
-									<dt>
-										<span class="grade_18">청소</span><span class="name"><c:choose>
-													<c:when test="${reserveList.reserve_movie_age eq '12' }">
-														<img src="<%=cp%>/resources/upload/movie/btn/12.png">
-													</c:when>
-													<c:when test="${reserveList.reserve_movie_age eq '15' }">
-														<img src="<%=cp%>/resources/upload/movie/btn/15.png">
-													</c:when>
-													<c:otherwise>
-														<img src="<%=cp%>/resources/upload/movie/btn/all.png">
-													</c:otherwise>
-												</c:choose>${reserveList.reserve_movie_name}</span>
-									</dt>
-									<dd>
-										<dl class="mView_in">
-											<dt>관람일시</dt>
-											<dd class="t_date">${reserveList.reserve_start_date}
-											<dt>관람시간</dt>
-											<dd class="t_date">${reserveList.reserve_start_time} ~ ${reserveList.reserve_end_time}
-											<%-- <fmt:formatDate value="${reserveList.reserve_start_date}" pattern="yyyy-MM-dd" /> --%></dd>
-											<dt>관람인원</dt>
-											<dd class="t_person">성인 : ${reserveList.reserve_adult_cnt}명, 학생 : ${reserveList.reserve_child_cnt}명</dd>
-											<dt>총 금액</dt>
-											<dd class="t_person"><fmt:formatNumber value="${reserveList.reserve_adult_amt * reserveList.reserve_adult_cnt +reserveList.reserve_adult_cnt * reserveList.reserve_child_cnt}" pattern="\#,###.##"/>원</dd>
+				<c:when test="${reserveList != null }">
+					<c:forEach var="reserveList" items="${reserveList}"
+						varStatus="stat">
+						<div class="tabCont" id="divTabContent">
+							<div class="category">
+								<fieldset>
+									<legend class="Lang-LBL0000">연도별 선택 검색</legend>
+									<select title="연도별 선택" class="select_box" id="sltMyMovieYear"><option
+											value="2007">전체</option>
+										<option value="2017">2017</option>
+										<option value="2016">2016</option>
+										<option value="2015">2015</option></select>
+								</fieldset>
+							</div>
+
+							<!-- my_mView -->
+							<div class="my_mView">
+								<p class="mView_txt">
+									<strong class="name Lang-LBL0000">${reserveList.reserve_member_id}</strong>
+									회원님께서 관람하신 영화 리스트입니다.
+								</p>
+							</div>
+							<!--// my_mView -->
+							<ol class="mView_list" id="olMyMovieList">
+								<li><div class="mView_tcont">
+										<span class="img"><img
+											src="<%= cp %>/resources/upload/movie/main_movie/${reserveList.reserve_movie_poster}"
+											alt="${reserveList.reserve_movie_poster}"></span>
+										<dl class="mView_scont">
+											<dt>
+												<span class="grade_18">청소</span><span class="name"><c:choose>
+														<c:when test="${reserveList.reserve_movie_age eq '12' }">
+															<img src="<%=cp%>/resources/upload/movie/btn/12.png">
+														</c:when>
+														<c:when test="${reserveList.reserve_movie_age eq '15' }">
+															<img src="<%=cp%>/resources/upload/movie/btn/15.png">
+														</c:when>
+														<c:otherwise>
+															<img src="<%=cp%>/resources/upload/movie/btn/all.png">
+														</c:otherwise>
+													</c:choose>${reserveList.reserve_movie_name}</span>
+											</dt>
+											<dd>
+												<dl class="mView_in">
+													<dt>관람일시</dt>
+													<dd class="t_date">${reserveList.reserve_start_date}
+													<dt>관람시간</dt>
+													<dd class="t_date">${reserveList.reserve_start_time}
+														~ ${reserveList.reserve_end_time}
+														<%-- <fmt:formatDate value="${reserveList.reserve_start_date}" pattern="yyyy-MM-dd" /> --%>
+													</dd>
+													<dt>관람인원</dt>
+													<dd class="t_person">성인 :
+														${reserveList.reserve_adult_cnt}명, 학생 :
+														${reserveList.reserve_child_cnt}명</dd>
+													<dt>총 금액</dt>
+													<dd class="t_person">
+														<fmt:formatNumber
+															value="${reserveList.reserve_adult_amt * reserveList.reserve_adult_cnt +reserveList.reserve_adult_cnt * reserveList.reserve_child_cnt}"
+															pattern="\#,###.##" />
+														원
+													</dd>
+												</dl>
+											</dd>
 										</dl>
-									</dd>
-								</dl>
-							</div> <a href="<%= cp %>/reserve/reserveCancel.see?reserve_no=${reserveList.reserve_no}&reserve_timetable_no=${reserveList.reserve_timetable_no}" class="btn_mView_close" args="1L97">
-							<img src="<%= cp %>/images/exit.gif" alt="삭제"></a></li>
-					</ol>
-			</div>
-			</c:forEach>
-			</c:when>
-			<c:when test="${reserveList == null}" >
-			<div class="srchResult_none" style="" id="searchResultNone">
-				<span class="txt Lang-LBL3056">예매/구매한 내역이 없습니다.</span>
-			</div>
-			</c:when>
+									</div> <a
+									href="<%= cp %>/reserve/reserveCancel.see?reserve_no=${reserveList.reserve_no}&reserve_timetable_no=${reserveList.reserve_timetable_no}"
+									class="btn_mView_close" args="1L97"> <img
+										src="<%=cp%>/images/exit.gif" alt="삭제"></a></li>
+							</ol>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:when test="${reserveList == null}">
+					<div class="srchResult_none" style="" id="searchResultNone">
+						<span class="txt Lang-LBL3056">예매/구매한 내역이 없습니다.</span>
+					</div>
+				</c:when>
 			</c:choose>
 
 			<div class="info_box">

@@ -130,7 +130,7 @@
 									<ul class="slide_List" id="ulMovieKeyValue">
 										<li class="active" style="left: 0px;"><a
 											href="javascript:void(0)"><img
-												src="http://caching.lottecinema.co.kr//Media/WebAdmin/68a09c3084a34f1898207e06ac9ff038.jpg"
+												src="${giftShopProductModel.giftshop_product_file}"
 												alt="Alt" border="0"></a></li>
 									</ul>
 								</div>

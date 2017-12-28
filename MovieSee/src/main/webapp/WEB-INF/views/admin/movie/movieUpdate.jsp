@@ -21,7 +21,7 @@
 		</div>
    </div>
    <div class="admin_ct">
-      <h3 class="sub_tit">상영작 등록</h3>
+      <h3 class="sub_tit">상영작 수정</h3>
       <form action="" method="post" enctype="multipart/form-data">
          <div class="tbl_type_01">
                <input type="hidden" name="movie_no" value="${movieModel.movie_no}">
