@@ -140,7 +140,7 @@
                            <dt class="Lang-LBL0049">카드선택</dt>
                            <dd class="card_choice_card" style="display: block;">
                               <ul class="cardKind">
-                                 <li><a href="javascript:void(0)"><span>롯데카드</span></a></li>
+                                 <li><a href="javascript:void(0)"><span>무비씨카드</span></a></li>
                                  <li><a href="javascript:void(0)"><span>국민카드</span></a></li>
                                  <li><a href="javascript:void(0)"><span>신한카드</span></a></li>
                                  <li><a href="javascript:void(0)"><span>삼성카드</span></a></li>

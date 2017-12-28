@@ -18,7 +18,7 @@
 
     
 	
-    <title>로그인 | 회원 | 롯데시네마</title>
+    <title>로그인 | 회원 | 무비씨</title>
 
 <link rel="stylesheet" type="text/css" href="./lott Login_files/reset.css"><link rel="stylesheet" type="text/css" href="./lott Login_files/common.css">
 
@@ -58,8 +58,8 @@
                                                 <span>
                                                     <label for="userId">아이디</label><input type="text" class="txt" id="member_id" name="member_id" placeholder="아이디를 입력해주세요." /></span>
                                                 <span>  
-                                                    <label for="userPassword">비밀번호</label><input type="password" class="txt" id="member_password1" name="member_password1" placeholder="비밀번호를 입력해주세요." /></span>
-                                                <input type="submit" class="btn_login" value="로그인" id="btnMember" style="cursor: pointer;" title="로그인">
+                                                    <label for="userPassword">비밀번호</label><input type="password" class="txt" id="member_password1" name="member_password1" placeholder="비밀번호를 입력해주세요.";/></span>
+                                             <input type="submit"  class="btn_login" value="로그인" id="btnMember" style="cursor: pointer; vertical-align: middle !important; padding-top: 15px; height:60px;" title="로그인" >
                                             </div>
                                             <!-- <div class="login_find">
                                                 <span>

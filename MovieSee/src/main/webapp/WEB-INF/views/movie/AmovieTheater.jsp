@@ -45,7 +45,7 @@
 						<!-- 스페셜관 종류 -->
 						<div class="depth_03" style="display: BLOCK;">
 							<ul>
-								<li class="active"><a href="aMovieTheater.see" title="샤롯데">샤롯데</a>
+								<li class="active"><a href="aMovieTheater.see" title="샤무비씨">샤무비씨</a>
 								</li>
 
 							</ul>
@@ -77,7 +77,7 @@
 		<div class="special_box" id="keyVisual">
 			<img
 				src="http://caching.lottecinema.co.kr//Media/WebAdmin/eacaf47c32e647eda0ca9d2ac8a7e9b4.jpg"
-				alt="샤롯데,당신을 위한 하나의 프리미엄 상영관">
+				alt="샤무비씨,당신을 위한 하나의 프리미엄 상영관">
 		</div>
 		<!--// special_box -->
 
@@ -114,20 +114,20 @@
 			<div class="spec_shwrap">
 				<img
 					src="http://caching.lottecinema.co.kr//Media/WebAdmin/470b3bbbedc9470cacde63b5d7864b09.jpg"
-					alt="전용티켓창구,웰컴푸드&amp;음료서비스,개인담요제공과물품제공서비스까지샤롯데고객만을위한프리미엄서비스">
+					alt="전용티켓창구,웰컴푸드&amp;음료서비스,개인담요제공과물품제공서비스까지샤무비씨고객만을위한프리미엄서비스">
 			</div>
 
 			<div class="spec_shwrap">
 				<img
 					src="http://caching.lottecinema.co.kr//Media/WebAdmin/712969cbceca4b6099da39179a296ac2.jpg"
-					alt="샤롯데전용라운지는영화의기다림부터마지막까지인상적인순간으로남겨드립니다.">
+					alt="샤무비씨전용라운지는영화의기다림부터마지막까지인상적인순간으로남겨드립니다.">
 			</div>
 		</div>
 
 		<div class="spec_shalotte">
 			<span id="spanRental"><img
 				src="http://caching.lottecinema.co.kr//Media/WebAdmin/04466f7f805f40d8bc713d5bb0c9d12c.jpg"
-				alt="샤롯데및 프라이빗의 대관 문의가 가능합니다."></span>
+				alt="샤무비씨및 프라이빗의 대관 문의가 가능합니다."></span>
 			<div class="btn_box btn_cbox" id="divBtnBox_sfg"
 				style="display: none;">
 				<a href="javascript:goEventToTicketIng('','','0941','1016','2',1);"

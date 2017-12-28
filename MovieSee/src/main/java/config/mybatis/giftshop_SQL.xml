@@ -249,6 +249,7 @@
 		from giftshop_purchase
 		<include refid="search_member" /> 
 		and giftpurchase_member_id = #{giftpurchase_member_id}
+		and giftpurchase_delshow = 'y'
 		order by giftpurchase_no desc, giftpurchase_date desc	
 		<include refid="pagingFooter" />
 	</select>
@@ -303,6 +304,7 @@
 		from giftshop_purchase
 		<include refid="search_member" /> 
 		and giftpurchase_member_id = #{giftpurchase_member_id}
+		and giftpurchase_delshow = 'n'
 		order by giftpurchase_no desc, giftpurchase_date desc	
 		<include refid="pagingFooter" />
 	</select>

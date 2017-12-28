@@ -98,7 +98,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from timetable where
 		timetable_movie_no =
 		#{timetable_movie_no} and
-		<!-- timetable_show_date = #{timetable_show_date} and -->
+		timetable_show_date = #{timetable_show_date} and
 		timetable_start_time = #{timetable_start_time}
 	</select>
 

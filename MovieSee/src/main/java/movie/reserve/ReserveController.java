@@ -1,6 +1,8 @@
 package movie.reserve;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import movie.admin.TimeTableModel;
 import movie.movie.MovieBannerModel;
 import movie.movie.MovieModel;
 import movie.movie.MovieService;
@@ -50,25 +51,22 @@ public class ReserveController {
 		if (start_time != null) {
 
 			// detail 파라미터
-			/*
-			 * Date timetable_show_date = new
-			 * SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("show_date"));
-			 */
+			
+			Date timetable_show_date = new SimpleDateFormat("yyyyMMdd").parse(request.getParameter("show_date"));
+			 
 			int timetable_movie_no = Integer.parseInt(request.getParameter("movie_no"));
 			String timetable_start_time = request.getParameter("start_time");
 			// 번호 이름 가져오기
 
 			// timetable Model
+			
 			timetablemodel.setTimetable_movie_no(timetable_movie_no);
-			/* timetablemodel.setTimetable_show_date(timetable_show_date); */
+			timetablemodel.setTimetable_show_date(timetable_show_date);
 			timetablemodel.setTimetable_start_time(timetable_start_time);
 
 			List<ReserveTimeTableModel> timetable_list = reserveService.timetable_list(); // 번호-이름 선택
 			List<ReserveTimeTableModel> timesearch = reserveService.timesearch(timetablemodel);
-			/*
-			 * List<TimeTableModel> timetableSelect = reserveService.timetableSelect();
-			 * //시간표 조회
-			 */
+			
 			MovieBannerModel bannerselect = movieService.banner_select();
 
 			mv.addObject("timetable_list", timetable_list);

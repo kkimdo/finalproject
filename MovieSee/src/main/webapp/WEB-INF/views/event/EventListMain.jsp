@@ -179,7 +179,7 @@
 				<!-- 롯시NOW -->
 				<div class="clear_fix" style="">
 					<h2 class="sub_stit">
-						롯시&nbsp;NOW<span class="event_etc">롯데시네마에서 진행중인 이벤트를 만나보세요.</span>
+						롯시&nbsp;NOW<span class="event_etc">무비씨에서 진행중인 이벤트를 만나보세요.</span>
 					</h2>
 					<a href="<%=cp%>/event/eventList_3.see" class="btn_more"
 						title="롯시 NOW 더보기">MORE</a>
@@ -211,7 +211,7 @@
 				<!-- 제휴 할인 -->
 				<div class="clear_fix" style="">
 					<h2 class="sub_stit">
-						제휴할인<span class="event_etc">롯데시네마가 드리는 특별한 헤택과 함께 영화를
+						제휴할인<span class="event_etc">무비씨가 드리는 특별한 헤택과 함께 영화를
 							즐겨보세요.</span>
 					</h2>
 					<!-- 0330 문구수정 -->

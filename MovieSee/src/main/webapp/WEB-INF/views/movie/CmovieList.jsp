@@ -94,7 +94,7 @@
 					<li class="active"><img
 						src="<%= cp %>/resources/upload/movie/movie_intro/${movieintroselect.movie_intro_gcinema_top}"
 						alt="G시네마"> <span class="blind">G시네마 경기도 다양성영화관
-							롯데시네마와 (재)경기콘텐츠진흥원이 한국 다양성영화 활성화를 위해 운영하</span></li>
+							무비씨와 (재)경기콘텐츠진흥원이 한국 다양성영화 활성화를 위해 운영하</span></li>
 				</ul>
 			</div>
 		</div>
@@ -166,7 +166,7 @@
 				<div class="paging">${pagingHtml}</div>
 				<div class="info_box">
 					<h4 class="infoB_tit">유의사항</h4>
-					<p>G시네마 - 롯데시네마와 (재)경기콘텐츠진흥원이 한국 다양성영화 활성화를 위해 운영하는 특별상영관입니다.</p>
+					<p>G시네마 - 무비씨와 (재)경기콘텐츠진흥원이 한국 다양성영화 활성화를 위해 운영하는 특별상영관입니다.</p>
 				</div>
 			</div>
 

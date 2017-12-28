@@ -56,7 +56,7 @@
 
 			</ul>
 			<div class="company_info">
-				<address>서울특별시 송파구 올림픽로 269(신천동, 롯데캐슬골드) 4층 롯데시네마</address>
+				<address>서울특별시 송파구 올림픽로 269(신천동, 무비씨캐슬골드) 4층 무비씨</address>
 				<span>고객센터 1544-8855</span>
 				<ul>
 					<li>대표이사 강희태</li>

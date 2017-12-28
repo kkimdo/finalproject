@@ -162,9 +162,9 @@
 		</div>
 <div class="info_box">
 <h4 class="infoB_tit">유의사항</h4>
-<p><strong><font color="#ff0000">[중국영화상영관]</font> 롯데시네마 월드타워 12관&nbsp;<font color="#ff0000">GRAND OPEN!</font></strong></p>
-<p><font size="2">롯데시네마와 (재)한중문화센터가 MOU 체결을 통해 한류-화류 간 문화 협력의 일환으로 운영하는 롯데시네마 특별 상영관입니다. </font></p>
-<p><font size="2">이제, 롯데시네마에서 다양한 중국영화 명작을 만나보세요!</font></p></div></div>
+<p><strong><font color="#ff0000">[중국영화상영관]</font> 무비씨 월드타워 12관&nbsp;<font color="#ff0000">GRAND OPEN!</font></strong></p>
+<p><font size="2">무비씨와 (재)한중문화센터가 MOU 체결을 통해 한류-화류 간 문화 협력의 일환으로 운영하는 무비씨 특별 상영관입니다. </font></p>
+<p><font size="2">이제, 무비씨에서 다양한 중국영화 명작을 만나보세요!</font></p></div></div>
 <div class="quick_ver2" id="quick" style="top: 186.25px;">
 			<!-- [D] 접근성 관련 : 스크립트로 탭키이동시 foucs in, focus out  제어 필요 -->
 			<ul>

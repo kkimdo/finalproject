@@ -58,7 +58,7 @@ public class MainGiftShopPurchaseServiceImpl implements MainGiftShopPurchaseServ
 	@Override
 	public List<MainGiftShopPurchaseModel> GiftShopPurchaseCancleList(String userId, int start, int end,
 			String searchOption, String keyword) throws Exception {
-		return mainGiftShopPurchaseDAO.GiftShopPurchaseList(userId, start, end, searchOption, keyword);
+		return mainGiftShopPurchaseDAO.GiftShopPurchaseCancleList(userId, start, end, searchOption, keyword);
 	}
 	
 	@Override
