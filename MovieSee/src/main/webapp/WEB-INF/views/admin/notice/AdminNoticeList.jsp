@@ -87,14 +87,7 @@
 					<tbody>
 						<c:forEach var="noticeList" items="${map.noticeList}">
 							<tr>
-								<c:choose>
-									<c:when test="${noticeList.notice_area eq '전체'}">
-										<td><strong>-</strong></td>
-                        				</c:when>
-									<c:otherwise>
-										<td>${noticeList.notice_no}</td>
-                        			</c:otherwise>
-								</c:choose>
+								<td>${noticeList.notice_no}</td>
 								<c:choose>
 									<c:when test="${noticeList.notice_area eq '전체'}">
 										<td><strong>${noticeList.notice_area}</strong></td>
