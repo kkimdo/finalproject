@@ -16,11 +16,7 @@
 		<ul>
 			<li><a href="<%=cp%>/reserve/movieTicketing.see" title="예매">예매</a>
 				<div class="depth"></div>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul></li>
+			</li>
 
 			<li class=""><a href="<%=cp%>/aMovieList.see" title="영화">영화</a>
 				<div class="depth"></div></li>
@@ -28,14 +24,11 @@
 			<li><a href="<%=cp%>/aMovieTheater.see" title="영화관">영화관</a>
 				<div class="depth"></div></li>
 
-			<li><a
-				href="<%=cp%>/event/eventListMain.see>"
-				title="이벤트">이벤트</a>
+			<li><a href="<%=cp%>/event/eventListMain.see" title="이벤트">이벤트</a>
 				<div class="depth"></div></li>
 
-			<li>
-		<a href="<%=cp %>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
-		</li>
+			<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
+				<div class="depth"></div></li>
 		</ul>
 	</div>
 	<div class="myCinema">
@@ -43,10 +36,9 @@
 		<div class="myInfo">
 			<h2 class="order_tit02 Lang-LBL0000">마이시네마</h2>
 			<div class="myInfoTit">
-				<em><span class="userName" id="spnUserName">김종록</span>님 환영합니다!</em>
+				<em><span class="userName" id="spnUserName">${session_member_name}</span>님
+					환영합니다!</em>
 				<dl>
-					<dt>회원 등급</dt>
-					<!--170915 cok 회원님의 회원 등급 -> 회원 등급 -->
 					<!-- 20150918 수정 -->
 					<dd class="rating Lang-LBL0000">
 						<span id="spnMemberGrade"></span>
@@ -60,38 +52,30 @@
 	</div>
 	<div class="content">
 
-
 		<div class="myCinemaCont">
 			<!-- 마이시네마 탭 메뉴 -->
 			<ul class="tab_st03" id="ulTab">
+				<li style=""><a href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
+				
+				<li style=""><a href="<%=cp%>/qna/qnaMemberList.see">나의 문의
+						내역</a></li>
+
 				<li class="active"><a href="<%=cp%>/mypage/reserveList.see"
-					class="Lang-LBL3001">예매/구매내역</a> <!--                         <ul class="tabDep2">
-                            <li class="on"><a href="javascript:void(0)" class="Lang-LBL3016">예매/구매내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3000">선물내역</a></li>
-                            <li><a href="javascript:void(0)" class="Lang-LBL3002" id="aCancle">취소내역</a></li>
-                        </ul> --></li>
+					class="Lang-LBL3001">예매/구매내역</a></li>
 
-				<li class=""><a href="<%=cp%>/mypage/reserveCancel.see">나의
-						취소내역</a></li>
+				<li><a
+					href="<%=cp%>/gift/purchaseMemberList.see">기프트샵 구매 내역</a></li>
 
-				<li class="pointRat" style=""><a href="<%=cp%>/mypage/vip.see">VIP</a>
-					<!--170915 cok 문구 교체 멤버십 ->VIP 기준 -->
-					<ul class="tabDep2">
-						<li class="on"><a href="javascript:void(0)">VIP 승급 금액 안내</a></li>
-						<!--20170111 sunho 문구 교체 VIP승급포인트 안내 -> VIP승급 금액 안내 -->
-					</ul></li>
-
-				<li class="mvHistory" style=""><a
-					href="<%=cp%>/mypage/movieHistory.see">무비 히스토리</a></li>
-
-				<li class="myContact" style=""><a href="<%=cp%>/mypage/qna.see">나의
-						문의 내역</a></li>
-				<li class="myInfoMng" style=""><a
-					href="<%=cp%>/mypage/mypage.see">나의 정보관리</a></li>
+				<li class="pointRat" style=""><a
+					href="<%=cp%>/gift/purchaseMemberCancleList.see">기프트샵 취소 내역</a>
+				</li>
 
 			</ul>
 			<!-- //마이시네마 탭 메뉴 -->
 			<!-- 탭 내용 -->
+			<c:choose>
+			<c:when test="${reserveList != null }" >
+			<c:forEach var="reserveList" items="${reserveList}" varStatus="stat">
 			<div class="tabCont" id="divTabContent">
 				<div class="category">
 					<fieldset>
@@ -103,8 +87,7 @@
 							<option value="2015">2015</option></select>
 					</fieldset>
 				</div>
-
-				<c:forEach var="reserveList" items="${reserveList}" varStatus="stat">
+				
 					<!-- my_mView -->
 					<div class="my_mView">
 						<p class="mView_txt">
@@ -116,30 +99,48 @@
 					<ol class="mView_list" id="olMyMovieList">
 						<li><div class="mView_tcont">
 								<span class="img"><img
-									src="http://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/201602/1L97_901_1.png"
-									alt="데드풀"></span>
+									src="<%= cp %>/resources/upload/movie/main_movie/${reserveList.reserve_movie_poster}"
+									alt="${reserveList.reserve_movie_poster}"></span>
 								<dl class="mView_scont">
 									<dt>
-										<span class="grade_18">청소</span><span class="name">데드풀</span>
+										<span class="grade_18">청소</span><span class="name"><c:choose>
+													<c:when test="${reserveList.reserve_movie_age eq '12' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/12.png">
+													</c:when>
+													<c:when test="${reserveList.reserve_movie_age eq '15' }">
+														<img src="<%=cp%>/resources/upload/movie/btn/15.png">
+													</c:when>
+													<c:otherwise>
+														<img src="<%=cp%>/resources/upload/movie/btn/all.png">
+													</c:otherwise>
+												</c:choose>${reserveList.reserve_movie_name}</span>
 									</dt>
 									<dd>
 										<dl class="mView_in">
 											<dt>관람일시</dt>
-											<dd class="t_date">${reserveList.reserve_start_date}</dd>
+											<dd class="t_date">${reserveList.reserve_start_date}
+											<dt>관람시간</dt>
+											<dd class="t_date">${reserveList.reserve_start_time} ~ ${reserveList.reserve_end_time}
+											<%-- <fmt:formatDate value="${reserveList.reserve_start_date}" pattern="yyyy-MM-dd" /> --%></dd>
 											<dt>관람인원</dt>
 											<dd class="t_person">성인 : ${reserveList.reserve_adult_cnt}명, 학생 : ${reserveList.reserve_child_cnt}명</dd>
+											<dt>총 금액</dt>
+											<dd class="t_person"><fmt:formatNumber value="${reserveList.reserve_adult_amt * reserveList.reserve_adult_cnt +reserveList.reserve_adult_cnt * reserveList.reserve_child_cnt}" pattern="\#,###.##"/>원</dd>
 										</dl>
 									</dd>
 								</dl>
 							</div> <a href="<%= cp %>/reserve/reserveCancel.see?reserve_no=${reserveList.reserve_no}&reserve_timetable_no=${reserveList.reserve_timetable_no}" class="btn_mView_close" args="1L97">
-							<img src="" alt="삭제"></a></li>
+							<img src="<%= cp %>/images/exit.gif" alt="삭제"></a></li>
 					</ol>
-				</c:forEach>
 			</div>
+			</c:forEach>
+			</c:when>
+			<c:when test="${reserveList == null}" >
 			<div class="srchResult_none" style="" id="searchResultNone">
 				<span class="txt Lang-LBL3056">예매/구매한 내역이 없습니다.</span>
 			</div>
-
+			</c:when>
+			</c:choose>
 
 			<div class="info_box">
 				<h4 class="infoB_tit Lang-LBL3004">유의사항</h4>
@@ -173,31 +174,7 @@
 			</div>
 
 		</div>
-		<div class="quick_ver2" id="quick" style="top: 186.25px;">
-			<!-- [D] 접근성 관련 : 스크립트로 탭키이동시 foucs in, focus out  제어 필요 -->
-			<ul>
-				<li><a
-					href="<%=cp%>/reserve/movieTicketing.see"
-					title="빠른예매"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/a021109040b34b989bf01bacf6263973.jpg"
-							alt="빠른예매"></span></a></li>
-				<li><a
-					href="<%=cp%>/mypage/reserveList.see"
-					title="예매내역"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/1ec48d357ba44dbeaa0ef261d93e4003.jpg"
-							alt="예매내역"></span></a></li>
-				<li><a
-					href="<%=cp%>/faq/faqList.see"
-					title="고객센터"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/47141787f65643938247e12b5f5c9d75.jpg"
-							alt="고객센터"></span></a></li>
-				<li><a
-					href="<%=cp%>/movie/aMovieTheater.see"
-					title="스페셜관"><span><img
-							src="http://caching.lottecinema.co.kr//Media/WebAdmin/1066bda3e3c1448f81cdbb07aeea257b.jpg"
-							alt="스페셜관"></span></a></li>
-			</ul>
-		</div>
+	</div>
 	</div>
 </body>
 </html>
