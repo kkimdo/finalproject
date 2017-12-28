@@ -150,7 +150,7 @@ public class MemberController {
 
 	// Member View
 	@RequestMapping(value = "/memberView.see", method = RequestMethod.GET)
-	public ModelAndView NoticeView(@RequestParam int member_no, HttpSession session) throws Exception {
+	public ModelAndView memberView(@RequestParam int member_no, HttpSession session) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 
@@ -189,7 +189,7 @@ public class MemberController {
 
 	// Member View
 	@RequestMapping(value = "/memberPWView.see", method = RequestMethod.GET)
-	public ModelAndView NoticePWView(@RequestParam int member_no, HttpSession session) throws Exception {
+	public ModelAndView memberPWView(@RequestParam int member_no, HttpSession session) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
 

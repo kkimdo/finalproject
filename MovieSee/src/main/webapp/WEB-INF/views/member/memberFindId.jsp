@@ -26,7 +26,7 @@
 
     
 	
-    <title>로그인 | 회원 | 무비씨</title>
+    <title>로그인 | 회원 | 롯데시네마</title>
 
 <link rel="stylesheet" type="text/css" href="./lott Login_files/reset.css"><link rel="stylesheet" type="text/css" href="./lott Login_files/common.css">
 
@@ -60,7 +60,7 @@
                                         <div class="login_left">
                                             <!-- 0304 문구수정 -->
                                             <ul class="etc_list">
-                                                 <li>회원을 위한 다양한 맞춤 서비스를 이용해보세요.</li>
+                                                 <li></li>
                                             </ul>
                                             <!-- //0304 문구수정 -->
                                             <div class="login_box">

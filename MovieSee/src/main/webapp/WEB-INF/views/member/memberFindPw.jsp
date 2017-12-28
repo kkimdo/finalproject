@@ -26,7 +26,7 @@
 
     
 	
-    <title>로그인 | 회원 | 무비씨</title>
+    <title>로그인 | 회원 | 롯데시네마</title>
 
 <link rel="stylesheet" type="text/css" href="./lott Login_files/reset.css"><link rel="stylesheet" type="text/css" href="./lott Login_files/common.css">
 
@@ -40,7 +40,7 @@
             <!-- login_wrap -->
             <div class="login_wrap">
                 <div class="login_inner">
-                    <h2 class="login_tit">아이디찾기</h2>
+                    <h2 class="login_tit">비밀번호찾기</h2>
                     <div class="login_top">
                         <!--section 내용 새로 추가 -->
                         
@@ -97,7 +97,7 @@
                                                     
                                                      <div style="margin-top: 20px">  
                                                  	<label>찾은 비밀번호</label>
-                                                    <form:input type="text" class="txt" path="member_password1" placeholder="" readonly="readonly" value="${member.member_password1 }"/>
+                                                    <form:input type="text" class="txt" path="member_password1" placeholder="찾으신 비밀번호" readonly="readonly" value="${member.member_password1 }"/>
                                                       <form:errors path="member_password1" />
                                                    </div>
                                                

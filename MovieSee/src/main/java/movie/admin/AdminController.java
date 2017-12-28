@@ -79,6 +79,8 @@ public class AdminController {
 			lastCount = paging.getEndCount() + 1;
 		}
 		
+		movielist = movielist.subList(paging.getStartCount(), lastCount);
+		
 		mv.addObject("movielist", movielist);
 		mv.addObject("currentPage", currentPage);
 		mv.addObject("pagingHtml", pagingHtml);

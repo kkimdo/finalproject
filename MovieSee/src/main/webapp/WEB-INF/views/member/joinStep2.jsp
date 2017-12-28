@@ -153,7 +153,7 @@ input[type=text], input[type=password], input[type=email]{
 							<tr>
 								<th scope="row">비밀번호 확인</th>
 								<td>
-									<form:input type="password" class="txt w200" path="member_password2" required="true" placeholder="비밀번호를를 입력해주세요."/>
+									<form:input type="password" class="txt w200" path="member_password2" required="true" placeholder="비밀번호를 입력해주세요."/>
 									<strong class="pt_red ibk"><form:errors path="member_password2" /></strong>
 									<%-- <strong class="pt_red ibk"><form:errors element="member_password2" /></strong> --%>
 								</td>

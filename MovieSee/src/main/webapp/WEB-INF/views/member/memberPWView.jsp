@@ -74,6 +74,7 @@ input[type=text], input[type=password], input[type=email] {
 	margin: 20px;
 	cursor: pointer;
 	width: 100px;
+	padding-top: 5px;
 }
 
 .button1 {
@@ -130,12 +131,12 @@ input[type=text], input[type=password], input[type=email] {
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="submit" value="확인" onclick="check_agreement()"
-		style="background-color: #009bfa; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 15px 10px; cursor: pointer;" />
+		style="background-color: #009bfa; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 15px 10px; cursor: pointer; padding-top: 5px;" />
 
 	
 	<a href="/movie/mypage/mypage.see"><input type="button"
 		value="취소"
-		style="background-color: black; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"></a>
+		style="background-color: black; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; padding-top: 5px;"></a>
 	
 </form:form>
 </html>
