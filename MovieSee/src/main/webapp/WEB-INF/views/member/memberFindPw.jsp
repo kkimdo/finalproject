@@ -26,7 +26,7 @@
 
     
 	
-    <title>로그인 | 회원 | 롯데시네마</title>
+    <title>로그인 | 회원 | 무비씨</title>
 
 <link rel="stylesheet" type="text/css" href="./lott Login_files/reset.css"><link rel="stylesheet" type="text/css" href="./lott Login_files/common.css">
 
@@ -102,7 +102,7 @@
                                                    </div>
                                                
                                                
-                                                <input type="submit" value="확인" onclick="check_agreement()" class="btn_login" id="btnMember" style="cursor: pointer;" title="확인">
+                                                 <input type="submit"  class="btn_login" value="확인" id="btnMember" style="cursor: pointer; vertical-align: middle !important; padding-top: 15px; height:60px;" title="확인" >
                                             
                                             </form:form>
                                             </div>

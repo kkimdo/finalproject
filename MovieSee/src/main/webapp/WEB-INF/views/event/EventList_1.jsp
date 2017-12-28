@@ -114,8 +114,8 @@
 									<option value="event_content"
 										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
 								</select> 
-									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
-									<input type="submit" value="검색" class="btn_search">
+									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt1"> 
+									<input type="submit" value="검색" class="btn_search1">
 								</form>
 						</fieldset>
 					</div>

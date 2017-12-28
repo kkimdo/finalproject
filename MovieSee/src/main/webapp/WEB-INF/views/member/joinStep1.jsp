@@ -317,7 +317,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-				"/>
+	padding-top: 5px;			"/>
 			</span>
 			
 			<input type="button" value="취소" onclick="cancel()" style=" background-color: black;
@@ -329,7 +329,9 @@
 		    display: inline-block;
 		    font-size: 16px;
 		    margin: 4px 2px;
-		    cursor: pointer;">
+		    cursor: pointer;
+		    padding-top: 5px !important;
+		    ">
 			
 	<!-- 		<a href="#none" class="btn btnC_03 btnF_02 mr10" onclick="cancel()">
 				<span>취소</span>

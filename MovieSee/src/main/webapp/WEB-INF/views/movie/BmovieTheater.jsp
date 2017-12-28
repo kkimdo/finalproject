@@ -51,7 +51,7 @@
 						<!-- 스페셜관 종류 -->
 						<div class="depth_03" style="display: block;">
 							<ul>
-								<li class="active"><a href="aMovieList.see" title="샤롯데">샤롯데</a>
+								<li class="active"><a href="aMovieList.see" title="샤무비씨">샤무비씨</a>
 								</li>
 							</ul>
 						</div>
@@ -254,7 +254,7 @@
 		<div class="come_road">
 			<h3 class="map_tit">
 				<span id="cinemaName3">가산디지털 </span>위치정보<span class="map_txt">최고의
-					감동을 롯데시네마에서 만나보세요.</span>
+					감동을 무비씨시네마에서 만나보세요.</span>
 			</h3>
 			<div id="map"
 				style="width: 100%; height: 400px; position: relative; overflow: hidden; box-sizing: border-box;"></div>

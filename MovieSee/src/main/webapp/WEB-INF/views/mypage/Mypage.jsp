@@ -31,7 +31,7 @@
 			<li><a href="<%=cp%>/event/eventListMain.see" title="이벤트">이벤트</a>
 				<div class="depth"></div></li>
 
-			<li><a href="<%=cp%>/giftshop/giftShopList.see" title="기프트샵">기프트샵</a>
+			<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 				<div class="depth"></div></li>
 		</ul>
 	</div>
@@ -90,12 +90,12 @@
 						<li class="last"><a href="/movie/member/memberDelete.see" id="aMemberDelete">회원탈퇴</a></li>
 				</ol>
 				<ul class="manege_list">
-					<li>롯데시네마는 L.POINT 제휴 사이트입니다. 비밀번호/회원정보는 롯데멤버스㈜에서 관리되고 있으며,
+					<li>무비씨는 L.POINT 제휴 사이트입니다. 비밀번호/회원정보는 롯데멤버스㈜에서 관리되고 있으며,
 						회원가입 시 등록하신 개인정보는 롯데멤버스㈜에서 변경하실 수 있습니다.</li>
-					<li>롯데시네마 회원탈퇴를 원하시면 회원탈퇴 버튼을 클릭해주세요. 회원을 탈퇴하시면 등록되어 있던
+					<li>무비씨 회원탈퇴를 원하시면 회원탈퇴 버튼을 클릭해주세요. 회원을 탈퇴하시면 등록되어 있던
 						쿠폰/할인권/관람권/L.POINT카드 등 개인정보가 삭제되어 재가입 시 다시 입력하셔야 합니다.</li>
 					<li>회원님의 광고 수신동의 일자를 확인하실 수 있습니다.</li>
-					<!--<li>롯데시네마의 이메일 주소 변경, 수신관리 설정을 원하시면 이메일설정 버튼을 클릭하세요. <a href="https://member.lpoint.com/door/user/editUser.jsp?sid=CINEMA&amp;opentyp=p&amp;returnurl=http://www.lottecinema.co.kr/LHS/AT/Auth/Logout.aspx" target="_balnk" title="새창" class="btnEmail">이메일설정</a></li>-->
+					<!--<li>무비씨의 이메일 주소 변경, 수신관리 설정을 원하시면 이메일설정 버튼을 클릭하세요. <a href="https://member.lpoint.com/door/user/editUser.jsp?sid=CINEMA&amp;opentyp=p&amp;returnurl=http://www.lottecinema.co.kr/LHS/AT/Auth/Logout.aspx" target="_balnk" title="새창" class="btnEmail">이메일설정</a></li>-->
 					<li class="gap">L.POINT 적립 및 사용 현황을 확인하세요.</li>
 					<!-- 추가 20171025 -->
 				</ul>

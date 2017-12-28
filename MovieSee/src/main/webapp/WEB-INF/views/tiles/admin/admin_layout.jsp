@@ -10,11 +10,11 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/movie.css?ver=20171221" />
-<link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/admin.css?ver=20171221" />
-<link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/admin1.css?ver=20171221" />
+<link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/admin.css?ver=201712212" />
+<link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/admin1.css?ver=20171224" />
 <link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/jquery-ui.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/common.css?ver=20171221" />
-<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=20171221" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=201712212" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event2.css" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=20171221" />

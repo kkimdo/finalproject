@@ -497,7 +497,7 @@
             <ul style="left: 0px;">
                <li><a href="#" onclick=""> <img
                      src="<%=cp%>/resources/upload/movie/banner/charlotte.jpg"
-                     alt="샤롯데바로가기"></a></li>
+                     alt="샤무비씨바로가기"></a></li>
                <li><a href="#" onclick=""> <img
                      src="<%=cp%>/resources/upload/movie/banner/cineBiz.jpg"
                      alt="수퍼플렉스 G 바로가기"></a></li>

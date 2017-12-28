@@ -69,8 +69,10 @@
 			</div>
 				<div class="btn_box btn_cbox">
 						<a href="<%=cp%>/free/freeBoardList.see?curPage=${curPage}&searchOption=${searchOption}&keyword=${keyword}" class="btnc_check">목록</a>
-						<a href="<%=cp%>/free/freeBoardUpdate.see?freeboard_no=${freeBoardModel.freeboard_no}" class="btnc_check" >수정</a> 
 						
+						<c:if test="${freeBoardModel.freeboard_name == session_member_name}">
+							<a href="<%=cp%>/free/freeBoardUpdate.see?freeboard_no=${freeBoardModel.freeboard_no}" class="btnc_check" >수정</a> 
+						</c:if>
 						<c:choose>
 							<c:when test="${session_member_grade eq 1 }">
 								<a href="javascript:void(0);" class="btnc_check" onclick="freeBoardAdminDelete();">
@@ -78,9 +80,11 @@
 								</a>
                         	</c:when>
 							<c:otherwise>
+								<c:if test="${freeBoardModel.freeboard_name == session_member_name}">
 								<a href="javascript:void(0);" class="btnc_check" onclick="openFreeBoard('<%=cp%>/free/freeBoardCheckForm.see?freeboard_no=${freeBoardModel.freeboard_no}')">
 								삭제
 								</a>
+								</c:if>
                         	</c:otherwise>
 						</c:choose>	
 							

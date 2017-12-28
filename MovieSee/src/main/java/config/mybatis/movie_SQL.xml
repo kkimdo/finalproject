@@ -5,336 +5,336 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="movie">
 
-	<!-- 영화 -->
-	<resultMap id="movieRes" type="MovieModel">
-		<result property="movie_no" column="movie_no" />
-		<result property="movie_name" column="movie_name" />
-		<result property="movie_director" column="movie_director" />
-		<result property="movie_director_picture" column="movie_director_picture" />
-		<result property="movie_actor" column="movie_actor" />
-		<result property="movie_actor1" column="movie_actor1" />
-		<result property="movie_actor2" column="movie_actor2" />
-		<result property="movie_actor_picture" column="movie_actor_picture" />
-		<result property="movie_actor_picture1" column="movie_actor_picture1" />
-		<result property="movie_actor_picture2" column="movie_actor_picture2" />
-		<result property="movie_company" column="movie_company" />
-		<result property="movie_story" column="movie_story" />
-		<result property="movie_poster" column="movie_poster" />
-		<result property="movie_stillcut" column="movie_stillcut" />
-		<result property="movie_stillcut1" column="movie_stillcut1" />
-		<result property="movie_stillcut2" column="movie_stillcut2" />
-		<result property="movie_stillcut3" column="movie_stillcut3" />
-		<result property="movie_stillcut4" column="movie_stillcut4" />
-		<result property="movie_genre" column="movie_genre" />
-		<result property="movie_age" column="movie_age" />
-		<result property="movie_date" column="movie_date" />
-		<result property="movie_regdate" column="movie_regdate" />
-		<result property="movie_type" column="movie_type" />
-		<result property="movie_intro" column="movie_intro" />
-		<result property="movie_score" column="movie_score" />
+   <!-- 영화 -->
+   <resultMap id="movieRes" type="MovieModel">
+      <result property="movie_no" column="movie_no" />
+      <result property="movie_name" column="movie_name" />
+      <result property="movie_director" column="movie_director" />
+      <result property="movie_director_picture" column="movie_director_picture" />
+      <result property="movie_actor" column="movie_actor" />
+      <result property="movie_actor1" column="movie_actor1" />
+      <result property="movie_actor2" column="movie_actor2" />
+      <result property="movie_actor_picture" column="movie_actor_picture" />
+      <result property="movie_actor_picture1" column="movie_actor_picture1" />
+      <result property="movie_actor_picture2" column="movie_actor_picture2" />
+      <result property="movie_company" column="movie_company" />
+      <result property="movie_story" column="movie_story" />
+      <result property="movie_poster" column="movie_poster" />
+      <result property="movie_stillcut" column="movie_stillcut" />
+      <result property="movie_stillcut1" column="movie_stillcut1" />
+      <result property="movie_stillcut2" column="movie_stillcut2" />
+      <result property="movie_stillcut3" column="movie_stillcut3" />
+      <result property="movie_stillcut4" column="movie_stillcut4" />
+      <result property="movie_genre" column="movie_genre" />
+      <result property="movie_age" column="movie_age" />
+      <result property="movie_date" column="movie_date" />
+      <result property="movie_regdate" column="movie_regdate" />
+      <result property="movie_type" column="movie_type" />
+      <result property="movie_intro" column="movie_intro" />
+      <result property="movie_score" column="movie_score" />
 
-		<result property="movie_superG" column="movie_superG" />
-		<result property="movie_super" column="movie_super" />
-		<result property="movie_4D" column="movie_4D" />
-		<result property="movie_superS" column="movie_superS" />
-		<result property="movie_private" column="movie_private" />
-		<result property="movie_family" column="movie_family" />
-		<result property="movie_couple" column="movie_couple" />
-		<result property="movie_biz" column="movie_biz" />
-		<result property="movie_rate" column="movie_rate" />
-		
-	</resultMap>
+      <result property="movie_superG" column="movie_superG" />
+      <result property="movie_super" column="movie_super" />
+      <result property="movie_4D" column="movie_4D" />
+      <result property="movie_superS" column="movie_superS" />
+      <result property="movie_private" column="movie_private" />
+      <result property="movie_family" column="movie_family" />
+      <result property="movie_couple" column="movie_couple" />
+      <result property="movie_biz" column="movie_biz" />
+      <result property="movie_rate" column="movie_rate" />
+      
+   </resultMap>
 
-	<!-- 배너 선택 -->
-	<resultMap id="banner" type="MovieBannerModel">
-		<result property="banner_left" column="banner_left" />
-		<result property="banner_left1" column="banner_left1" />
-		<result property="banner_center" column="banner_center" />
-		<result property="banner_center1" column="banner_center1" />
-		<result property="banner_right" column="banner_right" />
-		<result property="banner_right1" column="banner_right1" />
-		<result property="banner_bottom" column="banner_bottom" />
-		<result property="banner_footer" column="banner_footer" />
-		<result property="banner_footer1" column="banner_footer1" />
-	</resultMap>
+   <!-- 배너 선택 -->
+   <resultMap id="banner" type="MovieBannerModel">
+      <result property="banner_left" column="banner_left" />
+      <result property="banner_left1" column="banner_left1" />
+      <result property="banner_center" column="banner_center" />
+      <result property="banner_center1" column="banner_center1" />
+      <result property="banner_right" column="banner_right" />
+      <result property="banner_right1" column="banner_right1" />
+      <result property="banner_bottom" column="banner_bottom" />
+      <result property="banner_footer" column="banner_footer" />
+      <result property="banner_footer1" column="banner_footer1" />
+   </resultMap>
 
-	<!-- 영화탭 선택 -->
-	<resultMap id="movieintro" type="MovieIntroModel">
-		<result property="movie_intro_boxoffice_top" column="movie_intro_boxoffice_top" />
-		<result property="movie_intro_boxoffice_top1" column="movie_intro_boxoffice_top1" />
-		<result property="movie_intro_boxoffice_top2" column="movie_intro_boxoffice_top2" />
-		<result property="movie_intro_boxoffice_top3" column="movie_intro_boxoffice_top3" />
-		<result property="movie_intro_arte_top" column="movie_intro_arte_top" />
-		<result property="movie_intro_gcinema_top" column="movie_intro_gcinema_top" />
-		<result property="movie_intro_gcinema_content" column="movie_intro_gcinema_content" />
-		<result property="movie_intro_opera_top" column="movie_intro_opera_top" />
-		<result property="movie_intro_opera_content" column="movie_intro_opera_content" />
-	</resultMap>
+   <!-- 영화탭 선택 -->
+   <resultMap id="movieintro" type="MovieIntroModel">
+      <result property="movie_intro_boxoffice_top" column="movie_intro_boxoffice_top" />
+      <result property="movie_intro_boxoffice_top1" column="movie_intro_boxoffice_top1" />
+      <result property="movie_intro_boxoffice_top2" column="movie_intro_boxoffice_top2" />
+      <result property="movie_intro_boxoffice_top3" column="movie_intro_boxoffice_top3" />
+      <result property="movie_intro_arte_top" column="movie_intro_arte_top" />
+      <result property="movie_intro_gcinema_top" column="movie_intro_gcinema_top" />
+      <result property="movie_intro_gcinema_content" column="movie_intro_gcinema_content" />
+      <result property="movie_intro_opera_top" column="movie_intro_opera_top" />
+      <result property="movie_intro_opera_content" column="movie_intro_opera_content" />
+   </resultMap>
 
-	<!-- 댓글 선택 -->
-	<resultMap type="movieCommentModel" id="MovieCommentRes">
-		<result property="comment_no" column="comment_no" />
-		<result property="movie_no" column="movie_no" />
-		<result property="cmter" column="cmter" />
-		<result property="cmt_date" column="cmt_date" />
-		<result property="commentt" column="commentt" />
-		<result property="movie_point" column="movie_point" />
-	</resultMap>
+   <!-- 댓글 선택 -->
+   <resultMap type="movieCommentModel" id="MovieCommentRes">
+      <result property="comment_no" column="comment_no" />
+      <result property="movie_no" column="movie_no" />
+      <result property="cmter" column="cmter" />
+      <result property="cmt_date" column="cmt_date" />
+      <result property="commentt" column="commentt" />
+      <result property="movie_point" column="movie_point" />
+   </resultMap>
 
-	<!-- 무비 셀렉 -->
-	<select id="selectMovie_ALL" resultMap="movieRes">
-		select * from movie order by movie_no DESC<!-- order by DBMS_RANDOM.RANDOM -->
-	</select>
+   <!-- 무비 셀렉 -->
+   <select id="selectMovie_ALL" resultMap="movieRes">
+      select * from movie order by movie_no DESC<!-- order by DBMS_RANDOM.RANDOM -->
+   </select>
 
-	<!-- 영화평점순 -->
-	<select id="selectScore" resultMap="movieRes">
-		<!-- select movie_score from movie where movie_no = ${movie_no} order by 
-			ASC -->
-		<!-- SELECT movie_score, RANK() OVER (ORDER BY movie_score DESC) movie_score_no 
-			FROM MOVIE; -->
-		select * from movie order by movie_score DESC
-	</select>
+   <!-- 영화평점순 -->
+   <select id="selectScore" resultMap="movieRes">
+      <!-- select movie_score from movie where movie_no = ${movie_no} order by 
+         ASC -->
+      <!-- SELECT movie_score, RANK() OVER (ORDER BY movie_score DESC) movie_score_no 
+         FROM MOVIE; -->
+      select * from movie order by movie_score DESC
+   </select>
 
-	<!-- 예매순 -->
-	<select id="movieRate" resultMap="movieRes">
-		select * from movie order by movie_rate DESC
-	</select>
+   <!-- 예매순 -->
+   <select id="movieRate" resultMap="movieRes">
+      select * from movie order by movie_rate DESC
+   </select>
 
-	<!-- 상세보기 -->
-	<select id="selectMovie_One" resultMap="movieRes" parameterType="int">
-		select * from MOVIE where movie_no = #{movie_no}
-	</select>
+   <!-- 상세보기 -->
+   <select id="selectMovie_One" resultMap="movieRes" parameterType="int">
+      select * from MOVIE where movie_no = #{movie_no}
+   </select>
 
-	<select id="scoresearch" resultMap="MovieCommentRes"
-		parameterType="int">
-		select * from view_comment where movie_no = #{movie_no}
-	</select>
+   <select id="scoresearch" resultMap="MovieCommentRes"
+      parameterType="int">
+      select * from view_comment where movie_no = #{movie_no}
+   </select>
 
-	<select id="selectView" resultMap="movieRes">
-		select * from MOVIE where
-		movie_no like '1'
-	</select>
+   <select id="selectView" resultMap="movieRes">
+      select * from MOVIE where
+      movie_no like '1'
+   </select>
 
-	<!-- 상영할 영화 등록하기 -->
-	<insert id="movieWrite" parameterType="movieModel">
-		insert into movie
-		(
-		movie_no,
-		movie_name,
-		movie_director,
-		movie_director_picture,
-		movie_actor,
-		movie_actor1,
-		movie_actor2,
-		movie_actor_picture,
-		movie_actor_picture1,
-		movie_actor_picture2,
-		movie_company,
-		movie_story,
-		movie_poster,
-		movie_stillcut,
-		movie_stillcut1,
-		movie_stillcut2,
-		movie_stillcut3,
-		movie_stillcut4,
-		movie_genre,
-		movie_age,
-		movie_date,
-		movie_regdate,
-		movie_type,
-		movie_intro,
-		movie_superG,
-		movie_super,
-		movie_4D,
-		movie_superS,
-		movie_private,
-		movie_family,
-		movie_couple,
-		movie_biz
-		)
-		values
-		(
-		movie_NO_SEQ.nextval,
-		#{movie_name},
-		#{movie_director},
-		#{movie_director_picture,jdbcType=VARCHAR},
-		#{movie_actor},
-		#{movie_actor1},
-		#{movie_actor2},
-		#{movie_actor_picture,jdbcType=VARCHAR},
-		#{movie_actor_picture1,jdbcType=VARCHAR},
-		#{movie_actor_picture2,jdbcType=VARCHAR},
-		#{movie_company},
-		#{movie_story},
-		#{movie_poster,jdbcType=VARCHAR},
-		#{movie_stillcut,jdbcType=VARCHAR},
-		#{movie_stillcut1,jdbcType=VARCHAR},
-		#{movie_stillcut2,jdbcType=VARCHAR},
-		#{movie_stillcut3,jdbcType=VARCHAR},
-		#{movie_stillcut4,jdbcType=VARCHAR},
-		#{movie_genre},
-		#{movie_age,jdbcType=VARCHAR},
-		#{movie_date},
-		sysdate,
-		#{movie_type},
-		#{movie_intro},
-		#{movie_superG,jdbcType=VARCHAR},
-		#{movie_super,jdbcType=VARCHAR},
-		#{movie_4D,jdbcType=VARCHAR},
-		#{movie_superS,jdbcType=VARCHAR},
-		#{movie_private,jdbcType=VARCHAR},
-		#{movie_family,jdbcType=VARCHAR},
-		#{movie_couple,jdbcType=VARCHAR},
-		#{movie_biz}
-		)
-	</insert>
+   <!-- 상영할 영화 등록하기 -->
+   <insert id="movieWrite" parameterType="movieModel">
+      insert into movie
+      (
+         movie_no,
+         movie_name,
+         movie_director,
+         movie_director_picture,
+         movie_actor,
+         movie_actor1,
+         movie_actor2,
+         movie_actor_picture,
+         movie_actor_picture1,
+         movie_actor_picture2,
+         movie_company,
+         movie_story,
+         movie_poster,
+         movie_stillcut,
+         movie_stillcut1,
+         movie_stillcut2,
+         movie_stillcut3,
+         movie_stillcut4,
+         movie_genre,
+         movie_age,
+         movie_date,
+         movie_regdate,
+         movie_type,
+         movie_intro,
+         movie_superG,
+         movie_super,
+         movie_4D,
+         movie_superS,
+         movie_private,
+         movie_family,
+         movie_couple,
+         movie_biz
+      )
+      values
+      (
+         movie_NO_SEQ.nextval,
+         #{movie_name},
+         #{movie_director},
+         #{movie_director_picture,jdbcType=VARCHAR},
+         #{movie_actor},
+         #{movie_actor1},
+         #{movie_actor2},
+         #{movie_actor_picture,jdbcType=VARCHAR},
+         #{movie_actor_picture1,jdbcType=VARCHAR},
+         #{movie_actor_picture2,jdbcType=VARCHAR},
+         #{movie_company},
+         #{movie_story},
+         #{movie_poster,jdbcType=VARCHAR},
+         #{movie_stillcut,jdbcType=VARCHAR},
+         #{movie_stillcut1,jdbcType=VARCHAR},
+         #{movie_stillcut2,jdbcType=VARCHAR},
+         #{movie_stillcut3,jdbcType=VARCHAR},
+         #{movie_stillcut4,jdbcType=VARCHAR},
+         #{movie_genre},
+         #{movie_age,jdbcType=VARCHAR},
+         #{movie_date},
+         sysdate,
+         #{movie_type},
+         #{movie_intro},
+         #{movie_superG,jdbcType=VARCHAR},
+         #{movie_super,jdbcType=VARCHAR},
+         #{movie_4D,jdbcType=VARCHAR},
+         #{movie_superS,jdbcType=VARCHAR},
+         #{movie_private,jdbcType=VARCHAR},
+         #{movie_family,jdbcType=VARCHAR},
+         #{movie_couple,jdbcType=VARCHAR},
+         #{movie_biz}
+      )
+   </insert>
 
-	<!-- 영화 삭제하기 -->
-	<delete id="movieDelete" parameterType="int">
-		delete from MOVIE where
-		movie_no = #{movie_no}
-	</delete>
+   <!-- 영화 삭제하기 -->
+   <delete id="movieDelete" parameterType="int">
+      delete from MOVIE where
+      movie_no = #{movie_no}
+   </delete>
 
-	<!-- 영화 수정하기 -->
-	<update id="movieUpdate" parameterType="movieModel">
-		update MOVIE set
-		MOVIE_NAME=#{movie_name,jdbcType=VARCHAR},
-		MOVIE_DIRECTOR=#{movie_director,jdbcType=VARCHAR},
-		MOVIE_DIRECTOR_PICTURE=#{movie_director_picture,jdbcType=VARCHAR},
-		MOVIE_ACTOR=#{movie_actor,jdbcType=VARCHAR},
-		MOVIE_ACTOR1=#{movie_actor1,jdbcType=VARCHAR},
-		MOVIE_ACTOR2=#{movie_actor2,jdbcType=VARCHAR},
-		MOVIE_ACTOR_PICTURE=#{movie_actor_picture,jdbcType=VARCHAR},
-		MOVIE_ACTOR_PICTURE1=#{movie_actor_picture1,jdbcType=VARCHAR},
-		MOVIE_ACTOR_PICTURE2=#{movie_actor_picture2,jdbcType=VARCHAR},
-		MOVIE_COMPANY=#{movie_company,jdbcType=VARCHAR},
-		MOVIE_STORY=#{movie_story,jdbcType=VARCHAR},
-		MOVIE_DATE=#{movie_date,jdbcType=VARCHAR},
-		MOVIE_POSTER=#{movie_poster,jdbcType=VARCHAR},
-		MOVIE_STILLCUT=#{movie_stillcut,jdbcType=VARCHAR},
-		MOVIE_STILLCUT1=#{movie_stillcut1,jdbcType=VARCHAR},
-		MOVIE_STILLCUT2=#{movie_stillcut2,jdbcType=VARCHAR},
-		MOVIE_STILLCUT3=#{movie_stillcut3,jdbcType=VARCHAR},
-		MOVIE_STILLCUT4=#{movie_stillcut4,jdbcType=VARCHAR},
-		MOVIE_GENRE=#{movie_genre,jdbcType=VARCHAR},
-		MOVIE_AGE=#{movie_age,jdbcType=VARCHAR},
-		MOVIE_TYPE=#{movie_type,jdbcType=VARCHAR},
-		MOVIE_INTRO=#{movie_intro,jdbcType=VARCHAR},
-		movie_superG=#{movie_superG,jdbcType=VARCHAR},
-		movie_super=#{movie_super,jdbcType=VARCHAR},
-		movie_4D=#{movie_4D,jdbcType=VARCHAR},
-		movie_superS=#{movie_superS,jdbcType=VARCHAR},
-		movie_private=#{movie_private,jdbcType=VARCHAR},
-		movie_family=#{movie_family,jdbcType=VARCHAR},
-		movie_couple=#{movie_couple,jdbcType=VARCHAR},
-		movie_biz=#{movie_biz,jdbcType=VARCHAR}
-		where MOVIE_NO = #{movie_no,jdbcType=VARCHAR}
-	</update>
+   <!-- 영화 수정하기 -->
+   <update id="movieUpdate" parameterType="movieModel">
+      update MOVIE set 
+      MOVIE_NAME=#{movie_name,jdbcType=VARCHAR},
+      MOVIE_DIRECTOR=#{movie_director,jdbcType=VARCHAR},
+      MOVIE_DIRECTOR_PICTURE=#{movie_director_picture,jdbcType=VARCHAR},
+      MOVIE_ACTOR=#{movie_actor,jdbcType=VARCHAR},
+      MOVIE_ACTOR1=#{movie_actor1,jdbcType=VARCHAR},
+      MOVIE_ACTOR2=#{movie_actor2,jdbcType=VARCHAR},
+      MOVIE_ACTOR_PICTURE=#{movie_actor_picture,jdbcType=VARCHAR},
+      MOVIE_ACTOR_PICTURE1=#{movie_actor_picture1,jdbcType=VARCHAR},
+      MOVIE_ACTOR_PICTURE2=#{movie_actor_picture2,jdbcType=VARCHAR},
+      MOVIE_COMPANY=#{movie_company,jdbcType=VARCHAR},
+      MOVIE_STORY=#{movie_story,jdbcType=VARCHAR},
+      MOVIE_DATE=#{movie_date,jdbcType=VARCHAR},
+      MOVIE_POSTER=#{movie_poster,jdbcType=VARCHAR},
+      MOVIE_STILLCUT=#{movie_stillcut,jdbcType=VARCHAR},
+      MOVIE_STILLCUT1=#{movie_stillcut1,jdbcType=VARCHAR},
+      MOVIE_STILLCUT2=#{movie_stillcut2,jdbcType=VARCHAR},
+      MOVIE_STILLCUT3=#{movie_stillcut3,jdbcType=VARCHAR},
+      MOVIE_STILLCUT4=#{movie_stillcut4,jdbcType=VARCHAR},
+      MOVIE_GENRE=#{movie_genre,jdbcType=VARCHAR},
+      MOVIE_AGE=#{movie_age,jdbcType=VARCHAR},
+      MOVIE_TYPE=#{movie_type,jdbcType=VARCHAR},
+      MOVIE_INTRO=#{movie_intro,jdbcType=VARCHAR},
+      movie_superG=#{movie_superG,jdbcType=VARCHAR},
+      movie_super=#{movie_super,jdbcType=VARCHAR},
+      movie_4D=#{movie_4D,jdbcType=VARCHAR},
+      movie_superS=#{movie_superS,jdbcType=VARCHAR},
+      movie_private=#{movie_private,jdbcType=VARCHAR},
+      movie_family=#{movie_family,jdbcType=VARCHAR},
+      movie_couple=#{movie_couple,jdbcType=VARCHAR},
+      movie_biz=#{movie_biz,jdbcType=VARCHAR}
+      where MOVIE_NO = #{movie_no,jdbcType=VARCHAR}
+   </update>
 
-	<!-- 코멘트 전체 꺼내오기 -->
-	<select id="commentList" resultMap="MovieCommentRes"
-		parameterType="movieCommentModel">
-		select * from view_comment
-		where movie_no = #{movie_no}
-		order by comment_no desc
-	</select>
+   <!-- 코멘트 전체 꺼내오기 -->
+   <select id="commentList" resultMap="MovieCommentRes"
+      parameterType="movieCommentModel">
+      select * from view_comment
+      where movie_no = #{movie_no}
+      order by comment_no desc
+   </select>
 
-	<!-- 코멘트 삭제 -->
-	<delete id="deletecomment" parameterType="movieCommentModel">
-		delete from
-		view_comment where comment_no=#{comment_no}
-	</delete>
+   <!-- 코멘트 삭제 -->
+   <delete id="deletecomment" parameterType="movieCommentModel">
+      delete from
+      view_comment where comment_no=#{comment_no}
+   </delete>
 
-	<!-- 코멘트 작성 -->
-	<insert id="writecomment" parameterType="int">
-		insert into view_comment
-		(comment_no,
-		movie_no,
-		cmter,
-		cmt_date,
-		commentt,
-		movie_point
-		)
-		values (
-		view_comment_SEQ.nextval,
-		#{movie_no,jdbcType=VARCHAR},
-		0,
-		sysdate,
-		#{commentt,jdbcType=VARCHAR},
-		#{movie_point,jdbcType=VARCHAR}
-		)
-	</insert>
+   <!-- 코멘트 작성 -->
+   <insert id="writecomment" parameterType="int">
+      insert into view_comment
+      (comment_no,
+      movie_no,
+      cmter,
+      cmt_date,
+      commentt,
+      movie_point
+      )
+      values (
+      view_comment_SEQ.nextval,
+      #{movie_no,jdbcType=VARCHAR},
+      #{cmter},
+      sysdate,
+      #{commentt,jdbcType=VARCHAR},
+      #{movie_point,jdbcType=VARCHAR}
+      )
+   </insert>
 
-	<!-- 코멘트 평점 -->
-	<update id="updateMovieScore" parameterType="int">
+   <!-- 코멘트 평점 -->
+   <update id="updateMovieScore" parameterType="int">
       update movie m1
-      set movie_score = (select round(avg(movie_point) * 2,1) from View_COMMENT m2 where
+      set movie_score = (select round(avg(movie_point) *2,1) from View_COMMENT m2 where
       m1.movie_no = m2.movie_no)
-    </update>
+   </update>
 
-	<!-- 코멘트 수 뽑아오기 -->
+   <!-- 코멘트 수 뽑아오기 -->
      <select id="cmtcount" parameterType="int" resultType="int">
-		select count(*) as cmtcount from view_comment where movie_no=#{movie_no}
-	</select>
-	
-	<!-- 영화 intro 분류 -->
+      select count(*) as cmtcount from view_comment where movie_no=#{movie_no}
+   </select>
+   
+   <!-- 영화 intro 분류 -->
 
-	<select id="selectMovie_Boxoffice" resultMap="movieRes">
-		select * from movie
-		where movie_intro like 'boxoffice'
-	</select>
+   <select id="selectMovie_Boxoffice" resultMap="movieRes">
+      select * from movie
+      where movie_intro like 'boxoffice'
+   </select>
 
-	<select id="selectMovie_Arte" resultMap="movieRes">
-		select * from movie
-		where movie_intro like 'arte'
-	</select>
+   <select id="selectMovie_Arte" resultMap="movieRes">
+      select * from movie
+      where movie_intro like 'arte'
+   </select>
 
-	<select id="selectMovie_Gcinema" resultMap="movieRes">
-		select * from movie
-		where movie_intro like 'gcinema'
-	</select>
+   <select id="selectMovie_Gcinema" resultMap="movieRes">
+      select * from movie
+      where movie_intro like 'gcinema'
+   </select>
 
-	<select id="selectMovie_Chinamovie" resultMap="movieRes">
-		select * from
-		movie where movie_intro like 'chinamovie'
-	</select>
+   <select id="selectMovie_Chinamovie" resultMap="movieRes">
+      select * from
+      movie where movie_intro like 'chinamovie'
+   </select>
 
-	<select id="selectMovie_Opera" resultMap="movieRes">
-		select * from movie
-		where movie_intro like 'opera'
-	</select>
+   <select id="selectMovie_Opera" resultMap="movieRes">
+      select * from movie
+      where movie_intro like 'opera'
+   </select>
 
-	<!-- 배너 선택 -->
-	<select id="selectBanner" resultMap="banner">
-		select * from banner
-	</select>
+   <!-- 배너 선택 -->
+   <select id="selectBanner" resultMap="banner">
+      select * from banner
+   </select>
 
-	<!-- 배너 수정 -->
-	<update id="bannerUpdate" parameterType="MovieBannerModel">
-		update banner set
-		banner_left = #{banner_left,jdbcType=VARCHAR},
-		banner_left1
-		= #{banner_left1,jdbcType=VARCHAR},
-		banner_center =
-		#{banner_center,jdbcType=VARCHAR},
-		banner_center1 =
-		#{banner_center1,jdbcType=VARCHAR},
-		banner_right =
-		#{banner_right,jdbcType=VARCHAR},
-		banner_right1 =
-		#{banner_right1,jdbcType=VARCHAR},
-		banner_bottom =
-		#{banner_bottom,jdbcType=VARCHAR},
-		banner_footer =
-		#{banner_footer,jdbcType=VARCHAR},
-		banner_footer1 =
-		#{banner_footer1,jdbcType=VARCHAR}
-	</update>
+   <!-- 배너 수정 -->
+   <update id="bannerUpdate" parameterType="MovieBannerModel">
+      update banner set
+      banner_left = #{banner_left,jdbcType=VARCHAR},
+      banner_left1
+      = #{banner_left1,jdbcType=VARCHAR},
+      banner_center =
+      #{banner_center,jdbcType=VARCHAR},
+      banner_center1 =
+      #{banner_center1,jdbcType=VARCHAR},
+      banner_right =
+      #{banner_right,jdbcType=VARCHAR},
+      banner_right1 =
+      #{banner_right1,jdbcType=VARCHAR},
+      banner_bottom =
+      #{banner_bottom,jdbcType=VARCHAR},
+      banner_footer =
+      #{banner_footer,jdbcType=VARCHAR},
+      banner_footer1 =
+      #{banner_footer1,jdbcType=VARCHAR}
+   </update>
 
-	<!-- 영화탭 -->
-	<select id="selectIntro" resultMap="movieintro">
-		select * from movie_intro
-	</select>
+   <!-- 영화탭 -->
+   <select id="selectIntro" resultMap="movieintro">
+      select * from movie_intro
+   </select>
 
 
 </mapper>

@@ -13,8 +13,8 @@
 <title>MovieSee</title>
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/common.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/reset.css?ver=20171221" />
-<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css?ver=20171221" />
-<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event2.css?ver=20171221" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event.css?ver=20171227" />
+<link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/event2.css?ver=20171225" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/faq.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp%>/resources/mscs/notice.css?ver=20171221" />
 <link rel="stylesheet" type="text/css" href="<%= cp %>/resources/css/movie.css?ver=20171221" />

@@ -109,17 +109,18 @@ input[type=text], input[type=password], input[type=email]{
 	margin: 20px;
 	cursor: pointer;
 	width: 100px;
+	padding-top: 5px;
 }
 .button1{
 	margin-left : 200px;
-	background-color: #009bfa;
+	background-color: #009bfa !important;
 	border: none;
-	color: white;
+	color: white !important;
 	padding: 10px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 12px !important;
 	margin: 20px;
 	cursor: pointer;
 	width: 100px;
@@ -199,7 +200,7 @@ input[type=text], input[type=password], input[type=email]{
 	
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -210,7 +211,7 @@ input[type=text], input[type=password], input[type=email]{
 			<a href="/movie/main.see"><input type="button" value="취소" style=" background-color: black;
 		    border: none;
 		    color: white;
-		    padding: 15px 32px;
+		    padding: 5px 32px;
 		    text-align: center;
 		    text-decoration: none;
 		    display: inline-block;

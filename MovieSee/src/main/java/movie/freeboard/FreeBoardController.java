@@ -41,9 +41,18 @@ public class FreeBoardController {
 	}
 
 	@RequestMapping(value = "/freeBoardWrite.see", method = RequestMethod.GET)
-	public ModelAndView FreeBoardWriteForm() {
+	public ModelAndView FreeBoardWriteForm(HttpSession session) {
 		
+		String freeboard_id = (String) session.getAttribute("session_member_id");
 		ModelAndView mav = new ModelAndView();
+		
+		if(freeboard_id == null){
+			
+			mav.setViewName("freeboard/FreeBoardLoginCheck");
+			return mav;
+			
+		}
+		
 		MovieBannerModel bannerselect = movieService.banner_select();
 		mav.addObject("bannerselect", bannerselect);
 		mav.setViewName("freeBoardWrite");
@@ -111,10 +120,18 @@ public class FreeBoardController {
 	public ModelAndView FreeBoardView(HttpServletRequest request, HttpSession session) throws Exception {
 
 		int freeboard_no = Integer.parseInt(request.getParameter("freeboard_no"));
-
+		String freeboard_id = (String) session.getAttribute("session_member_id");
+		ModelAndView mav = new ModelAndView();
+		
+		if(freeboard_id == null){
+			
+			mav.setViewName("freeboard/FreeBoardLoginCheck");
+			return mav;
+			
+		}
+		
 		freeBoardService.FreeBoardHitUpdate(freeboard_no, session);
 		FreeBoardModel freeBoardModel = freeBoardService.FreeBoardView(freeboard_no);
-		ModelAndView mav = new ModelAndView();
 
 		if (freeBoardModel.getFreeboard_ref() == freeBoardModel.getFreeboard_no()) {
 			mav.addObject("ref", 0);
@@ -136,7 +153,7 @@ public class FreeBoardController {
 
 		int freeboard_no = Integer.parseInt(request.getParameter("freeboard_no"));
 		String freeboard_passwd = request.getParameter("freeboard_passwd");
-		System.out.println("비밀번호 : " + freeboard_passwd);
+		//System.out.println("비밀번호 : " + freeboard_passwd);
 
 		freeBoardModel = freeBoardService.FreeBoardView(freeboard_no);
 		ModelAndView mav = new ModelAndView();
@@ -186,13 +203,20 @@ public class FreeBoardController {
 	}
 
 	@RequestMapping(value = "/freeBoardWriteReply.see", method = RequestMethod.GET)
-	public ModelAndView FreeBoardWriteReplyForm(FreeBoardModel freeboardModel, HttpServletRequest request)
+	public ModelAndView FreeBoardWriteReplyForm(FreeBoardModel freeboardModel, HttpServletRequest request, HttpSession session)
 			throws Exception {
 
 		int freeboard_no = Integer.parseInt(request.getParameter("freeboard_no"));
-
+		String freeboard_id = (String) session.getAttribute("session_member_id");
 		ModelAndView mav = new ModelAndView();
-
+		
+		if(freeboard_id == null){
+			
+			mav.setViewName("freeboard/FreeBoardLoginCheck");
+			return mav;
+			
+		}
+	
 		freeboardModel = freeBoardService.FreeBoardView(freeboard_no);
 
 		freeboardModel.setFreeboard_re_step(1);
@@ -227,16 +251,22 @@ public class FreeBoardController {
 
 	@RequestMapping(value = "/freeBoardUpdate.see", method = RequestMethod.GET)
 	public ModelAndView FreeBoardUpdateForm(@ModelAttribute("freeBoardModel") FreeBoardModel freeBoardModel,
-			HttpServletRequest request) throws Exception {
+			HttpServletRequest request, HttpSession session) throws Exception {
 
 		int freeboard_no = Integer.parseInt(request.getParameter("freeboard_no"));
-
+		String freeboard_id = (String) session.getAttribute("session_member_id");
+		ModelAndView mav = new ModelAndView();
+		
+		if(freeboard_id == null){
+			
+			mav.setViewName("freeboard/FreeBoardLoginCheck");
+			return mav;
+			
+		}
 		freeBoardModel = freeBoardService.FreeBoardView(freeboard_no);
 
 		String content = freeBoardModel.getFreeboard_content().replaceAll("<br/>", "\r\n");
 		freeBoardModel.setFreeboard_content(content);
-
-		ModelAndView mav = new ModelAndView();
 
 		MovieBannerModel bannerselect = movieService.banner_select();
 		mav.addObject("bannerselect", bannerselect);

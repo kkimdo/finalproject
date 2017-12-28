@@ -60,7 +60,7 @@
 				<div class="event_cwrap">
 					<div class="clear_fix">
 						<h2 class="sub_stit">
-							제휴할인<span class="event_etc">롯데시네마가 드리는 특별한 헤택과 함께 영화를
+							제휴할인<span class="event_etc">무비씨시네마가 드리는 특별한 헤택과 함께 영화를
 								즐겨보세요.</span>
 						</h2>
 						<!--20170308 sunho 예매 삭제 -->

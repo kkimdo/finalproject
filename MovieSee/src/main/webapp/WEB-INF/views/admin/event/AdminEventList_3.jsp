@@ -60,7 +60,7 @@
 				<div class="event_cwrap">
 					<div class="clear_fix">
 						<h2 class="sub_stit">
-							롯시&nbsp;NOW<span class="event_etc">롯데시네마에서 진행중인 이벤트를
+							롯시&nbsp;NOW<span class="event_etc">무비씨시네마에서 진행중인 이벤트를
 								만나보세요.</span>
 						</h2>
 						<!--20170308 sunho 예매 삭제 -->

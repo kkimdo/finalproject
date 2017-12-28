@@ -45,7 +45,7 @@
 			<li><a href="<%=cp%>/event/eventListMain.see" title="이벤트">이벤트</a>
 				<div class="depth"></div></li>
 
-			<li><a href="<%=cp%>/giftshop/giftShopList.see" title="기프트샵">기프트샵</a>
+			<li><a href="<%=cp%>/gift/giftShopList.see" title="기프트샵">기프트샵</a>
 				<div class="depth"></div></li>
 		</ul>
 	</div>

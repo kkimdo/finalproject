@@ -47,7 +47,7 @@
 			<h1>
 				<a href="/movie/main.see"> <img
 					src="http://caching.lottecinema.co.kr//Media/WebAdmin/23339c901d7942cc826af0dd27360b90.gif"
-					id="imgLogo" alt="LOTTE CINEMA" title="LOTTE CINEMA"></a>
+					id="imgLogo" alt="LOTTE CINEMA" title="MOVIE SEE"></a>
 			</h1>
 		</div>
 

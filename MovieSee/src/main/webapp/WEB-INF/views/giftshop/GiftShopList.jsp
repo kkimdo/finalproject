@@ -128,13 +128,13 @@
 					</c:forEach>
 					<h3 class="cinema_stit pt30" id="m20">매점 상품권</h3>
 					<c:forEach var="giftShopList_2" items="${map.giftShopList_2}">
-							<c:url var="productViewURL" value="giftShopView.see">
+							<c:url var="productViewURL2" value="giftShopView.see">
 								<c:param name="giftshop_product_no" value="${giftShopList_2.giftshop_product_no }" />
 							</c:url>
 						<ul class="product_slist p20">
 						<li id="ic130104001">
 							<span class="product_thum">
-							<a href="javascript:void(0)"> 
+							<a href="${productViewURL2}"> 
 							<img src="/movie/resources/uploads/giftshop/${giftShopList_2.giftshop_product_file}"
 									alt="${giftShopList_2.giftshop_product_name}"
 									onerror="this.src=&quot;/movie/images/Thum/movie_no_image03.gif&quot;"></a></span>

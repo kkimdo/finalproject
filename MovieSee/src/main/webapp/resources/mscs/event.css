@@ -1068,6 +1068,30 @@
 	padding: 5px 10px;
 }
 
+.category .ipt_txt1 {
+	float: left;
+    height: 30px;
+    margin-right: 4px;
+    line-height: 25px;
+}
+
+.category .btn_search1 {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    background: #34373c;
+    font-size: 13px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 4px;
+    line-height: 25px;
+    float: left;
+    margin: auto;
+    
+}
+
 .category.select_size01 .select_box {
 	line-height: 13px;
 }

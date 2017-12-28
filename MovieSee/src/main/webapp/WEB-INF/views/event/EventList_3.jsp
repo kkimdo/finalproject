@@ -100,7 +100,7 @@
 			<div class="event_cwrap">
 				<div class="clear_fix">
 					<h2 class="sub_stit">
-						롯시&nbsp;NOW<span class="event_etc">롯데시네마에서 진행중인 이벤트를 만나보세요.</span>
+						롯시&nbsp;NOW<span class="event_etc">무비씨에서 진행중인 이벤트를 만나보세요.</span>
 					</h2>
 					<!--20170308 sunho 예매 삭제 -->
 
@@ -116,8 +116,8 @@
 									<option value="event_content"
 										<c:out value="${map.searchOption == 'event_content'?'ed':''}"/>>내용</option>
 								</select> 
-									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt"> 
-									<input type="submit" value="검색" class="btn_search">
+									<input type="text" name="keyword" value="${map.keyword}" title="검색어 입력" class="ipt_txt1"> 
+									<input type="submit" value="검색" class="btn_search1">
 								</form>
 						</fieldset>
 					</div>
