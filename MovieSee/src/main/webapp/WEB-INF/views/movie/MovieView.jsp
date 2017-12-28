@@ -212,8 +212,7 @@
 							</div>
 							<ul class="ranking_list">
 								<li><strong class="rate_tit Lang-LBL0000">예매율</strong> <span
-									class="rate_txt"> <em class="num">4</em>위,
-										${movieModel.movie_rate}%
+									class="rate_txt"> <em class="num">${movieModel.movie_rate}%</em>
 								</span></li>
 
 								<%-- <c:if test="${fn:length(commentlist) ge 0}">
@@ -423,12 +422,13 @@
 							<ul id="ulCasting">
 								<li style="left: 0px;">
 									<div class="pic">
-										<c:if test="${fn:length(movie_director_picture) le 0}">
-											<img
-												src="<%=cp%>/resources/upload/movie/movie_type/movie_no_casting.jpg">
-										</c:if>
-										<span class="mask"></span> <img
-											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}">
+										<span class="mask"></span>
+										<%-- <c:if test="${fn:length(movie_director_picture) le 0}">
+                                    <img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if> --%>
+										<img
+											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}"
+											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
 									</div>
 									<p class="name">${movieModel.movie_director}</p>
 									<p class="role">감독</p>
@@ -436,12 +436,12 @@
 
 								<li style="left: 168px;">
 									<div class="pic">
-										<c:if test="${fn:length(movie_actor_picture) le 0}">
-											<img
-												src="<%=cp%>/resources/upload/movie/movie_type/movie_no_casting.jpg">
-										</c:if>
 										<span class="mask"></span> <img
-											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture}">
+											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture}"
+											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
+										<%-- <c:if test="${fn:length(movie_actor_picture) le 0}">
+                                    <img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                 </c:if> --%>
 									</div>
 									<p class="name">${movieModel.movie_actor}</p>
 									<p class="role">배우</p>
@@ -449,12 +449,11 @@
 
 								<li style="left: 336px;">
 									<div class="pic">
-										<c:if test="${fn:length(movie_actor_picture1) le 0}">
-											<img
-												src="<%=cp%>/resources/upload/movie/movie_type/movie_no_casting.jpg">
-										</c:if>
+
 										<span class="mask"></span> <img
-											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture1}">
+											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture1}"
+											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
+
 									</div>
 									<p class="name">${movieModel.movie_actor1}</p>
 									<p class="role">배우</p>
@@ -462,12 +461,12 @@
 
 								<li style="left: 504px;">
 									<div class="pic">
-										<c:if test="${fn:length(movie_actor_picture2) le 0}">
-											<img
-												src="<%=cp%>/resources/upload/movie/movie_type/movie_no_casting.jpg">
-										</c:if>
 										<span class="mask"></span> <img
-											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture2}">
+											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_actor_picture2}"
+											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
+										<%-- <c:if test="${fn:length(movie_actor_picture2) le 0}">
+                                    <img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
+                                    </c:if> --%>
 									</div>
 									<p class="name">${movieModel.movie_actor2}</p>
 									<p class="role">배우</p>
@@ -709,6 +708,7 @@
 													</div>
 
 												</div>
+
 												<c:if test="${session_member_id == commentlist.cmter}">
 													<a
 														href="commentDelete.see?comment_no=${commentlist.comment_no}&movie_no=${movieModel.movie_no}"
@@ -716,12 +716,13 @@
 														class="btn btnC_05 reply_btn">삭제</span>
 													</a>
 												</c:if>
-												<c:if test="${session_member_id == 'admin'}"> 
-               										<a href="commentDelete.see?comment_no=${commentlist.comment_no}&movie_no=${movieModel.movie_no}" class="btn btnC_01 btnP_02">
-                 										 <span class="btn btnC_05 reply_btn">삭제</span>
-              										</a>
-               									</c:if>  
-												
+												<c:if test="${session_member_id == 'admin'}">
+													<a
+														href="commentDelete.see?comment_no=${commentlist.comment_no}&movie_no=${movieModel.movie_no}"
+														class="btn btnC_01 btnP_02"> <span
+														class="btn btnC_05 reply_btn">삭제</span>
+													</a>
+												</c:if>
 											</div>
 
 											<div class="reply_cts">
@@ -743,17 +744,28 @@
 
 				<div class="warn_sbox">
 					<strong class="warn_tit">유의사항</strong>
+					<!-- 0313 수정 -->
 					<ul class="warn_list">
 						<li>리뷰 작성에 대한 L.POINT는 익일 적립되며, 관람 후 초기 1회에 대해서만 적립됩니다.</li>
 						<li>수정/삭제 후 재등록 시에는 포인트 적립이 되지 않습니다.</li>
 						<li>리뷰는 관람 내역당 1회만 작성 가능하며, 상영 종료된 영화의 리뷰는 작성 불가합니다.</li>
 						<li>작성하신 리뷰는 마이시네마 &gt; 무비히스토리 &gt; 나의 리뷰에서 확인하실 수 있습니다.</li>
-						<li>관람 평점은 무비씨에서 실제 관람한 회원의 평점입니다.</li>
+						<li>관람 평점은 롯데시네마에서 실제 관람한 회원의 평점입니다.</li>
 
 					</ul>
+					<!-- //0313 수정 -->
 				</div>
 
+				<!-- banner_wrap -->
+
+				<!-- //banner_wrap -->
 			</div>
+			<!-- //review_wrap -->
+
+
+			<!-- event_fwrap -->
+
+			<!-- //event_fwrap -->
 		</div>
 		<%-- </c:forEach> --%>
 	</div>
