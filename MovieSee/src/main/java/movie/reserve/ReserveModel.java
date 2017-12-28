@@ -14,6 +14,8 @@ public class ReserveModel {
 	int reserve_child_amt;
 	int reserve_adult_cnt;
 	int reserve_child_cnt;
+	String reserve_movie_poster;
+	String reserve_movie_age;
 	
 	public int getReserve_no() {
 		return reserve_no;
@@ -92,5 +94,17 @@ public class ReserveModel {
 	}
 	public void setReserve_child_cnt(int reserve_child_cnt) {
 		this.reserve_child_cnt = reserve_child_cnt;
+	}
+	public String getReserve_movie_poster() {
+		return reserve_movie_poster;
+	}
+	public void setReserve_movie_poster(String reserve_movie_poster) {
+		this.reserve_movie_poster = reserve_movie_poster;
+	}
+	public String getReserve_movie_age() {
+		return reserve_movie_age;
+	}
+	public void setReserve_movie_age(String reserve_movie_age) {
+		this.reserve_movie_age = reserve_movie_age;
 	}
 }

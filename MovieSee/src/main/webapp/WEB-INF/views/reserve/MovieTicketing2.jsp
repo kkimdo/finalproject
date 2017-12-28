@@ -279,7 +279,12 @@
                            type="hidden" name="reserve_adult_cnt"
                            value="${reserveTimeTableModel.timetable_adult_cnt}" /> <input
                            type="hidden" name="reserve_child_cnt"
-                           value="${reserveTimeTableModel.timetable_child_cnt}" />
+                           value="${reserveTimeTableModel.timetable_child_cnt}" /> <input
+                           type="hidden" name="reserve_movie_poster"
+                           value="${movieModel.movie_poster}" /> <input
+                           type="hidden" name="reserve_movie_age"
+                           value="${movieModel.movie_age}" />
+                           
                         <dd>
                            <input type="submit" class="btn_purchase Lang-LBL0046"
                               title="레이어 열림" value="결제하기">

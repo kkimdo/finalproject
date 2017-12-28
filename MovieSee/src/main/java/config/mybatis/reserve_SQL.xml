@@ -71,6 +71,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="reserve_child_amt" column="reserve_child_amt" />
 		<result property="reserve_adult_cnt" column="reserve_adult_cnt" />
 		<result property="reserve_child_cnt" column="reserve_child_cnt" />
+		<result property="reserve_movie_poster" column="reserve_movie_poster" />
+		<result property="reserve_movie_age" column="reserve_movie_age" />
 	</resultMap>
 
 	<!-- 이름 번호 불러오기 -->
@@ -136,7 +138,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		reserve_adult_amt,
 		reserve_child_amt,
 		reserve_adult_cnt,
-		reserve_child_cnt
+		reserve_child_cnt,
+		reserve_movie_poster,
+		reserve_movie_age
 		)
 		values
 		(
@@ -151,8 +155,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{reserve_end_time},
 		#{reserve_adult_amt},
 		#{reserve_child_amt},
-		#{reserve_adult_cnt},
-		#{reserve_child_cnt}
+		#{reserve_adult_cnt, jdbcType=INTEGER },
+		#{reserve_child_cnt, jdbcType=INTEGER },
+		#{reserve_movie_poster},
+		#{reserve_movie_age}
 		)
 	</select>
 
