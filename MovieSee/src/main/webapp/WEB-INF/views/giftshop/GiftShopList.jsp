@@ -100,11 +100,12 @@
 			<div class="product_wrap">
 				<div class="product_inner">
 					<h3 class="cinema_stit pt30" id="m20">영화 관람권</h3>
+					<ul class="product_slist p20">
 					<c:forEach var="giftShopList_1" items="${map.giftShopList_1}">
 							<c:url var="productViewURL" value="giftShopView.see">
 								<c:param name="giftshop_product_no" value="${giftShopList_1.giftshop_product_no }" />
 							</c:url>
-						<ul class="product_slist p20">
+						
 						<li id="ic130104001">
 							<span class="product_thum">
 							<a href="${productViewURL}"> 
@@ -124,14 +125,16 @@
 								<span class="price"><em>${giftShopList_1.giftshop_product_price}</em><span>원</span></span>
 							</p>
 						</li>
-						</ul>
+			
 					</c:forEach>
+					</ul>
 					<h3 class="cinema_stit pt30" id="m20">매점 상품권</h3>
+					<ul class="product_slist p20">
 					<c:forEach var="giftShopList_2" items="${map.giftShopList_2}">
 							<c:url var="productViewURL2" value="giftShopView.see">
 								<c:param name="giftshop_product_no" value="${giftShopList_2.giftshop_product_no }" />
 							</c:url>
-						<ul class="product_slist p20">
+						
 						<li id="ic130104001">
 							<span class="product_thum">
 							<a href="${productViewURL2}"> 
@@ -151,8 +154,9 @@
 								<span class="price"><em>${giftShopList_2.giftshop_product_price}</em><span>원</span></span>
 							</p>
 						</li>
-						</ul>
+					
 					</c:forEach>
+						</ul>
 				</div>
 			</div>
 		</div>
