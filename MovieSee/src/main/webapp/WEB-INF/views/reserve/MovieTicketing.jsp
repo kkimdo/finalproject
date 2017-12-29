@@ -159,7 +159,7 @@
 										<td>${timetableSelect.timetable_movie_name}</td>
 										<td><fmt:formatDate
 												value="${timetableSelect.timetable_show_date}"
-												pattern="yyyymmdd" /></td>
+												pattern="yyyyMMdd" /></td>
 										<td>${timetableSelect.timetable_start_time}</td>
 										<td>${timetableSelect.timetable_end_time}</td>
 										<td>${timetableSelect.timetable_adult_amt}</td>
