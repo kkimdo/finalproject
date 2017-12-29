@@ -143,9 +143,9 @@
 	</definition>
 	
 	<!-- main 상영시간표 페이지 -->
-<!-- 	<definition name="reserveList" extends="main">
-		<put-attribute name="main_body" value="/WEB-INF/views/reserve/ReserveList.jsp" />
-	</definition> -->
+ 	<definition name="reserveList" extends="main">
+		<put-attribute name="main_body" value="/WEB-INF/views/mypage/ReserveList.jsp" />
+	</definition>
    
 	<!-- main Movie 부분 -->
 	<definition name="movieTicketing" extends="main">
