@@ -193,7 +193,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update movie
 		a
 		set movie_rate = (select
-		round(100 - avg(timetable_reserved_seat)/avg(timetable_total_seat) * 100,2) from timetable b where a.movie_no = b.timetable_movie_no)
+		round(100 - avg(timetable_reserved_seat)/avg(timetable_total_seat) * 100,1) from timetable b where a.movie_no = b.timetable_movie_no)
 	</update>
 
 </mapper>

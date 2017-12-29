@@ -212,13 +212,13 @@
 								<td>${timetable_list.timetable_movie_name}</td>
 								<td><fmt:formatDate
 										value="${timetable_list.timetable_start_date}"
-										pattern="yyyymmdd" /></td>
+										pattern="yyyyMMdd" /></td>
 								<td><fmt:formatDate
 										value="${timetable_list.timetable_end_date}"
-										pattern="yyyymmdd" /></td>
+										pattern="yyyyMMdd" /></td>
 								<td><fmt:formatDate
 										value="${timetable_list.timetable_show_date}"
-										pattern="yyyymmdd" /></td>
+										pattern="yyyyMMdd" /></td>
 								<td>${timetable_list.timetable_start_time}</td>
 								<td>${timetable_list.timetable_end_time}</td>
 								<td>${timetable_list.timetable_adult_amt}</td>
