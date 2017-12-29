@@ -52,8 +52,7 @@ public class AdminController {
 	private String pagingHtml;
 	private movieListPaging paging;
 	
-	private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/";
-	//private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/uploads/movie/main_banner/";
+	private String uploadPath = "C:/github/finalproject/MovieSee/src/main/webapp/resources/upload/movie/main_movie/";
 
 	// 상영작 리스트
 	@RequestMapping(value="/movieList.see", method = RequestMethod.GET)

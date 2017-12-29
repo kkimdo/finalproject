@@ -122,61 +122,36 @@
 		<%-- <c:forEach var="movieModel" items="${movieModel}" varStatus="stat"> --%>
 		<!-- content -->
 		<div id="content">
-			<div class="w3-content" style="max-width: 900px">
-				<img class="mySlides"
-					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}"
-					style="width: 100%"
-					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-				<img class="mySlides"
-					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}"
-					style="width: 100%"
-					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-				<img class="mySlides"
-					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}"
-					style="width: 100%"
-					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-				<img class="mySlides"
-					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}"
-					style="width: 100%"
-					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-				<img class="mySlides"
-					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}"
-					style="width: 100%"
-					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-
-				<div class="w3-row-padding w3-section">
-					<div class="w3-col s4">
-						<img class="demo w3-opacity w3-hover-opacity-off"
-							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}"
-							style="width: 100%" onclick="currentDiv(1)"
-							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-					</div>
-					<div class="w3-col s4">
-						<img class="demo w3-opacity w3-hover-opacity-off"
-							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}"
-							style="width: 100%" onclick="currentDiv(2)"
-							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-					</div>
-					<div class="w3-col s4">
-						<img class="demo w3-opacity w3-hover-opacity-off"
-							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}"
-							style="width: 100%" onclick="currentDiv(3)"
-							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-					</div>
-					<div class="w3-col s4">
-						<img class="demo w3-opacity w3-hover-opacity-off"
-							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}"
-							style="width: 100%" onclick="currentDiv(4)"
-							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-					</div>
-					<div class="w3-col s4">
-						<img class="demo w3-opacity w3-hover-opacity-off"
-							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}"
-							style="width: 100%" onclick="currentDiv(5)"
-							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
-					</div>
-				</div>
-			</div>
+            <div class="w3-content" style="max-width: 900px">
+               <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}" style="width: 100%" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+               <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}" style="width: 100%" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+               <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}" style="width: 100%" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+               <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}" style="width: 100%" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+               <img class="mySlides" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}" style="width: 100%" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+               
+               <div class="w3-row-padding w3-section">
+                  <div class="w3-col s4">
+                     <img class="demo w3-opacity w3-hover-opacity-off" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}" style="width: 100%"
+                        onclick="currentDiv(1)" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+                  </div>
+                  <div class="w3-col s4">
+                     <img class="demo w3-opacity w3-hover-opacity-off" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}" style="width: 100%"
+                        onclick="currentDiv(2)" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+                  </div>
+                  <div class="w3-col s4">
+                     <img class="demo w3-opacity w3-hover-opacity-off" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}" style="width: 100%"
+                        onclick="currentDiv(3)" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+                  </div>
+                  <div class="w3-col s4">
+                     <img class="demo w3-opacity w3-hover-opacity-off" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}" style="width: 100%"
+                        onclick="currentDiv(4)" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+                  </div>
+                  <div class="w3-col s4">
+                     <img class="demo w3-opacity w3-hover-opacity-off" src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}" style="width: 100%"
+                        onclick="currentDiv(5)" onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+                  </div>
+               </div>
+            </div>
 
 			<!-- wide_info_area -->
 			<div class="wide_info_area">
