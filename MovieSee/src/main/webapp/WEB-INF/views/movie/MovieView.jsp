@@ -121,50 +121,62 @@
 	<div id="container" class="sub">
 		<%-- <c:forEach var="movieModel" items="${movieModel}" varStatus="stat"> --%>
 		<!-- content -->
-
 		<div id="content">
 			<div class="w3-content" style="max-width: 900px">
 				<img class="mySlides"
 					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}"
-					style="width: 100%"> <img class="mySlides"
+					style="width: 100%"
+					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+				<img class="mySlides"
 					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}"
-					style="width: 100%"> <img class="mySlides"
+					style="width: 100%"
+					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+				<img class="mySlides"
 					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}"
-					style="width: 100%"> <img class="mySlides"
+					style="width: 100%"
+					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+				<img class="mySlides"
 					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}"
-					style="width: 100%"> <img class="mySlides"
+					style="width: 100%"
+					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
+				<img class="mySlides"
 					src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}"
-					style="width: 100%">
+					style="width: 100%"
+					onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 
 				<div class="w3-row-padding w3-section">
 					<div class="w3-col s4">
 						<img class="demo w3-opacity w3-hover-opacity-off"
 							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut}"
-							style="width: 100%" onclick="currentDiv(1)">
+							style="width: 100%" onclick="currentDiv(1)"
+							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 					</div>
 					<div class="w3-col s4">
 						<img class="demo w3-opacity w3-hover-opacity-off"
 							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut1}"
-							style="width: 100%" onclick="currentDiv(2)">
+							style="width: 100%" onclick="currentDiv(2)"
+							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 					</div>
 					<div class="w3-col s4">
 						<img class="demo w3-opacity w3-hover-opacity-off"
 							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut2}"
-							style="width: 100%" onclick="currentDiv(3)">
+							style="width: 100%" onclick="currentDiv(3)"
+							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 					</div>
 					<div class="w3-col s4">
 						<img class="demo w3-opacity w3-hover-opacity-off"
 							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut3}"
-							style="width: 100%" onclick="currentDiv(4)">
+							style="width: 100%" onclick="currentDiv(4)"
+							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 					</div>
 					<div class="w3-col s4">
 						<img class="demo w3-opacity w3-hover-opacity-off"
 							src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_stillcut4}"
-							style="width: 100%" onclick="currentDiv(5)">
+							style="width: 100%" onclick="currentDiv(5)"
+							onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/no.png'">
 					</div>
 				</div>
 			</div>
-			>
 
 			<!-- wide_info_area -->
 			<div class="wide_info_area">
@@ -203,7 +215,8 @@
 								src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_poster}"></span>
 
 
-							<a href="<%=cp%>/reserve/movieTicketing.see" class="btn_reserve Lang-LBL0000">예매하기</a>
+							<a href="<%=cp%>/reserve/movieTicketing.see"
+								class="btn_reserve Lang-LBL0000">예매하기</a>
 							<!-- style="display: inline-block;" -->
 						</div>
 						<div class="info_main">
@@ -421,16 +434,18 @@
 						<div class="slide_spot">
 							<ul id="ulCasting">
 								<li style="left: 0px;">
-                              <div class="pic">
-                                 <span class="mask"></span> 
-                                  <%-- <c:if test="${fn:length(movie_director_picture) le 0}">
+									<div class="pic">
+										<span class="mask"></span>
+										<%-- <c:if test="${fn:length(movie_director_picture) le 0}">
                                     <img src="<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg">
                                  </c:if> --%>
-                                 <img src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}"  onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
-                              </div>
-                              <p class="name">${movieModel.movie_director}</p>
-                              <p class="role">감독</p>
-                           </li>
+										<img
+											src="<%= cp %>/resources/upload/movie/main_movie/${movieModel.movie_director_picture}"
+											onerror="this.src='<%= cp %>/resources/upload/movie/movie_type/movie_no_casting.jpg'">
+									</div>
+									<p class="name">${movieModel.movie_director}</p>
+									<p class="role">감독</p>
+								</li>
 
 								<li style="left: 168px;">
 									<div class="pic">
@@ -471,12 +486,13 @@
 								</li>
 
 								<li style="left: 672px;">
-                              <div class="pic">
-                                 <span class="mask"></span> <img src="<%= cp %>/resources/upload/movie/movie_type/img_non_actor.jpg">
-                              </div>
-                              <p class="name">${movieModel.movie_company}</p>
-                              <p class="role">제작사</p>
-                           </li>
+									<div class="pic">
+										<span class="mask"></span> <img
+											src="<%=cp%>/resources/upload/movie/movie_type/img_non_actor.jpg">
+									</div>
+									<p class="name">${movieModel.movie_company}</p>
+									<p class="role">제작사</p>
+								</li>
 							</ul>
 						</div>
 

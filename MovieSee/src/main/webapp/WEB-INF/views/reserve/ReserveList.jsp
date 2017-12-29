@@ -98,7 +98,7 @@
 							<ol class="mView_list" id="olMyMovieList">
 								<li><div class="mView_tcont">
 										<span class="img"><img
-											src="<%= cp %>/resources/upload/movie/main_movie/${reserveList.reserve_movie_poster}"
+											src="<%= cp %>/resources/upload/movie/main_movie/${reserveList.reserve_movie_poster}" 
 											alt="${reserveList.reserve_movie_poster}"></span>
 										<dl class="mView_scont">
 											<dt>
@@ -113,7 +113,7 @@
 															<img src="<%=cp%>/resources/upload/movie/btn/all.png">
 														</c:otherwise>
 													</c:choose>${reserveList.reserve_movie_name}</span>
-											</dt>
+											</dt> 
 											<dd>
 												<dl class="mView_in">
 													<dt>관람일시</dt>
